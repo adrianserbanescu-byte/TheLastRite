@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#20211e"/>
+  <text x="64" y="76" font-family="Georgia, serif" font-size="46" fill="#f4efdc">Apartment 302 L3 UI flow</text>
+  <text x="64" y="120" font-family="Arial, sans-serif" font-size="23" fill="#c9c0a3">Readable investigation UI: quiet copy, strong hierarchy, no action-game noise.</text>
+  <g transform="translate(70 180)">
+    <rect width="690" height="146" rx="8" fill="#11120f" opacity="0.82" stroke="#8f9087" stroke-width="2"/>
+    <text x="30" y="48" font-family="Arial, sans-serif" font-size="26" fill="#a98f45">OBJECTIVE</text>
+    <text x="30" y="96" font-family="Arial, sans-serif" font-size="37" fill="#f4efdc">Find the pattern inside the nursery.</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="20" fill="#c9c0a3">Do not choose a ritual spot until the clues agree.</text>
+  </g>
+  <g transform="translate(840 180)">
+    <rect width="690" height="146" rx="8" fill="#11120f" opacity="0.82" stroke="#a98f45" stroke-width="2"/>
+    <circle cx="52" cy="72" r="26" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+    <text x="98" y="58" font-family="Arial, sans-serif" font-size="26" fill="#a98f45">CLUE FOUND</text>
+    <text x="98" y="104" font-family="Arial, sans-serif" font-size="34" fill="#f4efdc">The marks repeat a halo shape.</text>
+  </g>
+  <g transform="translate(70 405)">
+    <rect width="690" height="210" rx="8" fill="#11120f" opacity="0.82" stroke="#a98f45" stroke-width="3"/>
+    <text x="30" y="54" font-family="Arial, sans-serif" font-size="25" fill="#a98f45">RITUAL CHOICE</text>
+    <text x="30" y="104" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Nursery floor sigil</text>
+    <text x="30" y="148" font-family="Arial, sans-serif" font-size="25" fill="#c9c0a3">Cradle. Cards. Monitor. The evidence meets here.</text>
+    <rect x="500" y="46" width="142" height="112" rx="8" fill="#25241f" stroke="#e8e2d3" stroke-width="3"/>
+    <ellipse cx="571" cy="102" rx="56" ry="28" fill="none" stroke="#e8e2d3" stroke-width="5" stroke-dasharray="14 10"/>
+    <circle cx="571" cy="102" r="14" fill="none" stroke="#a98f45" stroke-width="4"/>
+  </g>
+  <g transform="translate(840 405)">
+    <rect width="690" height="210" rx="8" fill="#11120f" opacity="0.82" stroke="#8f9087" stroke-width="3"/>
+    <text x="30" y="54" font-family="Arial, sans-serif" font-size="25" fill="#8f9087">RITUAL CHOICE</text>
+    <text x="30" y="104" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Mirror circle</text>
+    <text x="30" y="148" font-family="Arial, sans-serif" font-size="25" fill="#c9c0a3">It looks important. The evidence does not point here.</text>
+    <rect x="500" y="38" width="122" height="128" rx="8" fill="#393d3d" stroke="#a98f45" stroke-width="4"/>
+    <circle cx="561" cy="102" r="76" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="8 10"/>
+  </g>
+  <g transform="translate(70 700)">
+    <rect width="690" height="190" rx="8" fill="#11120f" opacity="0.86" stroke="#a98f45" stroke-width="3"/>
+    <text x="30" y="70" font-family="Georgia, serif" font-size="54" fill="#f4efdc">Rite Accepted</text>
+    <text x="30" y="120" font-family="Arial, sans-serif" font-size="28" fill="#c9c0a3">The nursery quiets. Something lets go.</text>
+    <path d="M486 118 C535 80 600 80 650 118" fill="none" stroke="#a98f45" stroke-width="7"/>
+  </g>
+  <g transform="translate(840 700)">
+    <rect width="690" height="190" rx="8" fill="#11120f" opacity="0.86" stroke="#8f9087" stroke-width="3"/>
+    <text x="30" y="70" font-family="Georgia, serif" font-size="54" fill="#f4efdc">Rite Failed</text>
+    <text x="30" y="120" font-family="Arial, sans-serif" font-size="28" fill="#c9c0a3">Wrong circle. The room remains staged.</text>
+    <circle cx="570" cy="96" r="52" fill="none" stroke="#e8e2d3" stroke-width="5" stroke-dasharray="8 12"/>
+    <path d="M524 96 H616" stroke="#8f9087" stroke-width="6"/>
+  </g>
+</svg>
