@@ -17,15 +17,19 @@ public:
     virtual FText GetPromptText() const override;
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter) override;
 
-    void ConfigureProp(const FText& InDisplayName, const FText& InClueText, bool bInIsTrueClue);
+    void ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue);
     bool WasInspected() const;
     bool IsTrueClue() const;
     const FText& GetClueText() const;
+    const FText& GetEvidenceSummary() const;
     void MarkInspected();
 
 private:
     UPROPERTY()
     FText ClueText;
+
+    UPROPERTY()
+    FText EvidenceSummary;
 
     UPROPERTY()
     bool bTrueClue;

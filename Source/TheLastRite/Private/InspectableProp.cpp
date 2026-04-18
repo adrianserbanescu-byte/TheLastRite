@@ -40,10 +40,11 @@ void AInspectableProp::Interact(ATheLastRiteCharacter* InteractingCharacter)
     }
 }
 
-void AInspectableProp::ConfigureProp(const FText& InDisplayName, const FText& InClueText, bool bInIsTrueClue)
+void AInspectableProp::ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue)
 {
     SetDisplayName(InDisplayName);
     ClueText = InClueText;
+    EvidenceSummary = InEvidenceSummary;
     bTrueClue = bInIsTrueClue;
     ApplyMeshColor(FLinearColor(0.24f, 0.42f, 0.72f));
     UpdateWorldLabel(FLinearColor(0.70f, 0.84f, 1.0f));
@@ -62,6 +63,11 @@ bool AInspectableProp::IsTrueClue() const
 const FText& AInspectableProp::GetClueText() const
 {
     return ClueText;
+}
+
+const FText& AInspectableProp::GetEvidenceSummary() const
+{
+    return EvidenceSummary;
 }
 
 void AInspectableProp::MarkInspected()

@@ -31,7 +31,7 @@ FText ARitualAnchor::GetPromptText() const
     if (!bRitualReady)
     {
         return FText::Format(
-            NSLOCTEXT("TheLastRite", "LockedAnchorPrompt", "Find 3 true clues before using {0}"),
+            NSLOCTEXT("TheLastRite", "LockedAnchorPrompt", "Find all 4 true clues before using {0}"),
             DisplayName);
     }
 
@@ -53,8 +53,25 @@ void ARitualAnchor::ConfigureAnchor(const FText& InDisplayName, bool bInCorrectA
     SetDisplayName(InDisplayName);
     bCorrectAnchor = bInCorrectAnchor;
     bRitualReady = false;
-    ApplyMeshColor(FLinearColor(0.32f, 0.28f, 0.38f));
-    UpdateWorldLabel(FLinearColor(0.62f, 0.58f, 0.72f));
+
+    const TCHAR* MeshPath = bCorrectAnchor
+        ? TEXT("/Engine/BasicShapes/Cylinder.Cylinder")
+        : TEXT("/Engine/BasicShapes/Cone.Cone");
+
+    if (UStaticMesh* RitualMesh = LoadObject<UStaticMesh>(nullptr, MeshPath))
+    {
+        GetMeshComponent()->SetStaticMesh(RitualMesh);
+    }
+
+    const FLinearColor BaseColor = bCorrectAnchor
+        ? FLinearColor(0.42f, 0.32f, 0.16f)
+        : FLinearColor(0.16f, 0.18f, 0.24f);
+    const FLinearColor LabelColor = bCorrectAnchor
+        ? FLinearColor(0.92f, 0.82f, 0.56f)
+        : FLinearColor(0.68f, 0.70f, 0.82f);
+
+    ApplyMeshColor(BaseColor);
+    UpdateWorldLabel(LabelColor);
 }
 
 void ARitualAnchor::SetRitualReady(bool bInRitualReady)
@@ -65,10 +82,18 @@ void ARitualAnchor::SetRitualReady(bool bInRitualReady)
     }
 
     bRitualReady = bInRitualReady;
-    const FLinearColor ReadyColor(0.82f, 0.64f, 0.24f);
-    const FLinearColor LockedColor(0.32f, 0.28f, 0.38f);
-    const FLinearColor LabelReadyColor(1.0f, 0.90f, 0.45f);
-    const FLinearColor LabelLockedColor(0.62f, 0.58f, 0.72f);
+    const FLinearColor ReadyColor = bCorrectAnchor
+        ? FLinearColor(0.82f, 0.64f, 0.24f)
+        : FLinearColor(0.42f, 0.20f, 0.28f);
+    const FLinearColor LockedColor = bCorrectAnchor
+        ? FLinearColor(0.42f, 0.32f, 0.16f)
+        : FLinearColor(0.16f, 0.18f, 0.24f);
+    const FLinearColor LabelReadyColor = bCorrectAnchor
+        ? FLinearColor(1.0f, 0.90f, 0.45f)
+        : FLinearColor(0.92f, 0.62f, 0.70f);
+    const FLinearColor LabelLockedColor = bCorrectAnchor
+        ? FLinearColor(0.92f, 0.82f, 0.56f)
+        : FLinearColor(0.68f, 0.70f, 0.82f);
 
     ApplyMeshColor(bRitualReady ? ReadyColor : LockedColor);
     UpdateWorldLabel(bRitualReady ? LabelReadyColor : LabelLockedColor);

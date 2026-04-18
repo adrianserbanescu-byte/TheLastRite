@@ -28,7 +28,7 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     HUDClass = ATheLastRiteHUD::StaticClass();
     bStartPlayersAsSpectators = false;
 
-    RequiredTrueClues = 3;
+    RequiredTrueClues = 4;
     FoundTrueClues = 0;
     FoundFalseLeads = 0;
     bCaseResolved = false;
@@ -39,10 +39,18 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     PlayerSpawnLocation = FVector(0.0f, 0.0f, 140.0f);
     PlayerSpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
 
+    CaseTitleText = NSLOCTEXT(
+        "TheLastRite",
+        "CaseTitle",
+        "CASE 01 - Apartment 302");
+    TargetText = NSLOCTEXT(
+        "TheLastRite",
+        "TargetTitle",
+        "Target demon: Hollow Saint");
     ObjectiveText = NSLOCTEXT(
         "TheLastRite",
         "Objective",
-        "Apartment 302. The babysitter vanished. Find 3 real clues tied to the Hollow Saint, then perform the rite.");
+        "Apartment 302. The babysitter vanished. Find all 4 real clues tied to the Hollow Saint, then perform the rite.");
     StatusText = NSLOCTEXT(
         "TheLastRite",
         "StatusInitial",
@@ -50,6 +58,7 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     RecentEventText = FText::GetEmpty();
     ProgressText = FText::GetEmpty();
     EndingText = FText::GetEmpty();
+    EndingDetailText = FText::GetEmpty();
 }
 
 void ATheLastRiteGameMode::BeginPlay()
@@ -97,7 +106,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     if (Prop->IsTrueClue())
     {
         FoundTrueClues = FMath::Min(FoundTrueClues + 1, RequiredTrueClues);
-        AddEvidenceLine(FString::Printf(TEXT("TRUE - %s"), *Prop->GetDisplayName().ToString()));
+        AddEvidenceLine(FString::Printf(TEXT("TRUE - %s"), *Prop->GetEvidenceSummary().ToString()));
         if (FoundTrueClues >= RequiredTrueClues)
         {
             ObjectiveText = NSLOCTEXT(
@@ -118,7 +127,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     else
     {
         ++FoundFalseLeads;
-        AddEvidenceLine(FString::Printf(TEXT("FALSE - %s"), *Prop->GetDisplayName().ToString()));
+        AddEvidenceLine(FString::Printf(TEXT("FALSE - %s"), *Prop->GetEvidenceSummary().ToString()));
         SetStatusText(FText::Format(
             NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. It looks ugly, but it is not the saint."),
             Prop->GetClueText()));
@@ -144,7 +153,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     if (FoundTrueClues < RequiredTrueClues)
     {
         SetStatusText(FText::Format(
-            NSLOCTEXT("TheLastRite", "NeedMoreClues", "Not yet. You still need {0} real clue(s) before the rite."),
+        NSLOCTEXT("TheLastRite", "NeedMoreClues", "Not yet. You still need {0} real clue(s) before the rite."),
             FText::AsNumber(RequiredTrueClues - FoundTrueClues)));
         return;
     }
@@ -163,6 +172,10 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "TheLastRite",
             "WinEnding",
             "RITE COMPLETE\nThe Hollow Saint is driven out.");
+        EndingDetailText = NSLOCTEXT(
+            "TheLastRite",
+            "WinEndingDetail",
+            "You read the room correctly: mirrored wrist marks, the halo of ash around the cradle, and the fused prayer crown all pointed to the nursery.");
         SetStatusText(NSLOCTEXT(
             "TheLastRite",
             "WinStatus",
@@ -179,6 +192,10 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "TheLastRite",
             "LoseEnding",
             "WRONG RITE\nThe saint answers first.");
+        EndingDetailText = NSLOCTEXT(
+            "TheLastRite",
+            "LoseEndingDetail",
+            "The mirror circle was bait. The real pattern lived around the child, not the broken glass.");
         SetStatusText(NSLOCTEXT(
             "TheLastRite",
             "LoseStatus",
@@ -187,6 +204,16 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     }
 
     UpdateWorldMood();
+}
+
+FText ATheLastRiteGameMode::GetCaseTitleText() const
+{
+    return CaseTitleText;
+}
+
+FText ATheLastRiteGameMode::GetTargetText() const
+{
+    return TargetText;
 }
 
 FText ATheLastRiteGameMode::GetObjectiveText() const
@@ -225,6 +252,11 @@ FText ATheLastRiteGameMode::GetEndingText() const
     return EndingText;
 }
 
+FText ATheLastRiteGameMode::GetEndingDetailText() const
+{
+    return EndingDetailText;
+}
+
 const TArray<FString>& ATheLastRiteGameMode::GetEvidenceLines() const
 {
     return EvidenceLines;
@@ -255,13 +287,13 @@ void ATheLastRiteGameMode::BuildRoom()
 
 void ATheLastRiteGameMode::BuildCaseContent()
 {
-    auto SpawnProp = [this](const FVector& Location, const FVector& Scale3D, const FText& Name, const FText& Clue, bool bTrueClue)
+    auto SpawnProp = [this](const FVector& Location, const FVector& Scale3D, const FText& Name, const FText& Clue, const FText& EvidenceSummary, bool bTrueClue)
     {
         AInspectableProp* Prop = GetWorld()->SpawnActor<AInspectableProp>(Location, FRotator::ZeroRotator);
         if (Prop != nullptr)
         {
             Prop->SetActorScale3D(Scale3D);
-            Prop->ConfigureProp(Name, Clue, bTrueClue);
+            Prop->ConfigureProp(Name, Clue, EvidenceSummary, bTrueClue);
         }
     };
 
@@ -281,6 +313,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(0.7f, 0.7f, 1.9f),
         NSLOCTEXT("TheLastRite", "NannyName", "Nanny Eliza"),
         NSLOCTEXT("TheLastRite", "NannyClue", "Her dry wrist marks mirror each other too perfectly, like a saint pose forced onto skin."),
+        NSLOCTEXT("TheLastRite", "NannyEvidence", "Nanny Eliza - mirrored wrist marks"),
         true);
 
     SpawnProp(
@@ -288,6 +321,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(1.2f, 1.8f, 0.8f),
         NSLOCTEXT("TheLastRite", "CradleName", "the cradle"),
         NSLOCTEXT("TheLastRite", "CradleClue", "Ash-white handprints ring the cradle in a perfect halo."),
+        NSLOCTEXT("TheLastRite", "CradleEvidence", "the cradle - halo of ash-white handprints"),
         true);
 
     SpawnProp(
@@ -295,6 +329,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(0.8f, 0.8f, 0.8f),
         NSLOCTEXT("TheLastRite", "PrayerCardsName", "the prayer cards"),
         NSLOCTEXT("TheLastRite", "PrayerCardsClue", "The prayer cards are fused into a crown-like circle."),
+        NSLOCTEXT("TheLastRite", "PrayerCardsEvidence", "the prayer cards - fused into a crown"),
         true);
 
     SpawnProp(
@@ -302,6 +337,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(0.5f, 0.5f, 1.1f),
         NSLOCTEXT("TheLastRite", "MonitorName", "the baby monitor"),
         NSLOCTEXT("TheLastRite", "MonitorClue", "The monitor hums the same hymn on every channel."),
+        NSLOCTEXT("TheLastRite", "MonitorEvidence", "the baby monitor - hymn repeating on every channel"),
         true);
 
     SpawnProp(
@@ -309,6 +345,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(1.4f, 0.2f, 1.4f),
         NSLOCTEXT("TheLastRite", "WindowName", "the broken window latch"),
         NSLOCTEXT("TheLastRite", "WindowClue", "The latch is busted from outside. It is violence, not ritual."),
+        NSLOCTEXT("TheLastRite", "WindowEvidence", "the broken window latch - forced from outside"),
         false);
 
     SpawnProp(
@@ -316,6 +353,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(0.8f, 0.8f, 0.3f),
         NSLOCTEXT("TheLastRite", "TicketName", "the pawn ticket pouch"),
         NSLOCTEXT("TheLastRite", "TicketClue", "A pawn ticket pouch sits near the sink. It is ordinary greed."),
+        NSLOCTEXT("TheLastRite", "TicketEvidence", "the pawn ticket pouch - ordinary greed"),
         false);
 
     SpawnAnchor(

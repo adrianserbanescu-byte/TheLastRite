@@ -22,11 +22,14 @@ public:
     void HandleInspectableProp(AInspectableProp* Prop);
     void HandleRitualAnchor(ARitualAnchor* Anchor);
 
+    FText GetCaseTitleText() const;
+    FText GetTargetText() const;
     FText GetObjectiveText() const;
     FText GetStatusText() const;
     FText GetRecentEventText() const;
     FText GetProgressText() const;
     FText GetEndingText() const;
+    FText GetEndingDetailText() const;
     const TArray<FString>& GetEvidenceLines() const;
 
     bool IsCaseResolved() const;
@@ -45,6 +48,12 @@ private:
     void AddEvidenceLine(const FString& NewLine);
 
     UPROPERTY()
+    FText CaseTitleText;
+
+    UPROPERTY()
+    FText TargetText;
+
+    UPROPERTY()
     FText ObjectiveText;
 
     UPROPERTY()
@@ -58,6 +67,9 @@ private:
 
     UPROPERTY()
     FText EndingText;
+
+    UPROPERTY()
+    FText EndingDetailText;
 
     UPROPERTY()
     TArray<FString> EvidenceLines;

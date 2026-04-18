@@ -29,7 +29,7 @@ What to do:
 1. Walk around the apartment room.
 2. Look at labeled objects.
 3. Press `E` to inspect them.
-4. Find 3 true Hollow Saint clues.
+4. Find all 4 true Hollow Saint clues.
 5. Choose the correct ritual anchor.
 6. Correct anchor wins. Wrong anchor fails.
 
