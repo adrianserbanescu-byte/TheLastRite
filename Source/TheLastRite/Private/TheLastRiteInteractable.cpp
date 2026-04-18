@@ -1,6 +1,7 @@
 #include "TheLastRiteInteractable.h"
 
 #include "Components/StaticMeshComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 #include "UObject/ConstructorHelpers.h"
 
 ATheLastRiteInteractable::ATheLastRiteInteractable()
@@ -41,4 +42,24 @@ void ATheLastRiteInteractable::SetDisplayName(const FText& NewDisplayName)
 UStaticMeshComponent* ATheLastRiteInteractable::GetMeshComponent() const
 {
     return MeshComponent;
+}
+
+void ATheLastRiteInteractable::ApplyMeshColor(const FLinearColor& Color)
+{
+    UMaterialInterface* BasicMaterial = LoadObject<UMaterialInterface>(
+        nullptr,
+        TEXT("/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial"));
+    if (BasicMaterial == nullptr)
+    {
+        return;
+    }
+
+    UMaterialInstanceDynamic* DynamicMaterial = UMaterialInstanceDynamic::Create(BasicMaterial, this);
+    if (DynamicMaterial == nullptr)
+    {
+        return;
+    }
+
+    DynamicMaterial->SetVectorParameterValue(TEXT("Color"), Color);
+    MeshComponent->SetMaterial(0, DynamicMaterial);
 }

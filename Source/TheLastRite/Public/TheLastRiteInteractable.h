@@ -22,6 +22,8 @@ public:
     UStaticMeshComponent* GetMeshComponent() const;
 
 protected:
+    void ApplyMeshColor(const FLinearColor& Color);
+
     UPROPERTY(VisibleAnywhere)
     TObjectPtr<UStaticMeshComponent> MeshComponent;
 

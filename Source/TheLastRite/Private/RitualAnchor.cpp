@@ -44,6 +44,7 @@ void ARitualAnchor::ConfigureAnchor(const FText& InDisplayName, bool bInCorrectA
 {
     SetDisplayName(InDisplayName);
     bCorrectAnchor = bInCorrectAnchor;
+    ApplyMeshColor(FLinearColor(0.62f, 0.46f, 0.92f));
 }
 
 bool ARitualAnchor::IsCorrectAnchor() const
@@ -59,4 +60,5 @@ bool ARitualAnchor::WasActivated() const
 void ARitualAnchor::MarkActivated()
 {
     bActivated = true;
+    ApplyMeshColor(bCorrectAnchor ? FLinearColor(0.35f, 1.0f, 0.45f) : FLinearColor(1.0f, 0.18f, 0.18f));
 }
