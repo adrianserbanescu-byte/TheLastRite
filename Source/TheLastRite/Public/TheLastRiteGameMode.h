@@ -32,6 +32,7 @@ public:
 private:
     void BuildRoom();
     void BuildCaseContent();
+    void BuildSetDressing();
     void SpawnRoomPiece(const FVector& Location, const FVector& Scale3D, const FRotator& Rotation);
     void SpawnLights();
     void UpdateProgressText();

@@ -53,6 +53,7 @@ void ATheLastRiteGameMode::BeginPlay()
     Super::BeginPlay();
 
     BuildRoom();
+    BuildSetDressing();
     BuildCaseContent();
     SpawnLights();
     UpdateProgressText();
@@ -268,6 +269,18 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(-730.0f, -620.0f, 20.0f),
         NSLOCTEXT("TheLastRite", "WrongAnchor", "the mirror circle"),
         false);
+}
+
+void ATheLastRiteGameMode::BuildSetDressing()
+{
+    SpawnRoomPiece(FVector(860.0f, 620.0f, 110.0f), FVector(1.8f, 0.9f, 1.1f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(860.0f, 860.0f, 80.0f), FVector(0.8f, 0.8f, 0.8f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(-920.0f, 780.0f, 145.0f), FVector(0.6f, 3.6f, 2.9f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(-780.0f, -830.0f, 110.0f), FVector(2.4f, 0.8f, 1.1f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(-860.0f, -520.0f, 55.0f), FVector(1.0f, 1.0f, 0.5f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(0.0f, 980.0f, 145.0f), FVector(4.4f, 0.15f, 2.9f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(420.0f, 980.0f, 145.0f), FVector(0.15f, 1.2f, 2.9f), FRotator::ZeroRotator);
+    SpawnRoomPiece(FVector(-250.0f, -920.0f, 60.0f), FVector(1.1f, 1.1f, 0.5f), FRotator::ZeroRotator);
 }
 
 void ATheLastRiteGameMode::SpawnRoomPiece(const FVector& Location, const FVector& Scale3D, const FRotator& Rotation)
