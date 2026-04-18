@@ -1,4 +1,46 @@
-# The Last Rite: Browser Prototype
+# The Last Rite
+
+## Current Unreal playable slice
+
+The current Unreal version is a tiny playable case in Apartment 302.
+
+Open the packaged game here:
+
+```text
+C:\Users\adria\OneDrive\Desktop\alexs\Packaged\Windows\TheLastRite.exe
+```
+
+Or double-click:
+
+```text
+PlayPackagedGame.cmd
+```
+
+Controls:
+
+- `WASD` moves the player.
+- Mouse looks around.
+- `E` inspects the thing under the green crosshair.
+- `R` restarts the case.
+
+What to do:
+
+1. Walk around the apartment room.
+2. Look at labeled objects.
+3. Press `E` to inspect them.
+4. Find 3 true Hollow Saint clues.
+5. Choose the correct ritual anchor.
+6. Correct anchor wins. Wrong anchor fails.
+
+Important:
+
+- Use the packaged game in `Packaged\Windows`.
+- Do not run the raw file in `Binaries\Win64` as the playable build.
+- To make a new packaged build, run `PackageGame.cmd`.
+- To compile only the Unreal editor target, run `BuildEditor.cmd`.
+- To compile the game target, run `BuildGame.cmd`.
+
+## Browser Prototype
 
 Browser-first vertical-slice scaffold for **The Last Rite: Final Inspection**.
 
@@ -75,4 +117,3 @@ What should not be expected to survive unchanged:
 ## Next useful step
 
 The right next implementation pass is to harden the browser slice with one stronger mission map, better interactions, and then add a real authoritative multiplayer server once the solo loop feels correct.
-
