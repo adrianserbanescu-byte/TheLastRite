@@ -27,13 +27,13 @@ void ATheLastRiteHUD::DrawHUD()
     float Y = 30.0f;
     const float X = 30.0f;
 
-    DrawText(GameMode->GetObjectiveText().ToString(), FLinearColor::White, X, Y, SmallFont, 1.25f, false);
-    Y += 28.0f;
+    Y = DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, X, Y, 92, SmallFont, 1.15f);
+    Y += 8.0f;
     DrawText(GameMode->GetProgressText().ToString(), FLinearColor(0.9f, 0.9f, 0.75f), X, Y, SmallFont, 1.1f, false);
     Y += 24.0f;
     DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
     Y += 34.0f;
-    DrawText(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, SmallFont, 1.1f, false);
+    Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
 
     const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
     if (!EvidenceLines.IsEmpty())
@@ -76,4 +76,40 @@ void ATheLastRiteHUD::DrawHUD()
         DrawText(Ending, GameMode->DidPlayerWin() ? FLinearColor(0.5f, 1.0f, 0.5f) : FLinearColor(1.0f, 0.45f, 0.45f), CenterX, CenterY, LargeFont, 2.0f, false);
         DrawText(TEXT("Press R to restart the case"), FLinearColor::White, CenterX, CenterY + 48.0f, SmallFont, 1.25f, false);
     }
+}
+
+float ATheLastRiteHUD::DrawWrappedTextLine(const FString& Text, const FLinearColor& Color, float X, float Y, int32 MaxCharactersPerLine, UFont* Font, float Scale)
+{
+    if (Text.IsEmpty())
+    {
+        return Y;
+    }
+
+    TArray<FString> Words;
+    Text.ParseIntoArrayWS(Words);
+
+    FString Line;
+    const float LineHeight = 24.0f * Scale;
+    for (const FString& Word : Words)
+    {
+        const FString Candidate = Line.IsEmpty() ? Word : FString::Printf(TEXT("%s %s"), *Line, *Word);
+        if (Candidate.Len() > MaxCharactersPerLine && !Line.IsEmpty())
+        {
+            DrawText(Line, Color, X, Y, Font, Scale, false);
+            Y += LineHeight;
+            Line = Word;
+        }
+        else
+        {
+            Line = Candidate;
+        }
+    }
+
+    if (!Line.IsEmpty())
+    {
+        DrawText(Line, Color, X, Y, Font, Scale, false);
+        Y += LineHeight;
+    }
+
+    return Y;
 }
