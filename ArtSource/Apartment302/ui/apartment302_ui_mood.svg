@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#25241f"/><rect width="1400" height="900" fill="#f4efdc" opacity="0.05"/>
+  <text x="70" y="82" font-family="Georgia, serif" font-size="44" fill="#f4efdc">Apartment 302 UI mood</text>
+  <text x="70" y="130" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Readable, restrained, pale evidence language with old-gold emphasis.</text>
+  <rect x="70" y="190" width="590" height="120" rx="8" fill="#11120f" opacity="0.72" stroke="#8f9087" stroke-width="2"/>
+  <text x="104" y="238" font-family="Arial, sans-serif" font-size="28" fill="#a98f45">OBJECTIVE</text>
+  <text x="104" y="282" font-family="Arial, sans-serif" font-size="34" fill="#f4efdc">Read the nursery. Find the true pattern.</text>
+  <rect x="740" y="190" width="590" height="120" rx="8" fill="#11120f" opacity="0.72" stroke="#a98f45" stroke-width="2"/>
+  <circle cx="792" cy="250" r="24" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <text x="834" y="240" font-family="Arial, sans-serif" font-size="28" fill="#a98f45">CLUE FOUND</text>
+  <text x="834" y="282" font-family="Arial, sans-serif" font-size="32" fill="#f4efdc">Ash handprints form a halo.</text>
+  <rect x="70" y="390" width="590" height="230" rx="8" fill="#11120f" opacity="0.8" stroke="#a98f45" stroke-width="3"/>
+  <text x="104" y="452" font-family="Georgia, serif" font-size="52" fill="#f4efdc">Rite Accepted</text>
+  <text x="104" y="506" font-family="Arial, sans-serif" font-size="30" fill="#c9c0a3">The circle quiets. The nursery exhales.</text>
+  <path d="M118 558 C220 498 504 498 610 558" fill="none" stroke="#a98f45" stroke-width="7"/><circle cx="364" cy="544" r="40" fill="none" stroke="#e8e2d3" stroke-width="5" opacity="0.72"/>
+  <rect x="740" y="390" width="590" height="230" rx="8" fill="#11120f" opacity="0.8" stroke="#8f9087" stroke-width="3"/>
+  <text x="774" y="452" font-family="Georgia, serif" font-size="52" fill="#f4efdc">Rite Failed</text>
+  <text x="774" y="506" font-family="Arial, sans-serif" font-size="30" fill="#c9c0a3">Wrong circle. The room remains staged.</text>
+  <circle cx="1035" cy="552" r="58" fill="none" stroke="#e8e2d3" stroke-width="5" stroke-dasharray="10 14" opacity="0.72"/><path d="M978 552 L1092 552" stroke="#8f9087" stroke-width="6"/>
+  <rect x="70" y="710" width="1260" height="94" rx="8" fill="#11120f" opacity="0.72" stroke="#3c3a31" stroke-width="3"/>
+  <text x="104" y="770" font-family="Arial, sans-serif" font-size="32" fill="#f4efdc">Interaction copy should stay calm: Inspect. Compare. Choose the anchor.</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#23231f"/>
+  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Pawn ticket pouch false lead</text>
+  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">False lead: ordinary money trouble, not Hollow Saint evidence.</text>
+  <path d="M440 244 C516 200 694 200 760 246 L814 604 C728 660 496 662 384 604 Z" fill="#5d655e" stroke="#a98f45" stroke-width="6"/>
+  <path d="M442 250 C528 310 684 308 760 250" fill="none" stroke="#e8e2d3" stroke-width="5" opacity="0.45"/>
+  <rect x="505" y="250" width="170" height="310" rx="8" transform="rotate(-7 590 405)" fill="#d8c78d" stroke="#f4efdc" stroke-width="4"/>
+  <rect x="590" y="270" width="170" height="310" rx="8" transform="rotate(8 675 425)" fill="#efe7c8" stroke="#8f9087" stroke-width="4"/>
+  <text x="540" y="354" font-family="Arial, sans-serif" font-size="28" fill="#25241f" transform="rotate(-7 590 405)">PAWN</text>
+  <text x="630" y="382" font-family="Arial, sans-serif" font-size="28" fill="#25241f" transform="rotate(8 675 425)">TICKET</text>
+  <path d="M520 444 L636 428 M612 496 L728 514" stroke="#25241f" stroke-width="6" opacity="0.55"/>
+  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: explains stress, but should not unlock ritual confidence.</text>
+</svg>

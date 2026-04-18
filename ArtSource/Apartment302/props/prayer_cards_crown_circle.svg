@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#1f211d"/>
+  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Prayer cards arranged into crown/circle</text>
+  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">True clue: invented cards make a crown ring without copying real sacred symbols.</text>
+  <circle cx="600" cy="406" r="238" fill="none" stroke="#a98f45" stroke-width="5" stroke-dasharray="4 18"/>
+  <g transform="translate(600 406)">
+    <g id="card"><rect x="-48" y="-82" width="96" height="164" rx="6" fill="#d8c78d" stroke="#f4efdc" stroke-width="3"/><rect x="-35" y="-64" width="70" height="116" rx="5" fill="#efe7c8"/><circle cx="0" cy="-26" r="18" fill="none" stroke="#a98f45" stroke-width="5"/><path d="M-20 24 Q0 4 20 24" fill="none" stroke="#8f9087" stroke-width="4"/><path d="M-20 48 L20 48" stroke="#8f9087" stroke-width="4"/></g>
+    <use href="#card" transform="rotate(0) translate(0 -240)"/><use href="#card" transform="rotate(45) translate(0 -240) rotate(-45)"/><use href="#card" transform="rotate(90) translate(0 -240) rotate(-90)"/><use href="#card" transform="rotate(135) translate(0 -240) rotate(-135)"/><use href="#card" transform="rotate(180) translate(0 -240) rotate(-180)"/><use href="#card" transform="rotate(225) translate(0 -240) rotate(-225)"/><use href="#card" transform="rotate(270) translate(0 -240) rotate(-270)"/><use href="#card" transform="rotate(315) translate(0 -240) rotate(-315)"/>
+  </g>
+  <path d="M468 298 L504 244 L540 298 M660 298 L696 244 L732 298" fill="none" stroke="#a98f45" stroke-width="7"/>
+  <circle cx="600" cy="406" r="76" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <text x="72" y="718" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: beautiful first, then wrong because each harmless card faces the exact same center.</text>
+</svg>

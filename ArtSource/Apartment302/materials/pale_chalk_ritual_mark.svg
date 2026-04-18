@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#25241f"/>
+  <circle cx="512" cy="480" r="292" fill="none" stroke="#e8e2d3" stroke-width="24" stroke-dasharray="80 42" opacity="0.88"/>
+  <circle cx="512" cy="480" r="194" fill="none" stroke="#f4efdc" stroke-width="10" stroke-dasharray="28 24" opacity="0.75"/>
+  <path d="M322 482 C406 392 618 392 702 482 C618 574 406 574 322 482 Z" fill="none" stroke="#e8e2d3" stroke-width="16" opacity="0.82"/>
+  <g fill="#f4efdc" opacity="0.42"><circle cx="210" cy="424" r="10"/><circle cx="242" cy="586" r="7"/><circle cx="744" cy="276" r="9"/><circle cx="814" cy="548" r="12"/><circle cx="392" cy="762" r="8"/></g>
+  <text x="48" y="950" font-family="Arial, sans-serif" font-size="42" fill="#f4efdc">pale chalk ritual mark: broken powder ring</text>
+</svg>

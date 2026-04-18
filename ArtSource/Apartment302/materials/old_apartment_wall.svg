@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#8f9087"/><rect width="1024" height="1024" fill="#f4efdc" opacity="0.34"/>
+  <g opacity="0.32"><path d="M64 140 C210 90 260 190 424 150 S740 94 924 144" fill="none" stroke="#5d655e" stroke-width="14"/><path d="M82 512 C214 470 280 560 392 528 S700 456 930 516" fill="none" stroke="#5d655e" stroke-width="10"/><path d="M160 800 C300 740 430 838 548 786 S780 728 940 812" fill="none" stroke="#5d655e" stroke-width="12"/></g>
+  <g fill="#a98f45" opacity="0.24"><circle cx="230" cy="226" r="44"/><circle cx="808" cy="178" r="60"/><circle cx="720" cy="676" r="38"/><circle cx="326" cy="656" r="50"/></g>
+  <text x="48" y="950" font-family="Arial, sans-serif" font-size="42" fill="#25241f">old apartment wall: stained paint, candle discoloration</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#25241f"/>
+  <g stroke="#11120f" stroke-width="8"><line x1="0" y1="128" x2="1024" y2="128"/><line x1="0" y1="256" x2="1024" y2="256"/><line x1="0" y1="384" x2="1024" y2="384"/><line x1="0" y1="512" x2="1024" y2="512"/><line x1="0" y1="640" x2="1024" y2="640"/><line x1="0" y1="768" x2="1024" y2="768"/><line x1="0" y1="896" x2="1024" y2="896"/></g>
+  <g stroke="#3c3a31" stroke-width="5" opacity="0.72"><path d="M40 80 C170 112 260 48 410 96 S690 124 980 78"/><path d="M70 332 C240 286 392 358 570 320 S822 286 994 328"/><path d="M20 608 C210 572 326 646 512 604 S802 552 1000 618"/><path d="M50 842 C194 890 306 820 488 866 S782 914 970 850"/></g>
+  <g fill="#e8e2d3" opacity="0.09"><ellipse cx="740" cy="410" rx="180" ry="54"/><ellipse cx="286" cy="734" rx="150" ry="42"/></g>
+  <text x="48" y="950" font-family="Arial, sans-serif" font-size="42" fill="#e8e2d3">dark floor: worn boards, dusty seams</text>
+</svg>
