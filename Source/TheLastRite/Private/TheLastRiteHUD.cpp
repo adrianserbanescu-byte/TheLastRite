@@ -57,7 +57,7 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float JournalX = Canvas->ClipX - 360.0f;
         float JournalY = 30.0f;
-        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 178.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 212.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
         DrawText(TEXT("Case Notes"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.15f, false);
         JournalY += 24.0f;
 
@@ -78,8 +78,8 @@ void ATheLastRiteHUD::DrawHUD()
                 LineColor = FLinearColor(0.95f, 0.82f, 0.35f);
             }
 
-            DrawText(EvidenceLines[Index], LineColor, JournalX, JournalY, SmallFont, 1.0f, false);
-            JournalY += 22.0f;
+            JournalY = DrawWrappedTextLine(EvidenceLines[Index], LineColor, JournalX, JournalY, 36, SmallFont, 0.95f);
+            JournalY += 4.0f;
         }
     }
 
