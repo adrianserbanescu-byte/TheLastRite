@@ -91,10 +91,14 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     if (Prop->IsTrueClue())
     {
-        ++FoundTrueClues;
+        FoundTrueClues = FMath::Min(FoundTrueClues + 1, RequiredTrueClues);
         AddEvidenceLine(FString::Printf(TEXT("TRUE - %s"), *Prop->GetDisplayName().ToString()));
         if (FoundTrueClues >= RequiredTrueClues)
         {
+            ObjectiveText = NSLOCTEXT(
+                "TheLastRite",
+                "ObjectiveRitualReady",
+                "Evidence complete. Choose the ritual anchor that matches the Hollow Saint.");
             SetStatusText(FText::Format(
                 NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. Choose the correct ritual anchor."),
                 Prop->GetClueText()));
@@ -144,6 +148,10 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
 
     if (bPlayerWon)
     {
+        ObjectiveText = NSLOCTEXT(
+            "TheLastRite",
+            "ObjectiveWon",
+            "Case closed. The Hollow Saint was forced out of Apartment 302.");
         EndingText = NSLOCTEXT(
             "TheLastRite",
             "WinEnding",
@@ -156,6 +164,10 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     }
     else
     {
+        ObjectiveText = NSLOCTEXT(
+            "TheLastRite",
+            "ObjectiveLost",
+            "Case failed. The wrong rite fed the Hollow Saint.");
         EndingText = NSLOCTEXT(
             "TheLastRite",
             "LoseEnding",
@@ -237,6 +249,13 @@ void ATheLastRiteGameMode::BuildCaseContent()
             Anchor->ConfigureAnchor(Name, bCorrectAnchor);
         }
     };
+
+    SpawnProp(
+        FVector(0.0f, -780.0f, 95.0f),
+        FVector(0.7f, 0.7f, 1.9f),
+        NSLOCTEXT("TheLastRite", "NannyName", "Nanny Eliza"),
+        NSLOCTEXT("TheLastRite", "NannyClue", "Her dry wrist marks mirror each other too perfectly, like a saint pose forced onto skin."),
+        true);
 
     SpawnProp(
         FVector(430.0f, 250.0f, 60.0f),
