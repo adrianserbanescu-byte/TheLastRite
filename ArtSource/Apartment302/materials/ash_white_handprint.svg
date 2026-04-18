@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#3c3a31"/>
+  <g fill="#e8e2d3" opacity="0.86"><ellipse cx="506" cy="560" rx="112" ry="154"/><ellipse cx="326" cy="366" rx="42" ry="118" transform="rotate(-26 326 366)"/><ellipse cx="430" cy="292" rx="42" ry="144" transform="rotate(-8 430 292)"/><ellipse cx="536" cy="270" rx="42" ry="154" transform="rotate(4 536 270)"/><ellipse cx="642" cy="306" rx="40" ry="132" transform="rotate(18 642 306)"/><ellipse cx="736" cy="400" rx="38" ry="112" transform="rotate(34 736 400)"/></g>
+  <g fill="#25241f" opacity="0.18"><circle cx="468" cy="538" r="26"/><circle cx="552" cy="604" r="20"/><circle cx="390" cy="380" r="16"/><circle cx="626" cy="276" r="13"/></g>
+  <g stroke="#f4efdc" stroke-width="7" opacity="0.46"><path d="M360 704 C454 750 562 762 668 708"/><path d="M398 638 C464 668 554 672 622 640"/></g>
+  <text x="48" y="950" font-family="Arial, sans-serif" font-size="42" fill="#f4efdc">ash-white handprint: dry powder, incomplete palm</text>
+</svg>

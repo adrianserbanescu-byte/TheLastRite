@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#25241f"/>
+  <text x="72" y="80" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Cradle with ash-white halo handprints</text>
+  <text x="72" y="126" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">True clue: the nursery object is crowned by dry pale marks.</text>
+  <ellipse cx="610" cy="330" rx="250" ry="132" fill="none" stroke="#a98f45" stroke-width="7" opacity="0.65"/>
+  <ellipse cx="610" cy="330" rx="206" ry="102" fill="none" stroke="#f4efdc" stroke-width="3" stroke-dasharray="16 18"/>
+  <g fill="#e8e2d3" opacity="0.9">
+    <ellipse cx="428" cy="270" rx="22" ry="30" transform="rotate(-34 428 270)"/><circle cx="390" cy="245" r="10"/><circle cx="402" cy="228" r="9"/><circle cx="420" cy="220" r="9"/><circle cx="439" cy="222" r="8"/><circle cx="456" cy="234" r="8"/>
+    <ellipse cx="527" cy="214" rx="21" ry="31" transform="rotate(-14 527 214)"/><circle cx="492" cy="182" r="9"/><circle cx="510" cy="168" r="9"/><circle cx="531" cy="163" r="9"/><circle cx="552" cy="168" r="8"/><circle cx="568" cy="183" r="8"/>
+    <ellipse cx="655" cy="205" rx="22" ry="31" transform="rotate(8 655 205)"/><circle cx="626" cy="170" r="9"/><circle cx="648" cy="161" r="9"/><circle cx="671" cy="162" r="9"/><circle cx="690" cy="172" r="8"/><circle cx="704" cy="189" r="8"/>
+    <ellipse cx="775" cy="250" rx="21" ry="31" transform="rotate(28 775 250)"/><circle cx="754" cy="208" r="9"/><circle cx="778" cy="205" r="9"/><circle cx="799" cy="213" r="9"/><circle cx="815" cy="229" r="8"/><circle cx="825" cy="249" r="8"/>
+  </g>
+  <g stroke="#a98f45" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M300 498 C392 440 820 440 918 498"/><path d="M328 500 L358 655"/><path d="M891 500 L859 655"/><path d="M396 474 L396 628"/><path d="M820 474 L820 628"/><path d="M354 642 C455 690 762 690 862 642"/>
+  </g>
+  <rect x="377" y="482" width="466" height="108" rx="8" fill="#3c3a31" stroke="#c9c0a3" stroke-width="3"/>
+  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Placement note: the player should read the halo before reading the cradle.</text>
+</svg>

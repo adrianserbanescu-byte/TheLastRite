@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#20231f"/>
+  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Broken window latch false lead</text>
+  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">False lead: forced entry mood, no halo, ash, or nursery ritual language.</text>
+  <rect x="290" y="190" width="620" height="420" rx="8" fill="#d9dccf" stroke="#8f9087" stroke-width="12"/>
+  <line x1="600" y1="190" x2="600" y2="610" stroke="#8f9087" stroke-width="10"/><line x1="290" y1="400" x2="910" y2="400" stroke="#8f9087" stroke-width="10"/>
+  <rect x="560" y="380" width="138" height="42" rx="8" fill="#3d4038" stroke="#a98f45" stroke-width="4"/>
+  <path d="M645 386 L728 350 L742 374 L664 414" fill="#6a6656" stroke="#25241f" stroke-width="4"/>
+  <g stroke="#f4efdc" stroke-width="4" opacity="0.58"><path d="M718 322 L790 266"/><path d="M734 350 L826 332"/><path d="M412 270 L496 324"/><path d="M394 526 L480 472"/></g>
+  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: tempting mundane explanation, not a ritual anchor.</text>
+</svg>

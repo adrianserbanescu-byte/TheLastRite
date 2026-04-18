@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#20211e"/>
+  <text x="64" y="76" font-family="Georgia, serif" font-size="46" fill="#f4efdc">Hollow Saint clue language board</text>
+  <text x="64" y="120" font-family="Arial, sans-serif" font-size="23" fill="#c9c0a3">Use this to keep the mystery readable: true clues rhyme visually, false leads feel plausible but isolated.</text>
+  <rect x="70" y="175" width="700" height="690" rx="8" fill="#11120f" opacity="0.72" stroke="#a98f45" stroke-width="4"/>
+  <rect x="830" y="175" width="700" height="690" rx="8" fill="#11120f" opacity="0.72" stroke="#8f9087" stroke-width="4"/>
+  <text x="110" y="235" font-family="Georgia, serif" font-size="42" fill="#f4efdc">True Hollow Saint signals</text>
+  <text x="870" y="235" font-family="Georgia, serif" font-size="42" fill="#f4efdc">False lead signals</text>
+  <g transform="translate(230 390)">
+    <circle cx="0" cy="0" r="96" fill="none" stroke="#e8e2d3" stroke-width="10" stroke-dasharray="28 18"/>
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#a98f45" stroke-width="6"/>
+    <text x="-92" y="154" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">pale circle</text>
+  </g>
+  <g transform="translate(475 390)" fill="#e8e2d3" opacity="0.9">
+    <ellipse cx="0" cy="30" rx="48" ry="66"/><ellipse cx="-76" cy="-52" rx="18" ry="58" transform="rotate(-24 -76 -52)"/><ellipse cx="-28" cy="-82" rx="18" ry="66"/><ellipse cx="26" cy="-84" rx="18" ry="68"/><ellipse cx="76" cy="-52" rx="18" ry="58" transform="rotate(24 76 -52)"/>
+    <text x="-105" y="154" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">ash handprint</text>
+  </g>
+  <g transform="translate(650 390)">
+    <path d="M-78 56 L-38 -48 L0 56 L40 -48 L78 56 Z" fill="none" stroke="#a98f45" stroke-width="10" stroke-linejoin="round"/>
+    <text x="-94" y="154" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">broken crown</text>
+  </g>
+  <g transform="translate(235 660)">
+    <rect x="-82" y="-52" width="164" height="104" rx="12" fill="#d8d0bd" stroke="#8f9087" stroke-width="6"/>
+    <path d="M-42 0 C-20 -40 10 42 36 0" fill="none" stroke="#e8e2d3" stroke-width="6"/>
+    <text x="-114" y="122" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">impossible hymn</text>
+  </g>
+  <g transform="translate(520 660)">
+    <path d="M-120 42 C-42 -32 42 -32 120 42" fill="none" stroke="#a98f45" stroke-width="10"/>
+    <rect x="-92" y="36" width="184" height="58" rx="8" fill="#3c3a31" stroke="#e8e2d3" stroke-width="4"/>
+    <text x="-114" y="122" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">nursery anchor</text>
+  </g>
+  <g transform="translate(980 405)">
+    <rect x="-110" y="-82" width="220" height="164" rx="8" fill="#d9dccf" stroke="#8f9087" stroke-width="8"/>
+    <line x1="0" y1="-82" x2="0" y2="82" stroke="#8f9087" stroke-width="5"/><line x1="-110" y1="0" x2="110" y2="0" stroke="#8f9087" stroke-width="5"/>
+    <path d="M45 -5 L118 -38" stroke="#25241f" stroke-width="8" stroke-linecap="round"/>
+    <text x="-116" y="150" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">broken latch</text>
+  </g>
+  <g transform="translate(1260 405)">
+    <path d="M-110 -50 C-42 -92 64 -92 116 -48 L150 96 C72 146 -78 146 -150 96 Z" fill="#5d655e" stroke="#a98f45" stroke-width="5"/>
+    <rect x="-42" y="-64" width="116" height="190" rx="6" fill="#efe7c8" transform="rotate(8)" stroke="#8f9087" stroke-width="3"/>
+    <text x="-92" y="150" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">pawn debt</text>
+  </g>
+  <g transform="translate(1110 675)">
+    <rect x="-72" y="-104" width="144" height="208" rx="16" fill="#393d3d" stroke="#a98f45" stroke-width="6"/>
+    <circle cx="0" cy="0" r="146" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="10 12"/>
+    <text x="-116" y="188" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">loud mirror trap</text>
+  </g>
+  <text x="110" y="828" font-family="Arial, sans-serif" font-size="25" fill="#d8c78d">True clues: circular, dry, pale, old-gold, nursery-connected, too symmetrical.</text>
+  <text x="870" y="828" font-family="Arial, sans-serif" font-size="25" fill="#c9c0a3">False leads: believable, colder, mundane, isolated from the Hollow Saint pattern.</text>
+</svg>

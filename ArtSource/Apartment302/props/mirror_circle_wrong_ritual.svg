@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#20211e"/>
+  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Mirror circle wrong ritual spot</text>
+  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">Wrong anchor: dramatic and occult-looking, but disconnected from nursery evidence.</text>
+  <rect x="450" y="178" width="300" height="440" rx="24" fill="#393d3d" stroke="#a98f45" stroke-width="9"/>
+  <rect x="488" y="218" width="224" height="360" rx="18" fill="#74807d" opacity="0.56"/>
+  <path d="M522 290 C612 240 648 386 700 320" fill="none" stroke="#f4efdc" stroke-width="5" opacity="0.45"/>
+  <circle cx="600" cy="420" r="262" fill="none" stroke="#e8e2d3" stroke-width="5" stroke-dasharray="10 14"/>
+  <circle cx="600" cy="420" r="324" fill="none" stroke="#a98f45" stroke-width="4" opacity="0.58"/>
+  <g stroke="#e8e2d3" stroke-width="5" opacity="0.72"><path d="M600 96 L632 156 L568 156 Z" fill="none"/><path d="M600 744 L632 684 L568 684 Z" fill="none"/><path d="M276 420 L336 388 L336 452 Z" fill="none"/><path d="M924 420 L864 388 L864 452 Z" fill="none"/></g>
+  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: it wants attention, but lacks ash handprints, cradle shape, and hymn clue.</text>
+</svg>

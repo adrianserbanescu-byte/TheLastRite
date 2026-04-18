@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#25241f"/>
+  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Nursery sigil correct ritual spot</text>
+  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">Correct anchor: pale chalk, cradle geometry, halo language, ash symmetry.</text>
+  <ellipse cx="600" cy="420" rx="330" ry="180" fill="none" stroke="#e8e2d3" stroke-width="8" stroke-dasharray="28 18"/>
+  <ellipse cx="600" cy="420" rx="238" ry="126" fill="none" stroke="#a98f45" stroke-width="5"/>
+  <path d="M390 424 C478 352 722 352 810 424 C722 496 478 496 390 424 Z" fill="none" stroke="#e8e2d3" stroke-width="6"/>
+  <path d="M488 420 C538 372 662 372 712 420 C662 468 538 468 488 420 Z" fill="none" stroke="#e8e2d3" stroke-width="5" opacity="0.75"/>
+  <circle cx="600" cy="420" r="42" fill="none" stroke="#a98f45" stroke-width="7"/>
+  <g fill="#e8e2d3" opacity="0.8"><circle cx="600" cy="224" r="10"/><circle cx="600" cy="616" r="10"/><circle cx="286" cy="420" r="10"/><circle cx="914" cy="420" r="10"/><circle cx="384" cy="292" r="8"/><circle cx="816" cy="292" r="8"/><circle cx="384" cy="548" r="8"/><circle cx="816" cy="548" r="8"/></g>
+  <path d="M530 580 Q600 532 670 580" fill="none" stroke="#a98f45" stroke-width="8"/>
+  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: choose this after connecting cradle, cards, and monitor clues.</text>
+</svg>

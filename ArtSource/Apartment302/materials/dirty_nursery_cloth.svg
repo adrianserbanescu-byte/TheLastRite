@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#71817d"/>
+  <g fill="#f4efdc" opacity="0.22"><circle cx="156" cy="160" r="46"/><circle cx="356" cy="160" r="46"/><circle cx="556" cy="160" r="46"/><circle cx="756" cy="160" r="46"/><circle cx="256" cy="350" r="42"/><circle cx="456" cy="350" r="42"/><circle cx="656" cy="350" r="42"/><circle cx="856" cy="350" r="42"/><circle cx="156" cy="540" r="46"/><circle cx="356" cy="540" r="46"/><circle cx="556" cy="540" r="46"/><circle cx="756" cy="540" r="46"/></g>
+  <g fill="#25241f" opacity="0.18"><ellipse cx="300" cy="606" rx="120" ry="58" transform="rotate(-8 300 606)"/><ellipse cx="720" cy="300" rx="150" ry="70" transform="rotate(14 720 300)"/><ellipse cx="600" cy="782" rx="190" ry="52" transform="rotate(-4 600 782)"/></g>
+  <text x="48" y="950" font-family="Arial, sans-serif" font-size="42" fill="#f4efdc">dirty nursery cloth: faded pattern, domestic softness</text>
+</svg>
