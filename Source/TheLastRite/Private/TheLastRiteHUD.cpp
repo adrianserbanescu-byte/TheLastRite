@@ -23,6 +23,7 @@ void ATheLastRiteHUD::DrawHUD()
 
     UFont* SmallFont = GEngine->GetSmallFont();
     UFont* LargeFont = GEngine->GetLargeFont();
+    const float WorldTimeSeconds = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0f;
 
     float Y = 30.0f;
     const float X = 30.0f;
@@ -39,6 +40,17 @@ void ATheLastRiteHUD::DrawHUD()
     DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc quit"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
     Y += 34.0f;
     Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
+
+    if (!GameMode->IsCaseResolved() && WorldTimeSeconds < 7.0f)
+    {
+        const float IntroX = Canvas->ClipX * 0.22f;
+        const float IntroY = Canvas->ClipY * 0.18f;
+        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 720.0f, 190.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
+        DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, LargeFont, 1.35f, false);
+        DrawText(GameMode->GetTargetText().ToString(), FLinearColor(0.95f, 0.78f, 0.42f), IntroX, IntroY + 40.0f, SmallFont, 1.25f, false);
+        DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, IntroY + 74.0f, 62, SmallFont, 1.2f);
+        DrawText(TEXT("Find the real signs. Ignore the bait. Finish the rite."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 130.0f, SmallFont, 1.1f, false);
+    }
 
     const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
     if (!EvidenceLines.IsEmpty())
