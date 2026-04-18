@@ -22,6 +22,7 @@ Controls:
 - Mouse looks around.
 - `E` inspects the thing under the green crosshair.
 - `R` restarts the case.
+- `Esc` quits the game.
 
 What to do:
 

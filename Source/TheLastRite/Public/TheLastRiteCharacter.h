@@ -30,6 +30,7 @@ private:
     void LookUp(float Value);
     void Interact();
     void RestartRun();
+    void QuitGame();
     void UpdateFocusedInteractable();
 
     UPROPERTY(VisibleAnywhere)

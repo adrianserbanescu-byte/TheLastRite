@@ -3,7 +3,9 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "TheLastRiteInteractable.h"
 
 ATheLastRiteCharacter::ATheLastRiteCharacter()
@@ -28,6 +30,12 @@ ATheLastRiteCharacter::ATheLastRiteCharacter()
 void ATheLastRiteCharacter::BeginPlay()
 {
     Super::BeginPlay();
+
+    if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+    {
+        PlayerController->SetInputMode(FInputModeGameOnly());
+        PlayerController->bShowMouseCursor = false;
+    }
 }
 
 void ATheLastRiteCharacter::Tick(float DeltaSeconds)
@@ -47,6 +55,7 @@ void ATheLastRiteCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
     PlayerInputComponent->BindAction(TEXT("Interact"), IE_Pressed, this, &ATheLastRiteCharacter::Interact);
     PlayerInputComponent->BindAction(TEXT("Restart"), IE_Pressed, this, &ATheLastRiteCharacter::RestartRun);
+    PlayerInputComponent->BindAction(TEXT("Quit"), IE_Pressed, this, &ATheLastRiteCharacter::QuitGame);
 }
 
 FText ATheLastRiteCharacter::GetInteractionPrompt() const
@@ -108,6 +117,12 @@ void ATheLastRiteCharacter::Interact()
 void ATheLastRiteCharacter::RestartRun()
 {
     UGameplayStatics::OpenLevel(this, FName(*UGameplayStatics::GetCurrentLevelName(this, true)));
+}
+
+void ATheLastRiteCharacter::QuitGame()
+{
+    APlayerController* PlayerController = Cast<APlayerController>(Controller);
+    UKismetSystemLibrary::QuitGame(this, PlayerController, EQuitPreference::Quit, false);
 }
 
 void ATheLastRiteCharacter::UpdateFocusedInteractable()
