@@ -9,7 +9,12 @@ echo Building editor from:
 echo %PROJECT_ROOT%
 echo.
 
-call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRiteEditor Win64 Development -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex
+set "LOG_FILE=%PROJECT_ROOT%\Saved\UBT-TheLastRiteEditor-%RANDOM%%RANDOM%.log"
+echo Log file:
+echo %LOG_FILE%
+echo.
+
+call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRiteEditor Win64 Development -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -NoHotReload -log="%LOG_FILE%"
 
 echo.
 echo Done.

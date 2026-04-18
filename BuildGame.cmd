@@ -9,7 +9,12 @@ echo Building game from:
 echo %PROJECT_ROOT%
 echo.
 
-call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRite Win64 Development -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex
+set "LOG_FILE=%PROJECT_ROOT%\Saved\UBT-TheLastRiteGame-%RANDOM%%RANDOM%.log"
+echo Log file:
+echo %LOG_FILE%
+echo.
+
+call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRite Win64 Development -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -log="%LOG_FILE%"
 
 echo.
 echo Done.

@@ -6,12 +6,17 @@ if not exist "%PROJECT_ROOT%\TheLastRite.uproject" set "PROJECT_ROOT=%~dp0"
 if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
 
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
+set "LOG_DIR=%PROJECT_ROOT%\Saved\AutomationLogs-%RANDOM%%RANDOM%"
+set "uebp_LogFolder=%LOG_DIR%"
 
 echo Packaging game from:
 echo %PROJECT_ROOT%
 echo.
 echo Output folder:
 echo %OUTPUT_DIR%
+echo.
+echo Log folder:
+echo %LOG_DIR%
 echo.
 
 call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat" BuildCookRun ^
