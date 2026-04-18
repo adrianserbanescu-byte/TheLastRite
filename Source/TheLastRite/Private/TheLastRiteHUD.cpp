@@ -70,6 +70,16 @@ void ATheLastRiteHUD::DrawHUD()
     const float CrosshairY = (Canvas->ClipY * 0.5f) - 12.0f;
     DrawText(Crosshair, bHasInteractionPrompt ? FLinearColor(0.45f, 1.0f, 0.75f) : FLinearColor::White, CrosshairX, CrosshairY, LargeFont, 1.0f, false);
 
+    const FText RecentEvent = GameMode->GetRecentEventText();
+    if (!RecentEvent.IsEmpty() && !GameMode->IsCaseResolved())
+    {
+        const float EventX = Canvas->ClipX * 0.18f;
+        float EventY = Canvas->ClipY * 0.64f;
+        DrawText(TEXT("Finding"), FLinearColor(0.85f, 0.95f, 1.0f), EventX, EventY, SmallFont, 1.15f, false);
+        EventY += 26.0f;
+        DrawWrappedTextLine(RecentEvent.ToString(), FLinearColor(1.0f, 0.92f, 0.55f), EventX, EventY, 82, SmallFont, 1.2f);
+    }
+
     if (GameMode->IsCaseResolved())
     {
         const FString Ending = GameMode->GetEndingText().ToString();

@@ -33,6 +33,8 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     FoundFalseLeads = 0;
     bCaseResolved = false;
     bPlayerWon = false;
+    RecentEventTimeSeconds = -1000.0f;
+    RecentEventDurationSeconds = 5.0f;
 
     PlayerSpawnLocation = FVector(0.0f, 0.0f, 140.0f);
     PlayerSpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
@@ -45,6 +47,7 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
         "TheLastRite",
         "StatusInitial",
         "Search the room. Real clues carry the saint's pale halo pattern.");
+    RecentEventText = FText::GetEmpty();
     ProgressText = FText::GetEmpty();
     EndingText = FText::GetEmpty();
 }
@@ -192,6 +195,22 @@ FText ATheLastRiteGameMode::GetObjectiveText() const
 FText ATheLastRiteGameMode::GetStatusText() const
 {
     return StatusText;
+}
+
+FText ATheLastRiteGameMode::GetRecentEventText() const
+{
+    if (RecentEventText.IsEmpty() || GetWorld() == nullptr)
+    {
+        return FText::GetEmpty();
+    }
+
+    const float AgeSeconds = GetWorld()->GetTimeSeconds() - RecentEventTimeSeconds;
+    if (AgeSeconds > RecentEventDurationSeconds)
+    {
+        return FText::GetEmpty();
+    }
+
+    return RecentEventText;
 }
 
 FText ATheLastRiteGameMode::GetProgressText() const
@@ -446,6 +465,11 @@ void ATheLastRiteGameMode::UpdateProgressText()
 void ATheLastRiteGameMode::SetStatusText(const FText& NewStatusText)
 {
     StatusText = NewStatusText;
+    RecentEventText = NewStatusText;
+    if (GetWorld() != nullptr)
+    {
+        RecentEventTimeSeconds = GetWorld()->GetTimeSeconds();
+    }
 }
 
 void ATheLastRiteGameMode::AddEvidenceLine(const FString& NewLine)

@@ -24,6 +24,7 @@ public:
 
     FText GetObjectiveText() const;
     FText GetStatusText() const;
+    FText GetRecentEventText() const;
     FText GetProgressText() const;
     FText GetEndingText() const;
     const TArray<FString>& GetEvidenceLines() const;
@@ -49,6 +50,9 @@ private:
     FText StatusText;
 
     UPROPERTY()
+    FText RecentEventText;
+
+    UPROPERTY()
     FText ProgressText;
 
     UPROPERTY()
@@ -71,6 +75,12 @@ private:
 
     UPROPERTY()
     bool bPlayerWon;
+
+    UPROPERTY()
+    float RecentEventTimeSeconds;
+
+    UPROPERTY()
+    float RecentEventDurationSeconds;
 
     UPROPERTY()
     FVector PlayerSpawnLocation;
