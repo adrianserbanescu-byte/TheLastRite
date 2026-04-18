@@ -51,11 +51,13 @@ void ATheLastRiteHUD::DrawHUD()
         }
     }
 
+    bool bHasInteractionPrompt = false;
     if (const ATheLastRiteCharacter* Character = Cast<ATheLastRiteCharacter>(GetOwningPawn()))
     {
         const FText Prompt = Character->GetInteractionPrompt();
         if (!Prompt.IsEmpty())
         {
+            bHasInteractionPrompt = true;
             const FString PromptString = Prompt.ToString();
             const float PromptX = 40.0f;
             const float PromptY = Canvas->ClipY - 80.0f;
@@ -66,7 +68,7 @@ void ATheLastRiteHUD::DrawHUD()
     const FString Crosshair = TEXT("+");
     const float CrosshairX = (Canvas->ClipX * 0.5f) - 6.0f;
     const float CrosshairY = (Canvas->ClipY * 0.5f) - 12.0f;
-    DrawText(Crosshair, FLinearColor::White, CrosshairX, CrosshairY, LargeFont, 1.0f, false);
+    DrawText(Crosshair, bHasInteractionPrompt ? FLinearColor(0.45f, 1.0f, 0.75f) : FLinearColor::White, CrosshairX, CrosshairY, LargeFont, 1.0f, false);
 
     if (GameMode->IsCaseResolved())
     {

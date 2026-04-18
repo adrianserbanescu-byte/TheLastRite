@@ -124,9 +124,24 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
 
     const FVector TraceEnd = ViewLocation + (ViewRotation.Vector() * 400.0f);
 
-    FHitResult HitResult;
+    TArray<FHitResult> HitResults;
     FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(TheLastRiteInteractTrace), false, this);
-    GetWorld()->LineTraceSingleByChannel(HitResult, ViewLocation, TraceEnd, ECC_Visibility, QueryParams);
+    GetWorld()->SweepMultiByChannel(
+        HitResults,
+        ViewLocation,
+        TraceEnd,
+        FQuat::Identity,
+        ECC_Visibility,
+        FCollisionShape::MakeSphere(42.0f),
+        QueryParams);
 
-    FocusedInteractable = Cast<ATheLastRiteInteractable>(HitResult.GetActor());
+    FocusedInteractable = nullptr;
+    for (const FHitResult& HitResult : HitResults)
+    {
+        if (ATheLastRiteInteractable* Interactable = Cast<ATheLastRiteInteractable>(HitResult.GetActor()))
+        {
+            FocusedInteractable = Interactable;
+            return;
+        }
+    }
 }
