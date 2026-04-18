@@ -24,6 +24,7 @@ Saved/
 *.exp
 *.dll
 *.exe
+Packaged/
 
 # Visual Studio migration leftovers
 Backup/
