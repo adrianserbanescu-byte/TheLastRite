@@ -38,6 +38,7 @@ private:
     void BuildSetDressing();
     void SpawnRoomPiece(const FVector& Location, const FVector& Scale3D, const FRotator& Rotation, const FLinearColor& Color);
     void SpawnLights();
+    void UpdateRitualAnchors();
     void UpdateWorldMood();
     void UpdateProgressText();
     void SetStatusText(const FText& NewStatusText);
@@ -90,4 +91,7 @@ private:
 
     UPROPERTY()
     TArray<TObjectPtr<APointLight>> CaseLights;
+
+    UPROPERTY()
+    TArray<TObjectPtr<ARitualAnchor>> RitualAnchors;
 };

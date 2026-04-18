@@ -60,6 +60,7 @@ void ATheLastRiteGameMode::BeginPlay()
     BuildSetDressing();
     BuildCaseContent();
     SpawnLights();
+    UpdateRitualAnchors();
     UpdateWorldMood();
     UpdateProgressText();
 }
@@ -124,6 +125,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     }
 
     UpdateProgressText();
+    UpdateRitualAnchors();
     UpdateWorldMood();
 }
 
@@ -270,6 +272,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         {
             Anchor->SetActorScale3D(FVector(1.8f, 1.8f, 0.2f));
             Anchor->ConfigureAnchor(Name, bCorrectAnchor);
+            RitualAnchors.Add(Anchor);
         }
     };
 
@@ -415,6 +418,18 @@ void ATheLastRiteGameMode::SpawnLights()
         {
             LightComponent->Intensity = 8000.0f;
             LightComponent->AttenuationRadius = 1200.0f;
+        }
+    }
+}
+
+void ATheLastRiteGameMode::UpdateRitualAnchors()
+{
+    const bool bRitualReady = FoundTrueClues >= RequiredTrueClues;
+    for (ARitualAnchor* Anchor : RitualAnchors)
+    {
+        if (Anchor != nullptr)
+        {
+            Anchor->SetRitualReady(bRitualReady);
         }
     }
 }

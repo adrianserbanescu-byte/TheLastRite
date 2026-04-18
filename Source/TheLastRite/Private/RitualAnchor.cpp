@@ -9,6 +9,7 @@ ARitualAnchor::ARitualAnchor()
 {
     bCorrectAnchor = false;
     bActivated = false;
+    bRitualReady = false;
 
     static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshFinder(
         TEXT("/Engine/BasicShapes/Cylinder.Cylinder"));
@@ -24,6 +25,13 @@ FText ARitualAnchor::GetPromptText() const
     {
         return FText::Format(
             NSLOCTEXT("TheLastRite", "SpentAnchorPrompt", "{0} is spent"),
+            DisplayName);
+    }
+
+    if (!bRitualReady)
+    {
+        return FText::Format(
+            NSLOCTEXT("TheLastRite", "LockedAnchorPrompt", "Find 3 true clues before using {0}"),
             DisplayName);
     }
 
@@ -44,8 +52,26 @@ void ARitualAnchor::ConfigureAnchor(const FText& InDisplayName, bool bInCorrectA
 {
     SetDisplayName(InDisplayName);
     bCorrectAnchor = bInCorrectAnchor;
-    ApplyMeshColor(FLinearColor(0.62f, 0.46f, 0.92f));
-    UpdateWorldLabel(FLinearColor(0.88f, 0.78f, 1.0f));
+    bRitualReady = false;
+    ApplyMeshColor(FLinearColor(0.32f, 0.28f, 0.38f));
+    UpdateWorldLabel(FLinearColor(0.62f, 0.58f, 0.72f));
+}
+
+void ARitualAnchor::SetRitualReady(bool bInRitualReady)
+{
+    if (bActivated)
+    {
+        return;
+    }
+
+    bRitualReady = bInRitualReady;
+    const FLinearColor ReadyColor(0.82f, 0.64f, 0.24f);
+    const FLinearColor LockedColor(0.32f, 0.28f, 0.38f);
+    const FLinearColor LabelReadyColor(1.0f, 0.90f, 0.45f);
+    const FLinearColor LabelLockedColor(0.62f, 0.58f, 0.72f);
+
+    ApplyMeshColor(bRitualReady ? ReadyColor : LockedColor);
+    UpdateWorldLabel(bRitualReady ? LabelReadyColor : LabelLockedColor);
 }
 
 bool ARitualAnchor::IsCorrectAnchor() const
