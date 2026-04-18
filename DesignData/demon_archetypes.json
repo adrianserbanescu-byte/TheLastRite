@@ -1,0 +1,150 @@
+[
+  {
+    "id": "hollow_saint",
+    "displayName": "Hollow Saint",
+    "signatureColor": "#d6b56f",
+    "signatureAudio": "reverse choir",
+    "silhouetteCue": "A shrine-like pose with the arms held open too wide.",
+    "ritualRecipe": {
+      "id": "sanctified_unmasking",
+      "displayName": "Sanctified Unmasking",
+      "steps": [
+        {
+          "id": "prepare_circle",
+          "stepType": "PrepareCircle",
+          "anchorId": "circle_anchor",
+          "prompt": "Prepare the chalk circle at the center glyph."
+        },
+        {
+          "id": "reveal_name",
+          "stepType": "RevealName",
+          "anchorId": "name_anchor",
+          "prompt": "Read the borrowed saint-name into the brass bell mouthpiece."
+        },
+        {
+          "id": "final_dismissal",
+          "stepType": "FinalDismissal",
+          "anchorId": "dismiss_anchor",
+          "prompt": "Strike the dismissal bell beside the altar."
+        }
+      ]
+    },
+    "signatureClues": [
+      {
+        "id": "clue.false_stigmata",
+        "displayName": "False Stigmata",
+        "summary": "The wounds are too symmetrical and stay dry under pressure.",
+        "certainty": 0.84,
+        "compatibleDemons": ["hollow_saint"],
+        "conflictingDemons": ["ashen_maw"]
+      },
+      {
+        "id": "clue.backwards_hymn",
+        "displayName": "Backwards Hymn",
+        "summary": "Prayer fragments emerge as reversed choir phrases from the target.",
+        "certainty": 0.76,
+        "compatibleDemons": ["hollow_saint"],
+        "conflictingDemons": ["choir_leech"]
+      }
+    ]
+  },
+  {
+    "id": "ashen_maw",
+    "displayName": "Ashen Maw",
+    "signatureColor": "#f4854e",
+    "signatureAudio": "ember hiss",
+    "silhouetteCue": "The chest caves inward while soot seems to breathe from the ribs.",
+    "ritualRecipe": {
+      "id": "coal_chain",
+      "displayName": "Coal Chain",
+      "steps": [
+        {
+          "id": "prepare_circle",
+          "stepType": "PrepareCircle",
+          "anchorId": "circle_anchor",
+          "prompt": "Seal the scorch marks inside the ash circle."
+        },
+        {
+          "id": "bind_anchor",
+          "stepType": "BindAnchor",
+          "anchorId": "name_anchor",
+          "prompt": "Clamp the ember chain over the burning tether."
+        },
+        {
+          "id": "final_dismissal",
+          "stepType": "FinalDismissal",
+          "anchorId": "dismiss_anchor",
+          "prompt": "Crack the cinder icon to finish the banishment."
+        }
+      ]
+    },
+    "signatureClues": [
+      {
+        "id": "clue.soot_tears",
+        "displayName": "Soot Tears",
+        "summary": "The target leaves black streaks that warm the air around them.",
+        "certainty": 0.89,
+        "compatibleDemons": ["ashen_maw"],
+        "conflictingDemons": ["hollow_saint"]
+      },
+      {
+        "id": "clue.thermal_spike",
+        "displayName": "Thermal Spike",
+        "summary": "Every outburst pushes a sudden heat bloom across nearby surfaces.",
+        "certainty": 0.78,
+        "compatibleDemons": ["ashen_maw"],
+        "conflictingDemons": ["choir_leech"]
+      }
+    ]
+  },
+  {
+    "id": "choir_leech",
+    "displayName": "Choir Leech",
+    "signatureColor": "#cb70d9",
+    "signatureAudio": "stacked whisper",
+    "silhouetteCue": "The voice arrives first and the body seems half a beat behind it.",
+    "ritualRecipe": {
+      "id": "severed_choir",
+      "displayName": "Severed Choir",
+      "steps": [
+        {
+          "id": "prepare_circle",
+          "stepType": "PrepareCircle",
+          "anchorId": "circle_anchor",
+          "prompt": "Mute the echo with the wax-salt circle."
+        },
+        {
+          "id": "reveal_name",
+          "stepType": "RevealName",
+          "anchorId": "name_anchor",
+          "prompt": "Force the stolen voice through the recorder horn."
+        },
+        {
+          "id": "final_dismissal",
+          "stepType": "FinalDismissal",
+          "anchorId": "dismiss_anchor",
+          "prompt": "Cut the last echo at the dismissal stand."
+        }
+      ]
+    },
+    "signatureClues": [
+      {
+        "id": "clue.borrowed_voice",
+        "displayName": "Borrowed Voice",
+        "summary": "Two tones overlap in every answer, but only one moves with the mouth.",
+        "certainty": 0.82,
+        "compatibleDemons": ["choir_leech"],
+        "conflictingDemons": ["ashen_maw"]
+      },
+      {
+        "id": "clue.echo_delay",
+        "displayName": "Echo Delay",
+        "summary": "Simple words arrive with a trailing second reply from nowhere visible.",
+        "certainty": 0.8,
+        "compatibleDemons": ["choir_leech"],
+        "conflictingDemons": ["hollow_saint"]
+      }
+    ]
+  }
+]
+

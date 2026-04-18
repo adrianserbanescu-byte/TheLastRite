@@ -1,0 +1,10 @@
+{
+  "name": "the-last-rite-browser-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node ./scripts/static-server.mjs",
+    "validate:simulation": "node ./scripts/validate-simulation.mjs"
+  }
+}
+

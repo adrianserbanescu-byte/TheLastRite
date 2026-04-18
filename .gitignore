@@ -1,0 +1,30 @@
+dist/
+node_modules/
+*.log
+
+# Unreal generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+
+# Unreal generated files
+*.VC.db
+*.VC.opendb
+*.suo
+*.opensdf
+*.sdf
+*.tmp
+
+# Build outputs
+*.pdb
+*.obj
+*.lib
+*.exp
+*.dll
+*.exe
+
+# Visual Studio migration leftovers
+Backup/
+UpgradeLog.htm

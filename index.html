@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Last Rite: Browser Prototype</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="viewport"></div>
+
+      <div id="hud" class="hud">
+        <div class="hud__top">
+          <div class="chip" id="phase-chip">Briefing</div>
+          <div class="chip chip--objective" id="objective-chip">Board the safehouse mission.</div>
+          <div class="chip chip--danger" id="contamination-chip">Contamination 0%</div>
+        </div>
+
+        <div class="hud__right">
+          <button class="action action--ghost" id="board-toggle" type="button">Case Board</button>
+        </div>
+
+        <div class="hud__bottom">
+          <div class="prompt" id="prompt-text">Click Start Mission to begin.</div>
+        </div>
+      </div>
+
+      <aside id="board-panel" class="panel panel--hidden" aria-hidden="true">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Evidence Board</p>
+            <h2 id="board-title">No active case</h2>
+          </div>
+          <button class="action action--ghost" id="board-close" type="button">Close</button>
+        </div>
+
+        <div class="panel__body">
+          <section class="panel__section">
+            <h3>Case Notes</h3>
+            <p id="case-hook"></p>
+          </section>
+
+          <section class="panel__section">
+            <h3>Evidence</h3>
+            <ul id="evidence-list" class="list"></ul>
+          </section>
+
+          <section class="panel__section">
+            <h3>Diagnosis</h3>
+            <div id="diagnosis-buttons" class="diagnosis-grid"></div>
+          </section>
+
+          <section class="panel__section">
+            <h3>Ritual</h3>
+            <ol id="ritual-steps" class="list list--numbered"></ol>
+          </section>
+        </div>
+      </aside>
+
+      <section id="overlay-screen" class="overlay">
+        <div class="overlay__inner">
+          <p class="eyebrow">Safehouse Board</p>
+          <h1>The Last Rite: Final Inspection</h1>
+          <p id="overlay-copy">
+            Investigate the possession, name the demon, and perform the banishment before contamination overruns the site.
+          </p>
+
+          <div class="overlay__actions" id="start-buttons"></div>
+
+          <ul class="overlay__notes">
+            <li>Move with WASD</li>
+            <li>Look with mouse after clicking the scene</li>
+            <li>Press E to inspect or activate</li>
+            <li>Use the Case Board to submit a diagnosis</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
+
