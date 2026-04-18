@@ -46,7 +46,21 @@ void ATheLastRiteHUD::DrawHUD()
         const int32 FirstLine = FMath::Max(0, EvidenceLines.Num() - 6);
         for (int32 Index = FirstLine; Index < EvidenceLines.Num(); ++Index)
         {
-            DrawText(EvidenceLines[Index], FLinearColor(0.8f, 0.84f, 0.86f), JournalX, JournalY, SmallFont, 1.0f, false);
+            FLinearColor LineColor(0.8f, 0.84f, 0.86f);
+            if (EvidenceLines[Index].StartsWith(TEXT("TRUE")))
+            {
+                LineColor = FLinearColor(0.68f, 1.0f, 0.72f);
+            }
+            else if (EvidenceLines[Index].StartsWith(TEXT("FALSE")))
+            {
+                LineColor = FLinearColor(1.0f, 0.62f, 0.36f);
+            }
+            else if (EvidenceLines[Index].StartsWith(TEXT("RITE")))
+            {
+                LineColor = FLinearColor(0.95f, 0.82f, 0.35f);
+            }
+
+            DrawText(EvidenceLines[Index], LineColor, JournalX, JournalY, SmallFont, 1.0f, false);
             JournalY += 22.0f;
         }
     }
