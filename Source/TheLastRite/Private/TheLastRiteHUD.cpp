@@ -35,6 +35,22 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 34.0f;
     DrawText(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, SmallFont, 1.1f, false);
 
+    const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
+    if (!EvidenceLines.IsEmpty())
+    {
+        const float JournalX = Canvas->ClipX - 360.0f;
+        float JournalY = 30.0f;
+        DrawText(TEXT("Evidence"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.15f, false);
+        JournalY += 24.0f;
+
+        const int32 FirstLine = FMath::Max(0, EvidenceLines.Num() - 6);
+        for (int32 Index = FirstLine; Index < EvidenceLines.Num(); ++Index)
+        {
+            DrawText(EvidenceLines[Index], FLinearColor(0.8f, 0.84f, 0.86f), JournalX, JournalY, SmallFont, 1.0f, false);
+            JournalY += 22.0f;
+        }
+    }
+
     if (const ATheLastRiteCharacter* Character = Cast<ATheLastRiteCharacter>(GetOwningPawn()))
     {
         const FText Prompt = Character->GetInteractionPrompt();

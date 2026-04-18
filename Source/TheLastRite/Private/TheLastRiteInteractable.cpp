@@ -1,6 +1,7 @@
 #include "TheLastRiteInteractable.h"
 
 #include "Components/StaticMeshComponent.h"
+#include "Components/TextRenderComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "UObject/ConstructorHelpers.h"
 
@@ -10,6 +11,15 @@ ATheLastRiteInteractable::ATheLastRiteInteractable()
 
     MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
     SetRootComponent(MeshComponent);
+
+    LabelComponent = CreateDefaultSubobject<UTextRenderComponent>(TEXT("Label"));
+    LabelComponent->SetupAttachment(MeshComponent);
+    LabelComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 95.0f));
+    LabelComponent->SetHorizontalAlignment(EHTA_Center);
+    LabelComponent->SetVerticalAlignment(EVRTA_TextCenter);
+    LabelComponent->SetTextRenderColor(FColor::White);
+    LabelComponent->SetWorldSize(42.0f);
+    LabelComponent->SetText(FText::GetEmpty());
 
     static ConstructorHelpers::FObjectFinder<UStaticMesh> CubeMesh(
         TEXT("/Engine/BasicShapes/Cube.Cube"));
@@ -37,6 +47,12 @@ void ATheLastRiteInteractable::Interact(ATheLastRiteCharacter* InteractingCharac
 void ATheLastRiteInteractable::SetDisplayName(const FText& NewDisplayName)
 {
     DisplayName = NewDisplayName;
+    UpdateWorldLabel(FLinearColor::White);
+}
+
+const FText& ATheLastRiteInteractable::GetDisplayName() const
+{
+    return DisplayName;
 }
 
 UStaticMeshComponent* ATheLastRiteInteractable::GetMeshComponent() const
@@ -62,4 +78,15 @@ void ATheLastRiteInteractable::ApplyMeshColor(const FLinearColor& Color)
 
     DynamicMaterial->SetVectorParameterValue(TEXT("Color"), Color);
     MeshComponent->SetMaterial(0, DynamicMaterial);
+}
+
+void ATheLastRiteInteractable::UpdateWorldLabel(const FLinearColor& Color)
+{
+    if (LabelComponent == nullptr)
+    {
+        return;
+    }
+
+    LabelComponent->SetText(DisplayName);
+    LabelComponent->SetTextRenderColor(Color.ToFColor(true));
 }

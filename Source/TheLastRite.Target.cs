@@ -8,6 +8,7 @@ public class TheLastRiteTarget : TargetRules
         Type = TargetType.Game;
         DefaultBuildSettings = BuildSettingsVersion.V5;
         IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+        WindowsPlatform.ManifestFile = null;
         ExtraModuleNames.Add("TheLastRite");
     }
 }

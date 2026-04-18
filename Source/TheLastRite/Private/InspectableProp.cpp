@@ -46,6 +46,7 @@ void AInspectableProp::ConfigureProp(const FText& InDisplayName, const FText& In
     ClueText = InClueText;
     bTrueClue = bInIsTrueClue;
     ApplyMeshColor(FLinearColor(0.24f, 0.42f, 0.72f));
+    UpdateWorldLabel(FLinearColor(0.70f, 0.84f, 1.0f));
 }
 
 bool AInspectableProp::WasInspected() const
@@ -66,5 +67,7 @@ const FText& AInspectableProp::GetClueText() const
 void AInspectableProp::MarkInspected()
 {
     bInspected = true;
-    ApplyMeshColor(bTrueClue ? FLinearColor(0.78f, 0.94f, 0.82f) : FLinearColor(0.92f, 0.52f, 0.28f));
+    const FLinearColor ResultColor = bTrueClue ? FLinearColor(0.78f, 0.94f, 0.82f) : FLinearColor(0.92f, 0.52f, 0.28f);
+    ApplyMeshColor(ResultColor);
+    UpdateWorldLabel(ResultColor);
 }

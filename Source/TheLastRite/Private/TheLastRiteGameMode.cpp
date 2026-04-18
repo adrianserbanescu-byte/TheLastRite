@@ -92,6 +92,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     if (Prop->IsTrueClue())
     {
         ++FoundTrueClues;
+        AddEvidenceLine(FString::Printf(TEXT("TRUE - %s"), *Prop->GetDisplayName().ToString()));
         if (FoundTrueClues >= RequiredTrueClues)
         {
             SetStatusText(FText::Format(
@@ -108,6 +109,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     else
     {
         ++FoundFalseLeads;
+        AddEvidenceLine(FString::Printf(TEXT("FALSE - %s"), *Prop->GetDisplayName().ToString()));
         SetStatusText(FText::Format(
             NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. It looks ugly, but it is not the saint."),
             Prop->GetClueText()));
@@ -150,6 +152,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "TheLastRite",
             "WinStatus",
             "You chose the nursery sigil. The rite bites into the halo and the room goes still."));
+        AddEvidenceLine(TEXT("RITE - correct anchor"));
     }
     else
     {
@@ -161,6 +164,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "TheLastRite",
             "LoseStatus",
             "You chose the wrong anchor. The false circle feeds the thing you were hunting."));
+        AddEvidenceLine(TEXT("RITE - wrong anchor"));
     }
 }
 
@@ -182,6 +186,11 @@ FText ATheLastRiteGameMode::GetProgressText() const
 FText ATheLastRiteGameMode::GetEndingText() const
 {
     return EndingText;
+}
+
+const TArray<FString>& ATheLastRiteGameMode::GetEvidenceLines() const
+{
+    return EvidenceLines;
 }
 
 bool ATheLastRiteGameMode::IsCaseResolved() const
@@ -361,4 +370,9 @@ void ATheLastRiteGameMode::UpdateProgressText()
 void ATheLastRiteGameMode::SetStatusText(const FText& NewStatusText)
 {
     StatusText = NewStatusText;
+}
+
+void ATheLastRiteGameMode::AddEvidenceLine(const FString& NewLine)
+{
+    EvidenceLines.Add(NewLine);
 }

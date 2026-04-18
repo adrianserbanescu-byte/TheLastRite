@@ -25,6 +25,7 @@ public:
     FText GetStatusText() const;
     FText GetProgressText() const;
     FText GetEndingText() const;
+    const TArray<FString>& GetEvidenceLines() const;
 
     bool IsCaseResolved() const;
     bool DidPlayerWin() const;
@@ -37,6 +38,7 @@ private:
     void SpawnLights();
     void UpdateProgressText();
     void SetStatusText(const FText& NewStatusText);
+    void AddEvidenceLine(const FString& NewLine);
 
     UPROPERTY()
     FText ObjectiveText;
@@ -49,6 +51,9 @@ private:
 
     UPROPERTY()
     FText EndingText;
+
+    UPROPERTY()
+    TArray<FString> EvidenceLines;
 
     UPROPERTY()
     int32 RequiredTrueClues;
