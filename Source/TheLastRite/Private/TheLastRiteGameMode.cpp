@@ -102,9 +102,9 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
             ObjectiveText = NSLOCTEXT(
                 "TheLastRite",
                 "ObjectiveRitualReady",
-                "Evidence complete. Choose the ritual anchor that matches the Hollow Saint.");
+                "Evidence complete. The true signs point back to the nursery. Choose the ritual anchor.");
             SetStatusText(FText::Format(
-                NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. Choose the correct ritual anchor."),
+                NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. The Hollow Saint is tied to the nursery, not the mirror."),
                 Prop->GetClueText()));
         }
         else
