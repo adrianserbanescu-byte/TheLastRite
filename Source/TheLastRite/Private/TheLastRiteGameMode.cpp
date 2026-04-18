@@ -57,6 +57,7 @@ void ATheLastRiteGameMode::BeginPlay()
     BuildSetDressing();
     BuildCaseContent();
     SpawnLights();
+    UpdateWorldMood();
     UpdateProgressText();
 }
 
@@ -120,6 +121,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     }
 
     UpdateProgressText();
+    UpdateWorldMood();
 }
 
 void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
@@ -178,6 +180,8 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "You chose the wrong anchor. The false circle feeds the thing you were hunting."));
         AddEvidenceLine(TEXT("RITE - wrong anchor"));
     }
+
+    UpdateWorldMood();
 }
 
 FText ATheLastRiteGameMode::GetObjectiveText() const
@@ -374,6 +378,7 @@ void ATheLastRiteGameMode::SpawnLights()
     APointLight* CenterLight = GetWorld()->SpawnActor<APointLight>(FVector(0.0f, 0.0f, 480.0f), FRotator::ZeroRotator);
     if (CenterLight != nullptr)
     {
+        CaseLights.Add(CenterLight);
         CenterLight->SetActorScale3D(FVector(6.0f, 6.0f, 6.0f));
         if (UPointLightComponent* LightComponent = Cast<UPointLightComponent>(CenterLight->GetLightComponent()))
         {
@@ -385,11 +390,46 @@ void ATheLastRiteGameMode::SpawnLights()
     APointLight* NurseryLight = GetWorld()->SpawnActor<APointLight>(FVector(700.0f, 650.0f, 220.0f), FRotator::ZeroRotator);
     if (NurseryLight != nullptr)
     {
+        CaseLights.Add(NurseryLight);
         NurseryLight->SetActorScale3D(FVector(3.0f, 3.0f, 3.0f));
         if (UPointLightComponent* LightComponent = Cast<UPointLightComponent>(NurseryLight->GetLightComponent()))
         {
             LightComponent->Intensity = 8000.0f;
             LightComponent->AttenuationRadius = 1200.0f;
+        }
+    }
+}
+
+void ATheLastRiteGameMode::UpdateWorldMood()
+{
+    FLinearColor LightColor(0.96f, 0.92f, 0.82f);
+    float IntensityScale = 1.0f;
+
+    if (bCaseResolved)
+    {
+        LightColor = bPlayerWon ? FLinearColor(0.65f, 1.0f, 0.72f) : FLinearColor(1.0f, 0.20f, 0.14f);
+        IntensityScale = bPlayerWon ? 1.15f : 0.55f;
+    }
+    else
+    {
+        const float ClueProgress = RequiredTrueClues > 0 ? static_cast<float>(FoundTrueClues) / static_cast<float>(RequiredTrueClues) : 0.0f;
+        LightColor = FMath::Lerp(FLinearColor(0.96f, 0.92f, 0.82f), FLinearColor(1.0f, 0.78f, 0.30f), ClueProgress);
+        IntensityScale = FMath::Clamp(1.0f - (static_cast<float>(FoundFalseLeads) * 0.16f), 0.62f, 1.15f);
+    }
+
+    for (int32 Index = 0; Index < CaseLights.Num(); ++Index)
+    {
+        APointLight* Light = CaseLights[Index];
+        if (Light == nullptr)
+        {
+            continue;
+        }
+
+        if (UPointLightComponent* LightComponent = Cast<UPointLightComponent>(Light->GetLightComponent()))
+        {
+            const float BaseIntensity = Index == 0 ? 18000.0f : 8000.0f;
+            LightComponent->SetIntensity(BaseIntensity * IntensityScale);
+            LightComponent->SetLightColor(LightColor);
         }
     }
 }

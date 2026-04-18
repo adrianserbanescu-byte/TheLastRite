@@ -5,6 +5,7 @@
 #include "TheLastRiteGameMode.generated.h"
 
 class AInspectableProp;
+class APointLight;
 class ARitualAnchor;
 
 UCLASS()
@@ -36,6 +37,7 @@ private:
     void BuildSetDressing();
     void SpawnRoomPiece(const FVector& Location, const FVector& Scale3D, const FRotator& Rotation, const FLinearColor& Color);
     void SpawnLights();
+    void UpdateWorldMood();
     void UpdateProgressText();
     void SetStatusText(const FText& NewStatusText);
     void AddEvidenceLine(const FString& NewLine);
@@ -75,4 +77,7 @@ private:
 
     UPROPERTY()
     FRotator PlayerSpawnRotation;
+
+    UPROPERTY()
+    TArray<TObjectPtr<APointLight>> CaseLights;
 };
