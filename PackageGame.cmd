@@ -3,6 +3,9 @@ setlocal
 
 set "PROJECT_ROOT=%~dp0"
 if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
+if not defined UE_ROOT set "UE_ROOT=C:\Program Files\Epic Games\UE_5.4"
+set "BUILD_BAT=%UE_ROOT%\Engine\Build\BatchFiles\Build.bat"
+set "RUN_UAT_BAT=%UE_ROOT%\Engine\Build\BatchFiles\RunUAT.bat"
 
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
 set "OUTPUT_WINDOWS_DIR=%OUTPUT_DIR%\Windows"
@@ -17,6 +20,20 @@ set "ZEN_DATA_DIR=%TEMP_ROOT%\Zen\Data"
 set "BUILD_LOG=%UBT_ROOT%\UBT-TheLastRiteShipping.log"
 set "UE-LocalDataCachePath=%LOCAL_DDC_DIR%"
 set "UE-SharedDataCachePath=None"
+
+if not exist "%BUILD_BAT%" (
+    echo Unreal Build.bat not found:
+    echo %BUILD_BAT%
+    echo Set UE_ROOT to your Unreal Engine install path and try again.
+    exit /b 1
+)
+
+if not exist "%RUN_UAT_BAT%" (
+    echo Unreal RunUAT.bat not found:
+    echo %RUN_UAT_BAT%
+    echo Set UE_ROOT to your Unreal Engine install path and try again.
+    exit /b 1
+)
 
 if not exist "%TEMP_ROOT%" mkdir "%TEMP_ROOT%"
 if not exist "%UBT_ROOT%" mkdir "%UBT_ROOT%"
@@ -64,13 +81,13 @@ if exist "%OUTPUT_WINDOWS_DIR%" (
     rmdir /S /Q "%OUTPUT_WINDOWS_DIR%" >nul 2>&1
 )
 
-call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRite Win64 Shipping -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -log="%BUILD_LOG%"
+call "%BUILD_BAT%" TheLastRite Win64 Shipping -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -log="%BUILD_LOG%"
 if errorlevel 1 goto :done
 
 set "uebp_LogFolder=%LOG_DIR%"
 set "uebp_EngineSavedFolder=%ENGINE_SAVED_DIR%"
 
-call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat" BuildCookRun ^
+call "%RUN_UAT_BAT%" BuildCookRun ^
  -project="%PROJECT_ROOT%\TheLastRite.uproject" ^
  -noP4 ^
  -platform=Win64 ^
