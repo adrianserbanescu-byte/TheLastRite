@@ -16,10 +16,22 @@ Or double-click:
 PlayPackagedGame.cmd
 ```
 
+Quick launcher-path check without starting the game:
+
+```text
+PlayPackagedGame.cmd --check-only
+```
+
 To smoke-test the packaged launcher and the shipping handoff:
 
 ```text
 SmokeTestPackagedGame.cmd
+```
+
+Longer-timeout smoke test for a slower machine:
+
+```text
+SmokeTestPackagedGame.cmd -StartupTimeoutSeconds 30 -LiveWindowSeconds 8
 ```
 
 Controls:
@@ -46,6 +58,8 @@ Important:
 - To smoke-test the packaged build, run `SmokeTestPackagedGame.cmd`.
 - To print a summary of the current packaged build and the latest correlated package-run logs, run `SummarizePackagedBuild.cmd`.
 - To re-package and then smoke-test the result in one pass, run `ValidatePackageLane.cmd`.
+- `PlayPackagedGame.cmd --check-only` confirms the launcher path without starting the game.
+- `SmokeTestPackagedGame.cmd` and `ValidatePackageLane.cmd` accept `-StartupTimeoutSeconds` and `-LiveWindowSeconds`.
 - To make a new packaged build, run `PackageGame.cmd`.
 - For the branch-local packaging runbook and output/log map, read `Docs/PackageLane.md`.
 - To open the Unreal project on this machine, run `OpenUnreal.cmd`.
