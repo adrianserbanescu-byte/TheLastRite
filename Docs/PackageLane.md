@@ -65,6 +65,8 @@ This runbook is not for:
 - `PlayPackagedGame.cmd`
   - launches the repo-local packaged build from `Packaged\Windows`
   - prints a clear missing-build message if the launcher does not exist
+  - prints the launcher path and the started process id
+  - supports `--check-only` for a fast launcher-path validation without starting the game
 
 ## Normal workflows
 
@@ -108,6 +110,12 @@ SmokeTestPackagedGame.cmd -StartupTimeoutSeconds 30 -LiveWindowSeconds 8
 
 ```text
 PlayPackagedGame.cmd
+```
+
+Fast launcher-path check:
+
+```text
+PlayPackagedGame.cmd --check-only
 ```
 
 ### 4. Quick package summary
