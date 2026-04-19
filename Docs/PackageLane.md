@@ -53,6 +53,11 @@ This runbook is not for:
   - runs `SummarizePackagedBuild.cmd`
   - use this when you want one package-lane verdict instead of three separate steps
 
+- `PublishLaptop2Status.cmd`
+  - updates `Docs\Laptop2Status.md`
+  - commits the status update on `codex/content`
+  - pushes the branch so the GitHub-visible report stays current
+
 - `PlayPackagedGame.cmd`
   - launches the repo-local packaged build from `Packaged\Windows`
   - prints a clear missing-build message if the launcher does not exist
@@ -93,6 +98,14 @@ PlayPackagedGame.cmd
 
 ```text
 SummarizePackagedBuild.cmd
+```
+
+### 5. Publish the 30-minute laptop 2 report
+
+Use this when the branch needs its routine GitHub-visible status update:
+
+```text
+PublishLaptop2Status.cmd -CurrentTask continue-Apartment302-room-dressing-import-prep -Last30mProgress "added a new import manifest for stable bundle names and screenshot labels" -Verification not-run-docs-only-content-checkpoint
 ```
 
 ## Output and log paths
