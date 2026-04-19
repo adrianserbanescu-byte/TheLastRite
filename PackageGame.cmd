@@ -5,6 +5,9 @@ set "PROJECT_ROOT=%~dp0"
 if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
 set "PAUSE_AT_END=1"
 if /I "%~1"=="--no-pause" set "PAUSE_AT_END="
+set "UPROJECT=%PROJECT_ROOT%\TheLastRite.uproject"
+set "UE_BUILD_BAT=C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat"
+set "UE_RUN_UAT_BAT=C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat"
 
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
 set "OUTPUT_WINDOWS_DIR=%OUTPUT_DIR%\Windows"
@@ -19,6 +22,27 @@ set "ZEN_DATA_DIR=%TEMP_ROOT%\Zen\Data"
 set "BUILD_LOG=%UBT_ROOT%\UBT-TheLastRiteShipping.log"
 set "UE-LocalDataCachePath=%LOCAL_DDC_DIR%"
 set "UE-SharedDataCachePath=None"
+
+if not exist "%UPROJECT%" (
+    echo Project file not found:
+    echo %UPROJECT%
+    set "EXIT_CODE=1"
+    goto :done
+)
+
+if not exist "%UE_BUILD_BAT%" (
+    echo Unreal build script not found:
+    echo %UE_BUILD_BAT%
+    set "EXIT_CODE=1"
+    goto :done
+)
+
+if not exist "%UE_RUN_UAT_BAT%" (
+    echo Unreal automation script not found:
+    echo %UE_RUN_UAT_BAT%
+    set "EXIT_CODE=1"
+    goto :done
+)
 
 if not exist "%TEMP_ROOT%" mkdir "%TEMP_ROOT%"
 if not exist "%UBT_ROOT%" mkdir "%UBT_ROOT%"
@@ -66,14 +90,14 @@ if exist "%OUTPUT_WINDOWS_DIR%" (
     rmdir /S /Q "%OUTPUT_WINDOWS_DIR%" >nul 2>&1
 )
 
-call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRite Win64 Shipping -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -log="%BUILD_LOG%"
+call "%UE_BUILD_BAT%" TheLastRite Win64 Shipping -Project="%UPROJECT%" -WaitMutex -log="%BUILD_LOG%"
 if errorlevel 1 goto :done
 
 set "uebp_LogFolder=%LOG_DIR%"
 set "uebp_EngineSavedFolder=%ENGINE_SAVED_DIR%"
 
-call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat" BuildCookRun ^
- -project="%PROJECT_ROOT%\TheLastRite.uproject" ^
+call "%UE_RUN_UAT_BAT%" BuildCookRun ^
+ -project="%UPROJECT%" ^
  -noP4 ^
  -platform=Win64 ^
  -clientconfig=Shipping ^
@@ -90,6 +114,10 @@ call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat" Bui
 :done
 set "EXIT_CODE=%ERRORLEVEL%"
 echo.
-echo Done.
+if "%EXIT_CODE%"=="0" (
+    echo Done.
+) else (
+    echo Packaging failed with exit code %EXIT_CODE%.
+)
 if defined PAUSE_AT_END pause
 exit /b %EXIT_CODE%
