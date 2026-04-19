@@ -47,8 +47,21 @@ FText AInspectableProp::GetPromptText() const
 
     if (bInspected)
     {
+        const FText NextMove = GameMode ? GameMode->GetNextMoveText() : FText::GetEmpty();
+        if (!NextMove.IsEmpty())
+        {
+            return FText::Format(
+                bTrueClue
+                    ? NSLOCTEXT("TheLastRite", "RecheckPromptTrueDetailed", "{0} is already logged as a true sign. {1}")
+                    : NSLOCTEXT("TheLastRite", "RecheckPromptFalseDetailed", "{0} is already ruled out as bait. {1}"),
+                DisplayName,
+                NextMove);
+        }
+
         return FText::Format(
-            NSLOCTEXT("TheLastRite", "RecheckPrompt", "Already checked: {0}"),
+            bTrueClue
+                ? NSLOCTEXT("TheLastRite", "RecheckPromptTrue", "{0} is already logged as a true sign.")
+                : NSLOCTEXT("TheLastRite", "RecheckPromptFalse", "{0} is already ruled out as bait."),
             DisplayName);
     }
 

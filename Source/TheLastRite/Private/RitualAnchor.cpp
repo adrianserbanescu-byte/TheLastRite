@@ -47,6 +47,15 @@ FText ARitualAnchor::GetPromptText() const
 
     if (bActivated)
     {
+        if (GameMode != nullptr)
+        {
+            const FText ResolvedPrompt = GameMode->GetResolvedInteractionText();
+            if (!ResolvedPrompt.IsEmpty())
+            {
+                return ResolvedPrompt;
+            }
+        }
+
         return FText::Format(
             NSLOCTEXT("TheLastRite", "SpentAnchorPrompt", "{0} is spent"),
             DisplayName);
