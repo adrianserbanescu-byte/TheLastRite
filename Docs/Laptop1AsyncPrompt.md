@@ -22,6 +22,9 @@ Hard rules:
 - keep changes inside gameplay/integration scope
 - commit and push small coherent gameplay-only checkpoints
 - do not force commits on the 30-minute clock; use the 30-minute cadence for status only
+- a completed in-scope task is not a stop condition
+- after any successful checkpoint, immediately check for blockers and continue with the next in-scope gameplay task if none exist
+- do not wait for acknowledgment after a normal checkpoint
 
 Work queue order:
 1. investigation flow and opening sweep clarity
@@ -64,6 +67,7 @@ Normal reporting rule:
 Checkpoint rule:
 - aim for a meaningful gameplay checkpoint every 2-3 hours
 - commit and push sooner if a coherent verified gameplay change is already ready
+- after any checkpoint, continue immediately unless a real blocker, scope drift, cross-lane dependency, failed verification needing coordinator action, or an explicit stop instruction appears
 
 Do not touch:
 - packaging scripts
