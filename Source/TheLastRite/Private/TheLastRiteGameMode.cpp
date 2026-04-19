@@ -253,12 +253,12 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
         SetStatusText(NSLOCTEXT(
             "TheLastRite",
             "WinStatus",
-            "You chose the nursery sigil. The room goes still. Do not linger. Leave through the front door."));
+            "You chose the nursery sigil. The room goes still. Do not linger. Leave through the front door and file the case."));
         AddEvidenceLine(TEXT("RITE - correct anchor"));
         DeductionText = NSLOCTEXT(
             "TheLastRite",
             "DeductionWon",
-            "Conclusion: the saint fed through the child-facing altar. The seal is holding. Leave and close the case cleanly.");
+            "Conclusion: the saint fed through the child-facing altar. The seal is holding. Leave through the front door and file the case cleanly.");
         TriggerPhasePulse(FLinearColor(0.30f, 0.95f, 0.55f, 1.0f), 1.2f);
     }
     else
@@ -340,7 +340,7 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
     SetStatusText(NSLOCTEXT(
         "TheLastRite",
         "FinalWinStatus",
-        "You left through the front door and closed the case."));
+        "You left through the front door and filed the case."));
     AddEvidenceLine(TEXT("EXIT - front door secured"));
     DeductionText = NSLOCTEXT(
         "TheLastRite",
@@ -1262,7 +1262,7 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         }
 
         FinalReportLines.Add(TEXT(""));
-        FinalReportLines.Add(TEXT("Seal result: front door used and case closed cleanly."));
+        FinalReportLines.Add(TEXT("Seal result: front door used and case filed cleanly."));
         FinalReportLines.Add(TEXT("Controls: press R to restart the case or Esc to quit."));
     }
     else if (CasePhase == ETheLastRiteCasePhase::ClosedFail)
