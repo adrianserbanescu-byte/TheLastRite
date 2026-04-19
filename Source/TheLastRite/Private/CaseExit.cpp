@@ -71,13 +71,13 @@ int32 ACaseExit::GetInteractionFocusPriority() const
 
 void ACaseExit::Interact(ATheLastRiteCharacter* InteractingCharacter)
 {
-    if (bUsed)
-    {
-        return;
-    }
-
     if (ATheLastRiteGameMode* GameMode = GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>())
     {
+        if (bUsed && !GameMode->IsCaseClosed())
+        {
+            return;
+        }
+
         GameMode->HandleCaseExit(this);
     }
 }
