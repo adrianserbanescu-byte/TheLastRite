@@ -21,6 +21,7 @@ public:
     void ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue, bool bInIsOpeningSweepTarget = false);
     bool WasInspected() const;
     bool IsTrueClue() const;
+    bool IsOpeningSweepTarget() const;
     const FText& GetClueText() const;
     const FText& GetEvidenceSummary() const;
     void MarkInspected();

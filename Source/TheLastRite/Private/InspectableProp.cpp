@@ -129,6 +129,11 @@ bool AInspectableProp::IsTrueClue() const
     return bTrueClue;
 }
 
+bool AInspectableProp::IsOpeningSweepTarget() const
+{
+    return bOpeningSweepTarget;
+}
+
 const FText& AInspectableProp::GetClueText() const
 {
     return ClueText;

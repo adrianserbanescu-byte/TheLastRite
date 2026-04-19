@@ -178,7 +178,18 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     {
         FoundTrueClues = FMath::Min(FoundTrueClues + 1, RequiredTrueClues);
         AddEvidenceLine(FString::Printf(TEXT("TRUE - %s"), *Prop->GetEvidenceSummary().ToString()));
-        if (FoundTrueClues >= RequiredTrueClues)
+        const bool bOpeningSweepComplete = IsOpeningSweepComplete();
+        if (!bOpeningSweepComplete)
+        {
+            SetStatusText(FText::Format(
+                Prop->IsOpeningSweepTarget()
+                    ? NSLOCTEXT("TheLastRite", "TrueClueOpeningSweep", "{0} is real. {1}. Next: {2}.")
+                    : NSLOCTEXT("TheLastRite", "TrueClueOutOfOrder", "{0} is real, but keep the opening sweep in order. {1}. Next: {2}."),
+                Prop->GetClueText(),
+                GetOpeningSweepStateText(),
+                GetNextStarterTargetText()));
+        }
+        else if (FoundTrueClues >= RequiredTrueClues)
         {
             ObjectiveText = NSLOCTEXT(
                 "TheLastRite",
@@ -201,8 +212,11 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
         ++FoundFalseLeads;
         AddEvidenceLine(FString::Printf(TEXT("FALSE - %s"), *Prop->GetEvidenceSummary().ToString()));
         SetStatusText(FText::Format(
-            NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. It looks ugly, but it is not the saint."),
-            Prop->GetClueText()));
+            IsOpeningSweepComplete()
+                ? NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. It looks ugly, but it is not the saint.")
+                : NSLOCTEXT("TheLastRite", "FalseLeadOpeningSweep", "{0} False lead. Finish the opening sweep first: {1}."),
+            Prop->GetClueText(),
+            GetNextStarterTargetText()));
     }
 
     UpdateCasePhaseFromEvidence();
