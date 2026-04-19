@@ -33,11 +33,12 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     FoundTrueClues = 0;
     FoundFalseLeads = 0;
     TotalFalseLeads = 3;
-    bCaseResolved = false;
-    bPlayerWon = false;
-    bCaseClosed = false;
+    CasePhase = ETheLastRiteCasePhase::Investigating;
     RecentEventTimeSeconds = -1000.0f;
     RecentEventDurationSeconds = 5.0f;
+    PhasePulseStartedAtSeconds = -1000.0f;
+    PhasePulseDurationSeconds = 0.0f;
+    PhasePulseColor = FLinearColor::Transparent;
 
     PlayerSpawnLocation = FVector(0.0f, 0.0f, 140.0f);
     PlayerSpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
@@ -58,6 +59,10 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
         "TheLastRite",
         "StatusInitial",
         "Search the room. Real clues carry the saint's pale halo pattern.");
+    CurrentObjectiveText = NSLOCTEXT(
+        "TheLastRite",
+        "CurrentObjectiveInitial",
+        "Current objective: investigate Apartment 302 and find the real Hollow Saint signs.");
     RecentEventText = FText::GetEmpty();
     ProgressText = FText::GetEmpty();
     DeductionText = NSLOCTEXT(
@@ -77,10 +82,13 @@ void ATheLastRiteGameMode::BeginPlay()
     BuildCaseContent();
     SpawnLights();
     UpdateRitualAnchors();
+    UpdateCasePhaseFromEvidence();
     UpdateCaseExit();
     UpdateDeductionText();
     UpdateWorldMood();
     UpdateProgressText();
+    RefreshCurrentObjectiveText();
+    RebuildFinalReport();
 }
 
 void ATheLastRiteGameMode::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
@@ -97,7 +105,7 @@ void ATheLastRiteGameMode::HandleStartingNewPlayer_Implementation(APlayerControl
 
 void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 {
-    if (Prop == nullptr || bCaseResolved)
+    if (Prop == nullptr || IsCaseResolved())
     {
         return;
     }
@@ -125,6 +133,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
             SetStatusText(FText::Format(
                 NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. The Hollow Saint is tied to the nursery, not the mirror."),
                 Prop->GetClueText()));
+            TriggerPhasePulse(FLinearColor(0.96f, 0.75f, 0.22f, 1.0f), 1.0f);
         }
         else
         {
@@ -142,8 +151,10 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
             Prop->GetClueText()));
     }
 
+    UpdateCasePhaseFromEvidence();
     UpdateDeductionText();
     UpdateProgressText();
+    RefreshCurrentObjectiveText();
     UpdateRitualAnchors();
     UpdateCaseExit();
     UpdateWorldMood();
@@ -156,7 +167,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
         return;
     }
 
-    if (bCaseResolved)
+    if (IsCaseResolved())
     {
         return;
     }
@@ -170,12 +181,10 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     }
 
     Anchor->MarkActivated();
-    bCaseResolved = true;
-    bPlayerWon = Anchor->IsCorrectAnchor();
-    bCaseClosed = false;
 
-    if (bPlayerWon)
+    if (Anchor->IsCorrectAnchor())
     {
+        CasePhase = ETheLastRiteCasePhase::SealedAwaitingExit;
         ObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "ObjectiveWon",
@@ -191,10 +200,11 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "TheLastRite",
             "DeductionWon",
             "Conclusion: the saint fed through the child-facing altar. The seal is holding. Leave and close the case cleanly.");
+        TriggerPhasePulse(FLinearColor(0.30f, 0.95f, 0.55f, 1.0f), 1.2f);
     }
     else
     {
-        bCaseClosed = true;
+        CasePhase = ETheLastRiteCasePhase::ClosedFail;
         ObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "ObjectiveLost",
@@ -216,11 +226,14 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "TheLastRite",
             "DeductionLost",
             "Conclusion missed: the mirror was only theater. The real ritual weight lived around the cradle.");
+        TriggerPhasePulse(FLinearColor(1.0f, 0.05f, 0.03f, 1.0f), 1.4f);
     }
 
+    RefreshCurrentObjectiveText();
     UpdateCaseExit();
     UpdateProgressText();
     UpdateWorldMood();
+    RebuildFinalReport();
 }
 
 void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
@@ -230,7 +243,7 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
         return;
     }
 
-    if (!bCaseResolved || !bPlayerWon)
+    if (CasePhase != ETheLastRiteCasePhase::SealedAwaitingExit)
     {
         SetStatusText(NSLOCTEXT(
             "TheLastRite",
@@ -239,13 +252,8 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
         return;
     }
 
-    if (bCaseClosed)
-    {
-        return;
-    }
-
     Exit->MarkUsed();
-    bCaseClosed = true;
+    CasePhase = ETheLastRiteCasePhase::ClosedWin;
     ObjectiveText = NSLOCTEXT(
         "TheLastRite",
         "ObjectiveClosed",
@@ -267,9 +275,18 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
         "TheLastRite",
         "DeductionClosed",
         "Final read: the nursery was the altar, the mirror was bait, and the case is now sealed.");
+    TriggerPhasePulse(FLinearColor(0.85f, 0.95f, 0.76f, 1.0f), 1.1f);
 
+    RefreshCurrentObjectiveText();
     UpdateCaseExit();
     UpdateProgressText();
+    UpdateWorldMood();
+    RebuildFinalReport();
+}
+
+ETheLastRiteCasePhase ATheLastRiteGameMode::GetCasePhase() const
+{
+    return CasePhase;
 }
 
 FText ATheLastRiteGameMode::GetCaseTitleText() const
@@ -280,6 +297,11 @@ FText ATheLastRiteGameMode::GetCaseTitleText() const
 FText ATheLastRiteGameMode::GetTargetText() const
 {
     return TargetText;
+}
+
+FText ATheLastRiteGameMode::GetCurrentObjectiveText() const
+{
+    return CurrentObjectiveText;
 }
 
 FText ATheLastRiteGameMode::GetObjectiveText() const
@@ -333,24 +355,55 @@ const TArray<FString>& ATheLastRiteGameMode::GetEvidenceLines() const
     return EvidenceLines;
 }
 
+const TArray<FString>& ATheLastRiteGameMode::GetFinalReportLines() const
+{
+    return FinalReportLines;
+}
+
 bool ATheLastRiteGameMode::HasEvidenceLine(const FString& FullLine) const
 {
     return EvidenceLines.Contains(FullLine);
 }
 
+FLinearColor ATheLastRiteGameMode::GetPhasePulseColor() const
+{
+    return PhasePulseColor;
+}
+
+float ATheLastRiteGameMode::GetPhasePulseOpacity() const
+{
+    if (GetWorld() == nullptr || PhasePulseDurationSeconds <= 0.0f)
+    {
+        return 0.0f;
+    }
+
+    const float AgeSeconds = GetWorld()->GetTimeSeconds() - PhasePulseStartedAtSeconds;
+    if (AgeSeconds < 0.0f || AgeSeconds > PhasePulseDurationSeconds)
+    {
+        return 0.0f;
+    }
+
+    const float Fade = 1.0f - (AgeSeconds / PhasePulseDurationSeconds);
+    return FMath::Clamp(Fade * 0.32f, 0.0f, 0.32f);
+}
+
 bool ATheLastRiteGameMode::IsCaseResolved() const
 {
-    return bCaseResolved;
+    return CasePhase == ETheLastRiteCasePhase::SealedAwaitingExit
+        || CasePhase == ETheLastRiteCasePhase::ClosedWin
+        || CasePhase == ETheLastRiteCasePhase::ClosedFail;
 }
 
 bool ATheLastRiteGameMode::IsCaseClosed() const
 {
-    return bCaseClosed;
+    return CasePhase == ETheLastRiteCasePhase::ClosedWin
+        || CasePhase == ETheLastRiteCasePhase::ClosedFail;
 }
 
 bool ATheLastRiteGameMode::DidPlayerWin() const
 {
-    return bPlayerWon;
+    return CasePhase == ETheLastRiteCasePhase::SealedAwaitingExit
+        || CasePhase == ETheLastRiteCasePhase::ClosedWin;
 }
 
 void ATheLastRiteGameMode::BuildRoom()
@@ -517,6 +570,8 @@ void ATheLastRiteGameMode::BuildSetDressing()
     SpawnRoomPiece(FVector(-1330.0f, 0.0f, 150.0f), FVector(0.08f, 2.1f, 3.0f), FRotator::ZeroRotator, MirrorColor);
     SpawnRoomPiece(FVector(-680.0f, -180.0f, 8.0f), FVector(5.6f, 2.8f, 0.04f), FRotator::ZeroRotator, TileColor);
     SpawnRoomPiece(FVector(130.0f, 260.0f, 8.0f), FVector(1.2f, 7.4f, 0.04f), FRotator::ZeroRotator, RunnerColor);
+    SpawnRoomPiece(FVector(610.0f, -960.0f, 8.0f), FVector(2.6f, 4.0f, 0.04f), FRotator::ZeroRotator, RunnerColor);
+    SpawnRoomPiece(FVector(910.0f, -1230.0f, 8.0f), FVector(2.4f, 0.24f, 0.05f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(780.0f, 760.0f, 8.0f), FVector(3.0f, 2.8f, 0.04f), FRotator::ZeroRotator, NurseryGlowColor);
     SpawnRoomPiece(FVector(940.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(780.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
@@ -604,7 +659,7 @@ void ATheLastRiteGameMode::SpawnLights()
 
 void ATheLastRiteGameMode::UpdateRitualAnchors()
 {
-    const bool bRitualReady = FoundTrueClues >= RequiredTrueClues;
+    const bool bRitualReady = CasePhase == ETheLastRiteCasePhase::RiteReady;
     for (ARitualAnchor* Anchor : RitualAnchors)
     {
         if (Anchor != nullptr)
@@ -618,9 +673,21 @@ void ATheLastRiteGameMode::UpdateCaseExit()
 {
     if (CaseExitActor != nullptr)
     {
-        const bool bExitReady = bCaseResolved && bPlayerWon && !bCaseClosed;
+        const bool bExitReady = CasePhase == ETheLastRiteCasePhase::SealedAwaitingExit;
         CaseExitActor->SetExitReady(bExitReady);
     }
+}
+
+void ATheLastRiteGameMode::UpdateCasePhaseFromEvidence()
+{
+    if (IsCaseResolved())
+    {
+        return;
+    }
+
+    CasePhase = FoundTrueClues >= RequiredTrueClues
+        ? ETheLastRiteCasePhase::RiteReady
+        : ETheLastRiteCasePhase::Investigating;
 }
 
 void ATheLastRiteGameMode::UpdateWorldMood()
@@ -628,16 +695,32 @@ void ATheLastRiteGameMode::UpdateWorldMood()
     FLinearColor LightColor(0.96f, 0.92f, 0.82f);
     float IntensityScale = 1.0f;
 
-    if (bCaseResolved)
+    switch (CasePhase)
     {
-        LightColor = bPlayerWon ? FLinearColor(0.65f, 1.0f, 0.72f) : FLinearColor(1.0f, 0.20f, 0.14f);
-        IntensityScale = bPlayerWon ? 1.15f : 0.55f;
-    }
-    else
+    case ETheLastRiteCasePhase::ClosedFail:
+        LightColor = FLinearColor(1.0f, 0.20f, 0.14f);
+        IntensityScale = 0.48f;
+        break;
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        LightColor = FLinearColor(0.65f, 1.0f, 0.72f);
+        IntensityScale = 1.15f;
+        break;
+    case ETheLastRiteCasePhase::ClosedWin:
+        LightColor = FLinearColor(0.86f, 0.96f, 0.78f);
+        IntensityScale = 1.05f;
+        break;
+    case ETheLastRiteCasePhase::RiteReady:
+        LightColor = FLinearColor(1.0f, 0.82f, 0.30f);
+        IntensityScale = 1.05f;
+        break;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
     {
         const float ClueProgress = RequiredTrueClues > 0 ? static_cast<float>(FoundTrueClues) / static_cast<float>(RequiredTrueClues) : 0.0f;
         LightColor = FMath::Lerp(FLinearColor(0.96f, 0.92f, 0.82f), FLinearColor(1.0f, 0.78f, 0.30f), ClueProgress);
         IntensityScale = FMath::Clamp(1.0f - (static_cast<float>(FoundFalseLeads) * 0.16f), 0.62f, 1.15f);
+        break;
+    }
     }
 
     for (int32 Index = 0; Index < CaseLights.Num(); ++Index)
@@ -659,26 +742,33 @@ void ATheLastRiteGameMode::UpdateWorldMood()
 
 void ATheLastRiteGameMode::UpdateProgressText()
 {
-    if (bCaseResolved)
+    switch (CasePhase)
     {
-        if (bPlayerWon && !bCaseClosed)
-        {
-            ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door");
-        }
-        else
-        {
-            ProgressText = bPlayerWon
-                ? NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to run the case again")
-                : NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again");
-        }
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door");
         return;
+    case ETheLastRiteCasePhase::ClosedWin:
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to run the case again");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        ProgressText = FText::Format(
+            NSLOCTEXT("TheLastRite", "ProgressRiteReady", "True clues: {0}/{1} | False leads: {2}/{3} | Rite ready: nursery sigil only"),
+            FText::AsNumber(FoundTrueClues),
+            FText::AsNumber(RequiredTrueClues),
+            FText::AsNumber(FoundFalseLeads),
+            FText::AsNumber(TotalFalseLeads));
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
     }
 
-    const FText RiteState = FoundTrueClues >= RequiredTrueClues
-        ? NSLOCTEXT("TheLastRite", "RiteReady", "Rite ready")
-        : FText::Format(
-            NSLOCTEXT("TheLastRite", "RiteLocked", "Rite locked: {0} clue(s) left"),
-            FText::AsNumber(RequiredTrueClues - FoundTrueClues));
+    const FText RiteState = FText::Format(
+        NSLOCTEXT("TheLastRite", "RiteLocked", "Rite locked: {0} clue(s) left"),
+        FText::AsNumber(RequiredTrueClues - FoundTrueClues));
 
     ProgressText = FText::Format(
         NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/{3} | {4}"),
@@ -691,7 +781,9 @@ void ATheLastRiteGameMode::UpdateProgressText()
 
 void ATheLastRiteGameMode::UpdateDeductionText()
 {
-    if (bCaseResolved)
+    if (CasePhase == ETheLastRiteCasePhase::SealedAwaitingExit
+        || CasePhase == ETheLastRiteCasePhase::ClosedWin
+        || CasePhase == ETheLastRiteCasePhase::ClosedFail)
     {
         return;
     }
@@ -701,7 +793,7 @@ void ATheLastRiteGameMode::UpdateDeductionText()
         DeductionText = NSLOCTEXT(
             "TheLastRite",
             "DeductionZero",
-            "Read of the room: no clean pattern yet. Start with the body, the cradle, and the prayer mess.");
+            "Read of the room: pattern unclear. Start with the body, the cradle, and the prayer mess.");
         return;
     }
 
@@ -710,7 +802,7 @@ void ATheLastRiteGameMode::UpdateDeductionText()
         DeductionText = NSLOCTEXT(
             "TheLastRite",
             "DeductionOne",
-            "Read of the room: one sign is not enough, but the scene already feels staged instead of random.");
+            "Read of the room: pattern unclear, but the room already feels staged instead of random.");
         return;
     }
 
@@ -719,7 +811,7 @@ void ATheLastRiteGameMode::UpdateDeductionText()
         DeductionText = NSLOCTEXT(
             "TheLastRite",
             "DeductionTwo",
-            "Read of the room: the saint pattern is turning child-facing. The room wants your eyes on the nursery.");
+            "Read of the room: the nursery side is gaining weight. The room wants your eyes on the child-facing signs.");
         return;
     }
 
@@ -729,11 +821,11 @@ void ATheLastRiteGameMode::UpdateDeductionText()
             ? NSLOCTEXT(
                 "TheLastRite",
                 "DeductionThreeFalse",
-                "Read of the room: the ugly damage is bait. The pattern keeps bending toward the child-facing side of the apartment.")
+                "Read of the room: the nursery side is gaining weight. The ugly damage is bait, not the ritual center.")
             : NSLOCTEXT(
                 "TheLastRite",
                 "DeductionThree",
-                "Read of the room: the signs are starting to agree. The nursery side is carrying more ritual weight than the mirror.");
+                "Read of the room: the nursery side is gaining weight. The signs are starting to agree against the mirror.");
         return;
     }
 
@@ -742,14 +834,114 @@ void ATheLastRiteGameMode::UpdateDeductionText()
         DeductionText = NSLOCTEXT(
             "TheLastRite",
             "DeductionFour",
-            "Read of the room: nearly locked. Every real sign points childward. One last confirmation should settle the rite.");
+            "Read of the room: nearly locked. The mirror is bait. One last confirmation should settle the rite.");
         return;
     }
 
     DeductionText = NSLOCTEXT(
         "TheLastRite",
         "DeductionComplete",
-        "Read of the room: conclusion locked. Perform the rite at the nursery sigil. The mirror circle is bait.");
+        "Read of the room: conclusion locked. The nursery sigil is correct. The mirror is bait.");
+}
+
+void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
+{
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::Investigating:
+        CurrentObjectiveText = NSLOCTEXT(
+            "TheLastRite",
+            "CurrentObjectiveInvestigating",
+            "Current objective: investigate the apartment and find the 5 real clues.");
+        break;
+    case ETheLastRiteCasePhase::RiteReady:
+        CurrentObjectiveText = NSLOCTEXT(
+            "TheLastRite",
+            "CurrentObjectiveRiteReady",
+            "Current objective: perform the rite at the nursery sigil.");
+        break;
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        CurrentObjectiveText = NSLOCTEXT(
+            "TheLastRite",
+            "CurrentObjectiveExit",
+            "Current objective: leave through the front door.");
+        break;
+    case ETheLastRiteCasePhase::ClosedWin:
+    case ETheLastRiteCasePhase::ClosedFail:
+    default:
+        CurrentObjectiveText = NSLOCTEXT(
+            "TheLastRite",
+            "CurrentObjectiveRestart",
+            "Current objective: press R to restart the case.");
+        break;
+    }
+}
+
+void ATheLastRiteGameMode::RebuildFinalReport()
+{
+    FinalReportLines.Reset();
+
+    if (CasePhase == ETheLastRiteCasePhase::ClosedWin)
+    {
+        FinalReportLines.Add(TEXT("Case title: Apartment 302"));
+        FinalReportLines.Add(TEXT("Demon: Hollow Saint"));
+        FinalReportLines.Add(TEXT("Conclusion: the nursery sigil was the correct anchor."));
+        FinalReportLines.Add(FString::Printf(TEXT("True clues confirmed: %d/%d"), FoundTrueClues, RequiredTrueClues));
+
+        if (HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks")))
+        {
+            FinalReportLines.Add(TEXT("True clue: Nanny Eliza showed mirrored wrist marks."));
+        }
+        if (HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints")))
+        {
+            FinalReportLines.Add(TEXT("True clue: the cradle carried ash-white halo prints."));
+        }
+        if (HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown")))
+        {
+            FinalReportLines.Add(TEXT("True clue: the prayer cards were fused into a crown."));
+        }
+        if (HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel")))
+        {
+            FinalReportLines.Add(TEXT("True clue: the monitor repeated the hymn on every channel."));
+        }
+        if (HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo")))
+        {
+            FinalReportLines.Add(TEXT("True clue: the nursery mural had been repainted into a halo."));
+        }
+
+        FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
+        if (HasEvidenceLine(TEXT("FALSE - the broken window latch - forced from outside")))
+        {
+            FinalReportLines.Add(TEXT("False lead: broken window latch."));
+        }
+        if (HasEvidenceLine(TEXT("FALSE - the pawn ticket pouch - ordinary greed")))
+        {
+            FinalReportLines.Add(TEXT("False lead: pawn ticket pouch."));
+        }
+        if (HasEvidenceLine(TEXT("FALSE - the kitchen knife - grease, not offering blood")))
+        {
+            FinalReportLines.Add(TEXT("False lead: kitchen knife."));
+        }
+    }
+    else if (CasePhase == ETheLastRiteCasePhase::ClosedFail)
+    {
+        FinalReportLines.Add(TEXT("Case title: Apartment 302"));
+        FinalReportLines.Add(TEXT("Demon: Hollow Saint"));
+        FinalReportLines.Add(TEXT("Wrong rite used: mirror circle."));
+        FinalReportLines.Add(TEXT("Correct anchor: nursery sigil."));
+        FinalReportLines.Add(FString::Printf(TEXT("True clues found: %d/%d"), FoundTrueClues, RequiredTrueClues));
+        FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
+    }
+}
+
+void ATheLastRiteGameMode::TriggerPhasePulse(const FLinearColor& Color, float DurationSeconds)
+{
+    PhasePulseColor = Color;
+    PhasePulseDurationSeconds = DurationSeconds;
+    if (GetWorld() != nullptr)
+    {
+        PhasePulseStartedAtSeconds = GetWorld()->GetTimeSeconds();
+    }
 }
 
 void ATheLastRiteGameMode::SetStatusText(const FText& NewStatusText)

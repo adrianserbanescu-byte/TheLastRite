@@ -9,6 +9,16 @@ class APointLight;
 class ARitualAnchor;
 class ACaseExit;
 
+UENUM()
+enum class ETheLastRiteCasePhase : uint8
+{
+    Investigating,
+    RiteReady,
+    SealedAwaitingExit,
+    ClosedWin,
+    ClosedFail
+};
+
 UCLASS()
 class THELASTRITE_API ATheLastRiteGameMode : public AGameModeBase
 {
@@ -24,8 +34,10 @@ public:
     void HandleRitualAnchor(ARitualAnchor* Anchor);
     void HandleCaseExit(ACaseExit* Exit);
 
+    ETheLastRiteCasePhase GetCasePhase() const;
     FText GetCaseTitleText() const;
     FText GetTargetText() const;
+    FText GetCurrentObjectiveText() const;
     FText GetObjectiveText() const;
     FText GetStatusText() const;
     FText GetRecentEventText() const;
@@ -34,7 +46,10 @@ public:
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
     const TArray<FString>& GetEvidenceLines() const;
+    const TArray<FString>& GetFinalReportLines() const;
     bool HasEvidenceLine(const FString& FullLine) const;
+    FLinearColor GetPhasePulseColor() const;
+    float GetPhasePulseOpacity() const;
 
     bool IsCaseResolved() const;
     bool IsCaseClosed() const;
@@ -48,9 +63,13 @@ private:
     void SpawnLights();
     void UpdateRitualAnchors();
     void UpdateCaseExit();
+    void UpdateCasePhaseFromEvidence();
     void UpdateWorldMood();
     void UpdateProgressText();
     void UpdateDeductionText();
+    void RefreshCurrentObjectiveText();
+    void RebuildFinalReport();
+    void TriggerPhasePulse(const FLinearColor& Color, float DurationSeconds);
     void SetStatusText(const FText& NewStatusText);
     void AddEvidenceLine(const FString& NewLine);
 
@@ -59,6 +78,9 @@ private:
 
     UPROPERTY()
     FText TargetText;
+
+    UPROPERTY()
+    FText CurrentObjectiveText;
 
     UPROPERTY()
     FText ObjectiveText;
@@ -85,6 +107,9 @@ private:
     TArray<FString> EvidenceLines;
 
     UPROPERTY()
+    TArray<FString> FinalReportLines;
+
+    UPROPERTY()
     int32 RequiredTrueClues;
 
     UPROPERTY()
@@ -97,19 +122,22 @@ private:
     int32 TotalFalseLeads;
 
     UPROPERTY()
-    bool bCaseResolved;
-
-    UPROPERTY()
-    bool bPlayerWon;
-
-    UPROPERTY()
-    bool bCaseClosed;
+    ETheLastRiteCasePhase CasePhase;
 
     UPROPERTY()
     float RecentEventTimeSeconds;
 
     UPROPERTY()
     float RecentEventDurationSeconds;
+
+    UPROPERTY()
+    float PhasePulseStartedAtSeconds;
+
+    UPROPERTY()
+    float PhasePulseDurationSeconds;
+
+    UPROPERTY()
+    FLinearColor PhasePulseColor;
 
     UPROPERTY()
     FVector PlayerSpawnLocation;

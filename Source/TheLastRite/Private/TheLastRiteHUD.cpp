@@ -24,10 +24,18 @@ void ATheLastRiteHUD::DrawHUD()
     UFont* SmallFont = GEngine->GetSmallFont();
     UFont* LargeFont = GEngine->GetLargeFont();
     const float WorldTimeSeconds = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0f;
+    const float PhasePulseOpacity = GameMode->GetPhasePulseOpacity();
+
+    if (PhasePulseOpacity > 0.0f)
+    {
+        FLinearColor PulseColor = GameMode->GetPhasePulseColor();
+        PulseColor.A = PhasePulseOpacity;
+        DrawRect(PulseColor, 0.0f, 0.0f, Canvas->ClipX, Canvas->ClipY);
+    }
 
     float Y = 30.0f;
     const float X = 30.0f;
-    DrawPanel(18.0f, 18.0f, 760.0f, 180.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+    DrawPanel(18.0f, 18.0f, 760.0f, 232.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
 
     DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), X, Y, SmallFont, 1.15f, false);
     Y += 24.0f;
@@ -35,6 +43,8 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 32.0f;
     Y = DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, X, Y, 92, SmallFont, 1.15f);
     Y += 8.0f;
+    Y = DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.65f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.05f);
+    Y += 6.0f;
     DrawText(GameMode->GetProgressText().ToString(), FLinearColor(0.9f, 0.9f, 0.75f), X, Y, SmallFont, 1.1f, false);
     Y += 24.0f;
     Y = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.78f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.0f);
@@ -47,11 +57,12 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float IntroX = Canvas->ClipX * 0.22f;
         const float IntroY = Canvas->ClipY * 0.18f;
-        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 720.0f, 190.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
+        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 720.0f, 220.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
         DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, LargeFont, 1.35f, false);
         DrawText(GameMode->GetTargetText().ToString(), FLinearColor(0.95f, 0.78f, 0.42f), IntroX, IntroY + 40.0f, SmallFont, 1.25f, false);
         DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, IntroY + 74.0f, 62, SmallFont, 1.2f);
-        DrawText(TEXT("Find the real signs. Ignore the bait. Finish the rite."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 130.0f, SmallFont, 1.1f, false);
+        DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.72f, 0.90f, 1.0f), IntroX, IntroY + 132.0f, 62, SmallFont, 1.1f);
+        DrawText(TEXT("Find the real signs. Ignore the bait. Finish the rite."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 168.0f, SmallFont, 1.1f, false);
     }
 
     const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
@@ -145,15 +156,54 @@ void ATheLastRiteHUD::DrawHUD()
         DrawWrappedTextLine(RecentEvent.ToString(), FLinearColor(1.0f, 0.92f, 0.55f), EventX, EventY, 82, SmallFont, 1.2f);
     }
 
+    if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::SealedAwaitingExit)
+    {
+        const float BannerX = Canvas->ClipX * 0.33f;
+        const float BannerY = Canvas->ClipY * 0.16f;
+        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 520.0f, 94.0f, FLinearColor(0.03f, 0.08f, 0.04f, 0.80f));
+        DrawText(TEXT("SEAL HOLDS"), FLinearColor(0.58f, 1.0f, 0.64f), BannerX, BannerY, LargeFont, 1.35f, false);
+        DrawText(TEXT("Leave through the front door now."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.15f, false);
+    }
+
     if (GameMode->IsCaseClosed())
     {
         const FString Ending = GameMode->GetEndingText().ToString();
         const float CenterX = Canvas->ClipX * 0.18f;
         const float CenterY = Canvas->ClipY * 0.28f;
-        DrawPanel(CenterX - 22.0f, CenterY - 20.0f, 760.0f, 210.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.84f));
+        float ReportY = CenterY + 108.0f;
+        const TArray<FString>& FinalReportLines = GameMode->GetFinalReportLines();
+        const float OverlayHeight = FinalReportLines.IsEmpty() ? 220.0f : 420.0f;
+        DrawPanel(CenterX - 22.0f, CenterY - 20.0f, 760.0f, OverlayHeight, FLinearColor(0.01f, 0.02f, 0.04f, 0.84f));
         DrawText(Ending, GameMode->DidPlayerWin() ? FLinearColor(0.5f, 1.0f, 0.5f) : FLinearColor(1.0f, 0.45f, 0.45f), CenterX, CenterY, LargeFont, 2.0f, false);
         DrawWrappedTextLine(GameMode->GetEndingDetailText().ToString(), FLinearColor::White, CenterX, CenterY + 70.0f, 68, SmallFont, 1.2f);
-        DrawText(TEXT("Press R to restart the case"), FLinearColor::White, CenterX, CenterY + 132.0f, SmallFont, 1.25f, false);
+
+        if (!FinalReportLines.IsEmpty())
+        {
+            DrawText(TEXT("Final report"), FLinearColor(0.85f, 0.95f, 1.0f), CenterX, ReportY, SmallFont, 1.15f, false);
+            ReportY += 26.0f;
+
+            for (const FString& Line : FinalReportLines)
+            {
+                FLinearColor ReportColor(0.82f, 0.86f, 0.90f);
+                if (Line.Contains(TEXT("Conclusion")) || Line.Contains(TEXT("correct anchor")) || Line.Contains(TEXT("True clue")))
+                {
+                    ReportColor = FLinearColor(0.68f, 1.0f, 0.72f);
+                }
+                else if (Line.Contains(TEXT("Wrong rite")) || Line.Contains(TEXT("FAILED")))
+                {
+                    ReportColor = FLinearColor(1.0f, 0.45f, 0.45f);
+                }
+                else if (Line.Contains(TEXT("False lead")))
+                {
+                    ReportColor = FLinearColor(1.0f, 0.72f, 0.44f);
+                }
+
+                ReportY = DrawWrappedTextLine(Line, ReportColor, CenterX, ReportY, 68, SmallFont, 1.0f);
+                ReportY += 2.0f;
+            }
+        }
+
+        DrawText(TEXT("Press R to restart the case"), FLinearColor::White, CenterX, CenterY + OverlayHeight - 48.0f, SmallFont, 1.25f, false);
     }
 }
 
