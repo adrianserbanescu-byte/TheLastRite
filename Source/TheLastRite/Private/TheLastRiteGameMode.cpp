@@ -854,10 +854,10 @@ void ATheLastRiteGameMode::UpdateProgressText()
         ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door");
         return;
     case ETheLastRiteCasePhase::ClosedWin:
-        ProgressText = NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to run the case again | Esc to quit");
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to restart the case | Esc to quit");
         return;
     case ETheLastRiteCasePhase::ClosedFail:
-        ProgressText = NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again | Esc to quit");
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to restart the case | Esc to quit");
         return;
     case ETheLastRiteCasePhase::RiteReady:
         ProgressText = FText::Format(
@@ -1043,13 +1043,13 @@ void ATheLastRiteGameMode::UpdateNextMoveText()
         NextMoveText = NSLOCTEXT(
             "TheLastRite",
             "NextMoveClosedWin",
-            "Case closed. Press R when you want to run Apartment 302 again, or Esc to quit.");
+            "Case closed. Press R to restart the case, or Esc to quit.");
         return;
     case ETheLastRiteCasePhase::ClosedFail:
         NextMoveText = NSLOCTEXT(
             "TheLastRite",
             "NextMoveClosedFail",
-            "Press R to restart, or Esc to quit. On the next run, stay with the child-facing pattern instead of the mirror bait.");
+            "Press R to restart the case, or Esc to quit. On the next run, stay with the child-facing pattern instead of the mirror bait.");
         return;
     case ETheLastRiteCasePhase::RiteReady:
         NextMoveText = NSLOCTEXT(
