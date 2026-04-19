@@ -45,6 +45,7 @@ This runbook is not for:
   - confirms launcher and shipping executable presence
   - reports whether the shipping PDB exists
   - reports package size
+  - reports the latest packaged-file timestamp
   - prints the latest correlated UBT, UAT, saved, and stage paths
 
 - `ValidatePackageLane.cmd`
@@ -166,6 +167,7 @@ That cleanup is local to the repo and supports repeatable non-main packaging.
 
 - launcher path is present
 - shipping executable path is present
+- packaged-file freshness is visible
 - latest run id and temp/log roots are printed when available
 
 ## First checks when something fails

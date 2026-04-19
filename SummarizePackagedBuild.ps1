@@ -91,6 +91,7 @@ $allFiles = Get-ChildItem -Path $packageRoot -Recurse -File
 $totalBytes = ($allFiles | Measure-Object -Property Length -Sum).Sum
 if ($null -eq $totalBytes) { $totalBytes = 0 }
 $totalGiB = [math]::Round($totalBytes / 1GB, 3)
+$latestPackagedFile = $allFiles | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 
 Write-Host 'Packaged build summary'
 Write-Host
@@ -102,9 +103,16 @@ Write-Host ('shipping exe path: {0}' -f $shippingPath)
 Write-Host ('shipping pdb exists: {0}' -f (Test-Path $shippingPdbPath).ToString().ToLower())
 Write-Host ('shipping pdb path: {0}' -f $shippingPdbPath)
 Write-Host ('package size gib: {0}' -f $totalGiB)
+if ($latestPackagedFile) {
+    Write-Host ('latest packaged file time: {0}' -f $latestPackagedFile.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+    Write-Host ('latest packaged file path: {0}' -f $latestPackagedFile.FullName)
+}
 
 if ($selectedRun) {
     Write-Host ('run id: {0}' -f $selectedRun.RunId)
+    if ($selectedRun.SortTime) {
+        Write-Host ('run timestamp: {0}' -f $selectedRun.SortTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+    }
 }
 
 if ($selectedRun -and $selectedRun.Paths.Contains('UBT')) {
