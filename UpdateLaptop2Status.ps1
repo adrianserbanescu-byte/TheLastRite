@@ -11,6 +11,11 @@ param(
     [ValidateSet('yes', 'no')]
     [string]$NeedsCoordinator = 'no',
 
+    [string]$Head = '',
+
+    [ValidateSet('clean', 'dirty', '')]
+    [string]$WorkingTree = '',
+
     [string]$ProjectRoot = ''
 )
 
@@ -30,10 +35,12 @@ if (-not (Test-Path (Split-Path $statusFile -Parent))) {
     throw "Status file folder not found: $(Split-Path $statusFile -Parent)"
 }
 
-$head = (& $gitExe rev-parse HEAD).Trim()
+$head = if ($Head) { $Head } else { (& $gitExe rev-parse HEAD).Trim() }
 $branch = (& $gitExe rev-parse --abbrev-ref HEAD).Trim()
 $statusLines = @(& $gitExe status --porcelain)
-$workingTree = if ($statusLines.Count -eq 0) { 'clean' } else { 'dirty' }
+if (-not $WorkingTree) {
+    $WorkingTree = if ($statusLines.Count -eq 0) { 'clean' } else { 'dirty' }
+}
 $time = Get-Date -Format 'yyyy-MM-dd HH:mm:ss zzz'
 
 $content = @"
