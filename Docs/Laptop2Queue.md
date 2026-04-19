@@ -10,4 +10,6 @@ Work top to bottom. Take the first incomplete in-scope task and continue immedia
 - [x] Add an Apartment 302 false-lead balance guide that keeps the mirror, window, and pawn decoys readable without overpowering the nursery answer path.
 - [x] Add an Apartment 302 screenshot-note shorthand so package-lane notes can reuse the same labels and verdict phrases quickly.
 - [x] Add an Apartment 302 placement triage note that maps the smallest in-scope readability fixes to the most likely screenshot failures.
-- [ ] Add an Apartment 302 package-note example that shows how these shorthand labels and verdicts read in one concise GitHub-visible checkpoint.
+- [x] Add an Apartment 302 package-note example that shows how these shorthand labels and verdicts read in one concise GitHub-visible checkpoint.
+- [x] Add an Apartment 302 handoff routing note that tells the next package/content pass which reference doc to open first for each common review problem.
+- [ ] Add an Apartment 302 shipped-content checkpoint checklist that pairs package validation outputs with the room-dressing note set when a real content pass lands.

@@ -88,6 +88,14 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a smallest-next-fix triage note for turning screenshot failures into lane-safe room-dressing adjustments.
   - Player read: when a read problem appears, the next pass should correct the clearest sightline or salience issue before adding more dressing.
 
+- `references/apartment302_package_note_example.md`
+  - What it is: a concise example of how an Apartment 302 packaged-content checkpoint can be written with stable shot ids and verdict labels.
+  - Player read: quick GitHub-visible notes should still preserve what read first, what stayed secondary, and what the next small pass should adjust.
+
+- `references/apartment302_handoff_routing_note.md`
+  - What it is: a quick routing index for choosing the first Apartment 302 helper doc to open based on the review problem at hand.
+  - Player read: the next pass should spend less time hunting for the right note and more time correcting the clearest readability issue.
+
 - `references/apartment302_room_dressing_pass_order.svg`
   - What it is: a visual pass-order board for the Unreal room-dressing sequence and laptop 2 ownership guardrails.
   - Player read: the room should be staged in a readable order, with the nursery cluster locked first and false leads added only after the true ritual read is stable.
@@ -145,5 +153,7 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 - Use the `false-lead balance` block in `references/apartment302_review_template.md` when a review note needs a stable salience-order record.
 - Use `references/apartment302_screenshot_note_shorthand.md` when a quick package note or screenshot comment needs stable short verdict wording.
 - Use `references/apartment302_placement_triage_note.md` when a screenshot failure is obvious and the next smallest readability fix needs to be chosen quickly.
+- Use `references/apartment302_package_note_example.md` when a GitHub-visible packaged-content note needs a concise Apartment 302 example to copy.
+- Use `references/apartment302_handoff_routing_note.md` when the next package/content pass needs the fastest pointer to the right helper doc.
 - Avoid gore, weapons, real religious icons, and action-game UI language.
 - These SVGs are small, editable source mockups. They can be used directly as reference or exported later as PNGs for an in-engine art pass.

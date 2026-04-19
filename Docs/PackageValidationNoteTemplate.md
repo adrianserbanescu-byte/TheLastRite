@@ -7,6 +7,11 @@ Pair it with:
 - `ValidatePackageLane.cmd`
 - `SummarizePackagedBuild.cmd -Concise`
 
+If the note is specifically about Apartment 302 packaged-content readability, also pair it with:
+
+- `ArtSource/Apartment302/references/apartment302_package_note_example.md`
+- `ArtSource/Apartment302/references/apartment302_handoff_routing_note.md`
+
 ## Copy-ready template
 
 ```text

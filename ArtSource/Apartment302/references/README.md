@@ -11,5 +11,7 @@ Use `apartment302_false_lead_balance_guide.md` when the mirror, window, or pawn 
 Use the `false-lead balance` block inside `apartment302_review_template.md` when a review note needs a stable salience-order record.
 Use `apartment302_screenshot_note_shorthand.md` when a package note or quick review comment needs stable short verdict wording.
 Use `apartment302_placement_triage_note.md` when a screenshot failure is clear and the next smallest readability fix needs to be chosen fast.
+Use `apartment302_package_note_example.md` when a GitHub-visible packaged-content note needs one concise Apartment 302 example to copy from.
+Use `apartment302_handoff_routing_note.md` when the next package/content pass needs the fastest pointer to the right helper doc.
 Use `apartment302_room_dressing_pass_order.svg` when a placement pass needs a quick visual sequence instead of a prose checklist.
 Use `apartment302_read_distance_board.svg` when checking whether true clues still read correctly from entry, approach, and close confirmation distances.
