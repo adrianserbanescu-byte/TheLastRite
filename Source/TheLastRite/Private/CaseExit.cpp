@@ -21,6 +21,14 @@ ACaseExit::ACaseExit()
 FText ACaseExit::GetPromptText() const
 {
     const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (GameMode != nullptr && GameMode->IsCaseClosed())
+    {
+        const FText ResolvedPrompt = GameMode->GetResolvedInteractionText();
+        if (!ResolvedPrompt.IsEmpty())
+        {
+            return ResolvedPrompt;
+        }
+    }
 
     if (bUsed)
     {
