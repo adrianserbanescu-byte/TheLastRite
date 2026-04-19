@@ -173,6 +173,8 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     }
 
     Prop->MarkInspected();
+    FText StatusUpdate = FText::GetEmpty();
+    bool bAppendNextMoveToStatus = false;
 
     if (Prop->IsTrueClue())
     {
@@ -181,13 +183,13 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
         const bool bOpeningSweepComplete = IsOpeningSweepComplete();
         if (!bOpeningSweepComplete)
         {
-            SetStatusText(FText::Format(
+            StatusUpdate = FText::Format(
                 Prop->IsOpeningSweepTarget()
                     ? NSLOCTEXT("TheLastRite", "TrueClueOpeningSweep", "{0} is real. {1}. Next: {2}.")
                     : NSLOCTEXT("TheLastRite", "TrueClueOutOfOrder", "{0} is real, but keep the opening sweep in order. {1}. Next: {2}."),
                 Prop->GetClueText(),
                 GetOpeningSweepStateText(),
-                GetNextStarterTargetText()));
+                GetNextStarterTargetText());
         }
         else if (FoundTrueClues >= RequiredTrueClues)
         {
@@ -195,28 +197,31 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
                 "TheLastRite",
                 "ObjectiveRitualReady",
                 "Evidence complete. The child-facing pattern is locked. Choose the ritual anchor that fits the room's true center.");
-            SetStatusText(FText::Format(
+            StatusUpdate = FText::Format(
                 NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. The real pattern converges around the child-facing altar, not the mirror bait."),
-                Prop->GetClueText()));
+                Prop->GetClueText());
+            bAppendNextMoveToStatus = true;
             TriggerPhasePulse(FLinearColor(0.96f, 0.75f, 0.22f, 1.0f), 1.0f);
         }
         else
         {
-            SetStatusText(FText::Format(
+            StatusUpdate = FText::Format(
                 NSLOCTEXT("TheLastRite", "TrueClue", "{0} That is a true sign of the Hollow Saint."),
-                Prop->GetClueText()));
+                Prop->GetClueText());
+            bAppendNextMoveToStatus = true;
         }
     }
     else
     {
         ++FoundFalseLeads;
         AddEvidenceLine(FString::Printf(TEXT("FALSE - %s"), *Prop->GetEvidenceSummary().ToString()));
-        SetStatusText(FText::Format(
+        StatusUpdate = FText::Format(
             IsOpeningSweepComplete()
                 ? NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. It looks ugly, but it is not the saint.")
                 : NSLOCTEXT("TheLastRite", "FalseLeadOpeningSweep", "{0} False lead. Finish the opening sweep first: {1}."),
             Prop->GetClueText(),
-            GetNextStarterTargetText()));
+            GetNextStarterTargetText());
+        bAppendNextMoveToStatus = IsOpeningSweepComplete();
     }
 
     UpdateCasePhaseFromEvidence();
@@ -228,6 +233,20 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     UpdateRitualAnchors();
     UpdateCaseExit();
     UpdateWorldMood();
+
+    if (bAppendNextMoveToStatus)
+    {
+        const FText NextGuidance = GetNextMoveText();
+        if (!NextGuidance.IsEmpty())
+        {
+            StatusUpdate = FText::Format(
+                NSLOCTEXT("TheLastRite", "StatusWithNextMove", "{0} {1}"),
+                StatusUpdate,
+                NextGuidance);
+        }
+    }
+
+    SetStatusText(StatusUpdate);
 }
 
 void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
