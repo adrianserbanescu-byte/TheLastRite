@@ -249,6 +249,10 @@ void ATheLastRiteHUD::DrawHUD()
                     ReportY += 8.0f;
                     continue;
                 }
+                else if (Line.Contains(TEXT("missed")) || Line.Contains(TEXT("unchecked")))
+                {
+                    ReportColor = FLinearColor(0.95f, 0.88f, 0.60f);
+                }
                 else if (Line.Contains(TEXT("Conclusion")) || Line.Contains(TEXT("correct anchor")) || Line.Contains(TEXT("Seal result")) || Line.Contains(TEXT("True clue")))
                 {
                     ReportColor = FLinearColor(0.68f, 1.0f, 0.72f);

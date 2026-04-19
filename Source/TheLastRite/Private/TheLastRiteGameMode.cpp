@@ -16,6 +16,28 @@
 
 namespace
 {
+    struct FReportEvidenceEntry
+    {
+        const TCHAR* EvidenceLine;
+        const TCHAR* ReportSummary;
+    };
+
+    constexpr FReportEvidenceEntry TrueClueReportEntries[] =
+    {
+        { TEXT("TRUE - Nanny Eliza - mirrored wrist marks"), TEXT("Nanny Eliza showed mirrored wrist marks.") },
+        { TEXT("TRUE - the cradle - halo of ash-white handprints"), TEXT("the cradle carried ash-white halo prints.") },
+        { TEXT("TRUE - the prayer cards - fused into a crown"), TEXT("the prayer cards were fused into a crown.") },
+        { TEXT("TRUE - the baby monitor - hymn repeating on every channel"), TEXT("the monitor repeated the hymn on every channel.") },
+        { TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"), TEXT("the nursery mural had been repainted into a halo.") }
+    };
+
+    constexpr FReportEvidenceEntry FalseLeadReportEntries[] =
+    {
+        { TEXT("FALSE - the broken window latch - forced from outside"), TEXT("broken window latch.") },
+        { TEXT("FALSE - the pawn ticket pouch - ordinary greed"), TEXT("pawn ticket pouch.") },
+        { TEXT("FALSE - the kitchen knife - grease, not offering blood"), TEXT("kitchen knife.") }
+    };
+
     static UStaticMesh* LoadBasicMesh(const TCHAR* AssetPath)
     {
         return LoadObject<UStaticMesh>(nullptr, AssetPath);
@@ -1204,40 +1226,23 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(FString::Printf(TEXT("Confirmed true clues (%d/%d)"), FoundTrueClues, RequiredTrueClues));
 
-        if (HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks")))
+        for (const FReportEvidenceEntry& Entry : TrueClueReportEntries)
         {
-            FinalReportLines.Add(TEXT("True clue: Nanny Eliza showed mirrored wrist marks."));
-        }
-        if (HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints")))
-        {
-            FinalReportLines.Add(TEXT("True clue: the cradle carried ash-white halo prints."));
-        }
-        if (HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown")))
-        {
-            FinalReportLines.Add(TEXT("True clue: the prayer cards were fused into a crown."));
-        }
-        if (HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel")))
-        {
-            FinalReportLines.Add(TEXT("True clue: the monitor repeated the hymn on every channel."));
-        }
-        if (HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo")))
-        {
-            FinalReportLines.Add(TEXT("True clue: the nursery mural had been repainted into a halo."));
+            if (HasEvidenceLine(Entry.EvidenceLine))
+            {
+                FinalReportLines.Add(FString::Printf(TEXT("True clue: %s"), Entry.ReportSummary));
+            }
         }
 
         FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(FString::Printf(TEXT("Discarded false leads (%d/%d)"), FoundFalseLeads, TotalFalseLeads));
-        if (HasEvidenceLine(TEXT("FALSE - the broken window latch - forced from outside")))
+
+        for (const FReportEvidenceEntry& Entry : FalseLeadReportEntries)
         {
-            FinalReportLines.Add(TEXT("False lead: broken window latch."));
-        }
-        if (HasEvidenceLine(TEXT("FALSE - the pawn ticket pouch - ordinary greed")))
-        {
-            FinalReportLines.Add(TEXT("False lead: pawn ticket pouch."));
-        }
-        if (HasEvidenceLine(TEXT("FALSE - the kitchen knife - grease, not offering blood")))
-        {
-            FinalReportLines.Add(TEXT("False lead: kitchen knife."));
+            if (HasEvidenceLine(Entry.EvidenceLine))
+            {
+                FinalReportLines.Add(FString::Printf(TEXT("False lead: %s"), Entry.ReportSummary));
+            }
         }
 
         FinalReportLines.Add(TEXT(""));
@@ -1254,8 +1259,31 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(TEXT("Correct anchor: nursery sigil."));
         FinalReportLines.Add(TEXT("Correct read: the child-facing signs all weighted the nursery side."));
         FinalReportLines.Add(TEXT(""));
-        FinalReportLines.Add(FString::Printf(TEXT("True clues found: %d/%d"), FoundTrueClues, RequiredTrueClues));
-        FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
+        FinalReportLines.Add(FString::Printf(TEXT("True clue audit (%d/%d)"), FoundTrueClues, RequiredTrueClues));
+        for (const FReportEvidenceEntry& Entry : TrueClueReportEntries)
+        {
+            if (HasEvidenceLine(Entry.EvidenceLine))
+            {
+                FinalReportLines.Add(FString::Printf(TEXT("True clue confirmed: %s"), Entry.ReportSummary));
+            }
+            else
+            {
+                FinalReportLines.Add(FString::Printf(TEXT("True clue missed: %s"), Entry.ReportSummary));
+            }
+        }
+        FinalReportLines.Add(TEXT(""));
+        FinalReportLines.Add(FString::Printf(TEXT("False lead audit (%d/%d)"), FoundFalseLeads, TotalFalseLeads));
+        for (const FReportEvidenceEntry& Entry : FalseLeadReportEntries)
+        {
+            if (HasEvidenceLine(Entry.EvidenceLine))
+            {
+                FinalReportLines.Add(FString::Printf(TEXT("False lead cleared: %s"), Entry.ReportSummary));
+            }
+            else
+            {
+                FinalReportLines.Add(FString::Printf(TEXT("False lead unchecked: %s"), Entry.ReportSummary));
+            }
+        }
         FinalReportLines.Add(TEXT("Outcome: the bait circle was trusted over the child-facing signs."));
         FinalReportLines.Add(TEXT("Recovery: press R, rebuild the opening sweep, then follow the nursery read instead of the mirror bait."));
         FinalReportLines.Add(TEXT("Controls: press R to restart the case or Esc to quit."));

@@ -3,13 +3,13 @@
 ```text
 laptop1 update
 
-time: 2026-04-19 23:04:01 +03:00
+time: 2026-04-19 23:06:58 +03:00
 branch: codex/gameplay
-head: e7143b0aca4369f417aa0adcd721263432e7336a
+head: 609e89d938cafd85859be42d2dbcfaaf6e47d06f
 working tree: dirty
-current task: resolved-state restart and exit flow cleanup with gameplay checkpoint publish
-last 30m progress: I resumed from the last gameplay checkpoint, finished the next in-scope cleanup for resolved case flow, and normalized post-case guidance across object prompts, progress text, objective text, next-move text, the exit prompt, and the final HUD overlay. Closed win and fail states now consistently surface both restart and quit controls, while the sealed-but-not-filed state still points the player to the front door instead of mixing messages.
-verification: `BuildGame.cmd` succeeded on 2026-04-19 23:04:01 +03:00
+current task: fail-report audit cleanup with gameplay checkpoint publish
+last 30m progress: After publishing the resolved-flow checkpoint, I continued directly into the next ritual-outcome pass. The fail report now records which true clues were confirmed or missed and which false leads were cleared or left unchecked, and the final HUD overlay now colors missed or unchecked audit lines as warnings instead of treating them like confirmed evidence.
+verification: `BuildGame.cmd` succeeded on 2026-04-19 23:06:58 +03:00
 blockers: none
 needs coordinator: no
 ```
