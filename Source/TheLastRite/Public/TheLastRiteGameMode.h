@@ -79,6 +79,7 @@ private:
     int32 GetOpeningSweepCount() const;
     FText GetOpeningSweepStateText() const;
     FText GetNextStarterTargetText() const;
+    FText GetActiveGuidanceText() const;
     void TriggerPhasePulse(const FLinearColor& Color, float DurationSeconds);
     void SetStatusText(const FText& NewStatusText);
     void AddEvidenceLine(const FString& NewLine);

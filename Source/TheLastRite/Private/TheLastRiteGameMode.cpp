@@ -150,7 +150,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     if (Prop->WasInspected())
     {
-        const FText NextGuidance = GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
+        const FText NextGuidance = GetActiveGuidanceText();
         if (Prop->IsTrueClue())
         {
             const FText ReminderText = CasePhase == ETheLastRiteCasePhase::RiteReady
@@ -264,7 +264,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
 
     if (FoundTrueClues < RequiredTrueClues)
     {
-        const FText NextGuidance = GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
+        const FText NextGuidance = GetActiveGuidanceText();
         SetStatusText(FText::Format(
             NSLOCTEXT("TheLastRite", "NeedMoreClues", "Not yet. You still need {0} real clue(s) before the rite. {1}"),
             FText::AsNumber(RequiredTrueClues - FoundTrueClues),
@@ -346,7 +346,7 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
 
     if (CasePhase != ETheLastRiteCasePhase::SealedAwaitingExit)
     {
-        const FText NextGuidance = GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
+        const FText NextGuidance = GetActiveGuidanceText();
         SetStatusText(FText::Format(
             NSLOCTEXT(
                 "TheLastRite",
@@ -1261,6 +1261,11 @@ FText ATheLastRiteGameMode::GetNextStarterTargetText() const
     }
 
     return NSLOCTEXT("TheLastRite", "NextStarterTargetComplete", "the opening sweep is complete");
+}
+
+FText ATheLastRiteGameMode::GetActiveGuidanceText() const
+{
+    return GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
 }
 
 void ATheLastRiteGameMode::RebuildFinalReport()
