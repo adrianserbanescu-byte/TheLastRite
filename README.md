@@ -47,6 +47,7 @@ Important:
 - To print a summary of the current packaged build and the latest correlated package-run logs, run `SummarizePackagedBuild.cmd`.
 - To re-package and then smoke-test the result in one pass, run `ValidatePackageLane.cmd`.
 - To make a new packaged build, run `PackageGame.cmd`.
+- For the branch-local packaging runbook and output/log map, read `Docs/PackageLane.md`.
 - To open the Unreal project on this machine, run `OpenUnreal.cmd`.
 - To compile only the Unreal editor target, run `BuildEditor.cmd`.
 - To compile the game target, run `BuildGame.cmd`.
