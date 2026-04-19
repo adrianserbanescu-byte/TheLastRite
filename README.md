@@ -57,7 +57,9 @@ Important:
 - Do not run the raw file in `Binaries\Win64` as the playable build.
 - To smoke-test the packaged build, run `SmokeTestPackagedGame.cmd`.
 - To print a summary of the current packaged build and the latest correlated package-run logs, run `SummarizePackagedBuild.cmd`.
+- `SummarizePackagedBuild.cmd -Concise` prints a one-line package verdict for quick checks or status notes.
 - To re-package and then smoke-test the result in one pass, run `ValidatePackageLane.cmd`.
+- `ValidatePackageLane.cmd` now ends with that same one-line package verdict after the full validation output.
 - `PlayPackagedGame.cmd --check-only` confirms the launcher path without starting the game.
 - `SmokeTestPackagedGame.cmd` and `ValidatePackageLane.cmd` accept `-StartupTimeoutSeconds` and `-LiveWindowSeconds`.
 - To make a new packaged build, run `PackageGame.cmd`.
