@@ -221,11 +221,11 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
 
     if (FoundTrueClues < RequiredTrueClues)
     {
-        const FText NextStarterTarget = GetNextStarterTargetText();
+        const FText NextGuidance = GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
         SetStatusText(FText::Format(
             NSLOCTEXT("TheLastRite", "NeedMoreClues", "Not yet. You still need {0} real clue(s) before the rite. {1}"),
             FText::AsNumber(RequiredTrueClues - FoundTrueClues),
-            NextStarterTarget));
+            NextGuidance));
         return;
     }
 
