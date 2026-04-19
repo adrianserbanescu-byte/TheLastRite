@@ -42,25 +42,49 @@ void ATheLastRiteHUD::DrawHUD()
         DrawRect(FLinearColor(0.06f, 0.12f, 0.06f, 0.14f), 0.0f, 0.0f, Canvas->ClipX, Canvas->ClipY);
     }
 
-    float Y = 30.0f;
     const float X = 30.0f;
-    DrawPanel(18.0f, 18.0f, 760.0f, 232.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+    const FString ObjectiveText = GameMode->GetObjectiveText().ToString();
+    const FString CurrentObjectiveText = GameMode->GetCurrentObjectiveText().ToString();
+    const FString DeductionText = GameMode->GetDeductionText().ToString();
+    const FString StatusText = GameMode->GetStatusText().ToString();
+    const float ObjectiveHeight = MeasureWrappedTextHeight(ObjectiveText, 92, 1.15f);
+    const float CurrentObjectiveHeight = MeasureWrappedTextHeight(CurrentObjectiveText, 92, 1.05f);
+    const float DeductionHeight = MeasureWrappedTextHeight(DeductionText, 92, 1.0f);
+    const float StatusHeight = MeasureWrappedTextHeight(StatusText, 96, 1.05f);
+    const float MainPanelHeight = FMath::Max(
+        232.0f,
+        12.0f
+            + 24.0f
+            + 32.0f
+            + ObjectiveHeight
+            + 8.0f
+            + CurrentObjectiveHeight
+            + 6.0f
+            + 24.0f
+            + DeductionHeight
+            + 6.0f
+            + 34.0f
+            + StatusHeight
+            + 24.0f);
+
+    float Y = 30.0f;
+    DrawPanel(18.0f, 18.0f, 760.0f, MainPanelHeight, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
 
     DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), X, Y, SmallFont, 1.15f, false);
     Y += 24.0f;
     DrawText(GameMode->GetTargetText().ToString(), FLinearColor(0.9f, 0.72f, 0.40f), X, Y, SmallFont, 1.05f, false);
     Y += 32.0f;
-    Y = DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, X, Y, 92, SmallFont, 1.15f);
+    Y = DrawWrappedTextLine(ObjectiveText, FLinearColor::White, X, Y, 92, SmallFont, 1.15f);
     Y += 8.0f;
-    Y = DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.65f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.05f);
+    Y = DrawWrappedTextLine(CurrentObjectiveText, FLinearColor(0.65f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.05f);
     Y += 6.0f;
     DrawText(GameMode->GetProgressText().ToString(), FLinearColor(0.9f, 0.9f, 0.75f), X, Y, SmallFont, 1.1f, false);
     Y += 24.0f;
-    Y = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.78f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.0f);
+    Y = DrawWrappedTextLine(DeductionText, FLinearColor(0.78f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.0f);
     Y += 6.0f;
     DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc to quit"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
     Y += 34.0f;
-    Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
+    Y = DrawWrappedTextLine(StatusText, FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
 
     const bool bShowStarterGuidance = !GameMode->IsCaseResolved() && !GameMode->IsOpeningSweepComplete();
     if (bShowStarterGuidance)
@@ -68,10 +92,10 @@ void ATheLastRiteHUD::DrawHUD()
         const float IntroX = Canvas->ClipX * 0.22f;
         const float IntroY = Canvas->ClipY * 0.18f;
         const float ObjectiveY = IntroY + 74.0f;
-        const float ObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetObjectiveText().ToString(), 62, 1.2f);
-        const float CurrentObjectiveY = ObjectiveY + ObjectiveHeight + 10.0f;
-        const float CurrentObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetCurrentObjectiveText().ToString(), 62, 1.1f);
-        const float NextMoveY = CurrentObjectiveY + CurrentObjectiveHeight + 14.0f;
+        const float IntroObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetObjectiveText().ToString(), 62, 1.2f);
+        const float CurrentObjectiveY = ObjectiveY + IntroObjectiveHeight + 10.0f;
+        const float IntroCurrentObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetCurrentObjectiveText().ToString(), 62, 1.1f);
+        const float NextMoveY = CurrentObjectiveY + IntroCurrentObjectiveHeight + 14.0f;
         const float NextMoveHeight = MeasureWrappedTextHeight(GameMode->GetNextMoveText().ToString(), 62, 1.05f);
         const float ReminderY = NextMoveY + NextMoveHeight + 14.0f;
         const float IntroPanelHeight = (ReminderY - (IntroY - 26.0f)) + 54.0f;
