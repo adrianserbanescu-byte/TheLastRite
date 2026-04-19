@@ -60,6 +60,10 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a room-dressing and import-prep checklist for translating the current Apartment 302 boards into an Unreal placement pass.
   - Player read: the nursery clue cluster should resolve first, the mirror trap should tempt without dominating, and lighting should support that evidence order.
 
+- `references/apartment302_room_dressing_pass_order.svg`
+  - What it is: a visual pass-order board for the Unreal room-dressing sequence and laptop 2 ownership guardrails.
+  - Player read: the room should be staged in a readable order, with the nursery cluster locked first and false leads added only after the true ritual read is stable.
+
 - `materials/apartment302_material_atlas.svg`
   - What it is: a consolidated material atlas with palette chips and six surface ideas in one sheet.
   - Player read: the room should feel cheap and domestic first, ritualized second.
