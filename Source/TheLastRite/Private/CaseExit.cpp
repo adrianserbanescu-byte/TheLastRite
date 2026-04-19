@@ -20,8 +20,19 @@ ACaseExit::ACaseExit()
 
 FText ACaseExit::GetPromptText() const
 {
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+
     if (bUsed)
     {
+        if (GameMode != nullptr)
+        {
+            const FText ResolvedPrompt = GameMode->GetResolvedInteractionText();
+            if (!ResolvedPrompt.IsEmpty())
+            {
+                return ResolvedPrompt;
+            }
+        }
+
         return FText::Format(
             NSLOCTEXT("TheLastRite", "ExitSpentPrompt", "{0} is already behind you"),
             DisplayName);
@@ -29,7 +40,6 @@ FText ACaseExit::GetPromptText() const
 
     if (!bExitReady)
     {
-        const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
         const FText NextMove = GameMode ? GameMode->GetNextMoveText() : FText::GetEmpty();
         if (!NextMove.IsEmpty())
         {
