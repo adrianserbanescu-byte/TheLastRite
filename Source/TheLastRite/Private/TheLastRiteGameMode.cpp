@@ -144,21 +144,24 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     if (Prop->WasInspected())
     {
+        const FText NextGuidance = GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
         if (Prop->IsTrueClue())
         {
             const FText ReminderText = CasePhase == ETheLastRiteCasePhase::RiteReady
                 ? NSLOCTEXT("TheLastRite", "TrueReminderRiteReady", "Already logged. This still confirms the child-facing altar, not the mirror.")
                 : NSLOCTEXT("TheLastRite", "TrueReminder", "Already logged. This remains real evidence.");
             SetStatusText(FText::Format(
-                NSLOCTEXT("TheLastRite", "AlreadyCheckedTrue", "{0} {1}"),
+                NSLOCTEXT("TheLastRite", "AlreadyCheckedTrue", "{0} {1} {2}"),
                 Prop->GetClueText(),
-                ReminderText));
+                ReminderText,
+                NextGuidance));
         }
         else
         {
             SetStatusText(FText::Format(
-                NSLOCTEXT("TheLastRite", "AlreadyCheckedFalse", "{0} Already ruled out. It is still bait, not the saint."),
-                Prop->GetClueText()));
+                NSLOCTEXT("TheLastRite", "AlreadyCheckedFalse", "{0} Already ruled out. It is still bait, not the saint. {1}"),
+                Prop->GetClueText(),
+                NextGuidance));
         }
         return;
     }
