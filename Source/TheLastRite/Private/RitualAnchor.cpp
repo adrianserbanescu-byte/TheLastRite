@@ -78,7 +78,9 @@ FText ARitualAnchor::GetPromptText() const
     }
 
     return FText::Format(
-        NSLOCTEXT("TheLastRite", "RitualPrompt", "Press E - Perform the rite at {0}"),
+        bCorrectAnchor
+            ? NSLOCTEXT("TheLastRite", "RitualPromptCorrect", "Press E - Perform the rite at {0} (matches the child-facing read)")
+            : NSLOCTEXT("TheLastRite", "RitualPromptWrong", "Press E - Perform the rite at {0} (mirror bait)"),
         DisplayName);
 }
 
@@ -127,12 +129,12 @@ void ARitualAnchor::SetRitualReady(bool bInRitualReady)
 
     bRitualReady = bInRitualReady;
     const FLinearColor ReadyColor = bCorrectAnchor
-        ? FLinearColor(0.56f, 0.52f, 0.34f)
-        : FLinearColor(0.50f, 0.46f, 0.40f);
+        ? FLinearColor(0.64f, 0.72f, 0.30f)
+        : FLinearColor(0.42f, 0.18f, 0.18f);
     const FLinearColor LockedColor(0.24f, 0.24f, 0.22f);
     const FLinearColor LabelReadyColor = bCorrectAnchor
-        ? FLinearColor(0.96f, 0.88f, 0.62f)
-        : FLinearColor(0.86f, 0.82f, 0.76f);
+        ? FLinearColor(0.96f, 0.92f, 0.64f)
+        : FLinearColor(1.0f, 0.56f, 0.42f);
     const FLinearColor LabelLockedColor(0.82f, 0.82f, 0.78f);
 
     ApplyMeshColor(bRitualReady ? ReadyColor : LockedColor);
