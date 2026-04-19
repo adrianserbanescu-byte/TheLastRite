@@ -7,7 +7,7 @@ The current Unreal version is a tiny playable case in Apartment 302.
 Open the packaged game here:
 
 ```text
-C:\Users\adria\OneDrive\Desktop\alexs\Packaged\Windows\TheLastRite.exe
+C:\dev\TheLastRite\Packaged\Windows\TheLastRite.exe
 ```
 
 Or double-click:
