@@ -42,6 +42,7 @@ Important:
 - To compile only the Unreal editor target, run `BuildEditor.cmd`.
 - To compile the game target, run `BuildGame.cmd`.
 - The local `*.cmd` helpers now exit normally without waiting for a keypress, so they are safe to use from shells and automation.
+- If Unreal is installed somewhere other than `C:\Program Files\Epic Games\UE_5.4`, set `UE_ROOT` before running the helper scripts.
 - The current design source of truth is [Docs/MasterGameDesignDocument.md](Docs/MasterGameDesignDocument.md).
 
 ## Browser Prototype
