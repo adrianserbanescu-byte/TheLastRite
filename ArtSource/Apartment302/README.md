@@ -48,6 +48,14 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a visual language board separating true Hollow Saint signals from false leads.
   - Player read: true clues share pale circular symmetry, old gold, nursery context, and dry ash-white marks.
 
+- `references/apartment302_interaction_readability_board.svg`
+  - What it is: a room-dressing board for entry sweep order, clue clustering, false-lead spacing, and ritual-anchor readability.
+  - Player read: the room should teach the player to find the nursery clue cluster first and distrust the colder mirror trap.
+
+- `references/apartment302_lighting_readability_board.svg`
+  - What it is: a lighting and mood board for keeping dread readable without muddying clue or ritual reads.
+  - Player read: true clues stay pale and readable, while false leads feel colder without becoming the main focal point.
+
 - `materials/apartment302_material_atlas.svg`
   - What it is: a consolidated material atlas with palette chips and six surface ideas in one sheet.
   - Player read: the room should feel cheap and domestic first, ritualized second.
@@ -87,5 +95,7 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 - Keep true clues visually related: pale circles, ash-white dryness, old-gold restraint, nursery placement.
 - Keep false leads physically believable but visually less sacred: colder gray, broken hardware, debt paper, no halo logic.
 - The correct ritual spot is the nursery sigil. The mirror circle should look tempting, but colder and less connected to evidence.
+- Use `references/apartment302_interaction_readability_board.svg` as the first placement pass when translating these mockups into Unreal.
+- Use `references/apartment302_lighting_readability_board.svg` to keep the room readable from entry sweep through final ritual choice.
 - Avoid gore, weapons, real religious icons, and action-game UI language.
 - These SVGs are small, editable source mockups. They can be used directly as reference or exported later as PNGs for an in-engine art pass.

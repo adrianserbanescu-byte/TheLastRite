@@ -93,6 +93,12 @@ Laptop 2 can safely own:
 - output-path cleanup for local packaged play
 - documentation for packaging and content handoff
 
+Recent lane-safe content/readability progress on `codex/content`:
+
+- added an Apartment 302 interaction readability board for clue sweep order, false-lead spacing, and ritual-anchor sightlines
+- added an Apartment 302 lighting readability board for keeping true clues brighter and more readable than the mirror trap
+- kept the work in `ArtSource/Apartment302/references/` so the branch can advance room-dressing direction without touching gameplay C++ ownership
+
 ## Follow-up packaging notes
 
 - The current archived Windows package is about `0.434 GB`.

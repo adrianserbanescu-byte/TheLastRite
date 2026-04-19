@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#12110f"/>
+  <rect x="40" y="40" width="1320" height="820" rx="16" fill="#201d18" stroke="#8f9087" stroke-width="2"/>
+
+  <text x="80" y="105" fill="#f4efdc" font-family="Arial, sans-serif" font-size="34" font-weight="700">Apartment 302 Lighting + Mood Readability</text>
+  <text x="80" y="145" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="18">Room-dressing guidance for keeping dread readable instead of murky.</text>
+
+  <rect x="80" y="190" width="720" height="620" rx="12" fill="#2a2722" stroke="#5a584e" stroke-width="2"/>
+  <text x="110" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Lighting zones</text>
+
+  <rect x="135" y="280" width="610" height="470" rx="12" fill="#34312a" stroke="#8f9087" stroke-width="2"/>
+  <rect x="175" y="330" width="150" height="130" rx="12" fill="#78674c"/>
+  <text x="205" y="370" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Warm practical</text>
+  <text x="205" y="398" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">entry / wall lamp</text>
+  <text x="205" y="422" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="15">safe scan start</text>
+
+  <rect x="375" y="315" width="220" height="155" rx="12" fill="#a29062" opacity="0.85"/>
+  <text x="405" y="350" fill="#1a1916" font-family="Arial, sans-serif" font-size="22" font-weight="700">Pale ritual accent</text>
+  <text x="405" y="380" fill="#1a1916" font-family="Arial, sans-serif" font-size="16">nursery clue read</text>
+  <text x="405" y="404" fill="#1a1916" font-family="Arial, sans-serif" font-size="16">ash white + old gold</text>
+  <text x="405" y="428" fill="#1a1916" font-family="Arial, sans-serif" font-size="16">never blow out interaction targets</text>
+
+  <rect x="220" y="540" width="180" height="120" rx="12" fill="#4a545c"/>
+  <text x="245" y="576" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Cold distraction</text>
+  <text x="245" y="602" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">window / mirror side</text>
+  <text x="245" y="626" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="15">false leads live here</text>
+
+  <rect x="510" y="548" width="170" height="112" rx="12" fill="#282826"/>
+  <text x="540" y="584" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">No black pit</text>
+  <text x="540" y="610" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">keep floor and walls readable</text>
+  <text x="540" y="634" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="15">dread through contrast, not blindness</text>
+
+  <path d="M330 395 C360 395, 370 392, 392 392" fill="none" stroke="#f4efdc" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="392,392 372,382 376,403" fill="#f4efdc"/>
+  <path d="M595 390 C640 395, 660 430, 670 470" fill="none" stroke="#e8e2d3" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="670,470 655,454 649,474" fill="#e8e2d3"/>
+
+  <rect x="860" y="190" width="450" height="620" rx="12" fill="#282520" stroke="#5a584e" stroke-width="2"/>
+  <text x="895" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Readability rules</text>
+
+  <rect x="900" y="275" width="60" height="30" rx="6" fill="#f4efdc"/>
+  <text x="980" y="296" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Ash-white clue marks stay visible on first scan.</text>
+
+  <rect x="900" y="330" width="60" height="30" rx="6" fill="#a98f45"/>
+  <text x="980" y="351" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Old-gold accents are reserved for true clue or ritual reads.</text>
+
+  <rect x="900" y="385" width="60" height="30" rx="6" fill="#71817d"/>
+  <text x="980" y="406" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Cold blue-green belongs to false leads and trap mood.</text>
+
+  <rect x="900" y="440" width="60" height="30" rx="6" fill="#25241f"/>
+  <text x="980" y="461" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Dark floor supports contrast, but floor seams still need to read.</text>
+
+  <rect x="900" y="500" width="370" height="110" rx="10" fill="#342f28"/>
+  <text x="920" y="534" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Do</text>
+  <text x="920" y="560" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- keep the nursery cluster brighter than the mirror trap</text>
+  <text x="920" y="584" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- let practical light lead into the first true clue read</text>
+
+  <rect x="900" y="640" width="370" height="110" rx="10" fill="#342f28"/>
+  <text x="920" y="674" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Do not</text>
+  <text x="920" y="700" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- drown the room in foggy darkness</text>
+  <text x="920" y="724" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- make the wrong ritual circle the brightest object in the room</text>
+</svg>

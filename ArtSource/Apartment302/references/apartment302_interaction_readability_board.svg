@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#161512"/>
+  <rect x="40" y="40" width="1320" height="820" rx="16" fill="#23211d" stroke="#8f9087" stroke-width="2"/>
+
+  <text x="80" y="105" fill="#f4efdc" font-family="Arial, sans-serif" font-size="34" font-weight="700">Apartment 302 Interaction Readability Pass</text>
+  <text x="80" y="145" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="18">Laptop 2 room-dressing board for clue sweep, false-lead spacing, and ritual readability.</text>
+
+  <rect x="80" y="190" width="760" height="620" rx="12" fill="#2d2a25" stroke="#5a584e" stroke-width="2"/>
+  <text x="110" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Single-room staging plan</text>
+
+  <rect x="135" y="275" width="650" height="470" rx="10" fill="#3b382f" stroke="#8f9087" stroke-width="2"/>
+  <rect x="165" y="305" width="100" height="180" rx="8" fill="#4f4a40"/>
+  <text x="178" y="332" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18" font-weight="700">Entry</text>
+  <text x="178" y="356" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="15">quiet reset zone</text>
+
+  <rect x="300" y="320" width="200" height="150" rx="10" fill="#5a5447" stroke="#e8e2d3" stroke-width="3"/>
+  <text x="325" y="350" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Nursery clue cluster</text>
+  <text x="325" y="378" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">cradle halo handprints</text>
+  <text x="325" y="402" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">baby monitor hymn</text>
+  <text x="325" y="426" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">prayer cards crown circle</text>
+  <text x="325" y="450" fill="#a98f45" font-family="Arial, sans-serif" font-size="16">first strong Hollow Saint read</text>
+
+  <circle cx="590" cy="380" r="78" fill="#6f6547" stroke="#e8e2d3" stroke-width="4"/>
+  <circle cx="590" cy="380" r="54" fill="none" stroke="#f4efdc" stroke-width="4" stroke-dasharray="10 8"/>
+  <text x="540" y="372" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Correct</text>
+  <text x="520" y="398" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">nursery sigil</text>
+  <text x="520" y="422" fill="#a98f45" font-family="Arial, sans-serif" font-size="16">keep visible from clue cluster</text>
+
+  <circle cx="680" cy="612" r="72" fill="#353944" stroke="#71817d" stroke-width="4"/>
+  <circle cx="680" cy="612" r="48" fill="none" stroke="#8f9087" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="642" y="604" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Wrong</text>
+  <text x="618" y="630" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">mirror circle</text>
+  <text x="586" y="654" fill="#71817d" font-family="Arial, sans-serif" font-size="16">tempting, colder, less nursery-linked</text>
+
+  <rect x="205" y="560" width="180" height="115" rx="10" fill="#4a4d54" stroke="#8f9087" stroke-width="3"/>
+  <text x="232" y="592" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">False lead</text>
+  <text x="220" y="620" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">broken window latch</text>
+  <text x="228" y="644" fill="#71817d" font-family="Arial, sans-serif" font-size="16">mundane panic read</text>
+
+  <rect x="450" y="560" width="165" height="115" rx="10" fill="#544b43" stroke="#8f9087" stroke-width="3"/>
+  <text x="474" y="592" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">False lead</text>
+  <text x="470" y="620" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">pawn ticket pouch</text>
+  <text x="465" y="644" fill="#71817d" font-family="Arial, sans-serif" font-size="16">debt / greed read</text>
+
+  <path d="M250 395 C285 380, 292 378, 312 378" fill="none" stroke="#f4efdc" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="313,378 293,368 297,389" fill="#f4efdc"/>
+  <path d="M505 394 C535 394, 545 392, 565 389" fill="none" stroke="#f4efdc" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="566,389 546,379 551,400" fill="#f4efdc"/>
+  <path d="M505 432 C555 468, 595 520, 640 565" fill="none" stroke="#71817d" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 8"/>
+  <polygon points="640,565 620,558 632,577" fill="#71817d"/>
+
+  <rect x="880" y="190" width="430" height="620" rx="12" fill="#2a2722" stroke="#5a584e" stroke-width="2"/>
+  <text x="915" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Readability rules</text>
+
+  <circle cx="930" cy="285" r="14" fill="#e8e2d3"/>
+  <text x="960" y="292" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Player should read the nursery clue cluster first.</text>
+
+  <circle cx="930" cy="335" r="14" fill="#a98f45"/>
+  <text x="960" y="342" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Correct ritual anchor stays near the true clue language.</text>
+
+  <circle cx="930" cy="385" r="14" fill="#71817d"/>
+  <text x="960" y="392" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Wrong ritual anchor should be visible but colder and less domestic.</text>
+
+  <circle cx="930" cy="435" r="14" fill="#8f9087"/>
+  <text x="960" y="442" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">False leads belong on the scan path, not on the final anchor path.</text>
+
+  <rect x="915" y="490" width="355" height="96" rx="10" fill="#342f28"/>
+  <text x="935" y="522" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">First 20-second sweep</text>
+  <text x="935" y="548" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">1. entry quiet  2. nursery clue cluster  3. correct sigil read</text>
+  <text x="935" y="572" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">False leads should interrupt, not replace, that route.</text>
+
+  <rect x="915" y="620" width="355" height="130" rx="10" fill="#342f28"/>
+  <text x="935" y="652" fill="#f4efdc" font-family="Arial, sans-serif" font-size="20" font-weight="700">Laptop 2 handoff note</text>
+  <text x="935" y="678" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">Use this board when placing exported props and decal cues.</text>
+  <text x="935" y="702" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">Protect sightlines to the nursery cluster and the correct sigil.</text>
+  <text x="935" y="726" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">Avoid pushing the mirror trap closer to the entry than the true clues.</text>
+</svg>
