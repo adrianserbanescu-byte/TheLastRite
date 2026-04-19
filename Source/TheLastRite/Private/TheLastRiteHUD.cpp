@@ -37,6 +37,8 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 8.0f;
     DrawText(GameMode->GetProgressText().ToString(), FLinearColor(0.9f, 0.9f, 0.75f), X, Y, SmallFont, 1.1f, false);
     Y += 24.0f;
+    Y = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.78f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.0f);
+    Y += 6.0f;
     DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc quit"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
     Y += 34.0f;
     Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
@@ -57,7 +59,7 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float JournalX = Canvas->ClipX - 360.0f;
         float JournalY = 30.0f;
-        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 212.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 338.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
         DrawText(TEXT("Case Notes"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.15f, false);
         JournalY += 24.0f;
 
@@ -81,6 +83,11 @@ void ATheLastRiteHUD::DrawHUD()
             JournalY = DrawWrappedTextLine(EvidenceLines[Index], LineColor, JournalX, JournalY, 36, SmallFont, 0.95f);
             JournalY += 4.0f;
         }
+
+        JournalY += 10.0f;
+        DrawText(TEXT("Current read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 24.0f;
+        DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, 38, SmallFont, 0.95f);
     }
 
     bool bHasInteractionPrompt = false;
@@ -108,7 +115,7 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float EventX = Canvas->ClipX * 0.18f;
         float EventY = Canvas->ClipY * 0.64f;
-        DrawPanel(EventX - 14.0f, EventY - 14.0f, 620.0f, 92.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.68f));
+        DrawPanel(EventX - 14.0f, EventY - 14.0f, 680.0f, 92.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.68f));
         DrawText(TEXT("Finding"), FLinearColor(0.85f, 0.95f, 1.0f), EventX, EventY, SmallFont, 1.15f, false);
         EventY += 26.0f;
         DrawWrappedTextLine(RecentEvent.ToString(), FLinearColor(1.0f, 0.92f, 0.55f), EventX, EventY, 82, SmallFont, 1.2f);

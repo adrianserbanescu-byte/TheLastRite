@@ -57,6 +57,10 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
         "Search the room. Real clues carry the saint's pale halo pattern.");
     RecentEventText = FText::GetEmpty();
     ProgressText = FText::GetEmpty();
+    DeductionText = NSLOCTEXT(
+        "TheLastRite",
+        "DeductionInitial",
+        "Read of the room: no clean pattern yet. Start with the body, the cradle, and the prayer mess.");
     EndingText = FText::GetEmpty();
     EndingDetailText = FText::GetEmpty();
 }
@@ -70,6 +74,7 @@ void ATheLastRiteGameMode::BeginPlay()
     BuildCaseContent();
     SpawnLights();
     UpdateRitualAnchors();
+    UpdateDeductionText();
     UpdateWorldMood();
     UpdateProgressText();
 }
@@ -133,9 +138,9 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
             Prop->GetClueText()));
     }
 
+    UpdateDeductionText();
     UpdateProgressText();
     UpdateRitualAnchors();
-    UpdateProgressText();
     UpdateWorldMood();
 }
 
@@ -182,6 +187,10 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "WinStatus",
             "You chose the nursery sigil. The rite bites into the halo and the room goes still."));
         AddEvidenceLine(TEXT("RITE - correct anchor"));
+        DeductionText = NSLOCTEXT(
+            "TheLastRite",
+            "DeductionWon",
+            "Conclusion: the saint fed through the child-facing altar. The nursery sigil breaks the loop.");
     }
     else
     {
@@ -202,8 +211,13 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "LoseStatus",
             "You chose the wrong anchor. The false circle feeds the thing you were hunting."));
         AddEvidenceLine(TEXT("RITE - wrong anchor"));
+        DeductionText = NSLOCTEXT(
+            "TheLastRite",
+            "DeductionLost",
+            "Conclusion missed: the mirror was only theater. The real ritual weight lived around the cradle.");
     }
 
+    UpdateProgressText();
     UpdateWorldMood();
 }
 
@@ -248,6 +262,11 @@ FText ATheLastRiteGameMode::GetProgressText() const
     return ProgressText;
 }
 
+FText ATheLastRiteGameMode::GetDeductionText() const
+{
+    return DeductionText;
+}
+
 FText ATheLastRiteGameMode::GetEndingText() const
 {
     return EndingText;
@@ -277,6 +296,7 @@ void ATheLastRiteGameMode::BuildRoom()
 {
     const FLinearColor FloorColor(0.18f, 0.18f, 0.20f);
     const FLinearColor WallColor(0.33f, 0.36f, 0.38f);
+    const FLinearColor TrimColor(0.24f, 0.25f, 0.28f);
 
     SpawnRoomPiece(FVector(0.0f, 0.0f, 0.0f), FVector(14.0f, 14.0f, 0.25f), FRotator::ZeroRotator, FloorColor);
     SpawnRoomPiece(FVector(0.0f, 0.0f, 600.0f), FVector(14.0f, 14.0f, 0.25f), FRotator::ZeroRotator, WallColor);
@@ -284,6 +304,12 @@ void ATheLastRiteGameMode::BuildRoom()
     SpawnRoomPiece(FVector(-1400.0f, 0.0f, 300.0f), FVector(0.25f, 14.0f, 6.0f), FRotator::ZeroRotator, WallColor);
     SpawnRoomPiece(FVector(0.0f, 1400.0f, 300.0f), FVector(14.0f, 0.25f, 6.0f), FRotator::ZeroRotator, WallColor);
     SpawnRoomPiece(FVector(0.0f, -1400.0f, 300.0f), FVector(14.0f, 0.25f, 6.0f), FRotator::ZeroRotator, WallColor);
+    SpawnRoomPiece(FVector(360.0f, -560.0f, 300.0f), FVector(0.2f, 8.2f, 6.0f), FRotator::ZeroRotator, WallColor);
+    SpawnRoomPiece(FVector(360.0f, 1080.0f, 300.0f), FVector(0.2f, 3.2f, 6.0f), FRotator::ZeroRotator, WallColor);
+    SpawnRoomPiece(FVector(360.0f, 430.0f, 540.0f), FVector(0.2f, 3.9f, 0.7f), FRotator::ZeroRotator, TrimColor);
+    SpawnRoomPiece(FVector(910.0f, 1080.0f, 300.0f), FVector(5.1f, 0.2f, 6.0f), FRotator::ZeroRotator, WallColor);
+    SpawnRoomPiece(FVector(1020.0f, 1080.0f, 120.0f), FVector(0.65f, 0.18f, 1.6f), FRotator::ZeroRotator, TrimColor);
+    SpawnRoomPiece(FVector(720.0f, 1080.0f, 120.0f), FVector(0.65f, 0.18f, 1.6f), FRotator::ZeroRotator, TrimColor);
 }
 
 void ATheLastRiteGameMode::BuildCaseContent()
@@ -376,6 +402,9 @@ void ATheLastRiteGameMode::BuildSetDressing()
     const FLinearColor OldGoldColor(0.76f, 0.61f, 0.22f);
     const FLinearColor BloodlessSkinColor(0.68f, 0.66f, 0.62f);
     const FLinearColor MirrorColor(0.22f, 0.26f, 0.31f);
+    const FLinearColor RunnerColor(0.40f, 0.08f, 0.08f);
+    const FLinearColor NurseryGlowColor(0.54f, 0.48f, 0.18f);
+    const FLinearColor TileColor(0.26f, 0.28f, 0.31f);
 
     SpawnRoomPiece(FVector(0.0f, -780.0f, 18.0f), FVector(2.7f, 1.2f, 0.08f), FRotator::ZeroRotator, ClothColor);
     SpawnRoomPiece(FVector(-52.0f, -780.0f, 65.0f), FVector(0.35f, 0.45f, 0.62f), FRotator::ZeroRotator, BloodlessSkinColor);
@@ -394,6 +423,12 @@ void ATheLastRiteGameMode::BuildSetDressing()
     SpawnRoomPiece(FVector(420.0f, 980.0f, 145.0f), FVector(0.15f, 1.2f, 2.9f), FRotator::ZeroRotator, PaleColor);
     SpawnRoomPiece(FVector(-250.0f, -920.0f, 60.0f), FVector(1.1f, 1.1f, 0.5f), FRotator::ZeroRotator, FurnitureColor);
     SpawnRoomPiece(FVector(-1330.0f, 0.0f, 150.0f), FVector(0.08f, 2.1f, 3.0f), FRotator::ZeroRotator, MirrorColor);
+    SpawnRoomPiece(FVector(-680.0f, -180.0f, 8.0f), FVector(5.6f, 2.8f, 0.04f), FRotator::ZeroRotator, TileColor);
+    SpawnRoomPiece(FVector(130.0f, 260.0f, 8.0f), FVector(1.2f, 7.4f, 0.04f), FRotator::ZeroRotator, RunnerColor);
+    SpawnRoomPiece(FVector(780.0f, 760.0f, 8.0f), FVector(3.0f, 2.8f, 0.04f), FRotator::ZeroRotator, NurseryGlowColor);
+    SpawnRoomPiece(FVector(940.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
+    SpawnRoomPiece(FVector(780.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
+    SpawnRoomPiece(FVector(860.0f, 730.0f, 215.0f), FVector(0.95f, 0.08f, 0.08f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(730.0f, 620.0f, 30.0f), FVector(2.9f, 0.05f, 0.05f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(730.0f, 620.0f, 34.0f), FVector(2.9f, 0.05f, 0.05f), FRotator(0.0f, 90.0f, 0.0f), OldGoldColor);
     SpawnRoomPiece(FVector(-730.0f, -620.0f, 30.0f), FVector(2.9f, 0.05f, 0.05f), FRotator(0.0f, 45.0f, 0.0f), MirrorColor);
@@ -459,6 +494,18 @@ void ATheLastRiteGameMode::SpawnLights()
             LightComponent->AttenuationRadius = 1200.0f;
         }
     }
+
+    APointLight* MirrorLight = GetWorld()->SpawnActor<APointLight>(FVector(-780.0f, -640.0f, 220.0f), FRotator::ZeroRotator);
+    if (MirrorLight != nullptr)
+    {
+        CaseLights.Add(MirrorLight);
+        MirrorLight->SetActorScale3D(FVector(3.0f, 3.0f, 3.0f));
+        if (UPointLightComponent* LightComponent = Cast<UPointLightComponent>(MirrorLight->GetLightComponent()))
+        {
+            LightComponent->Intensity = 5200.0f;
+            LightComponent->AttenuationRadius = 1100.0f;
+        }
+    }
 }
 
 void ATheLastRiteGameMode::UpdateRitualAnchors()
@@ -500,7 +547,7 @@ void ATheLastRiteGameMode::UpdateWorldMood()
 
         if (UPointLightComponent* LightComponent = Cast<UPointLightComponent>(Light->GetLightComponent()))
         {
-            const float BaseIntensity = Index == 0 ? 18000.0f : 8000.0f;
+            const float BaseIntensity = Index == 0 ? 18000.0f : (Index == 1 ? 8000.0f : 5200.0f);
             LightComponent->SetIntensity(BaseIntensity * IntensityScale);
             LightComponent->SetLightColor(LightColor);
         }
@@ -529,6 +576,60 @@ void ATheLastRiteGameMode::UpdateProgressText()
         FText::AsNumber(RequiredTrueClues),
         FText::AsNumber(FoundFalseLeads),
         RiteState);
+}
+
+void ATheLastRiteGameMode::UpdateDeductionText()
+{
+    if (bCaseResolved)
+    {
+        return;
+    }
+
+    if (FoundTrueClues <= 0)
+    {
+        DeductionText = NSLOCTEXT(
+            "TheLastRite",
+            "DeductionZero",
+            "Read of the room: no clean pattern yet. Start with the body, the cradle, and the prayer mess.");
+        return;
+    }
+
+    if (FoundTrueClues == 1)
+    {
+        DeductionText = NSLOCTEXT(
+            "TheLastRite",
+            "DeductionOne",
+            "Read of the room: one sign is not enough, but the scene already feels staged instead of random.");
+        return;
+    }
+
+    if (FoundTrueClues == 2)
+    {
+        DeductionText = NSLOCTEXT(
+            "TheLastRite",
+            "DeductionTwo",
+            "Read of the room: the saint pattern is turning child-facing. The room wants your eyes on the nursery.");
+        return;
+    }
+
+    if (FoundTrueClues == 3)
+    {
+        DeductionText = FoundFalseLeads > 0
+            ? NSLOCTEXT(
+                "TheLastRite",
+                "DeductionThreeFalse",
+                "Read of the room: the ugly damage is bait. The real pattern keeps folding back toward the child.")
+            : NSLOCTEXT(
+                "TheLastRite",
+                "DeductionThree",
+                "Read of the room: the clues agree. The nursery carries the saint's weight, not the shattered mirror.");
+        return;
+    }
+
+    DeductionText = NSLOCTEXT(
+        "TheLastRite",
+        "DeductionComplete",
+        "Read of the room: conclusion locked. Perform the rite at the nursery sigil. The mirror circle is bait.");
 }
 
 void ATheLastRiteGameMode::SetStatusText(const FText& NewStatusText)

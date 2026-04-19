@@ -28,6 +28,7 @@ public:
     FText GetStatusText() const;
     FText GetRecentEventText() const;
     FText GetProgressText() const;
+    FText GetDeductionText() const;
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
     const TArray<FString>& GetEvidenceLines() const;
@@ -44,6 +45,7 @@ private:
     void UpdateRitualAnchors();
     void UpdateWorldMood();
     void UpdateProgressText();
+    void UpdateDeductionText();
     void SetStatusText(const FText& NewStatusText);
     void AddEvidenceLine(const FString& NewLine);
 
@@ -64,6 +66,9 @@ private:
 
     UPROPERTY()
     FText ProgressText;
+
+    UPROPERTY()
+    FText DeductionText;
 
     UPROPERTY()
     FText EndingText;
