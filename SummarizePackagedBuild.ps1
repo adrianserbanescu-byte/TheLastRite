@@ -1,6 +1,7 @@
 param(
     [string]$ProjectRoot = $PSScriptRoot,
-    [string]$RunId = ''
+    [string]$RunId = '',
+    [switch]$Concise
 )
 
 $ErrorActionPreference = 'Stop'
@@ -92,35 +93,52 @@ $totalBytes = ($allFiles | Measure-Object -Property Length -Sum).Sum
 if ($null -eq $totalBytes) { $totalBytes = 0 }
 $totalGiB = [math]::Round($totalBytes / 1GB, 3)
 $latestPackagedFile = $allFiles | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$launcherExists = Test-Path $launcherPath
+$shippingExists = Test-Path $shippingPath
+$shippingPdbExists = Test-Path $shippingPdbPath
+$launcherTime = if ($launcherExists) { (Get-Item $launcherPath).LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz') } else { 'missing' }
+$shippingTime = if ($shippingExists) { (Get-Item $shippingPath).LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz') } else { 'missing' }
+$latestPackagedTime = if ($latestPackagedFile) { $latestPackagedFile.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz') } else { 'unknown' }
+$runTimestamp = if ($selectedRun -and $selectedRun.SortTime) { $selectedRun.SortTime.ToString('yyyy-MM-dd HH:mm:ss zzz') } else { 'unknown' }
+
+if ($Concise) {
+    Write-Host ('launcher={0} shipping={1} pdb={2} sizeGiB={3} launcherTime="{4}" shippingTime="{5}" latestPackagedTime="{6}" runId={7} runTimestamp="{8}"' -f `
+        $launcherExists.ToString().ToLower(), `
+        $shippingExists.ToString().ToLower(), `
+        $shippingPdbExists.ToString().ToLower(), `
+        $totalGiB, `
+        $launcherTime, `
+        $shippingTime, `
+        $latestPackagedTime, `
+        $(if ($selectedRun) { $selectedRun.RunId } else { 'none' }), `
+        $runTimestamp)
+    exit 0
+}
 
 Write-Host 'Packaged build summary'
 Write-Host
 Write-Host ('package root: {0}' -f $packageRoot)
-Write-Host ('launcher exists: {0}' -f (Test-Path $launcherPath).ToString().ToLower())
+Write-Host ('launcher exists: {0}' -f $launcherExists.ToString().ToLower())
 Write-Host ('launcher path: {0}' -f $launcherPath)
-if (Test-Path $launcherPath) {
-    $launcherItem = Get-Item $launcherPath
-    Write-Host ('launcher time: {0}' -f $launcherItem.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+if ($launcherExists) {
+    Write-Host ('launcher time: {0}' -f $launcherTime)
 }
-Write-Host ('shipping exe exists: {0}' -f (Test-Path $shippingPath).ToString().ToLower())
+Write-Host ('shipping exe exists: {0}' -f $shippingExists.ToString().ToLower())
 Write-Host ('shipping exe path: {0}' -f $shippingPath)
-if (Test-Path $shippingPath) {
-    $shippingItem = Get-Item $shippingPath
-    Write-Host ('shipping exe time: {0}' -f $shippingItem.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+if ($shippingExists) {
+    Write-Host ('shipping exe time: {0}' -f $shippingTime)
 }
-Write-Host ('shipping pdb exists: {0}' -f (Test-Path $shippingPdbPath).ToString().ToLower())
+Write-Host ('shipping pdb exists: {0}' -f $shippingPdbExists.ToString().ToLower())
 Write-Host ('shipping pdb path: {0}' -f $shippingPdbPath)
 Write-Host ('package size gib: {0}' -f $totalGiB)
 if ($latestPackagedFile) {
-    Write-Host ('latest packaged file time: {0}' -f $latestPackagedFile.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+    Write-Host ('latest packaged file time: {0}' -f $latestPackagedTime)
     Write-Host ('latest packaged file path: {0}' -f $latestPackagedFile.FullName)
 }
 
 if ($selectedRun) {
     Write-Host ('run id: {0}' -f $selectedRun.RunId)
-    if ($selectedRun.SortTime) {
-        Write-Host ('run timestamp: {0}' -f $selectedRun.SortTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
-    }
+    Write-Host ('run timestamp: {0}' -f $runTimestamp)
 }
 
 if ($selectedRun -and $selectedRun.Paths.Contains('UBT')) {

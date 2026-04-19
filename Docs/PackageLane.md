@@ -48,6 +48,7 @@ This runbook is not for:
   - reports whether the shipping PDB exists
   - reports package size
   - reports the latest packaged-file timestamp
+  - supports `-Concise` for a one-line package verdict
   - prints the latest correlated UBT, UAT, saved, and stage paths
 
 - `ValidatePackageLane.cmd`
@@ -123,6 +124,12 @@ PlayPackagedGame.cmd --check-only
 
 ```text
 SummarizePackagedBuild.cmd
+```
+
+One-line summary variant:
+
+```text
+SummarizePackagedBuild.cmd -Concise
 ```
 
 ### 5. Publish the 30-minute laptop 2 report
