@@ -137,8 +137,14 @@ void ATheLastRiteGameMode::HandleStartingNewPlayer_Implementation(APlayerControl
 
 void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 {
-    if (Prop == nullptr || IsCaseResolved())
+    if (Prop == nullptr)
     {
+        return;
+    }
+
+    if (IsCaseResolved())
+    {
+        SetStatusText(GetResolvedInteractionText());
         return;
     }
 
@@ -219,6 +225,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
 
     if (IsCaseResolved())
     {
+        SetStatusText(GetResolvedInteractionText());
         return;
     }
 
