@@ -22,6 +22,9 @@ Hard rules:
 - do not take ownership of gameplay C++ changes
 - commit and push small coherent packaging/content checkpoints
 - do not force commits on the 30-minute clock; use the 30-minute cadence for status only
+- a completed in-scope task is not a stop condition
+- after any successful checkpoint, immediately check for blockers and continue with the next in-scope packaging/content task if none exist
+- do not wait for acknowledgment after a normal checkpoint
 
 Work queue order:
 1. launcher and packaging helper reliability
@@ -65,6 +68,7 @@ Normal reporting rule:
 Checkpoint rule:
 - aim for a meaningful packaging/content checkpoint every 2-3 hours
 - commit and push sooner if a coherent verified change is already ready
+- after any checkpoint, continue immediately unless a real blocker, scope drift, cross-lane dependency, failed verification needing coordinator action, or an explicit stop instruction appears
 
 Do not touch:
 - gameplay C++ logic
