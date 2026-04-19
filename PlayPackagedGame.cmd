@@ -11,5 +11,8 @@ if not exist "%PACKAGED_EXE%" (
     exit /b 1
 )
 
+taskkill /IM TheLastRite.exe /F >nul 2>&1
+taskkill /IM TheLastRite-Win64-Shipping.exe /F >nul 2>&1
+
 start "" "%PACKAGED_EXE%"
 exit /b 0
