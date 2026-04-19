@@ -60,6 +60,10 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a room-dressing and import-prep checklist for translating the current Apartment 302 boards into an Unreal placement pass.
   - Player read: the nursery clue cluster should resolve first, the mirror trap should tempt without dominating, and lighting should support that evidence order.
 
+- `references/apartment302_import_manifest.md`
+  - What it is: a proposed import bundle and stable-label manifest for a future Unreal room-dressing pass.
+  - Player read: the nursery truth bundle, mirror trap, and quieter false leads should keep the same names and evidence roles through screenshots, notes, and placement feedback.
+
 - `references/apartment302_room_dressing_pass_order.svg`
   - What it is: a visual pass-order board for the Unreal room-dressing sequence and laptop 2 ownership guardrails.
   - Player read: the room should be staged in a readable order, with the nursery cluster locked first and false leads added only after the true ritual read is stable.
@@ -109,5 +113,6 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 - The correct ritual spot is the nursery sigil. The mirror circle should look tempting, but colder and less connected to evidence.
 - Use `references/apartment302_interaction_readability_board.svg` as the first placement pass when translating these mockups into Unreal.
 - Use `references/apartment302_lighting_readability_board.svg` to keep the room readable from entry sweep through final ritual choice.
+- Use `references/apartment302_import_manifest.md` when the pass needs stable bundle names, object labels, and screenshot vocabulary.
 - Avoid gore, weapons, real religious icons, and action-game UI language.
 - These SVGs are small, editable source mockups. They can be used directly as reference or exported later as PNGs for an in-engine art pass.
