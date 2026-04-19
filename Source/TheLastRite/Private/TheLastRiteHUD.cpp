@@ -243,47 +243,12 @@ void ATheLastRiteHUD::DrawHUD()
 
             for (const FString& Line : FinalReportLines)
             {
-                FLinearColor ReportColor(0.82f, 0.86f, 0.90f);
-                const auto ContainsIgnoreCase = [&Line](const TCHAR* Needle)
-                {
-                    return Line.Contains(Needle, ESearchCase::IgnoreCase);
-                };
                 if (Line.IsEmpty())
                 {
                     ReportY += 8.0f;
                     continue;
                 }
-                else if (ContainsIgnoreCase(TEXT("missed")) || ContainsIgnoreCase(TEXT("unchecked")))
-                {
-                    ReportColor = FLinearColor(0.95f, 0.88f, 0.60f);
-                }
-                else if (ContainsIgnoreCase(TEXT("Conclusion"))
-                    || ContainsIgnoreCase(TEXT("correct anchor"))
-                    || ContainsIgnoreCase(TEXT("Seal result"))
-                    || ContainsIgnoreCase(TEXT("True clue")))
-                {
-                    ReportColor = FLinearColor(0.68f, 1.0f, 0.72f);
-                }
-                else if (ContainsIgnoreCase(TEXT("Correct read")))
-                {
-                    ReportColor = FLinearColor(0.76f, 0.88f, 1.0f);
-                }
-                else if (ContainsIgnoreCase(TEXT("Wrong rite")) || ContainsIgnoreCase(TEXT("Outcome")) || ContainsIgnoreCase(TEXT("What went wrong")))
-                {
-                    ReportColor = FLinearColor(1.0f, 0.45f, 0.45f);
-                }
-                else if (ContainsIgnoreCase(TEXT("Recovery")) || ContainsIgnoreCase(TEXT("audit")))
-                {
-                    ReportColor = FLinearColor(0.95f, 0.88f, 0.60f);
-                }
-                else if (ContainsIgnoreCase(TEXT("False lead")) || ContainsIgnoreCase(TEXT("Discarded false leads")))
-                {
-                    ReportColor = FLinearColor(1.0f, 0.72f, 0.44f);
-                }
-                else if (ContainsIgnoreCase(TEXT("Confirmed true clues")) || ContainsIgnoreCase(TEXT("Case title")) || ContainsIgnoreCase(TEXT("Demon")))
-                {
-                    ReportColor = FLinearColor(0.86f, 0.92f, 1.0f);
-                }
+                const FLinearColor ReportColor = GetFinalReportLineColor(Line);
 
                 ReportY = DrawWrappedTextLine(Line, ReportColor, CenterX, ReportY, 68, SmallFont, 1.0f);
                 ReportY += 2.0f;
@@ -367,4 +332,52 @@ float ATheLastRiteHUD::MeasureWrappedTextHeight(const FString& Text, int32 MaxCh
     }
 
     return LineCount * 24.0f * Scale;
+}
+
+FLinearColor ATheLastRiteHUD::GetFinalReportLineColor(const FString& Line) const
+{
+    const auto ContainsIgnoreCase = [&Line](const TCHAR* Needle)
+    {
+        return Line.Contains(Needle, ESearchCase::IgnoreCase);
+    };
+
+    if (ContainsIgnoreCase(TEXT("missed")) || ContainsIgnoreCase(TEXT("unchecked")))
+    {
+        return FLinearColor(0.95f, 0.88f, 0.60f);
+    }
+
+    if (ContainsIgnoreCase(TEXT("Conclusion"))
+        || ContainsIgnoreCase(TEXT("correct anchor"))
+        || ContainsIgnoreCase(TEXT("Seal result"))
+        || ContainsIgnoreCase(TEXT("True clue")))
+    {
+        return FLinearColor(0.68f, 1.0f, 0.72f);
+    }
+
+    if (ContainsIgnoreCase(TEXT("Correct read")))
+    {
+        return FLinearColor(0.76f, 0.88f, 1.0f);
+    }
+
+    if (ContainsIgnoreCase(TEXT("Wrong rite")) || ContainsIgnoreCase(TEXT("Outcome")) || ContainsIgnoreCase(TEXT("What went wrong")))
+    {
+        return FLinearColor(1.0f, 0.45f, 0.45f);
+    }
+
+    if (ContainsIgnoreCase(TEXT("Recovery")) || ContainsIgnoreCase(TEXT("audit")))
+    {
+        return FLinearColor(0.95f, 0.88f, 0.60f);
+    }
+
+    if (ContainsIgnoreCase(TEXT("False lead")) || ContainsIgnoreCase(TEXT("Discarded false leads")))
+    {
+        return FLinearColor(1.0f, 0.72f, 0.44f);
+    }
+
+    if (ContainsIgnoreCase(TEXT("Confirmed true clues")) || ContainsIgnoreCase(TEXT("Case title")) || ContainsIgnoreCase(TEXT("Demon")))
+    {
+        return FLinearColor(0.86f, 0.92f, 1.0f);
+    }
+
+    return FLinearColor(0.82f, 0.86f, 0.90f);
 }
