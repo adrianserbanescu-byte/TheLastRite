@@ -218,7 +218,19 @@ void ATheLastRiteHUD::DrawHUD()
         const float CenterY = Canvas->ClipY * 0.28f;
         float ReportY = CenterY + 108.0f;
         const TArray<FString>& FinalReportLines = GameMode->GetFinalReportLines();
-        const float OverlayHeight = FinalReportLines.IsEmpty() ? 220.0f : 420.0f;
+        float OverlayHeight = 220.0f;
+        if (!FinalReportLines.IsEmpty())
+        {
+            float ReportBodyHeight = 26.0f;
+            for (const FString& Line : FinalReportLines)
+            {
+                ReportBodyHeight += Line.IsEmpty()
+                    ? 8.0f
+                    : (MeasureWrappedTextHeight(Line, 68, 1.0f) + 2.0f);
+            }
+
+            OverlayHeight = FMath::Clamp(108.0f + ReportBodyHeight + 72.0f, 320.0f, Canvas->ClipY - (CenterY - 20.0f) - 24.0f);
+        }
         DrawPanel(CenterX - 22.0f, CenterY - 20.0f, 760.0f, OverlayHeight, FLinearColor(0.01f, 0.02f, 0.04f, 0.84f));
         DrawText(Ending, GameMode->DidPlayerWin() ? FLinearColor(0.5f, 1.0f, 0.5f) : FLinearColor(1.0f, 0.45f, 0.45f), CenterX, CenterY, LargeFont, 2.0f, false);
         DrawWrappedTextLine(GameMode->GetEndingDetailText().ToString(), FLinearColor::White, CenterX, CenterY + 70.0f, 68, SmallFont, 1.2f);
@@ -241,9 +253,17 @@ void ATheLastRiteHUD::DrawHUD()
                 {
                     ReportColor = FLinearColor(0.68f, 1.0f, 0.72f);
                 }
+                else if (Line.Contains(TEXT("Correct read")))
+                {
+                    ReportColor = FLinearColor(0.76f, 0.88f, 1.0f);
+                }
                 else if (Line.Contains(TEXT("Wrong rite")) || Line.Contains(TEXT("Outcome")) || Line.Contains(TEXT("What went wrong")))
                 {
                     ReportColor = FLinearColor(1.0f, 0.45f, 0.45f);
+                }
+                else if (Line.Contains(TEXT("Recovery")))
+                {
+                    ReportColor = FLinearColor(0.95f, 0.88f, 0.60f);
                 }
                 else if (Line.Contains(TEXT("False lead")) || Line.Contains(TEXT("Discarded false leads")))
                 {
@@ -302,4 +322,38 @@ float ATheLastRiteHUD::DrawWrappedTextLine(const FString& Text, const FLinearCol
     }
 
     return Y;
+}
+
+float ATheLastRiteHUD::MeasureWrappedTextHeight(const FString& Text, int32 MaxCharactersPerLine, float Scale) const
+{
+    if (Text.IsEmpty())
+    {
+        return 0.0f;
+    }
+
+    TArray<FString> Words;
+    Text.ParseIntoArrayWS(Words);
+
+    FString Line;
+    int32 LineCount = 0;
+    for (const FString& Word : Words)
+    {
+        const FString Candidate = Line.IsEmpty() ? Word : FString::Printf(TEXT("%s %s"), *Line, *Word);
+        if (Candidate.Len() > MaxCharactersPerLine && !Line.IsEmpty())
+        {
+            ++LineCount;
+            Line = Word;
+        }
+        else
+        {
+            Line = Candidate;
+        }
+    }
+
+    if (!Line.IsEmpty())
+    {
+        ++LineCount;
+    }
+
+    return LineCount * 24.0f * Scale;
 }

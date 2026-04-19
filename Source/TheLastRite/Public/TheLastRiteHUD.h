@@ -17,4 +17,5 @@ public:
 private:
     void DrawPanel(float X, float Y, float Width, float Height, const FLinearColor& Color);
     float DrawWrappedTextLine(const FString& Text, const FLinearColor& Color, float X, float Y, int32 MaxCharactersPerLine, UFont* Font, float Scale);
+    float MeasureWrappedTextHeight(const FString& Text, int32 MaxCharactersPerLine, float Scale) const;
 };
