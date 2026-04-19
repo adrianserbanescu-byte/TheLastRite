@@ -51,6 +51,7 @@ Local smoke test also succeeded:
 - the packaged game reached a live window and was then closed cleanly
 - `PlayPackagedGame.cmd` also resolves to the repo-local packaged build correctly on this branch and launched a live shipping window during validation
 - `SmokeTestPackagedGame.cmd` now provides a repeatable repo-local smoke check for launcher and shipping handoff validation
+- `SummarizePackagedBuild.cmd` now reports packaged artifact presence, package size, debug-symbol presence, and the latest log roots
 - `ValidatePackageLane.cmd` now reruns packaging and the packaged smoke test in one local pass
 
 This result is still local laptop 2 validation only and is not shared / integrated state.

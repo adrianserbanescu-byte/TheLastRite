@@ -5,6 +5,7 @@ set "PROJECT_ROOT=%~dp0"
 if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
 set "PACKAGE_SCRIPT=%PROJECT_ROOT%\PackageGame.cmd"
 set "SMOKE_SCRIPT=%PROJECT_ROOT%\SmokeTestPackagedGame.cmd"
+set "SUMMARY_SCRIPT=%PROJECT_ROOT%\SummarizePackagedBuild.cmd"
 
 if not exist "%PACKAGE_SCRIPT%" (
     echo Package script not found:
@@ -15,6 +16,12 @@ if not exist "%PACKAGE_SCRIPT%" (
 if not exist "%SMOKE_SCRIPT%" (
     echo Smoke test script not found:
     echo %SMOKE_SCRIPT%
+    exit /b 1
+)
+
+if not exist "%SUMMARY_SCRIPT%" (
+    echo Package summary script not found:
+    echo %SUMMARY_SCRIPT%
     exit /b 1
 )
 
@@ -35,6 +42,14 @@ set "EXIT_CODE=%ERRORLEVEL%"
 if not "%EXIT_CODE%"=="0" (
     echo.
     echo Smoke test step failed.
+    exit /b %EXIT_CODE%
+)
+
+call "%SUMMARY_SCRIPT%"
+set "EXIT_CODE=%ERRORLEVEL%"
+if not "%EXIT_CODE%"=="0" (
+    echo.
+    echo Package summary step failed.
     exit /b %EXIT_CODE%
 )
 
