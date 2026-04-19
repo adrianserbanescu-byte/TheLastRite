@@ -225,7 +225,9 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float EventX = Canvas->ClipX * 0.18f;
         float EventY = Canvas->ClipY * 0.64f;
-        DrawPanel(EventX - 14.0f, EventY - 14.0f, 680.0f, 92.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.68f));
+        const float EventTextHeight = MeasureWrappedTextHeight(RecentEvent.ToString(), 82, 1.2f);
+        const float EventPanelHeight = FMath::Max(92.0f, 40.0f + EventTextHeight + 22.0f);
+        DrawPanel(EventX - 14.0f, EventY - 14.0f, 680.0f, EventPanelHeight, FLinearColor(0.02f, 0.03f, 0.05f, 0.68f));
         DrawText(TEXT("Finding"), FLinearColor(0.85f, 0.95f, 1.0f), EventX, EventY, SmallFont, 1.15f, false);
         EventY += 26.0f;
         DrawWrappedTextLine(RecentEvent.ToString(), FLinearColor(1.0f, 0.92f, 0.55f), EventX, EventY, 82, SmallFont, 1.2f);
