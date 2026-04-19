@@ -14,7 +14,12 @@ echo %LOG_FILE%
 echo.
 
 call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRiteEditor Win64 Development -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -NoHotReload -log="%LOG_FILE%"
+set "EXIT_CODE=%ERRORLEVEL%"
 
 echo.
-echo Done.
-pause
+if "%EXIT_CODE%"=="0" (
+    echo Done.
+) else (
+    echo Build failed with exit code %EXIT_CODE%.
+)
+exit /b %EXIT_CODE%

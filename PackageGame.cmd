@@ -84,8 +84,16 @@ call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat" Bui
  -ddc=InstalledNoZenLocalFallback ^
  -archive ^
  -archivedirectory="%OUTPUT_DIR%"
+set "EXIT_CODE=%ERRORLEVEL%"
+goto :finish
 
 :done
+set "EXIT_CODE=%ERRORLEVEL%"
+:finish
 echo.
-echo Done.
-pause
+if "%EXIT_CODE%"=="0" (
+    echo Done.
+) else (
+    echo Packaging failed with exit code %EXIT_CODE%.
+)
+exit /b %EXIT_CODE%
