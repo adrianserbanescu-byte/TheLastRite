@@ -25,6 +25,9 @@ Saved/
 *.dll
 *.exe
 Packaged/
+LocalBuildTemp/
+LocalBuildTempQuick/
+LocalBuildTempQuick2/
 
 # Visual Studio migration leftovers
 Backup/

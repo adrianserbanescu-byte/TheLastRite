@@ -137,7 +137,7 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
     FRotator ViewRotation;
     Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
 
-    const FVector TraceEnd = ViewLocation + (ViewRotation.Vector() * 400.0f);
+    const FVector TraceEnd = ViewLocation + (ViewRotation.Vector() * 520.0f);
 
     TArray<FHitResult> HitResults;
     FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(TheLastRiteInteractTrace), false, this);
@@ -147,16 +147,21 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
         TraceEnd,
         FQuat::Identity,
         ECC_Visibility,
-        FCollisionShape::MakeSphere(42.0f),
+        FCollisionShape::MakeSphere(52.0f),
         QueryParams);
 
     FocusedInteractable = nullptr;
+    float BestDistanceSq = TNumericLimits<float>::Max();
     for (const FHitResult& HitResult : HitResults)
     {
         if (ATheLastRiteInteractable* Interactable = Cast<ATheLastRiteInteractable>(HitResult.GetActor()))
         {
-            FocusedInteractable = Interactable;
-            return;
+            const float DistanceSq = FVector::DistSquared(ViewLocation, HitResult.ImpactPoint);
+            if (DistanceSq < BestDistanceSq)
+            {
+                BestDistanceSq = DistanceSq;
+                FocusedInteractable = Interactable;
+            }
         }
     }
 }

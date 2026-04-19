@@ -115,7 +115,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
         if (Prop->IsTrueClue())
         {
             const FText ReminderText = CasePhase == ETheLastRiteCasePhase::RiteReady
-                ? NSLOCTEXT("TheLastRite", "TrueReminderRiteReady", "Already logged. This still confirms the nursery path, not the mirror.")
+                ? NSLOCTEXT("TheLastRite", "TrueReminderRiteReady", "Already logged. This still confirms the child-facing altar, not the mirror.")
                 : NSLOCTEXT("TheLastRite", "TrueReminder", "Already logged. This remains real evidence.");
             SetStatusText(FText::Format(
                 NSLOCTEXT("TheLastRite", "AlreadyCheckedTrue", "{0} {1}"),
@@ -142,9 +142,9 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
             ObjectiveText = NSLOCTEXT(
                 "TheLastRite",
                 "ObjectiveRitualReady",
-                "Evidence complete. The true signs point back to the nursery. Choose the ritual anchor.");
+                "Evidence complete. The child-facing pattern is locked. Choose the ritual anchor that fits the room's true center.");
             SetStatusText(FText::Format(
-                NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. The Hollow Saint is tied to the nursery, not the mirror."),
+                NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. The real pattern converges around the child-facing altar, not the mirror bait."),
                 Prop->GetClueText()));
             TriggerPhasePulse(FLinearColor(0.96f, 0.75f, 0.22f, 1.0f), 1.0f);
         }
@@ -768,7 +768,7 @@ void ATheLastRiteGameMode::UpdateProgressText()
         return;
     case ETheLastRiteCasePhase::RiteReady:
         ProgressText = FText::Format(
-            NSLOCTEXT("TheLastRite", "ProgressRiteReady", "True clues: {0}/{1} | False leads: {2}/{3} | Rite ready: nursery sigil only"),
+            NSLOCTEXT("TheLastRite", "ProgressRiteReady", "True clues: {0}/{1} | False leads: {2}/{3} | Rite ready: act on your read"),
             FText::AsNumber(FoundTrueClues),
             FText::AsNumber(RequiredTrueClues),
             FText::AsNumber(FoundFalseLeads),
@@ -854,7 +854,7 @@ void ATheLastRiteGameMode::UpdateDeductionText()
     DeductionText = NSLOCTEXT(
         "TheLastRite",
         "DeductionComplete",
-        "Read of the room: conclusion locked. The nursery sigil is correct. The mirror is bait.");
+        "Read of the room: conclusion locked. The true altar is child-facing. The mirror is bait.");
 }
 
 void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
@@ -888,7 +888,7 @@ void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
         CurrentObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "CurrentObjectiveRiteReady",
-            "Current objective: perform the rite at the nursery sigil.");
+            "Current objective: perform the rite where the child-facing pattern converges.");
         break;
     case ETheLastRiteCasePhase::SealedAwaitingExit:
         CurrentObjectiveText = NSLOCTEXT(
@@ -916,7 +916,8 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(TEXT("Case title: Apartment 302"));
         FinalReportLines.Add(TEXT("Demon: Hollow Saint"));
         FinalReportLines.Add(TEXT("Conclusion: the nursery sigil was the correct anchor."));
-        FinalReportLines.Add(FString::Printf(TEXT("True clues confirmed: %d/%d"), FoundTrueClues, RequiredTrueClues));
+        FinalReportLines.Add(TEXT(""));
+        FinalReportLines.Add(FString::Printf(TEXT("Confirmed true clues (%d/%d)"), FoundTrueClues, RequiredTrueClues));
 
         if (HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks")))
         {
@@ -939,7 +940,8 @@ void ATheLastRiteGameMode::RebuildFinalReport()
             FinalReportLines.Add(TEXT("True clue: the nursery mural had been repainted into a halo."));
         }
 
-        FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
+        FinalReportLines.Add(TEXT(""));
+        FinalReportLines.Add(FString::Printf(TEXT("Discarded false leads (%d/%d)"), FoundFalseLeads, TotalFalseLeads));
         if (HasEvidenceLine(TEXT("FALSE - the broken window latch - forced from outside")))
         {
             FinalReportLines.Add(TEXT("False lead: broken window latch."));
@@ -952,15 +954,22 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         {
             FinalReportLines.Add(TEXT("False lead: kitchen knife."));
         }
+
+        FinalReportLines.Add(TEXT(""));
+        FinalReportLines.Add(TEXT("Seal result: front door used and case closed cleanly."));
     }
     else if (CasePhase == ETheLastRiteCasePhase::ClosedFail)
     {
         FinalReportLines.Add(TEXT("Case title: Apartment 302"));
         FinalReportLines.Add(TEXT("Demon: Hollow Saint"));
+        FinalReportLines.Add(TEXT(""));
+        FinalReportLines.Add(TEXT("What went wrong"));
         FinalReportLines.Add(TEXT("Wrong rite used: mirror circle."));
         FinalReportLines.Add(TEXT("Correct anchor: nursery sigil."));
+        FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(FString::Printf(TEXT("True clues found: %d/%d"), FoundTrueClues, RequiredTrueClues));
         FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
+        FinalReportLines.Add(TEXT("Outcome: the bait circle was trusted over the child-facing signs."));
     }
 }
 

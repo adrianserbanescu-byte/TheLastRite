@@ -33,6 +33,15 @@ void ATheLastRiteHUD::DrawHUD()
         DrawRect(PulseColor, 0.0f, 0.0f, Canvas->ClipX, Canvas->ClipY);
     }
 
+    if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::ClosedFail)
+    {
+        DrawRect(FLinearColor(0.22f, 0.02f, 0.02f, 0.18f), 0.0f, 0.0f, Canvas->ClipX, Canvas->ClipY);
+    }
+    else if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::ClosedWin)
+    {
+        DrawRect(FLinearColor(0.06f, 0.12f, 0.06f, 0.14f), 0.0f, 0.0f, Canvas->ClipX, Canvas->ClipY);
+    }
+
     float Y = 30.0f;
     const float X = 30.0f;
     DrawPanel(18.0f, 18.0f, 760.0f, 232.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
@@ -164,6 +173,14 @@ void ATheLastRiteHUD::DrawHUD()
         DrawText(TEXT("SEAL HOLDS"), FLinearColor(0.58f, 1.0f, 0.64f), BannerX, BannerY, LargeFont, 1.35f, false);
         DrawText(TEXT("Leave through the front door now."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.15f, false);
     }
+    else if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady)
+    {
+        const float BannerX = Canvas->ClipX * 0.30f;
+        const float BannerY = Canvas->ClipY * 0.16f;
+        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 600.0f, 96.0f, FLinearColor(0.10f, 0.08f, 0.02f, 0.80f));
+        DrawText(TEXT("RITE READY"), FLinearColor(1.0f, 0.88f, 0.44f), BannerX, BannerY, LargeFont, 1.35f, false);
+        DrawText(TEXT("Act on the child-facing pattern. Ignore the mirror bait."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.12f, false);
+    }
 
     if (GameMode->IsCaseClosed())
     {
@@ -179,23 +196,33 @@ void ATheLastRiteHUD::DrawHUD()
 
         if (!FinalReportLines.IsEmpty())
         {
+            DrawPanel(CenterX - 10.0f, ReportY - 10.0f, 710.0f, OverlayHeight - 176.0f, FLinearColor(0.04f, 0.05f, 0.08f, 0.62f));
             DrawText(TEXT("Final report"), FLinearColor(0.85f, 0.95f, 1.0f), CenterX, ReportY, SmallFont, 1.15f, false);
             ReportY += 26.0f;
 
             for (const FString& Line : FinalReportLines)
             {
                 FLinearColor ReportColor(0.82f, 0.86f, 0.90f);
-                if (Line.Contains(TEXT("Conclusion")) || Line.Contains(TEXT("correct anchor")) || Line.Contains(TEXT("True clue")))
+                if (Line.IsEmpty())
+                {
+                    ReportY += 8.0f;
+                    continue;
+                }
+                else if (Line.Contains(TEXT("Conclusion")) || Line.Contains(TEXT("correct anchor")) || Line.Contains(TEXT("Seal result")) || Line.Contains(TEXT("True clue")))
                 {
                     ReportColor = FLinearColor(0.68f, 1.0f, 0.72f);
                 }
-                else if (Line.Contains(TEXT("Wrong rite")) || Line.Contains(TEXT("FAILED")))
+                else if (Line.Contains(TEXT("Wrong rite")) || Line.Contains(TEXT("Outcome")) || Line.Contains(TEXT("What went wrong")))
                 {
                     ReportColor = FLinearColor(1.0f, 0.45f, 0.45f);
                 }
-                else if (Line.Contains(TEXT("False lead")))
+                else if (Line.Contains(TEXT("False lead")) || Line.Contains(TEXT("Discarded false leads")))
                 {
                     ReportColor = FLinearColor(1.0f, 0.72f, 0.44f);
+                }
+                else if (Line.Contains(TEXT("Confirmed true clues")) || Line.Contains(TEXT("Case title")) || Line.Contains(TEXT("Demon")))
+                {
+                    ReportColor = FLinearColor(0.86f, 0.92f, 1.0f);
                 }
 
                 ReportY = DrawWrappedTextLine(Line, ReportColor, CenterX, ReportY, 68, SmallFont, 1.0f);
