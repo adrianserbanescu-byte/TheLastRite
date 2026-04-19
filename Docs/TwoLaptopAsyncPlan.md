@@ -11,6 +11,7 @@ Use this plan instead of the earlier laptop 2 bring-up flow when deciding what e
 - `main` stays untouched.
 - Each laptop commits and pushes only its own branch.
 - Each laptop reports every 30 minutes by updating a GitHub status file on its own branch.
+- Each laptop is expected to produce a meaningful pushed checkpoint every 2-3 hours, not every 30 minutes.
 - The coordinator responds by updating a GitHub coordinator-reply file on the affected laptop's branch.
 - The laptops check GitHub for coordinator replies before resuming from a blocker.
 
@@ -61,6 +62,14 @@ Use this plan instead of the earlier laptop 2 bring-up flow when deciding what e
 - Push after each meaningful checkpoint.
 - Do not create mixed gameplay/package commits.
 
+## Cadence
+
+- Every 30 minutes: status update only
+- Every 2-3 hours: expected meaningful checkpoint with commit/push if coherent work is ready
+- Immediate: blocker report as soon as it appears
+
+Do not force a commit every 30 minutes. The 30-minute cadence is for coordination, not for shipping a feature slice on the clock.
+
 ## GitHub coordination files
 
 Laptop 1 uses these files on `codex/gameplay`:
@@ -98,6 +107,8 @@ needs coordinator: <yes / no>
 If nothing meaningful changed, `last 30m progress` may be `no material change`.
 
 Each 30-minute report must be committed and pushed on the laptop's own branch.
+
+Meaningful checkpoints should usually happen every 2-3 hours, or sooner if a coherent verified change is already ready.
 
 ## Coordinator rules
 

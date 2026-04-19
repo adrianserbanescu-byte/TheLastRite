@@ -11,6 +11,7 @@ Use this as the execution target for the current work window.
 - `main` stays untouched.
 - Each laptop commits and pushes only its own branch.
 - Each laptop reports every 30 minutes by updating and pushing its GitHub status file using the format in `Docs/TwoLaptopAsyncPlan.md`.
+- Each laptop should aim for a meaningful pushed checkpoint roughly every 2-3 hours, not every 30 minutes.
 - If a blocker appears, stop broad experimentation and ask the coordinator for the smallest next safe action.
 
 ## End-of-window objective
@@ -71,17 +72,17 @@ Acceptance signal:
 Hour 0-4:
 
 - investigation flow and opening sweep clarity
-- commit/push at the first stable gameplay checkpoint
+- at least one stable gameplay checkpoint committed/pushed during this window
 
 Hour 4-8:
 
 - inspect prompts, next-move guidance, ritual clarity, fail/win messaging
-- commit/push at the next stable gameplay checkpoint
+- at least one stable gameplay checkpoint committed/pushed during this window
 
 Hour 8-12:
 
 - interaction targeting, restart/exit/completion reliability, cleanup inside touched gameplay code
-- final commit/push and end-of-window summary
+- final stable checkpoint commit/push and end-of-window summary
 
 ### Required laptop 1 verification
 
@@ -152,18 +153,18 @@ Acceptance signal:
 Hour 0-4:
 
 - launcher/package helper reliability
-- commit/push first stable package-lane checkpoint
+- at least one stable package-lane checkpoint committed/pushed during this window
 
 Hour 4-8:
 
 - package smoke-test, summary tooling, deterministic output/log behavior, docs
-- commit/push next stable package-lane checkpoint
+- at least one stable package-lane checkpoint committed/pushed during this window
 
 Hour 8-12:
 
 - content/readability or room-dressing work inside lane
 - rerun package + smoke validation after material changes
-- final commit/push and end-of-window summary
+- final stable checkpoint commit/push and end-of-window summary
 
 ### Required laptop 2 verification
 
@@ -194,3 +195,4 @@ needs reviewed shared checkpoint: <yes / no>
 - do not collapse the work into a shared checkpoint unless a real dependency appears
 - prefer the smallest next safe action when replying to blockers
 - use the GitHub coordinator-reply file on the affected branch when a laptop is blocked
+- treat the 30-minute cadence as coordination/reporting, not as a requirement to manufacture commits

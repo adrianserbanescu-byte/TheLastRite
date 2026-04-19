@@ -21,6 +21,7 @@ Hard rules:
 - do not pull or manually integrate laptop 2 branch work
 - keep changes inside gameplay/integration scope
 - commit and push small coherent gameplay-only checkpoints
+- do not force commits on the 30-minute clock; use the 30-minute cadence for status only
 
 Work queue order:
 1. investigation flow and opening sweep clarity
@@ -59,6 +60,10 @@ When blocked:
 Normal reporting rule:
 - write each 30-minute report to `Docs/Laptop1Status.md`
 - commit and push it on `codex/gameplay`
+
+Checkpoint rule:
+- aim for a meaningful gameplay checkpoint every 2-3 hours
+- commit and push sooner if a coherent verified gameplay change is already ready
 
 Do not touch:
 - packaging scripts
