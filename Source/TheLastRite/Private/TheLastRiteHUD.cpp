@@ -45,11 +45,15 @@ void ATheLastRiteHUD::DrawHUD()
     const float X = 30.0f;
     const FString ObjectiveText = GameMode->GetObjectiveText().ToString();
     const FString CurrentObjectiveText = GameMode->GetCurrentObjectiveText().ToString();
+    const FString ProgressText = GameMode->GetProgressText().ToString();
     const FString DeductionText = GameMode->GetDeductionText().ToString();
     const FString StatusText = GameMode->GetStatusText().ToString();
+    const FString ControlText = TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc to quit");
     const float ObjectiveHeight = MeasureWrappedTextHeight(ObjectiveText, 92, 1.15f);
     const float CurrentObjectiveHeight = MeasureWrappedTextHeight(CurrentObjectiveText, 92, 1.05f);
+    const float ProgressHeight = MeasureWrappedTextHeight(ProgressText, 92, 1.1f);
     const float DeductionHeight = MeasureWrappedTextHeight(DeductionText, 92, 1.0f);
+    const float ControlHeight = MeasureWrappedTextHeight(ControlText, 92, 1.0f);
     const float StatusHeight = MeasureWrappedTextHeight(StatusText, 96, 1.05f);
     const float MainPanelHeight = FMath::Max(
         232.0f,
@@ -60,10 +64,12 @@ void ATheLastRiteHUD::DrawHUD()
             + 8.0f
             + CurrentObjectiveHeight
             + 6.0f
-            + 24.0f
+            + ProgressHeight
+            + 8.0f
             + DeductionHeight
             + 6.0f
-            + 34.0f
+            + ControlHeight
+            + 10.0f
             + StatusHeight
             + 24.0f);
 
@@ -78,12 +84,12 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 8.0f;
     Y = DrawWrappedTextLine(CurrentObjectiveText, FLinearColor(0.65f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.05f);
     Y += 6.0f;
-    DrawText(GameMode->GetProgressText().ToString(), FLinearColor(0.9f, 0.9f, 0.75f), X, Y, SmallFont, 1.1f, false);
-    Y += 24.0f;
+    Y = DrawWrappedTextLine(ProgressText, FLinearColor(0.9f, 0.9f, 0.75f), X, Y, 92, SmallFont, 1.1f);
+    Y += 8.0f;
     Y = DrawWrappedTextLine(DeductionText, FLinearColor(0.78f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.0f);
     Y += 6.0f;
-    DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc to quit"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
-    Y += 34.0f;
+    Y = DrawWrappedTextLine(ControlText, FLinearColor(0.7f, 0.8f, 1.0f), X, Y, 92, SmallFont, 1.0f);
+    Y += 10.0f;
     Y = DrawWrappedTextLine(StatusText, FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
 
     const bool bShowStarterGuidance = !GameMode->IsCaseResolved() && !GameMode->IsOpeningSweepComplete();
