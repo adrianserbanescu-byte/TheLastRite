@@ -56,6 +56,7 @@ This runbook is not for:
   - runs `SmokeTestPackagedGame.cmd`
   - runs `SummarizePackagedBuild.cmd`
   - forwards optional smoke-test timeout arguments to the smoke step
+  - finishes with a one-line package verdict from `SummarizePackagedBuild.cmd -Concise`
   - use this when you want one package-lane verdict instead of three separate steps
 
 - `PublishLaptop2Status.cmd`

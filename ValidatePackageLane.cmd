@@ -60,5 +60,15 @@ if not "%EXIT_CODE%"=="0" (
 )
 
 echo.
+echo Concise package verdict:
+call "%SUMMARY_SCRIPT%" -Concise
+set "EXIT_CODE=%ERRORLEVEL%"
+if not "%EXIT_CODE%"=="0" (
+    echo.
+    echo Concise package summary step failed.
+    exit /b %EXIT_CODE%
+)
+
+echo.
 echo Package lane validation passed.
 exit /b 0
