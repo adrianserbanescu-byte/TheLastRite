@@ -180,9 +180,14 @@ void ATheLastRiteHUD::DrawHUD()
             bHasInteractionPrompt = true;
             const FString PromptString = Prompt.ToString();
             const float PromptX = 40.0f;
-            const float PromptY = Canvas->ClipY - 80.0f;
-            DrawPanel(24.0f, Canvas->ClipY - 92.0f, 500.0f, 48.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
-            DrawText(PromptString, FLinearColor::White, PromptX, PromptY, SmallFont, 1.25f, false);
+            const int32 PromptWrap = 56;
+            const float PromptScale = 1.1f;
+            const float PromptHeight = MeasureWrappedTextHeight(PromptString, PromptWrap, PromptScale);
+            const float PromptPanelHeight = FMath::Max(48.0f, PromptHeight + 20.0f);
+            const float PromptPanelY = Canvas->ClipY - (PromptPanelHeight + 28.0f);
+            const float PromptY = PromptPanelY + 10.0f;
+            DrawPanel(24.0f, PromptPanelY, 640.0f, PromptPanelHeight, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+            DrawWrappedTextLine(PromptString, FLinearColor::White, PromptX, PromptY, PromptWrap, SmallFont, PromptScale);
         }
     }
 
