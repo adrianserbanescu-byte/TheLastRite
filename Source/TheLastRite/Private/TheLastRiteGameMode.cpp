@@ -69,6 +69,10 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
         "TheLastRite",
         "DeductionInitial",
         "Read of the room: no clean pattern yet. Start with the body, the cradle, and the prayer mess.");
+    RitualReadText = NSLOCTEXT(
+        "TheLastRite",
+        "RitualReadInitial",
+        "Ritual read: unresolved. Finish the opening sweep before trusting any altar.");
     NextMoveText = NSLOCTEXT(
         "TheLastRite",
         "NextMoveInitial",
@@ -89,6 +93,7 @@ void ATheLastRiteGameMode::BeginPlay()
     UpdateCasePhaseFromEvidence();
     UpdateCaseExit();
     UpdateDeductionText();
+    UpdateRitualReadText();
     UpdateNextMoveText();
     UpdateWorldMood();
     UpdateProgressText();
@@ -171,6 +176,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     UpdateCasePhaseFromEvidence();
     UpdateDeductionText();
+    UpdateRitualReadText();
     UpdateNextMoveText();
     UpdateProgressText();
     RefreshCurrentObjectiveText();
@@ -254,6 +260,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     UpdateRitualAnchors();
     UpdateCaseExit();
     UpdateProgressText();
+    UpdateRitualReadText();
     UpdateNextMoveText();
     UpdateWorldMood();
     RebuildFinalReport();
@@ -306,6 +313,7 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
     RefreshCurrentObjectiveText();
     UpdateCaseExit();
     UpdateProgressText();
+    UpdateRitualReadText();
     UpdateNextMoveText();
     UpdateWorldMood();
     RebuildFinalReport();
@@ -365,6 +373,11 @@ FText ATheLastRiteGameMode::GetProgressText() const
 FText ATheLastRiteGameMode::GetDeductionText() const
 {
     return DeductionText;
+}
+
+FText ATheLastRiteGameMode::GetRitualReadText() const
+{
+    return RitualReadText;
 }
 
 FText ATheLastRiteGameMode::GetNextMoveText() const
@@ -883,6 +896,75 @@ void ATheLastRiteGameMode::UpdateDeductionText()
         "TheLastRite",
         "DeductionComplete",
         "Read of the room: conclusion locked. The true altar is child-facing. The mirror is bait.");
+}
+
+void ATheLastRiteGameMode::UpdateRitualReadText()
+{
+    const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
+    const bool bFoundWallpaper = HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"));
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadResolvedExit",
+            "Ritual read: nursery sigil was correct. The seal holds. Leave now.");
+        return;
+    case ETheLastRiteCasePhase::ClosedWin:
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadClosedWin",
+            "Ritual read: nursery sigil was correct. Apartment 302 is sealed.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadClosedFail",
+            "Ritual read: the mirror circle was bait. The nursery sigil was the right anchor.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadReady",
+            "Ritual read: commit to the nursery sigil. Ignore the mirror circle.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (GetOpeningSweepCount() < 3)
+    {
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadOpeningSweep",
+            "Ritual read: unresolved. Finish the body, cradle, and prayer mess before trusting any altar.");
+        return;
+    }
+
+    if (!bFoundMonitor)
+    {
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadMonitor",
+            "Ritual read: the weight is leaning child-side, but the room is not settled yet. Check the monitor.");
+        return;
+    }
+
+    if (!bFoundWallpaper)
+    {
+        RitualReadText = NSLOCTEXT(
+            "TheLastRite",
+            "RitualReadWallpaper",
+            "Ritual read: the child-side pattern is nearly locked. Check the nursery mural.");
+        return;
+    }
+
+    RitualReadText = NSLOCTEXT(
+        "TheLastRite",
+        "RitualReadLate",
+        "Ritual read: the nursery sigil is likely correct, and the mirror still reads as bait.");
 }
 
 void ATheLastRiteGameMode::UpdateNextMoveText()

@@ -141,6 +141,11 @@ void ATheLastRiteHUD::DrawHUD()
         JournalY = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, 38, SmallFont, 0.95f);
         JournalY += 10.0f;
 
+        DrawText(TEXT("Ritual read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 24.0f;
+        JournalY = DrawWrappedTextLine(GameMode->GetRitualReadText().ToString(), FLinearColor(0.92f, 0.84f, 0.50f), JournalX, JournalY, 38, SmallFont, 0.95f);
+        JournalY += 10.0f;
+
         DrawText(TEXT("Next move"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 24.0f;
         JournalY = DrawWrappedTextLine(GameMode->GetNextMoveText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, 38, SmallFont, 0.95f);

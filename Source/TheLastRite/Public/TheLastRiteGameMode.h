@@ -43,6 +43,7 @@ public:
     FText GetRecentEventText() const;
     FText GetProgressText() const;
     FText GetDeductionText() const;
+    FText GetRitualReadText() const;
     FText GetNextMoveText() const;
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
@@ -69,6 +70,7 @@ private:
     void UpdateWorldMood();
     void UpdateProgressText();
     void UpdateDeductionText();
+    void UpdateRitualReadText();
     void UpdateNextMoveText();
     void RefreshCurrentObjectiveText();
     void RebuildFinalReport();
@@ -102,6 +104,9 @@ private:
 
     UPROPERTY()
     FText DeductionText;
+
+    UPROPERTY()
+    FText RitualReadText;
 
     UPROPERTY()
     FText NextMoveText;
