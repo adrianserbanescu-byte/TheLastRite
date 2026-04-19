@@ -113,14 +113,7 @@ void ATheLastRiteGameMode::BeginPlay()
     SpawnLights();
     UpdateRitualAnchors();
     UpdateCasePhaseFromEvidence();
-    UpdateCaseExit();
-    UpdateDeductionText();
-    UpdateRitualReadText();
-    UpdateNextMoveText();
-    UpdateWorldMood();
-    UpdateProgressText();
-    RefreshCurrentObjectiveText();
-    RebuildFinalReport();
+    RefreshCasePresentation(true);
 }
 
 void ATheLastRiteGameMode::HandleStartingNewPlayer_Implementation(APlayerController* NewPlayer)
@@ -225,14 +218,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     }
 
     UpdateCasePhaseFromEvidence();
-    UpdateDeductionText();
-    UpdateRitualReadText();
-    UpdateNextMoveText();
-    UpdateProgressText();
-    RefreshCurrentObjectiveText();
-    UpdateRitualAnchors();
-    UpdateCaseExit();
-    UpdateWorldMood();
+    RefreshCasePresentation(false);
 
     if (bAppendNextMoveToStatus)
     {
@@ -321,14 +307,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
         TriggerPhasePulse(FLinearColor(1.0f, 0.05f, 0.03f, 1.0f), 1.4f);
     }
 
-    RefreshCurrentObjectiveText();
-    UpdateRitualAnchors();
-    UpdateCaseExit();
-    UpdateProgressText();
-    UpdateRitualReadText();
-    UpdateNextMoveText();
-    UpdateWorldMood();
-    RebuildFinalReport();
+    RefreshCasePresentation(true);
 }
 
 void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
@@ -381,13 +360,7 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
         "Final read: the nursery was the altar, the mirror was bait, and the case is now sealed.");
     TriggerPhasePulse(FLinearColor(0.85f, 0.95f, 0.76f, 1.0f), 1.1f);
 
-    RefreshCurrentObjectiveText();
-    UpdateCaseExit();
-    UpdateProgressText();
-    UpdateRitualReadText();
-    UpdateNextMoveText();
-    UpdateWorldMood();
-    RebuildFinalReport();
+    RefreshCasePresentation(true);
 }
 
 ETheLastRiteCasePhase ATheLastRiteGameMode::GetCasePhase() const
@@ -1222,6 +1195,23 @@ void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
             "CurrentObjectiveRestart",
             "Current objective: press R to restart the case, or Esc to quit.");
         break;
+    }
+}
+
+void ATheLastRiteGameMode::RefreshCasePresentation(bool bRebuildFinalReport)
+{
+    UpdateDeductionText();
+    UpdateRitualReadText();
+    UpdateNextMoveText();
+    UpdateProgressText();
+    RefreshCurrentObjectiveText();
+    UpdateRitualAnchors();
+    UpdateCaseExit();
+    UpdateWorldMood();
+
+    if (bRebuildFinalReport)
+    {
+        RebuildFinalReport();
     }
 }
 

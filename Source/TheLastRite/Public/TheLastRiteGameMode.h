@@ -75,6 +75,7 @@ private:
     void UpdateRitualReadText();
     void UpdateNextMoveText();
     void RefreshCurrentObjectiveText();
+    void RefreshCasePresentation(bool bRebuildFinalReport);
     void RebuildFinalReport();
     int32 GetOpeningSweepCount() const;
     FText GetOpeningSweepStateText() const;

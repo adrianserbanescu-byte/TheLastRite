@@ -7,4 +7,4 @@ Work top to bottom. Take the first incomplete in-scope task and continue immedia
 - [x] Tighten inspect prompts and next-move guidance through the mid-case flow.
 - [x] Improve ritual selection clarity and fail/win messaging without crossing into packaging/content scope.
 - [x] Improve interaction targeting and restart/exit/case completion reliability.
-- [ ] Clean up touched gameplay code only after the above behavior work is stable.
+- [x] Clean up touched gameplay code only after the above behavior work is stable.
