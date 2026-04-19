@@ -59,7 +59,7 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 24.0f;
     Y = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.78f, 0.90f, 1.0f), X, Y, 92, SmallFont, 1.0f);
     Y += 6.0f;
-    DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc quit"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
+    DrawText(TEXT("WASD move | Mouse look | E inspect/use | R restart | Esc to quit"), FLinearColor(0.7f, 0.8f, 1.0f), X, Y, SmallFont, 1.0f, false);
     Y += 34.0f;
     Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
 
