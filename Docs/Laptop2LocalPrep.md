@@ -49,10 +49,10 @@ Local smoke test also succeeded:
 - the packaged launcher started
 - the shipping executable handed off correctly to `TheLastRite-Win64-Shipping.exe`
 - the packaged game reached a live window and was then closed cleanly
-- `PlayPackagedGame.cmd` also resolves to the repo-local packaged build correctly on this branch and launched a live shipping window during validation
-- `SmokeTestPackagedGame.cmd` now provides a repeatable repo-local smoke check for launcher and shipping handoff validation
-- `SummarizePackagedBuild.cmd` now reports packaged artifact presence, package size, debug-symbol presence, and the latest correlated package-run log roots
-- `ValidatePackageLane.cmd` now reruns packaging and the packaged smoke test in one local pass
+- `PlayPackagedGame.cmd` now supports `--check-only`, prints the launcher path, and reports the started process id during live launch
+- `SmokeTestPackagedGame.cmd` now provides a repeatable repo-local smoke check for launcher and shipping handoff validation and forwards timeout arguments through the cmd wrapper
+- `SummarizePackagedBuild.cmd` now reports packaged artifact presence, launcher and shipping timestamps, package size, debug-symbol presence, the latest correlated package-run log roots, and a one-line `-Concise` verdict
+- `ValidatePackageLane.cmd` now reruns packaging and the packaged smoke test in one local pass, forwards smoke timeout args, and ends with the concise package verdict
 
 This result is still local laptop 2 validation only and is not shared / integrated state.
 
@@ -97,6 +97,8 @@ Recent lane-safe content/readability progress on `codex/content`:
 
 - added an Apartment 302 interaction readability board for clue sweep order, false-lead spacing, and ritual-anchor sightlines
 - added an Apartment 302 lighting readability board for keeping true clues brighter and more readable than the mirror trap
+- added an Apartment 302 import manifest for stable bundle names across room dressing, screenshots, and package notes
+- added an Apartment 302 screenshot checklist and review template for GitHub-visible room-dressing feedback
 - kept the work in `ArtSource/Apartment302/references/` so the branch can advance room-dressing direction without touching gameplay C++ ownership
 
 ## Follow-up packaging notes
@@ -113,6 +115,11 @@ Laptop 2 should not assume ownership yet for:
 - gameplay-code integration from laptop 1
 - merging any candidate handoff work
 - changing `main`
+
+Useful current note templates on this branch:
+
+- `Docs/PackageValidationNoteTemplate.md` for GitHub-visible package-lane notes
+- `ArtSource/Apartment302/references/apartment302_review_template.md` for GitHub-visible room-dressing review notes
 
 ## First safe task after shared checkpoint approval
 
