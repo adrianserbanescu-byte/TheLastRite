@@ -21,6 +21,24 @@ AInspectableProp::AInspectableProp()
 
 FText AInspectableProp::GetPromptText() const
 {
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (GameMode != nullptr)
+    {
+        switch (GameMode->GetCasePhase())
+        {
+        case ETheLastRiteCasePhase::SealedAwaitingExit:
+            return NSLOCTEXT("TheLastRite", "InspectPromptResolvedExit", "Case settled. Leave through the front door.");
+        case ETheLastRiteCasePhase::ClosedWin:
+            return NSLOCTEXT("TheLastRite", "InspectPromptClosedWin", "Case closed. Press R to restart.");
+        case ETheLastRiteCasePhase::ClosedFail:
+            return NSLOCTEXT("TheLastRite", "InspectPromptClosedFail", "Case failed. Press R to restart.");
+        case ETheLastRiteCasePhase::Investigating:
+        case ETheLastRiteCasePhase::RiteReady:
+        default:
+            break;
+        }
+    }
+
     if (bInspected)
     {
         return FText::Format(
@@ -35,7 +53,6 @@ FText AInspectableProp::GetPromptText() const
             DisplayName);
     }
 
-    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
     if (!bOpeningSweepTarget && GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
     {
         return FText::Format(

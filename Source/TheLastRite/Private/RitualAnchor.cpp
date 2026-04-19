@@ -21,6 +21,24 @@ ARitualAnchor::ARitualAnchor()
 
 FText ARitualAnchor::GetPromptText() const
 {
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (GameMode != nullptr && !bActivated)
+    {
+        switch (GameMode->GetCasePhase())
+        {
+        case ETheLastRiteCasePhase::SealedAwaitingExit:
+            return NSLOCTEXT("TheLastRite", "ResolvedAnchorPromptExit", "The rite already holds. Leave through the front door.");
+        case ETheLastRiteCasePhase::ClosedWin:
+            return NSLOCTEXT("TheLastRite", "ResolvedAnchorPromptClosedWin", "Case closed. Press R to restart.");
+        case ETheLastRiteCasePhase::ClosedFail:
+            return NSLOCTEXT("TheLastRite", "ResolvedAnchorPromptClosedFail", "Rite failed. Press R to restart.");
+        case ETheLastRiteCasePhase::Investigating:
+        case ETheLastRiteCasePhase::RiteReady:
+        default:
+            break;
+        }
+    }
+
     if (bActivated)
     {
         return FText::Format(
@@ -30,7 +48,6 @@ FText ARitualAnchor::GetPromptText() const
 
     if (!bRitualReady)
     {
-        const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
         const FText NextMove = GameMode ? GameMode->GetNextMoveText() : FText::GetEmpty();
         if (!NextMove.IsEmpty())
         {

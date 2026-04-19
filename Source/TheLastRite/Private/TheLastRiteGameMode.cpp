@@ -251,6 +251,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     }
 
     RefreshCurrentObjectiveText();
+    UpdateRitualAnchors();
     UpdateCaseExit();
     UpdateProgressText();
     UpdateNextMoveText();
