@@ -1229,10 +1229,12 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(TEXT("What went wrong"));
         FinalReportLines.Add(TEXT("Wrong rite used: mirror circle."));
         FinalReportLines.Add(TEXT("Correct anchor: nursery sigil."));
+        FinalReportLines.Add(TEXT("Correct read: the child-facing signs all weighted the nursery side."));
         FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(FString::Printf(TEXT("True clues found: %d/%d"), FoundTrueClues, RequiredTrueClues));
         FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
         FinalReportLines.Add(TEXT("Outcome: the bait circle was trusted over the child-facing signs."));
+        FinalReportLines.Add(TEXT("Recovery: press R, rebuild the opening sweep, then follow the nursery read instead of the mirror bait."));
     }
 }
 
