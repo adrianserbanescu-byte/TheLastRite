@@ -1044,7 +1044,7 @@ void ATheLastRiteGameMode::UpdateNextMoveText()
         NextMoveText = NSLOCTEXT(
             "TheLastRite",
             "NextMoveExit",
-            "The seal is holding. Leave through the front door and close the case.");
+            "The seal is holding. Leave through the front door and file the case.");
         return;
     case ETheLastRiteCasePhase::ClosedWin:
         NextMoveText = NSLOCTEXT(
@@ -1179,7 +1179,7 @@ void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
         CurrentObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "CurrentObjectiveExit",
-            "Current objective: step 3 of 3 - leave through the front door.");
+            "Current objective: step 3 of 3 - leave through the front door and file the case.");
         break;
     case ETheLastRiteCasePhase::ClosedWin:
     case ETheLastRiteCasePhase::ClosedFail:

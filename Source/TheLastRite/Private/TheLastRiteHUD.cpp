@@ -200,7 +200,7 @@ void ATheLastRiteHUD::DrawHUD()
         const float BannerY = Canvas->ClipY * 0.16f;
         DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 520.0f, 94.0f, FLinearColor(0.03f, 0.08f, 0.04f, 0.80f));
         DrawText(TEXT("SEAL HOLDS"), FLinearColor(0.58f, 1.0f, 0.64f), BannerX, BannerY, LargeFont, 1.35f, false);
-        DrawText(TEXT("Leave through the front door now."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.15f, false);
+        DrawText(TEXT("Leave through the front door and file the case."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.15f, false);
     }
     else if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady)
     {
