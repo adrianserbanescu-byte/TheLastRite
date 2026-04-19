@@ -4,6 +4,8 @@ This is the laptop 2 packaging runbook for `codex/content`.
 
 Use it when validating the non-main package lane, rerunning a packaged smoke test, or locating the latest package logs without guessing.
 
+If the result needs a GitHub-visible package note, use `Docs/PackageValidationNoteTemplate.md`.
+
 ## Scope
 
 This runbook is for:
