@@ -57,6 +57,7 @@ This runbook is not for:
   - updates `Docs\Laptop2Status.md`
   - commits the status update on `codex/content`
   - pushes the branch so the GitHub-visible report stays current
+  - prints the previous branch head and the pushed status-commit SHA
 
 - `PlayPackagedGame.cmd`
   - launches the repo-local packaged build from `Packaged\Windows`

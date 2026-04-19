@@ -42,6 +42,9 @@ if (-not (Test-Path $updateScript)) {
 
 Push-Location $ProjectRoot
 try {
+    $startingHead = (& $gitExe rev-parse HEAD).Trim()
+    $branch = (& $gitExe rev-parse --abbrev-ref HEAD).Trim()
+
     & $gitExe add -- 'Docs/Laptop2Status.md'
     if ($LASTEXITCODE -ne 0) {
         exit $LASTEXITCODE
@@ -58,9 +61,16 @@ try {
         exit $LASTEXITCODE
     }
 
-    $branch = (& $gitExe rev-parse --abbrev-ref HEAD).Trim()
+    $publishedHead = (& $gitExe rev-parse HEAD).Trim()
     & $gitExe push origin $branch
-    exit $LASTEXITCODE
+    if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+    }
+
+    Write-Host "Previous branch head: $startingHead"
+    Write-Host "Published status commit: $publishedHead"
+    Write-Host "Pushed branch: $branch"
+    exit 0
 }
 finally {
     Pop-Location
