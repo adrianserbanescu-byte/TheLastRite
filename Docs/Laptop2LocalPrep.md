@@ -33,6 +33,7 @@ The script also:
 - removes the previous `Packaged\Windows` output before a new archive
 - builds `TheLastRite` in `Win64 Shipping` before `RunUAT BuildCookRun`
 - uses `-ddc=InstalledNoZenLocalFallback`, which matches an installed Epic UE build better than a shared network cache assumption
+- supports `--no-pause` for non-interactive local validation runs on laptop 2
 
 ## First local package pass
 
@@ -49,6 +50,8 @@ Local smoke test also succeeded:
 - the shipping executable handed off correctly to `TheLastRite-Win64-Shipping.exe`
 - the packaged game reached a live window and was then closed cleanly
 - `PlayPackagedGame.cmd` also resolves to the repo-local packaged build correctly on this branch and launched a live shipping window during validation
+- `SmokeTestPackagedGame.cmd` now provides a repeatable repo-local smoke check for launcher and shipping handoff validation
+- `ValidatePackageLane.cmd` now reruns packaging and the packaged smoke test in one local pass
 
 This result is still local laptop 2 validation only and is not shared / integrated state.
 

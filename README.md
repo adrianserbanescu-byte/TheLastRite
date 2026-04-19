@@ -44,6 +44,7 @@ Important:
 - Use the packaged game in `Packaged\Windows`.
 - Do not run the raw file in `Binaries\Win64` as the playable build.
 - To smoke-test the packaged build, run `SmokeTestPackagedGame.cmd`.
+- To re-package and then smoke-test the result in one pass, run `ValidatePackageLane.cmd`.
 - To make a new packaged build, run `PackageGame.cmd`.
 - To compile only the Unreal editor target, run `BuildEditor.cmd`.
 - To compile the game target, run `BuildGame.cmd`.
