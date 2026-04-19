@@ -438,11 +438,11 @@ FText ATheLastRiteGameMode::GetResolvedInteractionText() const
     switch (CasePhase)
     {
     case ETheLastRiteCasePhase::SealedAwaitingExit:
-        return NSLOCTEXT("TheLastRite", "ResolvedInteractionExit", "Case settled. Leave through the front door.");
+        return NSLOCTEXT("TheLastRite", "ResolvedInteractionExit", "Case settled. Leave through the front door and file the case.");
     case ETheLastRiteCasePhase::ClosedWin:
-        return NSLOCTEXT("TheLastRite", "ResolvedInteractionClosedWin", "Case closed. Press R to restart or Esc to quit.");
+        return NSLOCTEXT("TheLastRite", "ResolvedInteractionClosedWin", "Case closed. Press R to restart the case or Esc to quit.");
     case ETheLastRiteCasePhase::ClosedFail:
-        return NSLOCTEXT("TheLastRite", "ResolvedInteractionClosedFail", "Case failed. Press R to restart or Esc to quit.");
+        return NSLOCTEXT("TheLastRite", "ResolvedInteractionClosedFail", "Case failed. Press R to restart the case or Esc to quit.");
     case ETheLastRiteCasePhase::Investigating:
     case ETheLastRiteCasePhase::RiteReady:
     default:
