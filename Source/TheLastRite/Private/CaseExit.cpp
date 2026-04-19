@@ -45,7 +45,7 @@ FText ACaseExit::GetPromptText() const
     }
 
     return FText::Format(
-        NSLOCTEXT("TheLastRite", "ExitPrompt", "Press E - Leave through {0}"),
+        NSLOCTEXT("TheLastRite", "ExitPrompt", "Press E - Leave through {0} and file the case"),
         DisplayName);
 }
 

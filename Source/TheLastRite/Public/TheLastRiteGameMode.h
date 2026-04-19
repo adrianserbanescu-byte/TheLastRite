@@ -47,6 +47,8 @@ public:
     FText GetNextMoveText() const;
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
+    FText GetResolvedInteractionText() const;
+    FText GetPostCaseControlText() const;
     const TArray<FString>& GetEvidenceLines() const;
     const TArray<FString>& GetFinalReportLines() const;
     bool HasEvidenceLine(const FString& FullLine) const;

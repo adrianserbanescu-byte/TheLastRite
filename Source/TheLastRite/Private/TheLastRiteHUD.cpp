@@ -279,7 +279,7 @@ void ATheLastRiteHUD::DrawHUD()
             }
         }
 
-        DrawText(TEXT("Press R to restart the case"), FLinearColor::White, CenterX, CenterY + OverlayHeight - 48.0f, SmallFont, 1.25f, false);
+        DrawText(GameMode->GetPostCaseControlText().ToString(), FLinearColor::White, CenterX, CenterY + OverlayHeight - 48.0f, SmallFont, 1.25f, false);
     }
 }
 

@@ -27,11 +27,17 @@ FText AInspectableProp::GetPromptText() const
         switch (GameMode->GetCasePhase())
         {
         case ETheLastRiteCasePhase::SealedAwaitingExit:
-            return NSLOCTEXT("TheLastRite", "InspectPromptResolvedExit", "Case settled. Leave through the front door.");
         case ETheLastRiteCasePhase::ClosedWin:
-            return NSLOCTEXT("TheLastRite", "InspectPromptClosedWin", "Case closed. Press R to restart.");
         case ETheLastRiteCasePhase::ClosedFail:
-            return NSLOCTEXT("TheLastRite", "InspectPromptClosedFail", "Case failed. Press R to restart.");
+        {
+            const FText ResolvedPrompt = GameMode->GetResolvedInteractionText();
+            if (!ResolvedPrompt.IsEmpty())
+            {
+                return ResolvedPrompt;
+            }
+
+            break;
+        }
         case ETheLastRiteCasePhase::Investigating:
         case ETheLastRiteCasePhase::RiteReady:
         default:

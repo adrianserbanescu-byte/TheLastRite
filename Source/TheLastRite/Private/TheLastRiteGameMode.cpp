@@ -395,6 +395,28 @@ FText ATheLastRiteGameMode::GetEndingDetailText() const
     return EndingDetailText;
 }
 
+FText ATheLastRiteGameMode::GetResolvedInteractionText() const
+{
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        return NSLOCTEXT("TheLastRite", "ResolvedInteractionExit", "Case settled. Leave through the front door.");
+    case ETheLastRiteCasePhase::ClosedWin:
+        return NSLOCTEXT("TheLastRite", "ResolvedInteractionClosedWin", "Case closed. Press R to restart or Esc to quit.");
+    case ETheLastRiteCasePhase::ClosedFail:
+        return NSLOCTEXT("TheLastRite", "ResolvedInteractionClosedFail", "Case failed. Press R to restart or Esc to quit.");
+    case ETheLastRiteCasePhase::Investigating:
+    case ETheLastRiteCasePhase::RiteReady:
+    default:
+        return FText::GetEmpty();
+    }
+}
+
+FText ATheLastRiteGameMode::GetPostCaseControlText() const
+{
+    return NSLOCTEXT("TheLastRite", "PostCaseControls", "Press R to restart | Esc to quit");
+}
+
 const TArray<FString>& ATheLastRiteGameMode::GetEvidenceLines() const
 {
     return EvidenceLines;
@@ -801,10 +823,10 @@ void ATheLastRiteGameMode::UpdateProgressText()
         ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door");
         return;
     case ETheLastRiteCasePhase::ClosedWin:
-        ProgressText = NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to run the case again");
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to run the case again | Esc quit");
         return;
     case ETheLastRiteCasePhase::ClosedFail:
-        ProgressText = NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again");
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again | Esc quit");
         return;
     case ETheLastRiteCasePhase::RiteReady:
         ProgressText = FText::Format(
@@ -990,13 +1012,13 @@ void ATheLastRiteGameMode::UpdateNextMoveText()
         NextMoveText = NSLOCTEXT(
             "TheLastRite",
             "NextMoveClosedWin",
-            "Case closed. Press R when you want to run Apartment 302 again.");
+            "Case closed. Press R when you want to run Apartment 302 again, or Esc to quit.");
         return;
     case ETheLastRiteCasePhase::ClosedFail:
         NextMoveText = NSLOCTEXT(
             "TheLastRite",
             "NextMoveClosedFail",
-            "Press R to restart. On the next run, stay with the child-facing pattern instead of the mirror bait.");
+            "Press R to restart, or Esc to quit. On the next run, stay with the child-facing pattern instead of the mirror bait.");
         return;
     case ETheLastRiteCasePhase::RiteReady:
         NextMoveText = NSLOCTEXT(
@@ -1127,7 +1149,7 @@ void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
         CurrentObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "CurrentObjectiveRestart",
-            "Current objective: press R to restart the case.");
+            "Current objective: press R to restart the case, or Esc to quit.");
         break;
     }
 }
@@ -1220,6 +1242,7 @@ void ATheLastRiteGameMode::RebuildFinalReport()
 
         FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(TEXT("Seal result: front door used and case closed cleanly."));
+        FinalReportLines.Add(TEXT("Controls: press R to restart the case or Esc to quit."));
     }
     else if (CasePhase == ETheLastRiteCasePhase::ClosedFail)
     {
@@ -1235,6 +1258,7 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(FString::Printf(TEXT("False leads checked: %d/%d"), FoundFalseLeads, TotalFalseLeads));
         FinalReportLines.Add(TEXT("Outcome: the bait circle was trusted over the child-facing signs."));
         FinalReportLines.Add(TEXT("Recovery: press R, rebuild the opening sweep, then follow the nursery read instead of the mirror bait."));
+        FinalReportLines.Add(TEXT("Controls: press R to restart the case or Esc to quit."));
     }
 }
 

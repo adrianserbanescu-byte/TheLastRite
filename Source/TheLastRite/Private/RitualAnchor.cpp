@@ -27,11 +27,17 @@ FText ARitualAnchor::GetPromptText() const
         switch (GameMode->GetCasePhase())
         {
         case ETheLastRiteCasePhase::SealedAwaitingExit:
-            return NSLOCTEXT("TheLastRite", "ResolvedAnchorPromptExit", "The rite already holds. Leave through the front door.");
         case ETheLastRiteCasePhase::ClosedWin:
-            return NSLOCTEXT("TheLastRite", "ResolvedAnchorPromptClosedWin", "Case closed. Press R to restart.");
         case ETheLastRiteCasePhase::ClosedFail:
-            return NSLOCTEXT("TheLastRite", "ResolvedAnchorPromptClosedFail", "Rite failed. Press R to restart.");
+        {
+            const FText ResolvedPrompt = GameMode->GetResolvedInteractionText();
+            if (!ResolvedPrompt.IsEmpty())
+            {
+                return ResolvedPrompt;
+            }
+
+            break;
+        }
         case ETheLastRiteCasePhase::Investigating:
         case ETheLastRiteCasePhase::RiteReady:
         default:
