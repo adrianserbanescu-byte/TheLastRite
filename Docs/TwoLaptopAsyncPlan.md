@@ -2,7 +2,7 @@
 
 This is the active operating plan for independent two-laptop work through GitHub-visible files.
 
-Use this plan instead of the earlier laptop 2 bring-up flow when deciding what each machine should do next.
+This plan replaces the old status-driven workflow. The laptops should no longer stop after a successful checkpoint just to report progress.
 
 ## Summary
 
@@ -10,10 +10,9 @@ Use this plan instead of the earlier laptop 2 bring-up flow when deciding what e
 - Laptop 2 owns packaging + content on `codex/content`.
 - `main` stays untouched.
 - Each laptop commits and pushes only its own branch.
-- Each laptop reports every 30 minutes by updating a GitHub status file on its own branch.
-- Each laptop is expected to produce a meaningful pushed checkpoint every 2-3 hours, not every 30 minutes.
-- The coordinator responds by updating a GitHub coordinator-reply file on the affected laptop's branch.
-- The laptops check GitHub for coordinator replies before resuming from a blocker.
+- Work is driven by a queue file on each branch.
+- The coordinator intervenes only when a blocker file is pushed.
+- Successful in-scope work is never a stop condition.
 
 ## Branch ownership
 
@@ -61,60 +60,73 @@ Use this plan instead of the earlier laptop 2 bring-up flow when deciding what e
 - Keep each commit inside the assigned lane.
 - Push after each meaningful checkpoint.
 - Do not create mixed gameplay/package commits.
+- Do not create routine progress-only commits unless reporting a blocker.
 
 ## Cadence
 
-- Every 30 minutes: status update only
-- Every 2-3 hours: expected meaningful checkpoint with commit/push if coherent work is ready
-- Immediate: blocker report as soon as it appears
+- Every 2-4 hours: expected meaningful checkpoint with commit/push if coherent work is ready
+- Immediate: blocker report as soon as it appears after one local retry
+- Every 12-15 minutes: optional heartbeat/watchdog to resume work, not to publish status
 
-Do not force a commit every 30 minutes. The 30-minute cadence is for coordination, not for shipping a feature slice on the clock.
+There is no routine 30-minute status-commit requirement in this mode.
 
 ## GitHub coordination files
 
 Laptop 1 uses these files on `codex/gameplay`:
 
-- `Docs/Laptop1Status.md`
+- `Docs/Laptop1Queue.md`
+- `Docs/Laptop1Blocker.md`
 - `Docs/Laptop1CoordinatorReply.md`
 
 Laptop 2 uses these files on `codex/content`:
 
-- `Docs/Laptop2Status.md`
+- `Docs/Laptop2Queue.md`
+- `Docs/Laptop2Blocker.md`
 - `Docs/Laptop2CoordinatorReply.md`
 
-Status files are written by the laptop that owns the branch.
+Queue files are written and maintained by the coordinator.
 
-Coordinator reply files are written by the coordinator.
+Blocker files are written only by the laptop that owns the branch, and only when a real blocker appears.
 
-## 30-minute reporting format
+Coordinator reply files are written only by the coordinator.
 
-Both laptops update their status file in this exact shape:
+Old status files are no longer part of the active process.
 
-```text
-laptop<N> update
+## Queue-driven workflow
 
-time: <local time>
-branch: <branch>
-head: <git sha or none>
-working tree: <clean / dirty>
-current task: <one line>
-last 30m progress: <one short paragraph or no material change>
-verification: <result / not run>
-blockers: <none / exact blocker>
-needs coordinator: <yes / no>
-```
+Each laptop must:
 
-If nothing meaningful changed, `last 30m progress` may be `no material change`.
+1. Read the queue file on its branch
+2. Take the first incomplete in-scope task
+3. Work until a meaningful checkpoint or a real blocker appears
+4. Commit and push coherent work when ready
+5. Immediately continue to the next in-scope queue item if no blocker exists
 
-Each 30-minute report must be committed and pushed on the laptop's own branch.
+Successful work is not a reason to pause.
 
-Meaningful checkpoints should usually happen every 2-3 hours, or sooner if a coherent verified change is already ready.
+## Blocker-driven coordination
+
+Only report through the blocker file when:
+
+- one local retry failed
+- scope drift appeared
+- a cross-lane dependency appeared
+- verification failed and the next safe step is unclear
+- a repo/workflow issue blocks normal commit/push
+
+When blocked:
+
+1. update the blocker file on the branch
+2. commit and push the blocker file
+3. check the coordinator reply file
+4. follow the coordinator reply exactly
+
+Do not check the coordinator reply file after ordinary success.
 
 ## Coordinator rules
 
-When a status-file report arrives:
+When a blocker file arrives:
 
-- If `blockers: none` and `needs coordinator: no`, do nothing.
 - If the blocker is local and lane-safe, give the smallest next action that stays inside that lane.
 - If the blocker would require cross-lane integration, branch ownership change, or touching `main`, stop the affected laptop and hold the other lane steady.
 - If a laptop drifts outside scope, tell it to stop, preserve the working tree, and return to the last in-scope task.
@@ -124,7 +136,7 @@ When the coordinator replies:
 
 - Update the laptop's coordinator-reply file on that branch
 - Keep the reply short, concrete, and action-oriented
-- Ask the laptop to report back through its status file after taking that action
+- Ask the laptop to report back only if the blocker persists or after the requested retry/action completes
 
 ## Reviewed shared checkpoint trigger
 
@@ -137,68 +149,29 @@ A reviewed shared checkpoint is needed only when:
 
 Until then, both branches stay separate and active.
 
-## Work queue: laptop 1
+## Required verification
 
-1. Investigation flow and opening sweep clarity
-2. Inspect prompts and next-move guidance
-3. Ritual selection clarity and fail/win messaging
-4. Interaction targeting and crosshair hit behavior
-5. Restart / exit / case completion reliability
-6. Cleanup inside touched gameplay code only
-
-### Laptop 1 required verification
+### Laptop 1
 
 - `BuildGame.cmd`
 - Any targeted local gameplay validation already used in this lane
 
-### Laptop 1 stop-and-report conditions
+### Laptop 2
 
-- Git/index or repo permissions fail again
-- A gameplay fix now depends on packaging/content branch changes
-- A required file falls clearly into laptop 2 ownership
-- The next safe step would change branch/workflow assumptions
-- A coordinator reply is required before continuing
-
-## Work queue: laptop 2
-
-1. Launcher and packaging helper reliability
-2. Package smoke-test and summary tooling
-3. Deterministic package output/log behavior
-4. Package-lane docs
-5. Content/readability and room-dressing work that stays gameplay-code independent
-6. Re-run package + smoke validation after material package/content changes
-
-### Laptop 2 required verification
-
-- `PackageGame.cmd`
-- Packaged launcher smoke test
+- `PackageGame.cmd` after material package-lane or shipped-content changes
+- Packaged launcher smoke test after material package-lane or shipped-content changes
 - Packaging summary/status helper output when relevant
 
-### Laptop 2 stop-and-report conditions
+Docs-only and ArtSource-only checkpoints do not require forced package reruns unless they affect the shipped lane or package behavior.
 
-- Packaging fails and the fix points into gameplay-code ownership
-- Content work now requires gameplay C++ changes
-- Branch scope would expand beyond packaging/content
-- The next safe step would require consuming laptop 1 branch work
-- A coordinator reply is required before continuing
+## Exact stop rule
 
-## Quick coordinator actions
+A laptop may stop only for:
 
-Use these defaults when replying quickly:
+1. a real blocker after one local retry
+2. scope drift
+3. cross-lane dependency
+4. failed verification with unclear next step
+5. an explicit coordinator stop instruction
 
-- Build failure in-lane: retry once with exact failing command + capture log path, then report blocker
-- Git lock/ACL issue: stop retries after one reproducer, preserve working tree, report exact command + error
-- Scope drift: stop editing the out-of-scope file and return to the last in-scope task
-- Cross-lane dependency: stop the blocked laptop, keep the other lane moving, ask for a reviewed shared checkpoint
-- No material change: stay quiet and continue current task
-
-## GitHub-only workflow rule
-
-Assume both laptops can read only GitHub-visible branch files.
-
-That means:
-
-- active instructions must live in committed branch files
-- blocker reports must be pushed through the laptop's status file
-- coordinator guidance must be pushed through the laptop's coordinator-reply file
-- no laptop should depend on local-only files from this machine
+Everything else means: continue.

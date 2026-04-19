@@ -1,6 +1,6 @@
 # Laptop 2 Coordinator Reply
 
-Coordinator writes replies here when laptop 2 is blocked.
+Coordinator writes replies here only when laptop 2 has pushed a blocker file.
 
 Latest reply:
 
@@ -9,7 +9,7 @@ coordinator response
 
 diagnosis: none
 next step:
-1. continue current in-scope packaging/content task
+1. continue the first incomplete in-scope item from `Docs/Laptop2Queue.md`
 report back:
-- next 30-minute update
+- only if a real blocker persists after one local retry
 ```
