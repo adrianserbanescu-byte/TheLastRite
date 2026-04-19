@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0SmokeTestPackagedGame.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0SmokeTestPackagedGame.ps1" %*
 set "EXIT_CODE=%ERRORLEVEL%"
 
 echo.

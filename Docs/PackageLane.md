@@ -40,6 +40,7 @@ This runbook is not for:
   - waits for `TheLastRite-Win64-Shipping.exe`
   - requires a visible game window
   - closes the packaged process after a short live-window check
+  - passes optional PowerShell timeout arguments through to `SmokeTestPackagedGame.ps1`
 
 - `SummarizePackagedBuild.cmd`
   - confirms launcher and shipping executable presence
@@ -88,6 +89,12 @@ Use this when packaging is already done and you only need launcher/shipping hand
 
 ```text
 SmokeTestPackagedGame.cmd
+```
+
+Longer-timeout variant for slower machines:
+
+```text
+SmokeTestPackagedGame.cmd -StartupTimeoutSeconds 30 -LiveWindowSeconds 8
 ```
 
 ### 3. Human launch of the current packaged build

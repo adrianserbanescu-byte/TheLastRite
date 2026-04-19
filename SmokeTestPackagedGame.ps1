@@ -13,6 +13,12 @@ $shippingName = 'TheLastRite-Win64-Shipping'
 Write-Host "Smoke testing packaged build from:"
 Write-Host $projectRoot
 Write-Host
+Write-Host "Launcher path:"
+Write-Host $launcherPath
+Write-Host
+Write-Host "Startup timeout seconds: $StartupTimeoutSeconds"
+Write-Host "Live window seconds: $LiveWindowSeconds"
+Write-Host
 
 if (-not (Test-Path $launcherPath)) {
     Write-Host 'Packaged build not found:'
