@@ -6,4 +6,5 @@ Work top to bottom. Take the first incomplete in-scope task and continue immedia
 - [x] Expand the package-lane runbook and helper documentation where it makes package validation easier and more deterministic.
 - [x] Add another independent readability / pass-order / handoff asset for Apartment 302 if it stays out of gameplay logic.
 - [x] Re-run package + smoke validation after the next material shipped-content or package-lane change.
-- [ ] Clean up package/content docs so the branch remains easy to use as a packaging lane.
+- [x] Clean up package/content docs so the branch remains easy to use as a packaging lane.
+- [ ] Add an Apartment 302 false-lead balance guide that keeps the mirror, window, and pawn decoys readable without overpowering the nursery answer path.

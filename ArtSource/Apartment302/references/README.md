@@ -7,5 +7,6 @@ Use `apartment302_import_manifest.md` when the pass needs stable bundle names, a
 Use `apartment302_screenshot_checklist.md` when a pass needs repeatable review angles and note labels.
 Use `apartment302_review_template.md` when a GitHub-visible review note needs a consistent structure.
 Use `apartment302_occlusion_watchlist.md` when added clutter starts threatening clue readability or entry-to-answer sightlines.
+Use `apartment302_false_lead_balance_guide.md` when the mirror, window, or pawn decoys start reading louder than the nursery answer path.
 Use `apartment302_room_dressing_pass_order.svg` when a placement pass needs a quick visual sequence instead of a prose checklist.
 Use `apartment302_read_distance_board.svg` when checking whether true clues still read correctly from entry, approach, and close confirmation distances.
