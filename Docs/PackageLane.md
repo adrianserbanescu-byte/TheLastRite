@@ -53,6 +53,7 @@ This runbook is not for:
   - runs `PackageGame.cmd`
   - runs `SmokeTestPackagedGame.cmd`
   - runs `SummarizePackagedBuild.cmd`
+  - forwards optional smoke-test timeout arguments to the smoke step
   - use this when you want one package-lane verdict instead of three separate steps
 
 - `PublishLaptop2Status.cmd`
@@ -73,6 +74,12 @@ Use this after material package/content changes:
 
 ```text
 ValidatePackageLane.cmd
+```
+
+Longer-timeout variant:
+
+```text
+ValidatePackageLane.cmd -StartupTimeoutSeconds 30 -LiveWindowSeconds 8
 ```
 
 Non-interactive variant:

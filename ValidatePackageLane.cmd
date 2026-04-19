@@ -6,6 +6,7 @@ if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
 set "PACKAGE_SCRIPT=%PROJECT_ROOT%\PackageGame.cmd"
 set "SMOKE_SCRIPT=%PROJECT_ROOT%\SmokeTestPackagedGame.cmd"
 set "SUMMARY_SCRIPT=%PROJECT_ROOT%\SummarizePackagedBuild.cmd"
+set "SMOKE_ARGS=%*"
 
 if not exist "%PACKAGE_SCRIPT%" (
     echo Package script not found:
@@ -28,6 +29,11 @@ if not exist "%SUMMARY_SCRIPT%" (
 echo Validating package lane from:
 echo %PROJECT_ROOT%
 echo.
+if not "%SMOKE_ARGS%"=="" (
+    echo Smoke step args:
+    echo %SMOKE_ARGS%
+    echo.
+)
 
 call "%PACKAGE_SCRIPT%" --no-pause
 set "EXIT_CODE=%ERRORLEVEL%"
@@ -37,7 +43,7 @@ if not "%EXIT_CODE%"=="0" (
     exit /b %EXIT_CODE%
 )
 
-call "%SMOKE_SCRIPT%"
+call "%SMOKE_SCRIPT%" %SMOKE_ARGS%
 set "EXIT_CODE=%ERRORLEVEL%"
 if not "%EXIT_CODE%"=="0" (
     echo.
