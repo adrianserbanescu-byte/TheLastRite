@@ -135,6 +135,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     UpdateProgressText();
     UpdateRitualAnchors();
+    UpdateProgressText();
     UpdateWorldMood();
 }
 
@@ -508,11 +509,26 @@ void ATheLastRiteGameMode::UpdateWorldMood()
 
 void ATheLastRiteGameMode::UpdateProgressText()
 {
+    if (bCaseResolved)
+    {
+        ProgressText = bPlayerWon
+            ? NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: WON | Press R to run the case again")
+            : NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again");
+        return;
+    }
+
+    const FText RiteState = FoundTrueClues >= RequiredTrueClues
+        ? NSLOCTEXT("TheLastRite", "RiteReady", "Rite ready")
+        : FText::Format(
+            NSLOCTEXT("TheLastRite", "RiteLocked", "Rite locked: {0} clue(s) left"),
+            FText::AsNumber(RequiredTrueClues - FoundTrueClues));
+
     ProgressText = FText::Format(
-        NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/2"),
+        NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/2 | {3}"),
         FText::AsNumber(FoundTrueClues),
         FText::AsNumber(RequiredTrueClues),
-        FText::AsNumber(FoundFalseLeads));
+        FText::AsNumber(FoundFalseLeads),
+        RiteState);
 }
 
 void ATheLastRiteGameMode::SetStatusText(const FText& NewStatusText)
