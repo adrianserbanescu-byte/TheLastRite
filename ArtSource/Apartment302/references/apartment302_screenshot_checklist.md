@@ -42,6 +42,21 @@ For each screenshot set, answer these in plain language:
 4. Does the mirror trap feel tempting without becoming the strongest explanation?
 5. Are the two quieter false leads separated enough to avoid one noisy distraction corner?
 
+## False-lead balance quick pass
+
+When the room is getting denser, add one short salience-order note beside the screenshot set:
+
+```text
+salience order:
+1. <first read>
+2. <second read>
+3. <third read>
+4. <fourth read>
+5. <fifth read>
+```
+
+Use the target order from `apartment302_false_lead_balance_guide.md` unless a shot-specific exception is intentional and called out in the note.
+
 ## Fast labels to reuse in notes
 
 Use these exact labels in comments when possible:
@@ -52,6 +67,7 @@ Use these exact labels in comments when possible:
 - `window false lead`
 - `pawn false lead`
 - `entry-to-answer sightline`
+- `false-lead balance`
 
 ## Done when
 
@@ -61,4 +77,5 @@ A screenshot set is good enough for handoff when:
 - `A302_Shot_03_NurseryAnchor` still feels like the answer
 - `A302_Shot_04_MirrorTrap` tempts without dominating
 - both false-lead shots stay believable and secondary
+- the recorded salience order still keeps the nursery answer path above the false leads
 - screenshot notes use the same labels as the import manifest

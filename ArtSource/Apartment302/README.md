@@ -70,7 +70,7 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 
 - `references/apartment302_review_template.md`
   - What it is: a copy-ready GitHub-visible review template for Apartment 302 room-dressing passes.
-  - Player read: screenshots, label checks, and verdicts should all use the same names when the pass is discussed or handed off.
+  - Player read: screenshots, label checks, salience order, and verdicts should all use the same names when the pass is discussed or handed off.
 
 - `references/apartment302_occlusion_watchlist.md`
   - What it is: a clutter and sightline watchlist for keeping the nursery evidence path readable as dressing increases.
@@ -79,6 +79,14 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 - `references/apartment302_false_lead_balance_guide.md`
   - What it is: a false-lead salience guide for keeping the mirror, window, and pawn decoys suspicious without letting them outshine the nursery answer path.
   - Player read: the room can still feel layered and misleading, but the nursery-first read should remain the clearest solution path from entry.
+
+- `references/apartment302_screenshot_note_shorthand.md`
+  - What it is: a quick-note phrase bank for package-lane summaries and screenshot review comments.
+  - Player read: short review notes can stay consistent about what reads first, what drifted, and what still supports the nursery answer path.
+
+- `references/apartment302_placement_triage_note.md`
+  - What it is: a smallest-next-fix triage note for turning screenshot failures into lane-safe room-dressing adjustments.
+  - Player read: when a read problem appears, the next pass should correct the clearest sightline or salience issue before adding more dressing.
 
 - `references/apartment302_room_dressing_pass_order.svg`
   - What it is: a visual pass-order board for the Unreal room-dressing sequence and laptop 2 ownership guardrails.
@@ -134,5 +142,8 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 - Use `references/apartment302_review_template.md` when posting a GitHub-visible review note for a room-dressing pass.
 - Use `references/apartment302_occlusion_watchlist.md` when clutter additions start to threaten the nursery-first read.
 - Use `references/apartment302_false_lead_balance_guide.md` when false leads start competing too strongly with the nursery answer path.
+- Use the `false-lead balance` block in `references/apartment302_review_template.md` when a review note needs a stable salience-order record.
+- Use `references/apartment302_screenshot_note_shorthand.md` when a quick package note or screenshot comment needs stable short verdict wording.
+- Use `references/apartment302_placement_triage_note.md` when a screenshot failure is obvious and the next smallest readability fix needs to be chosen quickly.
 - Avoid gore, weapons, real religious icons, and action-game UI language.
 - These SVGs are small, editable source mockups. They can be used directly as reference or exported later as PNGs for an in-engine art pass.

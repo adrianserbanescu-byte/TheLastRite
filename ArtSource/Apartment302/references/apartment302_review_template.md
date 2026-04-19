@@ -16,7 +16,7 @@ pass name: <short pass name>
 branch: codex/content
 scope: <room dressing / package-ready content / screenshot review>
 blockers: <none / exact blocker>
-needs coordinator: <yes / no>
+next in-scope task: <one short line or none>
 
 screenshot set:
 - A302_Shot_01_EntryWide: <short read result>
@@ -44,6 +44,17 @@ import labels seen:
 - A302_FalseLead_WindowLatch: <seen / missing / unclear>
 - A302_FalseLead_PawnPouch: <seen / missing / unclear>
 
+false-lead balance:
+- salience order:
+  1. <first read>
+  2. <second read>
+  3. <third read>
+  4. <fourth read>
+  5. <fifth read>
+- mirror trap still secondary: <yes / no>
+- window beat still peripheral: <yes / no>
+- pawn beat still discoverable-late: <yes / no>
+
 read verdict:
 - first read: <what reads first>
 - correct answer still reads: <yes / no>
@@ -59,6 +70,8 @@ next pass:
 If a review note names a shot or object, prefer the exact shot ids and labels from the checklist and import manifest.
 
 That keeps screenshot feedback, package notes, and future placement passes talking about the same things.
+
+If the note is specifically about salience drift, include the `false-lead balance` block and compare it against `apartment302_false_lead_balance_guide.md`.
 
 ## Keep out of scope
 

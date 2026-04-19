@@ -8,5 +8,8 @@ Use `apartment302_screenshot_checklist.md` when a pass needs repeatable review a
 Use `apartment302_review_template.md` when a GitHub-visible review note needs a consistent structure.
 Use `apartment302_occlusion_watchlist.md` when added clutter starts threatening clue readability or entry-to-answer sightlines.
 Use `apartment302_false_lead_balance_guide.md` when the mirror, window, or pawn decoys start reading louder than the nursery answer path.
+Use the `false-lead balance` block inside `apartment302_review_template.md` when a review note needs a stable salience-order record.
+Use `apartment302_screenshot_note_shorthand.md` when a package note or quick review comment needs stable short verdict wording.
+Use `apartment302_placement_triage_note.md` when a screenshot failure is clear and the next smallest readability fix needs to be chosen fast.
 Use `apartment302_room_dressing_pass_order.svg` when a placement pass needs a quick visual sequence instead of a prose checklist.
 Use `apartment302_read_distance_board.svg` when checking whether true clues still read correctly from entry, approach, and close confirmation distances.
