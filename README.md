@@ -2,12 +2,12 @@
 
 ## Current Unreal playable slice
 
-The current Unreal version is a tiny playable case in Apartment 302.
+The current Unreal version is a small playable vertical slice built around **Apartment 302 / Hollow Saint**.
 
 Open the packaged game here:
 
 ```text
-C:\Users\adria\OneDrive\Desktop\alexs\Packaged\Windows\TheLastRite.exe
+C:\dev\TheLastRite\Packaged\Windows\TheLastRite.exe
 ```
 
 Or double-click:
@@ -29,9 +29,10 @@ What to do:
 1. Walk around the apartment room.
 2. Look at labeled objects.
 3. Press `E` to inspect them.
-4. Find all 4 true Hollow Saint clues.
+4. Find all 5 true Hollow Saint clues and rule out the false leads.
 5. Choose the correct ritual anchor.
-6. Correct anchor wins. Wrong anchor fails.
+6. Correct anchor seals the case and unlocks the front door.
+7. Wrong anchor fails the case immediately.
 
 Important:
 
@@ -40,6 +41,8 @@ Important:
 - To make a new packaged build, run `PackageGame.cmd`.
 - To compile only the Unreal editor target, run `BuildEditor.cmd`.
 - To compile the game target, run `BuildGame.cmd`.
+- The local `*.cmd` helpers now exit normally without waiting for a keypress, so they are safe to use from shells and automation.
+- The current design source of truth is [Docs/MasterGameDesignDocument.md](Docs/MasterGameDesignDocument.md).
 
 ## Browser Prototype
 
@@ -117,4 +120,4 @@ What should not be expected to survive unchanged:
 
 ## Next useful step
 
-The right next implementation pass is to harden the browser slice with one stronger mission map, better interactions, and then add a real authoritative multiplayer server once the solo loop feels correct.
+The right next implementation pass is to keep polishing the Unreal vertical slice: clearer onboarding, stronger room readability, stronger clue-to-ritual logic, and a cleaner packaged build experience.
