@@ -47,6 +47,7 @@ Important:
 - To make a new packaged build, run `PackageGame.cmd`.
 - To compile only the Unreal editor target, run `BuildEditor.cmd`.
 - To compile the game target, run `BuildGame.cmd`.
+- Add `--no-pause` to the build and package scripts when running them from automation or a non-interactive shell.
 
 ## Browser Prototype
 

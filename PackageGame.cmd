@@ -3,6 +3,8 @@ setlocal
 
 set "PROJECT_ROOT=%~dp0"
 if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
+set "PAUSE_AT_END=1"
+if /I "%~1"=="--no-pause" set "PAUSE_AT_END="
 
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
 set "OUTPUT_WINDOWS_DIR=%OUTPUT_DIR%\Windows"
@@ -86,6 +88,8 @@ call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\RunUAT.bat" Bui
  -archivedirectory="%OUTPUT_DIR%"
 
 :done
+set "EXIT_CODE=%ERRORLEVEL%"
 echo.
 echo Done.
-pause
+if defined PAUSE_AT_END pause
+exit /b %EXIT_CODE%
