@@ -44,6 +44,7 @@ This runbook is not for:
 
 - `SummarizePackagedBuild.cmd`
   - confirms launcher and shipping executable presence
+  - reports launcher and shipping executable timestamps
   - reports whether the shipping PDB exists
   - reports package size
   - reports the latest packaged-file timestamp

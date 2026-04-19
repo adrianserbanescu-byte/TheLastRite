@@ -98,8 +98,16 @@ Write-Host
 Write-Host ('package root: {0}' -f $packageRoot)
 Write-Host ('launcher exists: {0}' -f (Test-Path $launcherPath).ToString().ToLower())
 Write-Host ('launcher path: {0}' -f $launcherPath)
+if (Test-Path $launcherPath) {
+    $launcherItem = Get-Item $launcherPath
+    Write-Host ('launcher time: {0}' -f $launcherItem.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+}
 Write-Host ('shipping exe exists: {0}' -f (Test-Path $shippingPath).ToString().ToLower())
 Write-Host ('shipping exe path: {0}' -f $shippingPath)
+if (Test-Path $shippingPath) {
+    $shippingItem = Get-Item $shippingPath
+    Write-Host ('shipping exe time: {0}' -f $shippingItem.LastWriteTime.ToString('yyyy-MM-dd HH:mm:ss zzz'))
+}
 Write-Host ('shipping pdb exists: {0}' -f (Test-Path $shippingPdbPath).ToString().ToLower())
 Write-Host ('shipping pdb path: {0}' -f $shippingPdbPath)
 Write-Host ('package size gib: {0}' -f $totalGiB)
