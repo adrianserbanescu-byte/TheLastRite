@@ -32,6 +32,8 @@ private:
     void RestartRun();
     void QuitGame();
     void UpdateFocusedInteractable();
+    ATheLastRiteInteractable* FindBestInteractable(const FVector& ViewLocation, const FVector& ViewDirection, const FCollisionQueryParams& QueryParams) const;
+    bool CanKeepFocusedInteractable(const FVector& ViewLocation, const FVector& ViewDirection, const ATheLastRiteInteractable* CandidateInteractable) const;
 
     UPROPERTY(VisibleAnywhere)
     TObjectPtr<UCameraComponent> CameraComponent;

@@ -8,6 +8,14 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "TheLastRiteInteractable.h"
 
+namespace
+{
+    constexpr float InteractionTraceDistance = 520.0f;
+    constexpr float InteractionSweepRadius = 52.0f;
+    constexpr float FocusStickDistance = 560.0f;
+    constexpr float FocusStickCenterlineDistanceSq = 72.0f * 72.0f;
+}
+
 ATheLastRiteCharacter::ATheLastRiteCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
@@ -138,10 +146,22 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
     Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
 
     const FVector ViewDirection = ViewRotation.Vector();
-    const FVector TraceEnd = ViewLocation + (ViewDirection * 520.0f);
+    const FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(TheLastRiteInteractTrace), false, this);
+    ATheLastRiteInteractable* CandidateInteractable = FindBestInteractable(ViewLocation, ViewDirection, QueryParams);
+
+    if (CanKeepFocusedInteractable(ViewLocation, ViewDirection, CandidateInteractable))
+    {
+        return;
+    }
+
+    FocusedInteractable = CandidateInteractable;
+}
+
+ATheLastRiteInteractable* ATheLastRiteCharacter::FindBestInteractable(const FVector& ViewLocation, const FVector& ViewDirection, const FCollisionQueryParams& QueryParams) const
+{
+    const FVector TraceEnd = ViewLocation + (ViewDirection * InteractionTraceDistance);
 
     FHitResult DirectHit;
-    FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(TheLastRiteInteractTrace), false, this);
     if (GetWorld()->LineTraceSingleByChannel(
         DirectHit,
         ViewLocation,
@@ -151,8 +171,7 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
     {
         if (ATheLastRiteInteractable* DirectInteractable = Cast<ATheLastRiteInteractable>(DirectHit.GetActor()))
         {
-            FocusedInteractable = DirectInteractable;
-            return;
+            return DirectInteractable;
         }
     }
 
@@ -163,10 +182,10 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
         TraceEnd,
         FQuat::Identity,
         ECC_Visibility,
-        FCollisionShape::MakeSphere(52.0f),
+        FCollisionShape::MakeSphere(InteractionSweepRadius),
         QueryParams);
 
-    FocusedInteractable = nullptr;
+    ATheLastRiteInteractable* BestInteractable = nullptr;
     float BestCenterlineDistanceSq = TNumericLimits<float>::Max();
     float BestForwardDistance = TNumericLimits<float>::Max();
     for (const FHitResult& HitResult : HitResults)
@@ -189,8 +208,34 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
             {
                 BestCenterlineDistanceSq = CenterlineDistanceSq;
                 BestForwardDistance = ForwardDistance;
-                FocusedInteractable = Interactable;
+                BestInteractable = Interactable;
             }
         }
     }
+
+    return BestInteractable;
+}
+
+bool ATheLastRiteCharacter::CanKeepFocusedInteractable(const FVector& ViewLocation, const FVector& ViewDirection, const ATheLastRiteInteractable* CandidateInteractable) const
+{
+    ATheLastRiteInteractable* CurrentInteractable = FocusedInteractable.Get();
+    if (CurrentInteractable == nullptr || CurrentInteractable == CandidateInteractable)
+    {
+        return false;
+    }
+
+    const FVector ToCurrent = CurrentInteractable->GetActorLocation() - ViewLocation;
+    const float ForwardDistance = FVector::DotProduct(ToCurrent, ViewDirection);
+    if (ForwardDistance <= 0.0f || ForwardDistance > FocusStickDistance)
+    {
+        return false;
+    }
+
+    const FVector CenterlineOffset = ToCurrent - (ViewDirection * ForwardDistance);
+    if (CenterlineOffset.SizeSquared() > FocusStickCenterlineDistanceSq)
+    {
+        return false;
+    }
+
+    return true;
 }
