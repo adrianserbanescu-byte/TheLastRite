@@ -145,7 +145,7 @@ void ATheLastRiteHUD::DrawHUD()
         DrawWrappedTextLine(RecentEvent.ToString(), FLinearColor(1.0f, 0.92f, 0.55f), EventX, EventY, 82, SmallFont, 1.2f);
     }
 
-    if (GameMode->IsCaseResolved())
+    if (GameMode->IsCaseClosed())
     {
         const FString Ending = GameMode->GetEndingText().ToString();
         const float CenterX = Canvas->ClipX * 0.18f;

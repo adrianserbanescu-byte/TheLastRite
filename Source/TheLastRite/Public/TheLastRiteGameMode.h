@@ -7,6 +7,7 @@
 class AInspectableProp;
 class APointLight;
 class ARitualAnchor;
+class ACaseExit;
 
 UCLASS()
 class THELASTRITE_API ATheLastRiteGameMode : public AGameModeBase
@@ -21,6 +22,7 @@ public:
 
     void HandleInspectableProp(AInspectableProp* Prop);
     void HandleRitualAnchor(ARitualAnchor* Anchor);
+    void HandleCaseExit(ACaseExit* Exit);
 
     FText GetCaseTitleText() const;
     FText GetTargetText() const;
@@ -35,6 +37,7 @@ public:
     bool HasEvidenceLine(const FString& FullLine) const;
 
     bool IsCaseResolved() const;
+    bool IsCaseClosed() const;
     bool DidPlayerWin() const;
 
 private:
@@ -44,6 +47,7 @@ private:
     void SpawnRoomPiece(const FVector& Location, const FVector& Scale3D, const FRotator& Rotation, const FLinearColor& Color);
     void SpawnLights();
     void UpdateRitualAnchors();
+    void UpdateCaseExit();
     void UpdateWorldMood();
     void UpdateProgressText();
     void UpdateDeductionText();
@@ -99,6 +103,9 @@ private:
     bool bPlayerWon;
 
     UPROPERTY()
+    bool bCaseClosed;
+
+    UPROPERTY()
     float RecentEventTimeSeconds;
 
     UPROPERTY()
@@ -115,4 +122,7 @@ private:
 
     UPROPERTY()
     TArray<TObjectPtr<ARitualAnchor>> RitualAnchors;
+
+    UPROPERTY()
+    TObjectPtr<ACaseExit> CaseExitActor;
 };

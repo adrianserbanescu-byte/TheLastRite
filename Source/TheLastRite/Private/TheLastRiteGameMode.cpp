@@ -1,5 +1,6 @@
 #include "TheLastRiteGameMode.h"
 
+#include "CaseExit.h"
 #include "InspectableProp.h"
 #include "RitualAnchor.h"
 #include "TheLastRiteCharacter.h"
@@ -34,6 +35,7 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     TotalFalseLeads = 3;
     bCaseResolved = false;
     bPlayerWon = false;
+    bCaseClosed = false;
     RecentEventTimeSeconds = -1000.0f;
     RecentEventDurationSeconds = 5.0f;
 
@@ -75,6 +77,7 @@ void ATheLastRiteGameMode::BeginPlay()
     BuildCaseContent();
     SpawnLights();
     UpdateRitualAnchors();
+    UpdateCaseExit();
     UpdateDeductionText();
     UpdateWorldMood();
     UpdateProgressText();
@@ -142,6 +145,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     UpdateDeductionText();
     UpdateProgressText();
     UpdateRitualAnchors();
+    UpdateCaseExit();
     UpdateWorldMood();
 }
 
@@ -168,33 +172,29 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     Anchor->MarkActivated();
     bCaseResolved = true;
     bPlayerWon = Anchor->IsCorrectAnchor();
+    bCaseClosed = false;
 
     if (bPlayerWon)
     {
         ObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "ObjectiveWon",
-            "Case closed. The Hollow Saint was forced out of Apartment 302.");
-        EndingText = NSLOCTEXT(
-            "TheLastRite",
-            "WinEnding",
-            "RITE COMPLETE\nThe Hollow Saint is driven out.");
-        EndingDetailText = NSLOCTEXT(
-            "TheLastRite",
-            "WinEndingDetail",
-            "You read the room correctly: mirrored wrist marks, the halo of ash around the cradle, and the fused prayer crown all pointed to the nursery.");
+            "The rite held. Leave through the front door and file the case.");
+        EndingText = FText::GetEmpty();
+        EndingDetailText = FText::GetEmpty();
         SetStatusText(NSLOCTEXT(
             "TheLastRite",
             "WinStatus",
-            "You chose the nursery sigil. The rite bites into the halo and the room goes still."));
+            "You chose the nursery sigil. The room goes still. Do not linger. Leave through the front door."));
         AddEvidenceLine(TEXT("RITE - correct anchor"));
         DeductionText = NSLOCTEXT(
             "TheLastRite",
             "DeductionWon",
-            "Conclusion: the saint fed through the child-facing altar. The nursery sigil breaks the loop.");
+            "Conclusion: the saint fed through the child-facing altar. The seal is holding. Leave and close the case cleanly.");
     }
     else
     {
+        bCaseClosed = true;
         ObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "ObjectiveLost",
@@ -218,8 +218,58 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
             "Conclusion missed: the mirror was only theater. The real ritual weight lived around the cradle.");
     }
 
+    UpdateCaseExit();
     UpdateProgressText();
     UpdateWorldMood();
+}
+
+void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
+{
+    if (Exit == nullptr)
+    {
+        return;
+    }
+
+    if (!bCaseResolved || !bPlayerWon)
+    {
+        SetStatusText(NSLOCTEXT(
+            "TheLastRite",
+            "ExitLockedStatus",
+            "You cannot leave yet. The rite still has to be settled."));
+        return;
+    }
+
+    if (bCaseClosed)
+    {
+        return;
+    }
+
+    Exit->MarkUsed();
+    bCaseClosed = true;
+    ObjectiveText = NSLOCTEXT(
+        "TheLastRite",
+        "ObjectiveClosed",
+        "Case filed. Apartment 302 is sealed for cleanup.");
+    EndingText = NSLOCTEXT(
+        "TheLastRite",
+        "FinalWinEnding",
+        "CASE CLOSED\nApartment 302 is sealed.");
+    EndingDetailText = NSLOCTEXT(
+        "TheLastRite",
+        "FinalWinDetail",
+        "You held the rite, left cleanly, and filed the report. The Hollow Saint loses its room when the living stop feeding it a story.");
+    SetStatusText(NSLOCTEXT(
+        "TheLastRite",
+        "FinalWinStatus",
+        "You left through the front door and closed the case."));
+    AddEvidenceLine(TEXT("EXIT - front door secured"));
+    DeductionText = NSLOCTEXT(
+        "TheLastRite",
+        "DeductionClosed",
+        "Final read: the nursery was the altar, the mirror was bait, and the case is now sealed.");
+
+    UpdateCaseExit();
+    UpdateProgressText();
 }
 
 FText ATheLastRiteGameMode::GetCaseTitleText() const
@@ -293,6 +343,11 @@ bool ATheLastRiteGameMode::IsCaseResolved() const
     return bCaseResolved;
 }
 
+bool ATheLastRiteGameMode::IsCaseClosed() const
+{
+    return bCaseClosed;
+}
+
 bool ATheLastRiteGameMode::DidPlayerWin() const
 {
     return bPlayerWon;
@@ -338,6 +393,16 @@ void ATheLastRiteGameMode::BuildCaseContent()
             Anchor->SetActorScale3D(FVector(1.8f, 1.8f, 0.2f));
             Anchor->ConfigureAnchor(Name, bCorrectAnchor);
             RitualAnchors.Add(Anchor);
+        }
+    };
+
+    auto SpawnExit = [this](const FVector& Location, const FVector& Scale3D, const FText& Name)
+    {
+        CaseExitActor = GetWorld()->SpawnActor<ACaseExit>(Location, FRotator::ZeroRotator);
+        if (CaseExitActor != nullptr)
+        {
+            CaseExitActor->SetActorScale3D(Scale3D);
+            CaseExitActor->ConfigureExit(Name);
         }
     };
 
@@ -414,6 +479,11 @@ void ATheLastRiteGameMode::BuildCaseContent()
         FVector(-730.0f, -620.0f, 20.0f),
         NSLOCTEXT("TheLastRite", "WrongAnchor", "the mirror circle"),
         false);
+
+    SpawnExit(
+        FVector(910.0f, -1390.0f, 118.0f),
+        FVector(1.2f, 0.16f, 2.2f),
+        NSLOCTEXT("TheLastRite", "FrontDoorName", "the front door"));
 }
 
 void ATheLastRiteGameMode::BuildSetDressing()
@@ -451,6 +521,8 @@ void ATheLastRiteGameMode::BuildSetDressing()
     SpawnRoomPiece(FVector(940.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(780.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(860.0f, 730.0f, 215.0f), FVector(0.95f, 0.08f, 0.08f), FRotator::ZeroRotator, OldGoldColor);
+    SpawnRoomPiece(FVector(910.0f, -1360.0f, 120.0f), FVector(1.45f, 0.1f, 2.35f), FRotator::ZeroRotator, FurnitureColor);
+    SpawnRoomPiece(FVector(1090.0f, -1360.0f, 120.0f), FVector(0.12f, 0.08f, 0.12f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(730.0f, 620.0f, 30.0f), FVector(2.9f, 0.05f, 0.05f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(730.0f, 620.0f, 34.0f), FVector(2.9f, 0.05f, 0.05f), FRotator(0.0f, 90.0f, 0.0f), OldGoldColor);
     SpawnRoomPiece(FVector(-730.0f, -620.0f, 30.0f), FVector(2.9f, 0.05f, 0.05f), FRotator(0.0f, 45.0f, 0.0f), MirrorColor);
@@ -542,6 +614,15 @@ void ATheLastRiteGameMode::UpdateRitualAnchors()
     }
 }
 
+void ATheLastRiteGameMode::UpdateCaseExit()
+{
+    if (CaseExitActor != nullptr)
+    {
+        const bool bExitReady = bCaseResolved && bPlayerWon && !bCaseClosed;
+        CaseExitActor->SetExitReady(bExitReady);
+    }
+}
+
 void ATheLastRiteGameMode::UpdateWorldMood()
 {
     FLinearColor LightColor(0.96f, 0.92f, 0.82f);
@@ -580,9 +661,16 @@ void ATheLastRiteGameMode::UpdateProgressText()
 {
     if (bCaseResolved)
     {
-        ProgressText = bPlayerWon
-            ? NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: WON | Press R to run the case again")
-            : NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again");
+        if (bPlayerWon && !bCaseClosed)
+        {
+            ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door");
+        }
+        else
+        {
+            ProgressText = bPlayerWon
+                ? NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to run the case again")
+                : NSLOCTEXT("TheLastRite", "ProgressLost", "Case status: FAILED | Press R to try the rite again");
+        }
         return;
     }
 
