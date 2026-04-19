@@ -33,6 +33,7 @@ public:
     void HandleInspectableProp(AInspectableProp* Prop);
     void HandleRitualAnchor(ARitualAnchor* Anchor);
     void HandleCaseExit(ACaseExit* Exit);
+    FText GetInspectableGuidanceText(const AInspectableProp* Prop, bool bForRecheck) const;
 
     ETheLastRiteCasePhase GetCasePhase() const;
     FText GetCaseTitleText() const;
@@ -45,6 +46,11 @@ public:
     FText GetDeductionText() const;
     FText GetRitualReadText() const;
     FText GetNextMoveText() const;
+    FText GetFocusZoneText() const;
+    FText GetTheoryChainText() const;
+    FText GetRiskText() const;
+    FText GetCorrectAnchorReadText() const;
+    FText GetWrongAnchorReadText() const;
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
     FText GetResolvedInteractionText() const;
@@ -65,6 +71,7 @@ private:
     void BuildCaseContent();
     void BuildSetDressing();
     void SpawnRoomPiece(const FVector& Location, const FVector& Scale3D, const FRotator& Rotation, const FLinearColor& Color);
+    void SpawnZoneMarker(const FVector& Location, const FVector& PlateScale3D, const FString& Label, const FLinearColor& Color, float TextYaw = 0.0f);
     void SpawnLights();
     void UpdateRitualAnchors();
     void UpdateCaseExit();
@@ -74,6 +81,11 @@ private:
     void UpdateDeductionText();
     void UpdateRitualReadText();
     void UpdateNextMoveText();
+    void UpdateFocusZoneText();
+    void UpdateTheoryChainText();
+    void UpdateRiskText();
+    void UpdateCorrectAnchorReadText();
+    void UpdateWrongAnchorReadText();
     void RefreshCurrentObjectiveText();
     void RefreshCasePresentation(bool bRebuildFinalReport);
     void RebuildFinalReport();
@@ -114,6 +126,21 @@ private:
 
     UPROPERTY()
     FText NextMoveText;
+
+    UPROPERTY()
+    FText FocusZoneText;
+
+    UPROPERTY()
+    FText TheoryChainText;
+
+    UPROPERTY()
+    FText RiskText;
+
+    UPROPERTY()
+    FText CorrectAnchorReadText;
+
+    UPROPERTY()
+    FText WrongAnchorReadText;
 
     UPROPERTY()
     FText EndingText;

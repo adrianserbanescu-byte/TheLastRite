@@ -79,9 +79,10 @@ FText ARitualAnchor::GetPromptText() const
 
     return FText::Format(
         bCorrectAnchor
-            ? NSLOCTEXT("TheLastRite", "RitualPromptCorrect", "Press E - Perform the rite at {0} (matches the child-facing read)")
-            : NSLOCTEXT("TheLastRite", "RitualPromptWrong", "Press E - Perform the rite at {0} (mirror bait)"),
-        DisplayName);
+            ? NSLOCTEXT("TheLastRite", "RitualPromptCorrect", "Press E - Perform the rite at {0}. {1}")
+            : NSLOCTEXT("TheLastRite", "RitualPromptWrong", "Press E - Perform the rite at {0}. {1}"),
+        DisplayName,
+        bCorrectAnchor ? GameMode->GetCorrectAnchorReadText() : GameMode->GetWrongAnchorReadText());
 }
 
 int32 ARitualAnchor::GetInteractionFocusPriority() const

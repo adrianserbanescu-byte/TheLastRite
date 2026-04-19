@@ -45,6 +45,9 @@ void ATheLastRiteHUD::DrawHUD()
     const float X = 30.0f;
     const FString ObjectiveText = GameMode->GetObjectiveText().ToString();
     const FString CurrentObjectiveText = GameMode->GetCurrentObjectiveText().ToString();
+    const FString FocusZoneText = GameMode->GetFocusZoneText().ToString();
+    const FString TheoryChainText = GameMode->GetTheoryChainText().ToString();
+    const FString RiskText = GameMode->GetRiskText().ToString();
     const FString ProgressText = GameMode->GetProgressText().ToString();
     const FString DeductionText = GameMode->GetDeductionText().ToString();
     const FString StatusText = GameMode->GetStatusText().ToString();
@@ -53,6 +56,9 @@ void ATheLastRiteHUD::DrawHUD()
     const float StatusLineWidth = 720.0f;
     const float ObjectiveHeight = MeasureWrappedTextHeight(ObjectiveText, MainPanelLineWidth, SmallFont, 1.15f);
     const float CurrentObjectiveHeight = MeasureWrappedTextHeight(CurrentObjectiveText, MainPanelLineWidth, SmallFont, 1.05f);
+    const float FocusZoneHeight = MeasureWrappedTextHeight(FocusZoneText, MainPanelLineWidth, SmallFont, 1.0f);
+    const float TheoryChainHeight = MeasureWrappedTextHeight(TheoryChainText, MainPanelLineWidth, SmallFont, 1.0f);
+    const float RiskHeight = MeasureWrappedTextHeight(RiskText, MainPanelLineWidth, SmallFont, 1.0f);
     const float ProgressHeight = MeasureWrappedTextHeight(ProgressText, MainPanelLineWidth, SmallFont, 1.1f);
     const float DeductionHeight = MeasureWrappedTextHeight(DeductionText, MainPanelLineWidth, SmallFont, 1.0f);
     const float ControlHeight = MeasureWrappedTextHeight(ControlText, MainPanelLineWidth, SmallFont, 1.0f);
@@ -65,6 +71,12 @@ void ATheLastRiteHUD::DrawHUD()
             + ObjectiveHeight
             + 8.0f
             + CurrentObjectiveHeight
+            + 6.0f
+            + FocusZoneHeight
+            + 6.0f
+            + TheoryChainHeight
+            + 6.0f
+            + RiskHeight
             + 6.0f
             + ProgressHeight
             + 8.0f
@@ -85,6 +97,12 @@ void ATheLastRiteHUD::DrawHUD()
     Y = DrawWrappedTextLine(ObjectiveText, FLinearColor::White, X, Y, MainPanelLineWidth, SmallFont, 1.15f);
     Y += 8.0f;
     Y = DrawWrappedTextLine(CurrentObjectiveText, FLinearColor(0.65f, 0.90f, 1.0f), X, Y, MainPanelLineWidth, SmallFont, 1.05f);
+    Y += 6.0f;
+    Y = DrawWrappedTextLine(FocusZoneText, FLinearColor(0.94f, 0.90f, 0.62f), X, Y, MainPanelLineWidth, SmallFont, 1.0f);
+    Y += 6.0f;
+    Y = DrawWrappedTextLine(TheoryChainText, FLinearColor(0.82f, 0.90f, 1.0f), X, Y, MainPanelLineWidth, SmallFont, 1.0f);
+    Y += 6.0f;
+    Y = DrawWrappedTextLine(RiskText, FLinearColor(1.0f, 0.76f, 0.56f), X, Y, MainPanelLineWidth, SmallFont, 1.0f);
     Y += 6.0f;
     Y = DrawWrappedTextLine(ProgressText, FLinearColor(0.9f, 0.9f, 0.75f), X, Y, MainPanelLineWidth, SmallFont, 1.1f);
     Y += 8.0f;
@@ -125,6 +143,7 @@ void ATheLastRiteHUD::DrawHUD()
         const float JournalPanelTop = 18.0f;
         const float JournalPanelHeight = FMath::Max(560.0f, Canvas->ClipY - 52.0f);
         const float JournalLineWidth = 300.0f;
+        const bool bShowAnchorRead = GameMode->IsOpeningSweepComplete();
         float JournalY = 30.0f;
         DrawPanel(JournalX - 12.0f, JournalPanelTop, 342.0f, JournalPanelHeight, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
         DrawText(TEXT("Case Notes"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.15f, false);
@@ -189,6 +208,16 @@ void ATheLastRiteHUD::DrawHUD()
         JournalY += 24.0f;
         JournalY = DrawWrappedTextLine(GameMode->GetRitualReadText().ToString(), FLinearColor(0.92f, 0.84f, 0.50f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
         JournalY += 10.0f;
+
+        if (bShowAnchorRead)
+        {
+            DrawText(TEXT("Anchor read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+            JournalY += 24.0f;
+            JournalY = DrawWrappedTextLine(GameMode->GetCorrectAnchorReadText().ToString(), FLinearColor(0.70f, 1.0f, 0.72f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
+            JournalY += 8.0f;
+            JournalY = DrawWrappedTextLine(GameMode->GetWrongAnchorReadText().ToString(), FLinearColor(1.0f, 0.72f, 0.44f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
+            JournalY += 10.0f;
+        }
 
         DrawText(TEXT("Next move"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 24.0f;
@@ -262,13 +291,30 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float BannerX = Canvas->ClipX * 0.30f;
         const float BannerY = Canvas->ClipY * 0.16f;
-        const FString BannerDetailText = TEXT("Act on the child-facing pattern. Ignore the mirror bait.");
+        const FString BannerChoiceText = GameMode->GetCorrectAnchorReadText().ToString();
+        const FString BannerWarningText = GameMode->GetWrongAnchorReadText().ToString();
         const float BannerLineWidth = 540.0f;
-        const float BannerDetailHeight = MeasureWrappedTextHeight(BannerDetailText, BannerLineWidth, SmallFont, 1.12f);
-        const float BannerPanelHeight = FMath::Max(96.0f, 58.0f + BannerDetailHeight);
+        const float BannerChoiceHeight = MeasureWrappedTextHeight(BannerChoiceText, BannerLineWidth, SmallFont, 1.08f);
+        const float BannerWarningHeight = MeasureWrappedTextHeight(BannerWarningText, BannerLineWidth, SmallFont, 1.04f);
+        const float BannerPanelHeight = FMath::Max(128.0f, 72.0f + BannerChoiceHeight + 10.0f + BannerWarningHeight);
         DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 600.0f, BannerPanelHeight, FLinearColor(0.10f, 0.08f, 0.02f, 0.80f));
         DrawText(TEXT("RITE READY"), FLinearColor(1.0f, 0.88f, 0.44f), BannerX, BannerY, LargeFont, 1.35f, false);
-        DrawWrappedTextLine(BannerDetailText, FLinearColor::White, BannerX, BannerY + 40.0f, BannerLineWidth, SmallFont, 1.12f);
+        float BannerTextY = BannerY + 40.0f;
+        BannerTextY = DrawWrappedTextLine(BannerChoiceText, FLinearColor(0.72f, 1.0f, 0.74f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.08f);
+        BannerTextY += 10.0f;
+        DrawWrappedTextLine(BannerWarningText, FLinearColor(1.0f, 0.76f, 0.50f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.04f);
+    }
+    else if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::Investigating && GameMode->IsOpeningSweepComplete())
+    {
+        const float BannerX = Canvas->ClipX * 0.28f;
+        const float BannerY = Canvas->ClipY * 0.16f;
+        const FString BannerDetailText = GameMode->GetFocusZoneText().ToString();
+        const float BannerLineWidth = 620.0f;
+        const float BannerDetailHeight = MeasureWrappedTextHeight(BannerDetailText, BannerLineWidth, SmallFont, 1.08f);
+        const float BannerPanelHeight = FMath::Max(96.0f, 58.0f + BannerDetailHeight);
+        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 680.0f, BannerPanelHeight, FLinearColor(0.04f, 0.05f, 0.08f, 0.78f));
+        DrawText(TEXT("FOLLOW THE WEIGHT"), FLinearColor(0.84f, 0.92f, 1.0f), BannerX, BannerY, LargeFont, 1.2f, false);
+        DrawWrappedTextLine(BannerDetailText, FLinearColor::White, BannerX, BannerY + 40.0f, BannerLineWidth, SmallFont, 1.08f);
     }
 
     if (GameMode->IsCaseClosed())
@@ -434,6 +480,7 @@ FLinearColor ATheLastRiteHUD::GetFinalReportLineColor(const FString& Line) const
 
     if (ContainsIgnoreCase(TEXT("Conclusion"))
         || ContainsIgnoreCase(TEXT("correct anchor"))
+        || ContainsIgnoreCase(TEXT("Why the nursery was correct"))
         || ContainsIgnoreCase(TEXT("Seal result"))
         || ContainsIgnoreCase(TEXT("True clue")))
     {
@@ -445,7 +492,7 @@ FLinearColor ATheLastRiteHUD::GetFinalReportLineColor(const FString& Line) const
         return FLinearColor(0.76f, 0.88f, 1.0f);
     }
 
-    if (ContainsIgnoreCase(TEXT("Wrong rite")) || ContainsIgnoreCase(TEXT("Outcome")) || ContainsIgnoreCase(TEXT("What went wrong")))
+    if (ContainsIgnoreCase(TEXT("Wrong rite")) || ContainsIgnoreCase(TEXT("Outcome")) || ContainsIgnoreCase(TEXT("What went wrong")) || ContainsIgnoreCase(TEXT("Why the mirror was wrong")))
     {
         return FLinearColor(1.0f, 0.45f, 0.45f);
     }

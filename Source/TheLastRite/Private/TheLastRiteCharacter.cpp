@@ -16,7 +16,7 @@ namespace
     constexpr float FocusStickCenterlineDistanceSq = 72.0f * 72.0f;
     constexpr float FocusStickCenterlineSlackSq = 20.0f * 20.0f;
     constexpr float FocusStickForwardSlack = 40.0f;
-    constexpr int32 DirectHitPriorityBonus = 1000;
+    constexpr int32 DirectHitPriorityBonus = 60;
 
     struct FInteractionCandidate
     {

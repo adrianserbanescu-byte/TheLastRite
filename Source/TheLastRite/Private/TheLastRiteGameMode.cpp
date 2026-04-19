@@ -7,10 +7,13 @@
 #include "TheLastRiteHUD.h"
 #include "Components/PointLightComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/TextRenderComponent.h"
 #include "Engine/PointLight.h"
 #include "Engine/StaticMeshActor.h"
+#include "Engine/World.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "Materials/MaterialInstanceDynamic.h"
 
@@ -20,6 +23,13 @@ namespace
     {
         const TCHAR* EvidenceLine;
         const TCHAR* ReportSummary;
+    };
+
+    struct FInspectableGuidanceEntry
+    {
+        const TCHAR* EvidenceSummary;
+        const TCHAR* InspectLesson;
+        const TCHAR* RecheckLesson;
     };
 
     constexpr FReportEvidenceEntry TrueClueReportEntries[] =
@@ -37,6 +47,35 @@ namespace
         { TEXT("FALSE - the pawn ticket pouch - ordinary greed"), TEXT("pawn ticket pouch.") },
         { TEXT("FALSE - the kitchen knife - grease, not offering blood"), TEXT("kitchen knife.") }
     };
+
+    constexpr FInspectableGuidanceEntry TrueClueGuidanceEntries[] =
+    {
+        { TEXT("Nanny Eliza - mirrored wrist marks"), TEXT("It matters because the pose is ritual symmetry, not panic."), TEXT("It still supports the staged saint-pose, not a random death.") },
+        { TEXT("the cradle - halo of ash-white handprints"), TEXT("It matters because the child-facing space is being framed as the altar."), TEXT("It still points the room's weight back toward the child-facing altar.") },
+        { TEXT("the prayer cards - fused into a crown"), TEXT("It matters because devotion has been arranged into a crown, not left as ordinary clutter."), TEXT("It still reads as forced sanctity built around the nursery side.") },
+        { TEXT("the baby monitor - hymn repeating on every channel"), TEXT("It matters because the room's voice loops back toward the nursery."), TEXT("It still says the room's voice belongs to the child-facing pattern.") },
+        { TEXT("the nursery wallpaper - child's sun turned into a halo"), TEXT("It matters because the mural turns the child's sun into a false halo."), TEXT("It still marks the nursery wall as the room's real devotional center.") }
+    };
+
+    constexpr FInspectableGuidanceEntry FalseLeadGuidanceEntries[] =
+    {
+        { TEXT("the broken window latch - forced from outside"), TEXT("It is intrusion and damage, not devotion."), TEXT("It is still just forced damage, not ritual intent.") },
+        { TEXT("the pawn ticket pouch - ordinary greed"), TEXT("It is ordinary greed and motive noise, not occult structure."), TEXT("It is still ordinary greed, not part of the saint-mask.") },
+        { TEXT("the kitchen knife - grease, not offering blood"), TEXT("It is kitchen grime, not sacrificial blood."), TEXT("It is still kitchen mess, not an offering.") }
+    };
+
+    const FInspectableGuidanceEntry* FindGuidanceEntry(const FString& EvidenceSummary, const FInspectableGuidanceEntry* Entries, int32 EntryCount)
+    {
+        for (int32 Index = 0; Index < EntryCount; ++Index)
+        {
+            if (EvidenceSummary.Equals(Entries[Index].EvidenceSummary, ESearchCase::CaseSensitive))
+            {
+                return &Entries[Index];
+            }
+        }
+
+        return nullptr;
+    }
 
     static UStaticMesh* LoadBasicMesh(const TCHAR* AssetPath)
     {
@@ -99,6 +138,26 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
         "TheLastRite",
         "NextMoveInitial",
         "Start at the body. Then move to the cradle and the prayer mess before chasing anything else in the room.");
+    FocusZoneText = NSLOCTEXT(
+        "TheLastRite",
+        "FocusZoneInitial",
+        "Focus zone: entry and body side. Establish the opening sweep before you test the nursery or the mirror.");
+    TheoryChainText = NSLOCTEXT(
+        "TheLastRite",
+        "TheoryChainInitial",
+        "Theory chain: build the pattern in order: body pose, cradle halo, prayer crown, monitor hymn, mural halo.");
+    RiskText = NSLOCTEXT(
+        "TheLastRite",
+        "RiskInitial",
+        "Risk read: the room will try to pull you toward ugly spectacle before the child-facing pattern is proven.");
+    CorrectAnchorReadText = NSLOCTEXT(
+        "TheLastRite",
+        "CorrectAnchorReadInitial",
+        "Nursery sigil read: not ready to call yet. Finish the opening sweep before naming the altar.");
+    WrongAnchorReadText = NSLOCTEXT(
+        "TheLastRite",
+        "WrongAnchorReadInitial",
+        "Mirror circle read: treat it as suspect until the room gives you more than spectacle.");
     EndingText = FText::GetEmpty();
     EndingDetailText = FText::GetEmpty();
 }
@@ -144,22 +203,25 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     if (Prop->WasInspected())
     {
         const FText NextGuidance = GetActiveGuidanceText();
+        const FText ReviewGuidance = GetInspectableGuidanceText(Prop, true);
         if (Prop->IsTrueClue())
         {
             const FText ReminderText = CasePhase == ETheLastRiteCasePhase::RiteReady
                 ? NSLOCTEXT("TheLastRite", "TrueReminderRiteReady", "Already logged. This still confirms the child-facing altar, not the mirror.")
                 : NSLOCTEXT("TheLastRite", "TrueReminder", "Already logged. This remains real evidence.");
             SetStatusText(FText::Format(
-                NSLOCTEXT("TheLastRite", "AlreadyCheckedTrue", "{0} {1} {2}"),
+                NSLOCTEXT("TheLastRite", "AlreadyCheckedTrue", "{0} {1} {2} {3}"),
                 Prop->GetClueText(),
                 ReminderText,
+                ReviewGuidance,
                 NextGuidance));
         }
         else
         {
             SetStatusText(FText::Format(
-                NSLOCTEXT("TheLastRite", "AlreadyCheckedFalse", "{0} Already ruled out. It is still bait, not the saint. {1}"),
+                NSLOCTEXT("TheLastRite", "AlreadyCheckedFalse", "{0} Already ruled out. {1} {2}"),
                 Prop->GetClueText(),
+                ReviewGuidance,
                 NextGuidance));
         }
         return;
@@ -173,14 +235,16 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     {
         FoundTrueClues = FMath::Min(FoundTrueClues + 1, RequiredTrueClues);
         AddEvidenceLine(FString::Printf(TEXT("TRUE - %s"), *Prop->GetEvidenceSummary().ToString()));
+        const FText LessonText = GetInspectableGuidanceText(Prop, false);
         const bool bOpeningSweepComplete = IsOpeningSweepComplete();
         if (!bOpeningSweepComplete)
         {
             StatusUpdate = FText::Format(
                 Prop->IsOpeningSweepTarget()
-                    ? NSLOCTEXT("TheLastRite", "TrueClueOpeningSweep", "{0} is real. {1}. Next: {2}.")
-                    : NSLOCTEXT("TheLastRite", "TrueClueOutOfOrder", "{0} is real, but keep the opening sweep in order. {1}. Next: {2}."),
+                    ? NSLOCTEXT("TheLastRite", "TrueClueOpeningSweep", "{0} is real. {1} {2}. Next: {3}.")
+                    : NSLOCTEXT("TheLastRite", "TrueClueOutOfOrder", "{0} is real, but keep the opening sweep in order. {1} {2}. Next: {3}."),
                 Prop->GetClueText(),
+                LessonText,
                 GetOpeningSweepStateText(),
                 GetNextStarterTargetText());
         }
@@ -191,16 +255,18 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
                 "ObjectiveRitualReady",
                 "Evidence complete. The child-facing pattern is locked. Choose the ritual anchor that fits the room's true center.");
             StatusUpdate = FText::Format(
-                NSLOCTEXT("TheLastRite", "EnoughClues", "{0} You have enough evidence. The real pattern converges around the child-facing altar, not the mirror bait."),
-                Prop->GetClueText());
+                NSLOCTEXT("TheLastRite", "EnoughClues", "{0} {1} You have enough evidence. The real pattern converges around the child-facing altar, not the mirror bait."),
+                Prop->GetClueText(),
+                LessonText);
             bAppendNextMoveToStatus = true;
             TriggerPhasePulse(FLinearColor(0.96f, 0.75f, 0.22f, 1.0f), 1.0f);
         }
         else
         {
             StatusUpdate = FText::Format(
-                NSLOCTEXT("TheLastRite", "TrueClue", "{0} That is a true sign of the Hollow Saint."),
-                Prop->GetClueText());
+                NSLOCTEXT("TheLastRite", "TrueClue", "{0} That is a true sign of the Hollow Saint. {1}"),
+                Prop->GetClueText(),
+                LessonText);
             bAppendNextMoveToStatus = true;
         }
     }
@@ -208,11 +274,13 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
     {
         ++FoundFalseLeads;
         AddEvidenceLine(FString::Printf(TEXT("FALSE - %s"), *Prop->GetEvidenceSummary().ToString()));
+        const FText LessonText = GetInspectableGuidanceText(Prop, false);
         StatusUpdate = FText::Format(
             IsOpeningSweepComplete()
-                ? NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. It looks ugly, but it is not the saint.")
-                : NSLOCTEXT("TheLastRite", "FalseLeadOpeningSweep", "{0} False lead. Finish the opening sweep first: {1}."),
+                ? NSLOCTEXT("TheLastRite", "FalseLead", "{0} False lead. {1}")
+                : NSLOCTEXT("TheLastRite", "FalseLeadOpeningSweep", "{0} False lead. {1} Finish the opening sweep first: {2}."),
             Prop->GetClueText(),
+            LessonText,
             GetNextStarterTargetText());
         bAppendNextMoveToStatus = IsOpeningSweepComplete();
     }
@@ -308,6 +376,26 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     }
 
     RefreshCasePresentation(true);
+}
+
+FText ATheLastRiteGameMode::GetInspectableGuidanceText(const AInspectableProp* Prop, bool bForRecheck) const
+{
+    if (Prop == nullptr)
+    {
+        return FText::GetEmpty();
+    }
+
+    const FString EvidenceSummary = Prop->GetEvidenceSummary().ToString();
+    const FInspectableGuidanceEntry* Entry = Prop->IsTrueClue()
+        ? FindGuidanceEntry(EvidenceSummary, TrueClueGuidanceEntries, UE_ARRAY_COUNT(TrueClueGuidanceEntries))
+        : FindGuidanceEntry(EvidenceSummary, FalseLeadGuidanceEntries, UE_ARRAY_COUNT(FalseLeadGuidanceEntries));
+
+    if (Entry == nullptr)
+    {
+        return FText::GetEmpty();
+    }
+
+    return FText::FromString(bForRecheck ? Entry->RecheckLesson : Entry->InspectLesson);
 }
 
 void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
@@ -429,6 +517,31 @@ FText ATheLastRiteGameMode::GetNextMoveText() const
     return NextMoveText;
 }
 
+FText ATheLastRiteGameMode::GetFocusZoneText() const
+{
+    return FocusZoneText;
+}
+
+FText ATheLastRiteGameMode::GetTheoryChainText() const
+{
+    return TheoryChainText;
+}
+
+FText ATheLastRiteGameMode::GetRiskText() const
+{
+    return RiskText;
+}
+
+FText ATheLastRiteGameMode::GetCorrectAnchorReadText() const
+{
+    return CorrectAnchorReadText;
+}
+
+FText ATheLastRiteGameMode::GetWrongAnchorReadText() const
+{
+    return WrongAnchorReadText;
+}
+
 FText ATheLastRiteGameMode::GetEndingText() const
 {
     return EndingText;
@@ -540,6 +653,11 @@ void ATheLastRiteGameMode::BuildRoom()
     SpawnRoomPiece(FVector(910.0f, 1080.0f, 300.0f), FVector(5.1f, 0.2f, 6.0f), FRotator::ZeroRotator, WallColor);
     SpawnRoomPiece(FVector(1020.0f, 1080.0f, 120.0f), FVector(0.65f, 0.18f, 1.6f), FRotator::ZeroRotator, TrimColor);
     SpawnRoomPiece(FVector(720.0f, 1080.0f, 120.0f), FVector(0.65f, 0.18f, 1.6f), FRotator::ZeroRotator, TrimColor);
+
+    SpawnZoneMarker(FVector(0.0f, -1080.0f, 8.0f), FVector(2.9f, 0.45f, 0.04f), TEXT("START - BODY"), FLinearColor(0.86f, 0.84f, 0.70f));
+    SpawnZoneMarker(FVector(230.0f, 260.0f, 8.0f), FVector(3.2f, 0.34f, 0.04f), TEXT("SWEEP - NURSERY"), FLinearColor(0.86f, 0.70f, 0.28f));
+    SpawnZoneMarker(FVector(-790.0f, -620.0f, 8.0f), FVector(2.5f, 0.32f, 0.04f), TEXT("BAIT - MIRROR"), FLinearColor(0.46f, 0.56f, 0.74f));
+    SpawnZoneMarker(FVector(910.0f, -1190.0f, 8.0f), FVector(2.4f, 0.20f, 0.04f), TEXT("EXIT"), FLinearColor(0.62f, 0.90f, 0.72f));
 }
 
 void ATheLastRiteGameMode::BuildCaseContent()
@@ -669,6 +787,9 @@ void ATheLastRiteGameMode::BuildSetDressing()
     const FLinearColor RunnerColor(0.40f, 0.08f, 0.08f);
     const FLinearColor NurseryGlowColor(0.54f, 0.48f, 0.18f);
     const FLinearColor TileColor(0.26f, 0.28f, 0.31f);
+    const FLinearColor ExitGuideColor(0.18f, 0.42f, 0.26f);
+    const FLinearColor BodyGuideColor(0.50f, 0.46f, 0.30f);
+    const FLinearColor MirrorBaitColor(0.22f, 0.34f, 0.46f);
 
     SpawnRoomPiece(FVector(0.0f, -780.0f, 18.0f), FVector(2.7f, 1.2f, 0.08f), FRotator::ZeroRotator, ClothColor);
     SpawnRoomPiece(FVector(-52.0f, -780.0f, 65.0f), FVector(0.35f, 0.45f, 0.62f), FRotator::ZeroRotator, BloodlessSkinColor);
@@ -691,12 +812,21 @@ void ATheLastRiteGameMode::BuildSetDressing()
     SpawnRoomPiece(FVector(130.0f, 260.0f, 8.0f), FVector(1.2f, 7.4f, 0.04f), FRotator::ZeroRotator, RunnerColor);
     SpawnRoomPiece(FVector(610.0f, -960.0f, 8.0f), FVector(2.6f, 4.0f, 0.04f), FRotator::ZeroRotator, RunnerColor);
     SpawnRoomPiece(FVector(910.0f, -1230.0f, 8.0f), FVector(2.4f, 0.24f, 0.05f), FRotator::ZeroRotator, OldGoldColor);
+    SpawnRoomPiece(FVector(0.0f, -1080.0f, 8.0f), FVector(2.8f, 0.26f, 0.04f), FRotator::ZeroRotator, BodyGuideColor);
+    SpawnRoomPiece(FVector(180.0f, -240.0f, 8.0f), FVector(0.28f, 5.5f, 0.04f), FRotator::ZeroRotator, BodyGuideColor);
+    SpawnRoomPiece(FVector(500.0f, 620.0f, 8.0f), FVector(2.9f, 0.22f, 0.04f), FRotator::ZeroRotator, NurseryGlowColor);
+    SpawnRoomPiece(FVector(760.0f, 980.0f, 8.0f), FVector(1.6f, 0.16f, 0.04f), FRotator::ZeroRotator, NurseryGlowColor);
+    SpawnRoomPiece(FVector(-980.0f, -620.0f, 8.0f), FVector(2.0f, 0.18f, 0.04f), FRotator::ZeroRotator, MirrorBaitColor);
+    SpawnRoomPiece(FVector(910.0f, -1080.0f, 8.0f), FVector(0.18f, 2.2f, 0.04f), FRotator::ZeroRotator, ExitGuideColor);
     SpawnRoomPiece(FVector(780.0f, 760.0f, 8.0f), FVector(3.0f, 2.8f, 0.04f), FRotator::ZeroRotator, NurseryGlowColor);
     SpawnRoomPiece(FVector(940.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(780.0f, 730.0f, 215.0f), FVector(0.12f, 0.12f, 2.0f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(860.0f, 730.0f, 215.0f), FVector(0.95f, 0.08f, 0.08f), FRotator::ZeroRotator, OldGoldColor);
+    SpawnRoomPiece(FVector(860.0f, 1040.0f, 185.0f), FVector(0.28f, 0.10f, 2.0f), FRotator::ZeroRotator, NurseryGlowColor);
+    SpawnRoomPiece(FVector(-900.0f, -320.0f, 165.0f), FVector(0.20f, 0.10f, 1.6f), FRotator::ZeroRotator, MirrorBaitColor);
     SpawnRoomPiece(FVector(910.0f, -1360.0f, 120.0f), FVector(1.45f, 0.1f, 2.35f), FRotator::ZeroRotator, FurnitureColor);
     SpawnRoomPiece(FVector(1090.0f, -1360.0f, 120.0f), FVector(0.12f, 0.08f, 0.12f), FRotator::ZeroRotator, OldGoldColor);
+    SpawnRoomPiece(FVector(910.0f, -1160.0f, 150.0f), FVector(0.16f, 0.10f, 1.5f), FRotator::ZeroRotator, ExitGuideColor);
     SpawnRoomPiece(FVector(730.0f, 620.0f, 30.0f), FVector(2.9f, 0.05f, 0.05f), FRotator::ZeroRotator, OldGoldColor);
     SpawnRoomPiece(FVector(730.0f, 620.0f, 34.0f), FVector(2.9f, 0.05f, 0.05f), FRotator(0.0f, 90.0f, 0.0f), OldGoldColor);
     SpawnRoomPiece(FVector(-730.0f, -620.0f, 30.0f), FVector(2.9f, 0.05f, 0.05f), FRotator(0.0f, 45.0f, 0.0f), MirrorColor);
@@ -735,6 +865,62 @@ void ATheLastRiteGameMode::SpawnRoomPiece(const FVector& Location, const FVector
     Piece->SetActorScale3D(Scale3D);
     MeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
     MeshComponent->SetCollisionResponseToAllChannels(ECR_Block);
+}
+
+void ATheLastRiteGameMode::SpawnZoneMarker(const FVector& Location, const FVector& PlateScale3D, const FString& Label, const FLinearColor& Color, float TextYaw)
+{
+    AActor* Marker = GetWorld()->SpawnActor<AActor>(Location, FRotator::ZeroRotator);
+    if (Marker == nullptr)
+    {
+        return;
+    }
+
+    USceneComponent* Root = NewObject<USceneComponent>(Marker, TEXT("ZoneMarkerRoot"));
+    if (Root == nullptr)
+    {
+        return;
+    }
+
+    Marker->SetRootComponent(Root);
+    Root->RegisterComponent();
+
+    UStaticMeshComponent* Plate = NewObject<UStaticMeshComponent>(Marker, TEXT("ZoneMarkerPlate"));
+    if (Plate != nullptr)
+    {
+        Plate->SetupAttachment(Root);
+        Plate->RegisterComponent();
+        if (UStaticMesh* CubeMesh = LoadBasicMesh(TEXT("/Engine/BasicShapes/Cube.Cube")))
+        {
+            Plate->SetStaticMesh(CubeMesh);
+        }
+
+        if (UMaterialInterface* BaseMaterial = LoadObject<UMaterialInterface>(nullptr, TEXT("/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial")))
+        {
+            UMaterialInstanceDynamic* DynamicMaterial = UMaterialInstanceDynamic::Create(BaseMaterial, Marker);
+            if (DynamicMaterial != nullptr)
+            {
+                DynamicMaterial->SetVectorParameterValue(TEXT("Color"), Color);
+                Plate->SetMaterial(0, DynamicMaterial);
+            }
+        }
+
+        Plate->SetWorldScale3D(PlateScale3D);
+        Plate->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    }
+
+    UTextRenderComponent* Text = NewObject<UTextRenderComponent>(Marker, TEXT("ZoneMarkerText"));
+    if (Text != nullptr)
+    {
+        Text->SetupAttachment(Root);
+        Text->RegisterComponent();
+        Text->SetHorizontalAlignment(EHTA_Center);
+        Text->SetVerticalAlignment(EVRTA_TextCenter);
+        Text->SetWorldSize(82.0f);
+        Text->SetText(FText::FromString(Label));
+        Text->SetTextRenderColor(Color.ToFColor(true));
+        Text->SetRelativeLocation(FVector(0.0f, 0.0f, 28.0f));
+        Text->SetRelativeRotation(FRotator(90.0f, TextYaw, 0.0f));
+    }
 }
 
 void ATheLastRiteGameMode::SpawnLights()
@@ -1136,6 +1322,350 @@ void ATheLastRiteGameMode::UpdateNextMoveText()
             "All five true signs agree. Commit to the nursery sigil, not the mirror circle.");
 }
 
+void ATheLastRiteGameMode::UpdateFocusZoneText()
+{
+    const bool bFoundNanny = HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"));
+    const bool bFoundCradle = HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints"));
+    const bool bFoundPrayerCards = HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown"));
+    const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
+    const bool bFoundWallpaper = HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"));
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneExit",
+            "Focus zone: front door. The room is sealed. Leave cleanly and file the case.");
+        return;
+    case ETheLastRiteCasePhase::ClosedWin:
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneClosedWin",
+            "Focus zone: case report. The investigation is over; the surviving lesson is that the nursery carried the room's real weight.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneClosedFail",
+            "Focus zone: failure review. Rebuild the run from the body side, then stay on the nursery pattern instead of the mirror bait.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneRiteReady",
+            "Focus zone: ritual area. The evidence is already enough; commit at the nursery sigil and ignore the mirror circle.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (!bFoundNanny)
+    {
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneBody",
+            "Focus zone: entry and body side. Start at Nanny Eliza before the room has time to scatter your attention.");
+        return;
+    }
+
+    if (!bFoundCradle || !bFoundPrayerCards)
+    {
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneNurserySweep",
+            "Focus zone: nursery sweep. Stay with the cradle and prayer mess until the opening read is complete.");
+        return;
+    }
+
+    if (!bFoundMonitor)
+    {
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneMonitor",
+            "Focus zone: child-facing support evidence. The monitor should tell you whether the nursery side keeps repeating the same false sanctity.");
+        return;
+    }
+
+    if (!bFoundWallpaper)
+    {
+        FocusZoneText = NSLOCTEXT(
+            "TheLastRite",
+            "FocusZoneWallpaper",
+            "Focus zone: nursery mural. One last child-facing confirmation should settle where the rite really belongs.");
+        return;
+    }
+
+    FocusZoneText = NSLOCTEXT(
+        "TheLastRite",
+        "FocusZoneLate",
+        "Focus zone: ritual threshold. The room has given you enough to commit; do not drift back toward the mirror theater.");
+}
+
+void ATheLastRiteGameMode::UpdateTheoryChainText()
+{
+    const bool bFoundNanny = HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"));
+    const bool bFoundCradle = HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints"));
+    const bool bFoundPrayerCards = HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown"));
+    const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
+    const bool bFoundWallpaper = HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"));
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+    case ETheLastRiteCasePhase::ClosedWin:
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainWon",
+            "Theory chain: body pose, cradle halo, prayer crown, monitor hymn, and mural halo all converged on the nursery sigil.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainLost",
+            "Theory chain: the real signs still converged on the nursery side. The mirror copied the pattern's shape without carrying its weight.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainReady",
+            "Theory chain: every real sign now agrees. The saint-mask was built around the child-facing space, not the broken glass.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (!bFoundNanny)
+    {
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainZero",
+            "Theory chain: start with the body. If the pose is ritualized, the nursery should echo it in cleaner forms than the room's random violence.");
+        return;
+    }
+
+    if (!bFoundCradle)
+    {
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainAfterBody",
+            "Theory chain: the body looks staged. Check whether the cradle repeats that forced sanctity around the child-facing space.");
+        return;
+    }
+
+    if (!bFoundPrayerCards)
+    {
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainAfterCradle",
+            "Theory chain: the body pose and cradle halo already agree. If the prayer mess also crowns the nursery side, the room stops reading as random.");
+        return;
+    }
+
+    if (!bFoundMonitor)
+    {
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainAfterSweep",
+            "Theory chain: the opening sweep is complete. Now test whether the room's voice also loops back toward the child-facing pattern.");
+        return;
+    }
+
+    if (!bFoundWallpaper)
+    {
+        TheoryChainText = NSLOCTEXT(
+            "TheLastRite",
+            "TheoryChainAfterMonitor",
+            "Theory chain: the room's voice already sides with the nursery. Check the mural to see whether the visual center agrees too.");
+        return;
+    }
+
+    TheoryChainText = NSLOCTEXT(
+        "TheLastRite",
+        "TheoryChainLate",
+        "Theory chain: the investigation is complete. Every real sign points child-side, so the mirror can only be theater.");
+}
+
+void ATheLastRiteGameMode::UpdateRiskText()
+{
+    const bool bFoundWindow = HasEvidenceLine(TEXT("FALSE - the broken window latch - forced from outside"));
+    const bool bFoundTicket = HasEvidenceLine(TEXT("FALSE - the pawn ticket pouch - ordinary greed"));
+    const bool bFoundKnife = HasEvidenceLine(TEXT("FALSE - the kitchen knife - grease, not offering blood"));
+    const bool bFoundAnyFalseLead = bFoundWindow || bFoundTicket || bFoundKnife;
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+    case ETheLastRiteCasePhase::ClosedWin:
+        RiskText = NSLOCTEXT(
+            "TheLastRite",
+            "RiskWon",
+            "Risk read: cleared. The mirror bait never carried the room once the real chain was finished.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        RiskText = NSLOCTEXT(
+            "TheLastRite",
+            "RiskLost",
+            "Risk read: the failure came from trusting spectacle over structure. The mirror stole the call that belonged to the nursery.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        RiskText = NSLOCTEXT(
+            "TheLastRite",
+            "RiskReady",
+            "Risk read: the remaining trap is simple. The mirror circle imitates the saint-mask, but the room's true weight is still child-facing.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (!IsOpeningSweepComplete())
+    {
+        RiskText = NSLOCTEXT(
+            "TheLastRite",
+            "RiskOpeningSweep",
+            "Risk read: do not let broken glass, kitchen grime, or panic staging pull you off the opening sweep.");
+        return;
+    }
+
+    if (bFoundAnyFalseLead)
+    {
+        RiskText = NSLOCTEXT(
+            "TheLastRite",
+            "RiskFalseLeadSeen",
+            "Risk read: the room is proving that ugliness alone means nothing. Keep weighting repeated child-facing signs over noisy damage.");
+        return;
+    }
+
+    RiskText = NSLOCTEXT(
+        "TheLastRite",
+        "RiskLateInvestigating",
+        "Risk read: the next trap is the mirror side. It is visually louder than the nursery because it wants to be trusted too early.");
+}
+
+void ATheLastRiteGameMode::UpdateCorrectAnchorReadText()
+{
+    const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
+    const bool bFoundWallpaper = HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"));
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+    case ETheLastRiteCasePhase::ClosedWin:
+        CorrectAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "CorrectAnchorReadWon",
+            "Use the nursery sigil because the confirmed chain ended there: pose, cradle halo, prayer crown, hymn loop, and mural halo.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        CorrectAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "CorrectAnchorReadLost",
+            "The nursery sigil was still correct. The child-facing signs were the only clues that kept reinforcing one another.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        CorrectAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "CorrectAnchorReadReady",
+            "Use the nursery sigil. Every confirmed sign converges on the child-facing altar instead of the glass theatrics.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (!IsOpeningSweepComplete())
+    {
+        CorrectAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "CorrectAnchorReadOpeningSweep",
+            "Nursery sigil read: hold the call. Finish the body, cradle, and prayer mess before naming the altar.");
+        return;
+    }
+
+    if (!bFoundMonitor)
+    {
+        CorrectAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "CorrectAnchorReadMonitor",
+            "Nursery sigil read: leading, but not locked. Check whether the monitor hymn also loops back toward the child-facing space.");
+        return;
+    }
+
+    if (!bFoundWallpaper)
+    {
+        CorrectAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "CorrectAnchorReadWallpaper",
+            "Nursery sigil read: nearly locked. Confirm the mural halo and the room should finally give you the altar cleanly.");
+        return;
+    }
+
+    CorrectAnchorReadText = NSLOCTEXT(
+        "TheLastRite",
+        "CorrectAnchorReadLate",
+        "Nursery sigil read: it already has the strongest case. The room's real pattern keeps resolving child-side.");
+}
+
+void ATheLastRiteGameMode::UpdateWrongAnchorReadText()
+{
+    const bool bFoundAnyFalseLead =
+        HasEvidenceLine(TEXT("FALSE - the broken window latch - forced from outside"))
+        || HasEvidenceLine(TEXT("FALSE - the pawn ticket pouch - ordinary greed"))
+        || HasEvidenceLine(TEXT("FALSE - the kitchen knife - grease, not offering blood"));
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+    case ETheLastRiteCasePhase::ClosedWin:
+        WrongAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "WrongAnchorReadWon",
+            "Reject the mirror circle because it only copied the saint-mask. None of the room's confirmed evidence terminated there.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        WrongAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "WrongAnchorReadLost",
+            "The mirror circle was wrong because it offered spectacle without corroboration. It looked ritualized, but the evidence chain never landed there.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        WrongAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "WrongAnchorReadReady",
+            "Reject the mirror circle. It copies false sanctity with broken glass and symmetry, but none of the confirmed clues resolve at the mirror.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (!IsOpeningSweepComplete())
+    {
+        WrongAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "WrongAnchorReadOpeningSweep",
+            "Mirror circle read: too early to trust. Loud staging is not the same thing as ritual weight.");
+        return;
+    }
+
+    if (bFoundAnyFalseLead)
+    {
+        WrongAnchorReadText = NSLOCTEXT(
+            "TheLastRite",
+            "WrongAnchorReadFalseLeadSeen",
+            "Mirror circle read: it belongs with the other bait. The room keeps using spectacle to mimic meaning without supporting it.");
+        return;
+    }
+
+    WrongAnchorReadText = NSLOCTEXT(
+        "TheLastRite",
+        "WrongAnchorReadLate",
+        "Mirror circle read: still suspect. It is visually louder than the nursery because it is trying to be chosen before the evidence is complete.");
+}
+
 void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
 {
     const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
@@ -1203,6 +1733,11 @@ void ATheLastRiteGameMode::RefreshCasePresentation(bool bRebuildFinalReport)
     UpdateDeductionText();
     UpdateRitualReadText();
     UpdateNextMoveText();
+    UpdateFocusZoneText();
+    UpdateTheoryChainText();
+    UpdateRiskText();
+    UpdateCorrectAnchorReadText();
+    UpdateWrongAnchorReadText();
     UpdateProgressText();
     RefreshCurrentObjectiveText();
     UpdateRitualAnchors();
@@ -1267,6 +1802,8 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(TEXT("Case title: Apartment 302"));
         FinalReportLines.Add(TEXT("Demon: Hollow Saint"));
         FinalReportLines.Add(TEXT("Conclusion: the nursery sigil was the correct anchor."));
+        FinalReportLines.Add(FString::Printf(TEXT("Why the nursery was correct: %s"), *CorrectAnchorReadText.ToString()));
+        FinalReportLines.Add(FString::Printf(TEXT("Why the mirror was wrong: %s"), *WrongAnchorReadText.ToString()));
         FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(FString::Printf(TEXT("Confirmed true clues (%d/%d)"), FoundTrueClues, RequiredTrueClues));
 
@@ -1302,6 +1839,8 @@ void ATheLastRiteGameMode::RebuildFinalReport()
         FinalReportLines.Add(TEXT("Wrong rite used: mirror circle."));
         FinalReportLines.Add(TEXT("Correct anchor: nursery sigil."));
         FinalReportLines.Add(TEXT("Correct read: the child-facing signs all weighted the nursery side."));
+        FinalReportLines.Add(FString::Printf(TEXT("Why the nursery was correct: %s"), *CorrectAnchorReadText.ToString()));
+        FinalReportLines.Add(FString::Printf(TEXT("Why the mirror was wrong: %s"), *WrongAnchorReadText.ToString()));
         FinalReportLines.Add(TEXT(""));
         FinalReportLines.Add(FString::Printf(TEXT("True clue audit (%d/%d)"), FoundTrueClues, RequiredTrueClues));
         for (const FReportEvidenceEntry& Entry : TrueClueReportEntries)

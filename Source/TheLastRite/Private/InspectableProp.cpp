@@ -47,15 +47,15 @@ FText AInspectableProp::GetPromptText() const
 
     if (bInspected)
     {
-        const FText NextMove = GameMode ? GameMode->GetNextMoveText() : FText::GetEmpty();
-        if (!NextMove.IsEmpty())
+        const FText ReviewGuidance = GameMode ? GameMode->GetInspectableGuidanceText(this, true) : FText::GetEmpty();
+        if (!ReviewGuidance.IsEmpty())
         {
             return FText::Format(
                 bTrueClue
-                    ? NSLOCTEXT("TheLastRite", "RecheckPromptTrueDetailed", "{0} is already logged as a true sign. {1}")
-                    : NSLOCTEXT("TheLastRite", "RecheckPromptFalseDetailed", "{0} is already ruled out as bait. {1}"),
+                    ? NSLOCTEXT("TheLastRite", "RecheckPromptTrueDetailed", "{0} is already logged. {1}")
+                    : NSLOCTEXT("TheLastRite", "RecheckPromptFalseDetailed", "{0} is already ruled out. {1}"),
                 DisplayName,
-                NextMove);
+                ReviewGuidance);
         }
 
         return FText::Format(
@@ -94,15 +94,20 @@ int32 AInspectableProp::GetInteractionFocusPriority() const
 
     if (bInspected)
     {
-        return 10;
+        return (GameMode != nullptr && GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady) ? -30 : -5;
+    }
+
+    if (GameMode != nullptr && GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady)
+    {
+        return bTrueClue ? 5 : -20;
     }
 
     if (GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
     {
-        return bOpeningSweepTarget ? 80 : 10;
+        return bOpeningSweepTarget ? 80 : -10;
     }
 
-    return bTrueClue ? 50 : 25;
+    return bTrueClue ? 50 : 15;
 }
 
 void AInspectableProp::Interact(ATheLastRiteCharacter* InteractingCharacter)
