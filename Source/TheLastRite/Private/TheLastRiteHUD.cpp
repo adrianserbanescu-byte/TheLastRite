@@ -23,7 +23,6 @@ void ATheLastRiteHUD::DrawHUD()
 
     UFont* SmallFont = GEngine->GetSmallFont();
     UFont* LargeFont = GEngine->GetLargeFont();
-    const float WorldTimeSeconds = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0f;
     const float PhasePulseOpacity = GameMode->GetPhasePulseOpacity();
     const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
 
@@ -63,18 +62,27 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 34.0f;
     Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
 
-    const bool bShowStarterGuidance = !GameMode->IsCaseResolved() && (WorldTimeSeconds < 12.0f || EvidenceLines.IsEmpty());
+    const bool bShowStarterGuidance = !GameMode->IsCaseResolved() && !GameMode->IsOpeningSweepComplete();
     if (bShowStarterGuidance)
     {
         const float IntroX = Canvas->ClipX * 0.22f;
         const float IntroY = Canvas->ClipY * 0.18f;
-        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 760.0f, 264.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
+        const float ObjectiveY = IntroY + 74.0f;
+        const float ObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetObjectiveText().ToString(), 62, 1.2f);
+        const float CurrentObjectiveY = ObjectiveY + ObjectiveHeight + 10.0f;
+        const float CurrentObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetCurrentObjectiveText().ToString(), 62, 1.1f);
+        const float NextMoveY = CurrentObjectiveY + CurrentObjectiveHeight + 14.0f;
+        const float NextMoveHeight = MeasureWrappedTextHeight(GameMode->GetNextMoveText().ToString(), 62, 1.05f);
+        const float ReminderY = NextMoveY + NextMoveHeight + 14.0f;
+        const float IntroPanelHeight = (ReminderY - (IntroY - 26.0f)) + 54.0f;
+
+        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 760.0f, IntroPanelHeight, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
         DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, LargeFont, 1.35f, false);
         DrawText(GameMode->GetTargetText().ToString(), FLinearColor(0.95f, 0.78f, 0.42f), IntroX, IntroY + 40.0f, SmallFont, 1.25f, false);
-        DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, IntroY + 74.0f, 62, SmallFont, 1.2f);
-        DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.72f, 0.90f, 1.0f), IntroX, IntroY + 132.0f, 62, SmallFont, 1.1f);
-        DrawText(TEXT("White labels mark usable objects. Start at the body, then cradle, then prayer mess."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 174.0f, SmallFont, 1.05f, false);
-        DrawText(TEXT("The notes panel on the right tracks true clues, false leads, and the current read."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 204.0f, SmallFont, 1.05f, false);
+        DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, ObjectiveY, 62, SmallFont, 1.2f);
+        DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.72f, 0.90f, 1.0f), IntroX, CurrentObjectiveY, 62, SmallFont, 1.1f);
+        DrawWrappedTextLine(GameMode->GetNextMoveText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), IntroX, NextMoveY, 62, SmallFont, 1.05f);
+        DrawText(TEXT("White labels mark usable objects. The notes panel tracks what is real, what is bait, and what to check next."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, ReminderY, SmallFont, 1.05f, false);
     }
 
     {
