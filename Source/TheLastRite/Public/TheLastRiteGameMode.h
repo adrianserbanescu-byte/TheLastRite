@@ -32,6 +32,7 @@ public:
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
     const TArray<FString>& GetEvidenceLines() const;
+    bool HasEvidenceLine(const FString& FullLine) const;
 
     bool IsCaseResolved() const;
     bool DidPlayerWin() const;
@@ -87,6 +88,9 @@ private:
 
     UPROPERTY()
     int32 FoundFalseLeads;
+
+    UPROPERTY()
+    int32 TotalFalseLeads;
 
     UPROPERTY()
     bool bCaseResolved;

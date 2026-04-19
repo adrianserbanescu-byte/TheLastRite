@@ -59,7 +59,7 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float JournalX = Canvas->ClipX - 360.0f;
         float JournalY = 30.0f;
-        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 338.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 500.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
         DrawText(TEXT("Case Notes"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.15f, false);
         JournalY += 24.0f;
 
@@ -87,7 +87,31 @@ void ATheLastRiteHUD::DrawHUD()
         JournalY += 10.0f;
         DrawText(TEXT("Current read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 24.0f;
-        DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, 38, SmallFont, 0.95f);
+        JournalY = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, 38, SmallFont, 0.95f);
+        JournalY += 10.0f;
+
+        auto DrawChecklistEntry = [&](const FString& FullLine, const FString& Label, bool bGood)
+        {
+            const bool bFound = GameMode->HasEvidenceLine(FullLine);
+            const FString Prefix = bFound ? TEXT("[x] ") : TEXT("[ ] ");
+            const FLinearColor LineColor = bFound
+                ? (bGood ? FLinearColor(0.68f, 1.0f, 0.72f) : FLinearColor(1.0f, 0.72f, 0.44f))
+                : FLinearColor(0.62f, 0.67f, 0.74f);
+            DrawText(Prefix + Label, LineColor, JournalX, JournalY, SmallFont, 0.92f, false);
+            JournalY += 22.0f;
+        };
+
+        DrawText(TEXT("Checklist"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 22.0f;
+        DrawChecklistEntry(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"), TEXT("Body with mirrored wrists"), true);
+        DrawChecklistEntry(TEXT("TRUE - the cradle - halo of ash-white handprints"), TEXT("Cradle with halo prints"), true);
+        DrawChecklistEntry(TEXT("TRUE - the prayer cards - fused into a crown"), TEXT("Prayer crown"), true);
+        DrawChecklistEntry(TEXT("TRUE - the baby monitor - hymn repeating on every channel"), TEXT("Monitor hymn loop"), true);
+        DrawChecklistEntry(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"), TEXT("Nursery mural halo"), true);
+        JournalY += 4.0f;
+        DrawChecklistEntry(TEXT("FALSE - the broken window latch - forced from outside"), TEXT("Broken window latch"), false);
+        DrawChecklistEntry(TEXT("FALSE - the pawn ticket pouch - ordinary greed"), TEXT("Pawn ticket pouch"), false);
+        DrawChecklistEntry(TEXT("FALSE - the kitchen knife - grease, not offering blood"), TEXT("Kitchen knife"), false);
     }
 
     bool bHasInteractionPrompt = false;

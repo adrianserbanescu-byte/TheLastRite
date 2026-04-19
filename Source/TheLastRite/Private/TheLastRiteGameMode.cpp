@@ -28,9 +28,10 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     HUDClass = ATheLastRiteHUD::StaticClass();
     bStartPlayersAsSpectators = false;
 
-    RequiredTrueClues = 4;
+    RequiredTrueClues = 5;
     FoundTrueClues = 0;
     FoundFalseLeads = 0;
+    TotalFalseLeads = 3;
     bCaseResolved = false;
     bPlayerWon = false;
     RecentEventTimeSeconds = -1000.0f;
@@ -50,7 +51,7 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     ObjectiveText = NSLOCTEXT(
         "TheLastRite",
         "Objective",
-        "Apartment 302. The babysitter vanished. Find all 4 real clues tied to the Hollow Saint, then perform the rite.");
+        "Apartment 302. The babysitter vanished. Find all 5 real clues tied to the Hollow Saint, then perform the rite.");
     StatusText = NSLOCTEXT(
         "TheLastRite",
         "StatusInitial",
@@ -282,6 +283,11 @@ const TArray<FString>& ATheLastRiteGameMode::GetEvidenceLines() const
     return EvidenceLines;
 }
 
+bool ATheLastRiteGameMode::HasEvidenceLine(const FString& FullLine) const
+{
+    return EvidenceLines.Contains(FullLine);
+}
+
 bool ATheLastRiteGameMode::IsCaseResolved() const
 {
     return bCaseResolved;
@@ -368,6 +374,14 @@ void ATheLastRiteGameMode::BuildCaseContent()
         true);
 
     SpawnProp(
+        FVector(980.0f, 980.0f, 110.0f),
+        FVector(1.2f, 0.12f, 1.7f),
+        NSLOCTEXT("TheLastRite", "WallpaperName", "the nursery wallpaper"),
+        NSLOCTEXT("TheLastRite", "WallpaperClue", "A child's sun mural has been repainted into a pale halo with tiny nailed eyes."),
+        NSLOCTEXT("TheLastRite", "WallpaperEvidence", "the nursery wallpaper - child's sun turned into a halo"),
+        true);
+
+    SpawnProp(
         FVector(-520.0f, -450.0f, 70.0f),
         FVector(1.4f, 0.2f, 1.4f),
         NSLOCTEXT("TheLastRite", "WindowName", "the broken window latch"),
@@ -381,6 +395,14 @@ void ATheLastRiteGameMode::BuildCaseContent()
         NSLOCTEXT("TheLastRite", "TicketName", "the pawn ticket pouch"),
         NSLOCTEXT("TheLastRite", "TicketClue", "A pawn ticket pouch sits near the sink. It is ordinary greed."),
         NSLOCTEXT("TheLastRite", "TicketEvidence", "the pawn ticket pouch - ordinary greed"),
+        false);
+
+    SpawnProp(
+        FVector(-980.0f, -120.0f, 55.0f),
+        FVector(0.15f, 0.9f, 0.15f),
+        NSLOCTEXT("TheLastRite", "KnifeName", "the kitchen knife"),
+        NSLOCTEXT("TheLastRite", "KnifeClue", "The kitchen knife is filthy, but the stains are cooking grease, not offering blood."),
+        NSLOCTEXT("TheLastRite", "KnifeEvidence", "the kitchen knife - grease, not offering blood"),
         false);
 
     SpawnAnchor(
@@ -571,10 +593,11 @@ void ATheLastRiteGameMode::UpdateProgressText()
             FText::AsNumber(RequiredTrueClues - FoundTrueClues));
 
     ProgressText = FText::Format(
-        NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/2 | {3}"),
+        NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/{3} | {4}"),
         FText::AsNumber(FoundTrueClues),
         FText::AsNumber(RequiredTrueClues),
         FText::AsNumber(FoundFalseLeads),
+        FText::AsNumber(TotalFalseLeads),
         RiteState);
 }
 
@@ -618,11 +641,20 @@ void ATheLastRiteGameMode::UpdateDeductionText()
             ? NSLOCTEXT(
                 "TheLastRite",
                 "DeductionThreeFalse",
-                "Read of the room: the ugly damage is bait. The real pattern keeps folding back toward the child.")
+                "Read of the room: the ugly damage is bait. The pattern keeps bending toward the child-facing side of the apartment.")
             : NSLOCTEXT(
                 "TheLastRite",
                 "DeductionThree",
-                "Read of the room: the clues agree. The nursery carries the saint's weight, not the shattered mirror.");
+                "Read of the room: the signs are starting to agree. The nursery side is carrying more ritual weight than the mirror.");
+        return;
+    }
+
+    if (FoundTrueClues == 4)
+    {
+        DeductionText = NSLOCTEXT(
+            "TheLastRite",
+            "DeductionFour",
+            "Read of the room: nearly locked. Every real sign points childward. One last confirmation should settle the rite.");
         return;
     }
 

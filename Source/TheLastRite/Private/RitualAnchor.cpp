@@ -31,7 +31,7 @@ FText ARitualAnchor::GetPromptText() const
     if (!bRitualReady)
     {
         return FText::Format(
-            NSLOCTEXT("TheLastRite", "LockedAnchorPrompt", "Find all 4 true clues before using {0}"),
+            NSLOCTEXT("TheLastRite", "LockedAnchorPrompt", "Find all real clues before using {0}"),
             DisplayName);
     }
 
