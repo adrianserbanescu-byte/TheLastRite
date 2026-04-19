@@ -17,6 +17,7 @@ public:
     ATheLastRiteInteractable();
 
     virtual FText GetPromptText() const;
+    virtual int32 GetInteractionFocusPriority() const;
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter);
 
     void SetDisplayName(const FText& NewDisplayName);

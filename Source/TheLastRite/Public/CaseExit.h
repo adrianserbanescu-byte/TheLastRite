@@ -15,6 +15,7 @@ public:
     ACaseExit();
 
     virtual FText GetPromptText() const override;
+    virtual int32 GetInteractionFocusPriority() const override;
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter) override;
 
     void ConfigureExit(const FText& InDisplayName);

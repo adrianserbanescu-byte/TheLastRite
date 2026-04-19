@@ -40,6 +40,11 @@ FText ATheLastRiteInteractable::GetPromptText() const
         DisplayName.IsEmpty() ? NSLOCTEXT("TheLastRite", "Something", "something") : DisplayName);
 }
 
+int32 ATheLastRiteInteractable::GetInteractionFocusPriority() const
+{
+    return 0;
+}
+
 void ATheLastRiteInteractable::Interact(ATheLastRiteCharacter* InteractingCharacter)
 {
 }

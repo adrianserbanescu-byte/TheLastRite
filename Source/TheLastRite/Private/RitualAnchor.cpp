@@ -67,6 +67,16 @@ FText ARitualAnchor::GetPromptText() const
         DisplayName);
 }
 
+int32 ARitualAnchor::GetInteractionFocusPriority() const
+{
+    if (bActivated)
+    {
+        return -10;
+    }
+
+    return bRitualReady ? 45 : 5;
+}
+
 void ARitualAnchor::Interact(ATheLastRiteCharacter* InteractingCharacter)
 {
     if (ATheLastRiteGameMode* GameMode = GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>())

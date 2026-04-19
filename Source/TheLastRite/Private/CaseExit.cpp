@@ -49,6 +49,16 @@ FText ACaseExit::GetPromptText() const
         DisplayName);
 }
 
+int32 ACaseExit::GetInteractionFocusPriority() const
+{
+    if (bUsed)
+    {
+        return -10;
+    }
+
+    return bExitReady ? 70 : 0;
+}
+
 void ACaseExit::Interact(ATheLastRiteCharacter* InteractingCharacter)
 {
     if (ATheLastRiteGameMode* GameMode = GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>())

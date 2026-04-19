@@ -65,6 +65,22 @@ FText AInspectableProp::GetPromptText() const
         DisplayName);
 }
 
+int32 AInspectableProp::GetInteractionFocusPriority() const
+{
+    if (bInspected)
+    {
+        return 10;
+    }
+
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
+    {
+        return bOpeningSweepTarget ? 80 : 10;
+    }
+
+    return bTrueClue ? 50 : 25;
+}
+
 void AInspectableProp::Interact(ATheLastRiteCharacter* InteractingCharacter)
 {
     if (ATheLastRiteGameMode* GameMode = GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>())

@@ -15,6 +15,7 @@ public:
     AInspectableProp();
 
     virtual FText GetPromptText() const override;
+    virtual int32 GetInteractionFocusPriority() const override;
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter) override;
 
     void ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue, bool bInIsOpeningSweepTarget = false);

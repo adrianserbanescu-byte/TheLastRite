@@ -15,6 +15,7 @@ public:
     ARitualAnchor();
 
     virtual FText GetPromptText() const override;
+    virtual int32 GetInteractionFocusPriority() const override;
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter) override;
 
     void ConfigureAnchor(const FText& InDisplayName, bool bInCorrectAnchor);

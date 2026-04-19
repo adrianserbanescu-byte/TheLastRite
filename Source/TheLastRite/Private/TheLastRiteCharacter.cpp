@@ -14,6 +14,77 @@ namespace
     constexpr float InteractionSweepRadius = 52.0f;
     constexpr float FocusStickDistance = 560.0f;
     constexpr float FocusStickCenterlineDistanceSq = 72.0f * 72.0f;
+    constexpr float FocusStickCenterlineSlackSq = 20.0f * 20.0f;
+    constexpr float FocusStickForwardSlack = 40.0f;
+    constexpr int32 DirectHitPriorityBonus = 1000;
+
+    struct FInteractionCandidate
+    {
+        ATheLastRiteInteractable* Interactable = nullptr;
+        int32 Priority = TNumericLimits<int32>::Lowest();
+        float CenterlineDistanceSq = TNumericLimits<float>::Max();
+        float ForwardDistance = TNumericLimits<float>::Max();
+    };
+
+    FVector GetInteractableFocusPoint(const ATheLastRiteInteractable* Interactable)
+    {
+        FVector Origin = FVector::ZeroVector;
+        FVector BoxExtent = FVector::ZeroVector;
+        if (Interactable != nullptr)
+        {
+            Interactable->GetActorBounds(true, Origin, BoxExtent);
+        }
+
+        return Origin;
+    }
+
+    bool BuildInteractionCandidate(
+        const FVector& ViewLocation,
+        const FVector& ViewDirection,
+        const ATheLastRiteInteractable* Interactable,
+        const FVector& FocusPoint,
+        bool bDirectHit,
+        FInteractionCandidate& OutCandidate)
+    {
+        if (Interactable == nullptr)
+        {
+            return false;
+        }
+
+        const FVector ToFocus = FocusPoint - ViewLocation;
+        const float ForwardDistance = FVector::DotProduct(ToFocus, ViewDirection);
+        if (ForwardDistance <= 0.0f)
+        {
+            return false;
+        }
+
+        const FVector CenterlineOffset = ToFocus - (ViewDirection * ForwardDistance);
+        OutCandidate.Interactable = const_cast<ATheLastRiteInteractable*>(Interactable);
+        OutCandidate.Priority = Interactable->GetInteractionFocusPriority() + (bDirectHit ? DirectHitPriorityBonus : 0);
+        OutCandidate.CenterlineDistanceSq = CenterlineOffset.SizeSquared();
+        OutCandidate.ForwardDistance = ForwardDistance;
+        return true;
+    }
+
+    bool IsBetterInteractionCandidate(const FInteractionCandidate& Candidate, const FInteractionCandidate& CurrentBest)
+    {
+        if (CurrentBest.Interactable == nullptr)
+        {
+            return Candidate.Interactable != nullptr;
+        }
+
+        if (Candidate.Priority != CurrentBest.Priority)
+        {
+            return Candidate.Priority > CurrentBest.Priority;
+        }
+
+        if (!FMath::IsNearlyEqual(Candidate.CenterlineDistanceSq, CurrentBest.CenterlineDistanceSq, 1.0f))
+        {
+            return Candidate.CenterlineDistanceSq < CurrentBest.CenterlineDistanceSq;
+        }
+
+        return Candidate.ForwardDistance < CurrentBest.ForwardDistance;
+    }
 }
 
 ATheLastRiteCharacter::ATheLastRiteCharacter()
@@ -160,6 +231,7 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
 ATheLastRiteInteractable* ATheLastRiteCharacter::FindBestInteractable(const FVector& ViewLocation, const FVector& ViewDirection, const FCollisionQueryParams& QueryParams) const
 {
     const FVector TraceEnd = ViewLocation + (ViewDirection * InteractionTraceDistance);
+    FInteractionCandidate BestCandidate;
 
     FHitResult DirectHit;
     if (GetWorld()->LineTraceSingleByChannel(
@@ -171,7 +243,11 @@ ATheLastRiteInteractable* ATheLastRiteCharacter::FindBestInteractable(const FVec
     {
         if (ATheLastRiteInteractable* DirectInteractable = Cast<ATheLastRiteInteractable>(DirectHit.GetActor()))
         {
-            return DirectInteractable;
+            FInteractionCandidate DirectCandidate;
+            if (BuildInteractionCandidate(ViewLocation, ViewDirection, DirectInteractable, DirectHit.ImpactPoint, true, DirectCandidate))
+            {
+                BestCandidate = DirectCandidate;
+            }
         }
     }
 
@@ -185,35 +261,24 @@ ATheLastRiteInteractable* ATheLastRiteCharacter::FindBestInteractable(const FVec
         FCollisionShape::MakeSphere(InteractionSweepRadius),
         QueryParams);
 
-    ATheLastRiteInteractable* BestInteractable = nullptr;
-    float BestCenterlineDistanceSq = TNumericLimits<float>::Max();
-    float BestForwardDistance = TNumericLimits<float>::Max();
     for (const FHitResult& HitResult : HitResults)
     {
         if (ATheLastRiteInteractable* Interactable = Cast<ATheLastRiteInteractable>(HitResult.GetActor()))
         {
-            const FVector ToHit = HitResult.ImpactPoint - ViewLocation;
-            const float ForwardDistance = FVector::DotProduct(ToHit, ViewDirection);
-            if (ForwardDistance <= 0.0f)
+            FInteractionCandidate Candidate;
+            if (!BuildInteractionCandidate(ViewLocation, ViewDirection, Interactable, HitResult.ImpactPoint, false, Candidate))
             {
                 continue;
             }
 
-            const FVector CenterlineOffset = ToHit - (ViewDirection * ForwardDistance);
-            const float CenterlineDistanceSq = CenterlineOffset.SizeSquared();
-            const bool bBetterCenterline = CenterlineDistanceSq < BestCenterlineDistanceSq;
-            const bool bSameCenterlineButCloser = FMath::IsNearlyEqual(CenterlineDistanceSq, BestCenterlineDistanceSq, 1.0f)
-                && ForwardDistance < BestForwardDistance;
-            if (bBetterCenterline || bSameCenterlineButCloser)
+            if (IsBetterInteractionCandidate(Candidate, BestCandidate))
             {
-                BestCenterlineDistanceSq = CenterlineDistanceSq;
-                BestForwardDistance = ForwardDistance;
-                BestInteractable = Interactable;
+                BestCandidate = Candidate;
             }
         }
     }
 
-    return BestInteractable;
+    return BestCandidate.Interactable;
 }
 
 bool ATheLastRiteCharacter::CanKeepFocusedInteractable(const FVector& ViewLocation, const FVector& ViewDirection, const ATheLastRiteInteractable* CandidateInteractable) const
@@ -224,18 +289,46 @@ bool ATheLastRiteCharacter::CanKeepFocusedInteractable(const FVector& ViewLocati
         return false;
     }
 
-    const FVector ToCurrent = CurrentInteractable->GetActorLocation() - ViewLocation;
-    const float ForwardDistance = FVector::DotProduct(ToCurrent, ViewDirection);
-    if (ForwardDistance <= 0.0f || ForwardDistance > FocusStickDistance)
+    FInteractionCandidate CurrentCandidate;
+    if (!BuildInteractionCandidate(
+        ViewLocation,
+        ViewDirection,
+        CurrentInteractable,
+        GetInteractableFocusPoint(CurrentInteractable),
+        false,
+        CurrentCandidate))
     {
         return false;
     }
 
-    const FVector CenterlineOffset = ToCurrent - (ViewDirection * ForwardDistance);
-    if (CenterlineOffset.SizeSquared() > FocusStickCenterlineDistanceSq)
+    if (CurrentCandidate.ForwardDistance > FocusStickDistance
+        || CurrentCandidate.CenterlineDistanceSq > FocusStickCenterlineDistanceSq)
     {
         return false;
     }
 
-    return true;
+    if (CandidateInteractable == nullptr)
+    {
+        return true;
+    }
+
+    FInteractionCandidate Candidate;
+    if (!BuildInteractionCandidate(
+        ViewLocation,
+        ViewDirection,
+        CandidateInteractable,
+        GetInteractableFocusPoint(CandidateInteractable),
+        false,
+        Candidate))
+    {
+        return true;
+    }
+
+    if (CurrentCandidate.Priority != Candidate.Priority)
+    {
+        return CurrentCandidate.Priority > Candidate.Priority;
+    }
+
+    return CurrentCandidate.CenterlineDistanceSq <= Candidate.CenterlineDistanceSq + FocusStickCenterlineSlackSq
+        && CurrentCandidate.ForwardDistance <= Candidate.ForwardDistance + FocusStickForwardSlack;
 }

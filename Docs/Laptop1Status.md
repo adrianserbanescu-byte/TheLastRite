@@ -3,13 +3,13 @@
 ```text
 laptop1 update
 
-time: 2026-04-19 22:51:13 +03:00
+time: 2026-04-19 23:00:02 +03:00
 branch: codex/gameplay
-head: 34012396dcb98aafb8662171834320e1b001ecfa
+head: 556e71a37a76fe74b9572f55758fd841ebc3c169
 working tree: dirty
-current task: reporting serialized gameplay checkpoint commit retry result
-last 30m progress: I retried the gameplay checkpoint commit with no overlapping status publish or other intentional git activity after clearing a competing background `git.exe status --porcelain` process. Local `git commit` for the staged HUD checkpoint did not hit `index.lock`, but it failed because there were no staged HUD changes left to commit. Local `git push origin codex/gameplay` was not run for the gameplay checkpoint because the commit did not succeed. Failing command: `git commit -m \"gameplay: size final report overlay to case output\"`. Exact output: `no changes added to commit (use \"git add\" and/or \"git commit -a\")`.
-verification: not run
-blockers: serialized gameplay checkpoint commit had no staged HUD changes to commit
-needs coordinator: yes
+current task: interaction targeting priority pass and gameplay checkpoint publish
+last 30m progress: Confirmed the HUD delta was already present and clean, so I moved straight into the next gameplay slice. I tightened focus selection so direct aim still wins, but nearby interactables now bias toward the active gameplay flow: opening-sweep targets win early, later true clues beat bait, ritual anchors only rise when the rite is ready, and the exit only rises once the seal holds. I also replaced stale focus stickiness with bounds-based comparisons so prompts are less likely to cling to the previous object when the player shifts to the next intended target.
+verification: `BuildGame.cmd` succeeded on 2026-04-19 23:00:02 +03:00
+blockers: none
+needs coordinator: no
 ```
