@@ -11,6 +11,7 @@ set "UE_RUN_UAT_BAT=C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\R
 
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
 set "OUTPUT_WINDOWS_DIR=%OUTPUT_DIR%\Windows"
+set "PACKAGED_EXE=%OUTPUT_WINDOWS_DIR%\TheLastRite.exe"
 set "TEMP_ROOT=%PROJECT_ROOT%\LocalBuildTemp"
 set "RUN_ID=%RANDOM%%RANDOM%"
 set "UBT_ROOT=%TEMP_ROOT%\UBT-%RUN_ID%"
@@ -110,11 +111,28 @@ call "%UE_RUN_UAT_BAT%" BuildCookRun ^
  -ddc=InstalledNoZenLocalFallback ^
  -archive ^
  -archivedirectory="%OUTPUT_DIR%"
+if errorlevel 1 goto :done
+
+if not exist "%PACKAGED_EXE%" (
+    echo Expected packaged launcher not found:
+    echo %PACKAGED_EXE%
+    set "EXIT_CODE=1"
+    goto :done
+)
 
 :done
-set "EXIT_CODE=%ERRORLEVEL%"
+if not defined EXIT_CODE set "EXIT_CODE=%ERRORLEVEL%"
 echo.
 if "%EXIT_CODE%"=="0" (
+    echo Packaged launcher:
+    echo %PACKAGED_EXE%
+    echo.
+    echo Shipping build log:
+    echo %BUILD_LOG%
+    echo.
+    echo UAT log folder:
+    echo %LOG_DIR%
+    echo.
     echo Done.
 ) else (
     echo Packaging failed with exit code %EXIT_CODE%.
