@@ -851,7 +851,7 @@ void ATheLastRiteGameMode::UpdateProgressText()
     switch (CasePhase)
     {
     case ETheLastRiteCasePhase::SealedAwaitingExit:
-        ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door");
+        ProgressText = NSLOCTEXT("TheLastRite", "ProgressExitReady", "Case status: SEALED | Leave through the front door and file the case");
         return;
     case ETheLastRiteCasePhase::ClosedWin:
         ProgressText = NSLOCTEXT("TheLastRite", "ProgressWon", "Case status: CLOSED | Press R to restart the case | Esc to quit");
@@ -962,7 +962,7 @@ void ATheLastRiteGameMode::UpdateRitualReadText()
         RitualReadText = NSLOCTEXT(
             "TheLastRite",
             "RitualReadResolvedExit",
-            "Ritual read: nursery sigil was correct. The seal holds. Leave now.");
+            "Ritual read: nursery sigil was correct. The seal holds. Leave through the front door now.");
         return;
     case ETheLastRiteCasePhase::ClosedWin:
         RitualReadText = NSLOCTEXT(
