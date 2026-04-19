@@ -56,6 +56,10 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a lighting and mood board for keeping dread readable without muddying clue or ritual reads.
   - Player read: true clues stay pale and readable, while false leads feel colder without becoming the main focal point.
 
+- `references/apartment302_import_handoff.md`
+  - What it is: a room-dressing and import-prep checklist for translating the current Apartment 302 boards into an Unreal placement pass.
+  - Player read: the nursery clue cluster should resolve first, the mirror trap should tempt without dominating, and lighting should support that evidence order.
+
 - `materials/apartment302_material_atlas.svg`
   - What it is: a consolidated material atlas with palette chips and six surface ideas in one sheet.
   - Player read: the room should feel cheap and domestic first, ritualized second.
