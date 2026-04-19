@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#151410"/>
+  <rect x="40" y="40" width="1320" height="820" rx="16" fill="#221f19" stroke="#8f9087" stroke-width="2"/>
+
+  <text x="80" y="105" fill="#f4efdc" font-family="Arial, sans-serif" font-size="34" font-weight="700">Apartment 302 Read-Distance Board</text>
+  <text x="80" y="145" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="18">Laptop 2 visual guide for what the player should understand from entry, approach, and close confirmation.</text>
+
+  <rect x="80" y="190" width="390" height="590" rx="12" fill="#2c2822" stroke="#5a584e" stroke-width="2"/>
+  <text x="115" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Far read</text>
+  <text x="115" y="258" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">first look from entry or a quick turn</text>
+
+  <rect x="120" y="300" width="310" height="200" rx="12" fill="#4b453a"/>
+  <ellipse cx="270" cy="380" rx="108" ry="44" fill="none" stroke="#e8e2d3" stroke-width="6" stroke-dasharray="14 12"/>
+  <path d="M182 420 C214 390 330 390 360 420" fill="none" stroke="#a98f45" stroke-width="8" stroke-linecap="round"/>
+  <text x="148" y="540" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Nursery cluster should read as pale, circular, and deliberate.</text>
+
+  <rect x="120" y="580" width="310" height="150" rx="12" fill="#363a42"/>
+  <circle cx="270" cy="655" r="54" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="8 10"/>
+  <rect x="245" y="618" width="50" height="74" rx="8" fill="#5b636a"/>
+  <text x="148" y="758" fill="#f4efdc" font-family="Arial, sans-serif" font-size="18">Mirror trap should read as colder and louder, not truer.</text>
+
+  <rect x="505" y="190" width="390" height="590" rx="12" fill="#2c2822" stroke="#5a584e" stroke-width="2"/>
+  <text x="540" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Mid read</text>
+  <text x="540" y="258" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">approach distance, where staging starts to separate clue from trap</text>
+
+  <rect x="545" y="305" width="310" height="165" rx="12" fill="#5a5447" stroke="#e8e2d3" stroke-width="3"/>
+  <text x="572" y="340" fill="#f4efdc" font-family="Arial, sans-serif" font-size="21" font-weight="700">What should hold together</text>
+  <text x="572" y="372" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">- ash-white handprints</text>
+  <text x="572" y="398" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">- old-gold halo / crown accents</text>
+  <text x="572" y="424" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">- nursery object shapes and placement</text>
+
+  <rect x="545" y="505" width="310" height="165" rx="12" fill="#454a52" stroke="#71817d" stroke-width="3"/>
+  <text x="572" y="540" fill="#f4efdc" font-family="Arial, sans-serif" font-size="21" font-weight="700">What should fall apart</text>
+  <text x="572" y="572" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">- window latch panic story</text>
+  <text x="572" y="598" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">- pawn-ticket money story</text>
+  <text x="572" y="624" fill="#f4efdc" font-family="Arial, sans-serif" font-size="16">- mirror drama without nursery evidence</text>
+
+  <rect x="930" y="190" width="390" height="590" rx="12" fill="#2c2822" stroke="#5a584e" stroke-width="2"/>
+  <text x="965" y="228" fill="#f4efdc" font-family="Arial, sans-serif" font-size="24" font-weight="700">Near read</text>
+  <text x="965" y="258" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">close confirmation before any logic or prompt layer helps</text>
+
+  <rect x="970" y="305" width="310" height="170" rx="12" fill="#342f28"/>
+  <text x="995" y="340" fill="#f4efdc" font-family="Arial, sans-serif" font-size="21" font-weight="700">Player should confirm</text>
+  <text x="995" y="372" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- the nursery clue cluster feels authored, not random</text>
+  <text x="995" y="398" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- the correct sigil shares that same visual language</text>
+  <text x="995" y="424" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">- the mirror trap lacks the same evidence family</text>
+
+  <rect x="970" y="520" width="310" height="180" rx="12" fill="#342f28"/>
+  <text x="995" y="555" fill="#f4efdc" font-family="Arial, sans-serif" font-size="21" font-weight="700">Laptop 2 guardrail</text>
+  <text x="995" y="587" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">This board is about visual certainty only.</text>
+  <text x="995" y="613" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">Do not change clue logic, prompts, or interaction range from it.</text>
+  <text x="995" y="639" fill="#d6d0c0" font-family="Arial, sans-serif" font-size="16">Use it to protect staging, silhouette, contrast, and clustering.</text>
+</svg>

@@ -64,6 +64,10 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a visual pass-order board for the Unreal room-dressing sequence and laptop 2 ownership guardrails.
   - Player read: the room should be staged in a readable order, with the nursery cluster locked first and false leads added only after the true ritual read is stable.
 
+- `references/apartment302_read_distance_board.svg`
+  - What it is: a visual read-distance board for far, mid, and near clue confirmation inside Apartment 302.
+  - Player read: true clues should gain certainty as the player approaches, while the mirror trap stays colder and less evidence-backed at every distance.
+
 - `materials/apartment302_material_atlas.svg`
   - What it is: a consolidated material atlas with palette chips and six surface ideas in one sheet.
   - Player read: the room should feel cheap and domestic first, ritualized second.
