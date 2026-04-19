@@ -112,9 +112,22 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     if (Prop->WasInspected())
     {
-        SetStatusText(FText::Format(
-            NSLOCTEXT("TheLastRite", "AlreadyChecked", "You already checked this. {0}"),
-            Prop->GetClueText()));
+        if (Prop->IsTrueClue())
+        {
+            const FText ReminderText = CasePhase == ETheLastRiteCasePhase::RiteReady
+                ? NSLOCTEXT("TheLastRite", "TrueReminderRiteReady", "Already logged. This still confirms the nursery path, not the mirror.")
+                : NSLOCTEXT("TheLastRite", "TrueReminder", "Already logged. This remains real evidence.");
+            SetStatusText(FText::Format(
+                NSLOCTEXT("TheLastRite", "AlreadyCheckedTrue", "{0} {1}"),
+                Prop->GetClueText(),
+                ReminderText));
+        }
+        else
+        {
+            SetStatusText(FText::Format(
+                NSLOCTEXT("TheLastRite", "AlreadyCheckedFalse", "{0} Already ruled out. It is still bait, not the saint."),
+                Prop->GetClueText()));
+        }
         return;
     }
 
@@ -849,10 +862,27 @@ void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
     switch (CasePhase)
     {
     case ETheLastRiteCasePhase::Investigating:
-        CurrentObjectiveText = NSLOCTEXT(
-            "TheLastRite",
-            "CurrentObjectiveInvestigating",
-            "Current objective: investigate the apartment and find the 5 real clues.");
+        if (FoundTrueClues <= 1)
+        {
+            CurrentObjectiveText = NSLOCTEXT(
+                "TheLastRite",
+                "CurrentObjectiveInvestigatingEarly",
+                "Current objective: check the body, the cradle, and the prayer mess.");
+        }
+        else if (FoundTrueClues <= 3)
+        {
+            CurrentObjectiveText = NSLOCTEXT(
+                "TheLastRite",
+                "CurrentObjectiveInvestigatingMid",
+                "Current objective: sweep the nursery side and keep ruling out mirror bait.");
+        }
+        else
+        {
+            CurrentObjectiveText = NSLOCTEXT(
+                "TheLastRite",
+                "CurrentObjectiveInvestigatingLate",
+                "Current objective: find the last confirming sign and settle which ritual point is real.");
+        }
         break;
     case ETheLastRiteCasePhase::RiteReady:
         CurrentObjectiveText = NSLOCTEXT(

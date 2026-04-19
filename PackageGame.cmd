@@ -6,6 +6,7 @@ if not exist "%PROJECT_ROOT%\TheLastRite.uproject" set "PROJECT_ROOT=%~dp0"
 if "%PROJECT_ROOT:~-1%"=="\" set "PROJECT_ROOT=%PROJECT_ROOT:~0,-1%"
 
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
+set "OUTPUT_WINDOWS_DIR=%OUTPUT_DIR%\Windows"
 set "TEMP_ROOT=%LOCALAPPDATA%\TheLastRitePackage"
 set "RUN_ID=%RANDOM%%RANDOM%"
 set "RUN_ROOT=%TEMP_ROOT%\Run-%RUN_ID%"
@@ -47,6 +48,15 @@ echo.
 echo Shipping build log:
 echo %BUILD_LOG%
 echo.
+
+echo Closing stale packaged game processes...
+taskkill /IM TheLastRite.exe /F >nul 2>&1
+taskkill /IM TheLastRite-Win64-Shipping.exe /F >nul 2>&1
+
+if exist "%OUTPUT_WINDOWS_DIR%" (
+    echo Removing previous packaged Windows build...
+    rmdir /S /Q "%OUTPUT_WINDOWS_DIR%" >nul 2>&1
+)
 
 call "C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" TheLastRite Win64 Shipping -Project="%PROJECT_ROOT%\TheLastRite.uproject" -WaitMutex -log="%BUILD_LOG%"
 if errorlevel 1 goto :done
