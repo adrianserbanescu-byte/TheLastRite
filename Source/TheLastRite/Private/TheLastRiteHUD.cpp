@@ -97,6 +97,7 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float IntroX = Canvas->ClipX * 0.22f;
         const float IntroY = Canvas->ClipY * 0.18f;
+        const FString IntroReminderText = TEXT("White labels mark usable objects. The notes panel tracks what is real, what is bait, and what to check next.");
         const float ObjectiveY = IntroY + 74.0f;
         const float IntroObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetObjectiveText().ToString(), 62, 1.2f);
         const float CurrentObjectiveY = ObjectiveY + IntroObjectiveHeight + 10.0f;
@@ -104,7 +105,8 @@ void ATheLastRiteHUD::DrawHUD()
         const float NextMoveY = CurrentObjectiveY + IntroCurrentObjectiveHeight + 14.0f;
         const float NextMoveHeight = MeasureWrappedTextHeight(GameMode->GetNextMoveText().ToString(), 62, 1.05f);
         const float ReminderY = NextMoveY + NextMoveHeight + 14.0f;
-        const float IntroPanelHeight = (ReminderY - (IntroY - 26.0f)) + 54.0f;
+        const float ReminderHeight = MeasureWrappedTextHeight(IntroReminderText, 62, 1.05f);
+        const float IntroPanelHeight = (ReminderY - (IntroY - 26.0f)) + ReminderHeight + 24.0f;
 
         DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 760.0f, IntroPanelHeight, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
         DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, LargeFont, 1.35f, false);
@@ -112,7 +114,7 @@ void ATheLastRiteHUD::DrawHUD()
         DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, ObjectiveY, 62, SmallFont, 1.2f);
         DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.72f, 0.90f, 1.0f), IntroX, CurrentObjectiveY, 62, SmallFont, 1.1f);
         DrawWrappedTextLine(GameMode->GetNextMoveText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), IntroX, NextMoveY, 62, SmallFont, 1.05f);
-        DrawText(TEXT("White labels mark usable objects. The notes panel tracks what is real, what is bait, and what to check next."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, ReminderY, SmallFont, 1.05f, false);
+        DrawWrappedTextLine(IntroReminderText, FLinearColor(0.78f, 0.86f, 1.0f), IntroX, ReminderY, 62, SmallFont, 1.05f);
     }
 
     {
@@ -243,17 +245,23 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float BannerX = Canvas->ClipX * 0.33f;
         const float BannerY = Canvas->ClipY * 0.16f;
-        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 520.0f, 94.0f, FLinearColor(0.03f, 0.08f, 0.04f, 0.80f));
+        const FString BannerDetailText = TEXT("Leave through the front door and file the case.");
+        const float BannerDetailHeight = MeasureWrappedTextHeight(BannerDetailText, 38, 1.15f);
+        const float BannerPanelHeight = FMath::Max(94.0f, 58.0f + BannerDetailHeight);
+        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 520.0f, BannerPanelHeight, FLinearColor(0.03f, 0.08f, 0.04f, 0.80f));
         DrawText(TEXT("SEAL HOLDS"), FLinearColor(0.58f, 1.0f, 0.64f), BannerX, BannerY, LargeFont, 1.35f, false);
-        DrawText(TEXT("Leave through the front door and file the case."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.15f, false);
+        DrawWrappedTextLine(BannerDetailText, FLinearColor::White, BannerX, BannerY + 40.0f, 38, SmallFont, 1.15f);
     }
     else if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady)
     {
         const float BannerX = Canvas->ClipX * 0.30f;
         const float BannerY = Canvas->ClipY * 0.16f;
-        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 600.0f, 96.0f, FLinearColor(0.10f, 0.08f, 0.02f, 0.80f));
+        const FString BannerDetailText = TEXT("Act on the child-facing pattern. Ignore the mirror bait.");
+        const float BannerDetailHeight = MeasureWrappedTextHeight(BannerDetailText, 44, 1.12f);
+        const float BannerPanelHeight = FMath::Max(96.0f, 58.0f + BannerDetailHeight);
+        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 600.0f, BannerPanelHeight, FLinearColor(0.10f, 0.08f, 0.02f, 0.80f));
         DrawText(TEXT("RITE READY"), FLinearColor(1.0f, 0.88f, 0.44f), BannerX, BannerY, LargeFont, 1.35f, false);
-        DrawText(TEXT("Act on the child-facing pattern. Ignore the mirror bait."), FLinearColor::White, BannerX, BannerY + 40.0f, SmallFont, 1.12f, false);
+        DrawWrappedTextLine(BannerDetailText, FLinearColor::White, BannerX, BannerY + 40.0f, 44, SmallFont, 1.12f);
     }
 
     if (GameMode->IsCaseClosed())
