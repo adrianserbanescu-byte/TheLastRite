@@ -303,13 +303,13 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
 
     if (CasePhase != ETheLastRiteCasePhase::SealedAwaitingExit)
     {
-        const FText NextStarterTarget = GetNextStarterTargetText();
+        const FText NextGuidance = GetNextMoveText().IsEmpty() ? GetNextStarterTargetText() : GetNextMoveText();
         SetStatusText(FText::Format(
             NSLOCTEXT(
                 "TheLastRite",
                 "ExitLockedStatus",
                 "You cannot leave yet. The rite still has to be settled. {0}"),
-            NextStarterTarget));
+            NextGuidance));
         return;
     }
 
