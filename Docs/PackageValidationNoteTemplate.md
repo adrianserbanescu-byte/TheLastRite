@@ -29,7 +29,7 @@ notes:
 - <short note>
 
 blockers: <none / exact blocker>
-needs coordinator: <yes / no>
+next in-scope task: <one short line or none>
 ```
 
 ## Usage rule
@@ -37,3 +37,5 @@ needs coordinator: <yes / no>
 If the validation run passed, prefer pasting the concise verdict exactly once instead of paraphrasing it into a weaker summary.
 
 If the validation run failed, keep the exact failing command and the most relevant log path in the note.
+
+Normal validation notes are informational. If a real blocker still exists after one local retry, record that separately in `Docs/Laptop2Blocker.md` and check `Docs/Laptop2CoordinatorReply.md` only after pushing the blocker file.
