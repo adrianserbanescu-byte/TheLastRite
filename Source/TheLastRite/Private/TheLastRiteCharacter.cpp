@@ -137,10 +137,26 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
     FRotator ViewRotation;
     Controller->GetPlayerViewPoint(ViewLocation, ViewRotation);
 
-    const FVector TraceEnd = ViewLocation + (ViewRotation.Vector() * 520.0f);
+    const FVector ViewDirection = ViewRotation.Vector();
+    const FVector TraceEnd = ViewLocation + (ViewDirection * 520.0f);
+
+    FHitResult DirectHit;
+    FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(TheLastRiteInteractTrace), false, this);
+    if (GetWorld()->LineTraceSingleByChannel(
+        DirectHit,
+        ViewLocation,
+        TraceEnd,
+        ECC_Visibility,
+        QueryParams))
+    {
+        if (ATheLastRiteInteractable* DirectInteractable = Cast<ATheLastRiteInteractable>(DirectHit.GetActor()))
+        {
+            FocusedInteractable = DirectInteractable;
+            return;
+        }
+    }
 
     TArray<FHitResult> HitResults;
-    FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(TheLastRiteInteractTrace), false, this);
     GetWorld()->SweepMultiByChannel(
         HitResults,
         ViewLocation,
@@ -151,15 +167,28 @@ void ATheLastRiteCharacter::UpdateFocusedInteractable()
         QueryParams);
 
     FocusedInteractable = nullptr;
-    float BestDistanceSq = TNumericLimits<float>::Max();
+    float BestCenterlineDistanceSq = TNumericLimits<float>::Max();
+    float BestForwardDistance = TNumericLimits<float>::Max();
     for (const FHitResult& HitResult : HitResults)
     {
         if (ATheLastRiteInteractable* Interactable = Cast<ATheLastRiteInteractable>(HitResult.GetActor()))
         {
-            const float DistanceSq = FVector::DistSquared(ViewLocation, HitResult.ImpactPoint);
-            if (DistanceSq < BestDistanceSq)
+            const FVector ToHit = HitResult.ImpactPoint - ViewLocation;
+            const float ForwardDistance = FVector::DotProduct(ToHit, ViewDirection);
+            if (ForwardDistance <= 0.0f)
             {
-                BestDistanceSq = DistanceSq;
+                continue;
+            }
+
+            const FVector CenterlineOffset = ToHit - (ViewDirection * ForwardDistance);
+            const float CenterlineDistanceSq = CenterlineOffset.SizeSquared();
+            const bool bBetterCenterline = CenterlineDistanceSq < BestCenterlineDistanceSq;
+            const bool bSameCenterlineButCloser = FMath::IsNearlyEqual(CenterlineDistanceSq, BestCenterlineDistanceSq, 1.0f)
+                && ForwardDistance < BestForwardDistance;
+            if (bBetterCenterline || bSameCenterlineButCloser)
+            {
+                BestCenterlineDistanceSq = CenterlineDistanceSq;
+                BestForwardDistance = ForwardDistance;
                 FocusedInteractable = Interactable;
             }
         }

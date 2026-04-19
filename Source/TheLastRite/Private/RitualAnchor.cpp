@@ -30,6 +30,16 @@ FText ARitualAnchor::GetPromptText() const
 
     if (!bRitualReady)
     {
+        const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+        const FText NextMove = GameMode ? GameMode->GetNextMoveText() : FText::GetEmpty();
+        if (!NextMove.IsEmpty())
+        {
+            return FText::Format(
+                NSLOCTEXT("TheLastRite", "LockedAnchorPromptDetailed", "Rite locked at {0}. {1}"),
+                DisplayName,
+                NextMove);
+        }
+
         return FText::Format(
             NSLOCTEXT("TheLastRite", "LockedAnchorPrompt", "Find all real clues before using {0}"),
             DisplayName);

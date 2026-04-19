@@ -25,6 +25,7 @@ void ATheLastRiteHUD::DrawHUD()
     UFont* LargeFont = GEngine->GetLargeFont();
     const float WorldTimeSeconds = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0f;
     const float PhasePulseOpacity = GameMode->GetPhasePulseOpacity();
+    const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
 
     if (PhasePulseOpacity > 0.0f)
     {
@@ -62,53 +63,28 @@ void ATheLastRiteHUD::DrawHUD()
     Y += 34.0f;
     Y = DrawWrappedTextLine(GameMode->GetStatusText().ToString(), FLinearColor(1.0f, 0.9f, 0.55f), X, Y, 96, SmallFont, 1.05f);
 
-    if (!GameMode->IsCaseResolved() && WorldTimeSeconds < 7.0f)
+    const bool bShowStarterGuidance = !GameMode->IsCaseResolved() && (WorldTimeSeconds < 12.0f || EvidenceLines.IsEmpty());
+    if (bShowStarterGuidance)
     {
         const float IntroX = Canvas->ClipX * 0.22f;
         const float IntroY = Canvas->ClipY * 0.18f;
-        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 720.0f, 220.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
+        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 760.0f, 264.0f, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
         DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, LargeFont, 1.35f, false);
         DrawText(GameMode->GetTargetText().ToString(), FLinearColor(0.95f, 0.78f, 0.42f), IntroX, IntroY + 40.0f, SmallFont, 1.25f, false);
         DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, IntroY + 74.0f, 62, SmallFont, 1.2f);
         DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.72f, 0.90f, 1.0f), IntroX, IntroY + 132.0f, 62, SmallFont, 1.1f);
-        DrawText(TEXT("Find the real signs. Ignore the bait. Finish the rite."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 168.0f, SmallFont, 1.1f, false);
+        DrawText(TEXT("White labels mark usable objects. Start at the body, then cradle, then prayer mess."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 174.0f, SmallFont, 1.05f, false);
+        DrawText(TEXT("The notes panel on the right tracks true clues, false leads, and the current read."), FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroY + 204.0f, SmallFont, 1.05f, false);
     }
 
-    const TArray<FString>& EvidenceLines = GameMode->GetEvidenceLines();
-    if (!EvidenceLines.IsEmpty())
     {
         const float JournalX = Canvas->ClipX - 360.0f;
+        const float JournalPanelTop = 18.0f;
+        const float JournalPanelHeight = FMath::Max(560.0f, Canvas->ClipY - 52.0f);
         float JournalY = 30.0f;
-        DrawPanel(JournalX - 12.0f, 18.0f, 342.0f, 500.0f, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
+        DrawPanel(JournalX - 12.0f, JournalPanelTop, 342.0f, JournalPanelHeight, FLinearColor(0.02f, 0.03f, 0.05f, 0.72f));
         DrawText(TEXT("Case Notes"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.15f, false);
         JournalY += 24.0f;
-
-        const int32 FirstLine = FMath::Max(0, EvidenceLines.Num() - 6);
-        for (int32 Index = FirstLine; Index < EvidenceLines.Num(); ++Index)
-        {
-            FLinearColor LineColor(0.8f, 0.84f, 0.86f);
-            if (EvidenceLines[Index].StartsWith(TEXT("TRUE")))
-            {
-                LineColor = FLinearColor(0.68f, 1.0f, 0.72f);
-            }
-            else if (EvidenceLines[Index].StartsWith(TEXT("FALSE")))
-            {
-                LineColor = FLinearColor(1.0f, 0.62f, 0.36f);
-            }
-            else if (EvidenceLines[Index].StartsWith(TEXT("RITE")))
-            {
-                LineColor = FLinearColor(0.95f, 0.82f, 0.35f);
-            }
-
-            JournalY = DrawWrappedTextLine(EvidenceLines[Index], LineColor, JournalX, JournalY, 36, SmallFont, 0.95f);
-            JournalY += 4.0f;
-        }
-
-        JournalY += 10.0f;
-        DrawText(TEXT("Current read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
-        JournalY += 24.0f;
-        JournalY = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, 38, SmallFont, 0.95f);
-        JournalY += 10.0f;
 
         auto DrawChecklistEntry = [&](const FString& FullLine, const FString& Label, bool bGood)
         {
@@ -121,14 +97,62 @@ void ATheLastRiteHUD::DrawHUD()
             JournalY += 22.0f;
         };
 
-        DrawText(TEXT("Checklist"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        DrawText(TEXT("Opening sweep"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 22.0f;
-        DrawChecklistEntry(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"), TEXT("Body with mirrored wrists"), true);
-        DrawChecklistEntry(TEXT("TRUE - the cradle - halo of ash-white handprints"), TEXT("Cradle with halo prints"), true);
-        DrawChecklistEntry(TEXT("TRUE - the prayer cards - fused into a crown"), TEXT("Prayer crown"), true);
+        DrawChecklistEntry(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"), TEXT("Body - Nanny Eliza"), true);
+        DrawChecklistEntry(TEXT("TRUE - the cradle - halo of ash-white handprints"), TEXT("Cradle"), true);
+        DrawChecklistEntry(TEXT("TRUE - the prayer cards - fused into a crown"), TEXT("Prayer mess"), true);
+        JournalY += 10.0f;
+
+        if (EvidenceLines.IsEmpty())
+        {
+            JournalY = DrawWrappedTextLine(TEXT("No notes yet. Start with the body, the cradle, and the prayer mess."), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, 36, SmallFont, 0.98f);
+            JournalY += 8.0f;
+            JournalY = DrawWrappedTextLine(TEXT("White labels mark the objects you can inspect."), FLinearColor(0.78f, 0.86f, 1.0f), JournalX, JournalY, 36, SmallFont, 0.95f);
+            JournalY += 12.0f;
+        }
+        else
+        {
+            const int32 FirstLine = FMath::Max(0, EvidenceLines.Num() - 4);
+            for (int32 Index = FirstLine; Index < EvidenceLines.Num(); ++Index)
+            {
+                FLinearColor LineColor(0.8f, 0.84f, 0.86f);
+                if (EvidenceLines[Index].StartsWith(TEXT("TRUE")))
+                {
+                    LineColor = FLinearColor(0.68f, 1.0f, 0.72f);
+                }
+                else if (EvidenceLines[Index].StartsWith(TEXT("FALSE")))
+                {
+                    LineColor = FLinearColor(1.0f, 0.62f, 0.36f);
+                }
+                else if (EvidenceLines[Index].StartsWith(TEXT("RITE")))
+                {
+                    LineColor = FLinearColor(0.95f, 0.82f, 0.35f);
+                }
+
+                JournalY = DrawWrappedTextLine(EvidenceLines[Index], LineColor, JournalX, JournalY, 36, SmallFont, 0.95f);
+                JournalY += 4.0f;
+            }
+        }
+
+        JournalY += 10.0f;
+        DrawText(TEXT("Current read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 24.0f;
+        JournalY = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, 38, SmallFont, 0.95f);
+        JournalY += 10.0f;
+
+        DrawText(TEXT("Next move"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 24.0f;
+        JournalY = DrawWrappedTextLine(GameMode->GetNextMoveText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, 38, SmallFont, 0.95f);
+        JournalY += 12.0f;
+
+        DrawText(TEXT("Later checks"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 22.0f;
         DrawChecklistEntry(TEXT("TRUE - the baby monitor - hymn repeating on every channel"), TEXT("Monitor hymn loop"), true);
         DrawChecklistEntry(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"), TEXT("Nursery mural halo"), true);
-        JournalY += 4.0f;
+        JournalY += 10.0f;
+        DrawText(TEXT("False leads"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 22.0f;
         DrawChecklistEntry(TEXT("FALSE - the broken window latch - forced from outside"), TEXT("Broken window latch"), false);
         DrawChecklistEntry(TEXT("FALSE - the pawn ticket pouch - ordinary greed"), TEXT("Pawn ticket pouch"), false);
         DrawChecklistEntry(TEXT("FALSE - the kitchen knife - grease, not offering blood"), TEXT("Kitchen knife"), false);

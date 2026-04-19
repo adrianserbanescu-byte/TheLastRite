@@ -43,11 +43,13 @@ public:
     FText GetRecentEventText() const;
     FText GetProgressText() const;
     FText GetDeductionText() const;
+    FText GetNextMoveText() const;
     FText GetEndingText() const;
     FText GetEndingDetailText() const;
     const TArray<FString>& GetEvidenceLines() const;
     const TArray<FString>& GetFinalReportLines() const;
     bool HasEvidenceLine(const FString& FullLine) const;
+    bool IsOpeningSweepComplete() const;
     FLinearColor GetPhasePulseColor() const;
     float GetPhasePulseOpacity() const;
 
@@ -67,8 +69,12 @@ private:
     void UpdateWorldMood();
     void UpdateProgressText();
     void UpdateDeductionText();
+    void UpdateNextMoveText();
     void RefreshCurrentObjectiveText();
     void RebuildFinalReport();
+    int32 GetOpeningSweepCount() const;
+    FText GetOpeningSweepStateText() const;
+    FText GetNextStarterTargetText() const;
     void TriggerPhasePulse(const FLinearColor& Color, float DurationSeconds);
     void SetStatusText(const FText& NewStatusText);
     void AddEvidenceLine(const FString& NewLine);
@@ -96,6 +102,9 @@ private:
 
     UPROPERTY()
     FText DeductionText;
+
+    UPROPERTY()
+    FText NextMoveText;
 
     UPROPERTY()
     FText EndingText;

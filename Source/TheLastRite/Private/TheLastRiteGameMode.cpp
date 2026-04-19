@@ -54,21 +54,25 @@ ATheLastRiteGameMode::ATheLastRiteGameMode()
     ObjectiveText = NSLOCTEXT(
         "TheLastRite",
         "Objective",
-        "Apartment 302. The babysitter vanished. Find all 5 real clues tied to the Hollow Saint, then perform the rite.");
+        "Apartment 302. Work the room in order: body, cradle, prayer mess. Find all 5 real clues tied to the Hollow Saint, perform the rite, then leave through the front door.");
     StatusText = NSLOCTEXT(
         "TheLastRite",
         "StatusInitial",
-        "Search the room. Real clues carry the saint's pale halo pattern.");
+        "White labels mark usable objects. The notes panel tracks what is real and what is bait.");
     CurrentObjectiveText = NSLOCTEXT(
         "TheLastRite",
         "CurrentObjectiveInitial",
-        "Current objective: investigate Apartment 302 and find the real Hollow Saint signs.");
+        "Current objective: step 1 of 3 - inspect the body, the cradle, and the prayer mess.");
     RecentEventText = FText::GetEmpty();
     ProgressText = FText::GetEmpty();
     DeductionText = NSLOCTEXT(
         "TheLastRite",
         "DeductionInitial",
         "Read of the room: no clean pattern yet. Start with the body, the cradle, and the prayer mess.");
+    NextMoveText = NSLOCTEXT(
+        "TheLastRite",
+        "NextMoveInitial",
+        "Start at the body. Then move to the cradle and the prayer mess before chasing anything else in the room.");
     EndingText = FText::GetEmpty();
     EndingDetailText = FText::GetEmpty();
 }
@@ -85,6 +89,7 @@ void ATheLastRiteGameMode::BeginPlay()
     UpdateCasePhaseFromEvidence();
     UpdateCaseExit();
     UpdateDeductionText();
+    UpdateNextMoveText();
     UpdateWorldMood();
     UpdateProgressText();
     RefreshCurrentObjectiveText();
@@ -166,6 +171,7 @@ void ATheLastRiteGameMode::HandleInspectableProp(AInspectableProp* Prop)
 
     UpdateCasePhaseFromEvidence();
     UpdateDeductionText();
+    UpdateNextMoveText();
     UpdateProgressText();
     RefreshCurrentObjectiveText();
     UpdateRitualAnchors();
@@ -187,9 +193,11 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
 
     if (FoundTrueClues < RequiredTrueClues)
     {
+        const FText NextStarterTarget = GetNextStarterTargetText();
         SetStatusText(FText::Format(
-        NSLOCTEXT("TheLastRite", "NeedMoreClues", "Not yet. You still need {0} real clue(s) before the rite."),
-            FText::AsNumber(RequiredTrueClues - FoundTrueClues)));
+            NSLOCTEXT("TheLastRite", "NeedMoreClues", "Not yet. You still need {0} real clue(s) before the rite. {1}"),
+            FText::AsNumber(RequiredTrueClues - FoundTrueClues),
+            NextStarterTarget));
         return;
     }
 
@@ -245,6 +253,7 @@ void ATheLastRiteGameMode::HandleRitualAnchor(ARitualAnchor* Anchor)
     RefreshCurrentObjectiveText();
     UpdateCaseExit();
     UpdateProgressText();
+    UpdateNextMoveText();
     UpdateWorldMood();
     RebuildFinalReport();
 }
@@ -258,10 +267,13 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
 
     if (CasePhase != ETheLastRiteCasePhase::SealedAwaitingExit)
     {
-        SetStatusText(NSLOCTEXT(
-            "TheLastRite",
-            "ExitLockedStatus",
-            "You cannot leave yet. The rite still has to be settled."));
+        const FText NextStarterTarget = GetNextStarterTargetText();
+        SetStatusText(FText::Format(
+            NSLOCTEXT(
+                "TheLastRite",
+                "ExitLockedStatus",
+                "You cannot leave yet. The rite still has to be settled. {0}"),
+            NextStarterTarget));
         return;
     }
 
@@ -293,6 +305,7 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
     RefreshCurrentObjectiveText();
     UpdateCaseExit();
     UpdateProgressText();
+    UpdateNextMoveText();
     UpdateWorldMood();
     RebuildFinalReport();
 }
@@ -353,6 +366,11 @@ FText ATheLastRiteGameMode::GetDeductionText() const
     return DeductionText;
 }
 
+FText ATheLastRiteGameMode::GetNextMoveText() const
+{
+    return NextMoveText;
+}
+
 FText ATheLastRiteGameMode::GetEndingText() const
 {
     return EndingText;
@@ -376,6 +394,11 @@ const TArray<FString>& ATheLastRiteGameMode::GetFinalReportLines() const
 bool ATheLastRiteGameMode::HasEvidenceLine(const FString& FullLine) const
 {
     return EvidenceLines.Contains(FullLine);
+}
+
+bool ATheLastRiteGameMode::IsOpeningSweepComplete() const
+{
+    return GetOpeningSweepCount() >= 3;
 }
 
 FLinearColor ATheLastRiteGameMode::GetPhasePulseColor() const
@@ -441,13 +464,13 @@ void ATheLastRiteGameMode::BuildRoom()
 
 void ATheLastRiteGameMode::BuildCaseContent()
 {
-    auto SpawnProp = [this](const FVector& Location, const FVector& Scale3D, const FText& Name, const FText& Clue, const FText& EvidenceSummary, bool bTrueClue)
+    auto SpawnProp = [this](const FVector& Location, const FVector& Scale3D, const FText& Name, const FText& Clue, const FText& EvidenceSummary, bool bTrueClue, bool bOpeningSweepTarget = false)
     {
         AInspectableProp* Prop = GetWorld()->SpawnActor<AInspectableProp>(Location, FRotator::ZeroRotator);
         if (Prop != nullptr)
         {
             Prop->SetActorScale3D(Scale3D);
-            Prop->ConfigureProp(Name, Clue, EvidenceSummary, bTrueClue);
+            Prop->ConfigureProp(Name, Clue, EvidenceSummary, bTrueClue, bOpeningSweepTarget);
         }
     };
 
@@ -478,6 +501,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         NSLOCTEXT("TheLastRite", "NannyName", "Nanny Eliza"),
         NSLOCTEXT("TheLastRite", "NannyClue", "Her dry wrist marks mirror each other too perfectly, like a saint pose forced onto skin."),
         NSLOCTEXT("TheLastRite", "NannyEvidence", "Nanny Eliza - mirrored wrist marks"),
+        true,
         true);
 
     SpawnProp(
@@ -486,6 +510,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         NSLOCTEXT("TheLastRite", "CradleName", "the cradle"),
         NSLOCTEXT("TheLastRite", "CradleClue", "Ash-white handprints ring the cradle in a perfect halo."),
         NSLOCTEXT("TheLastRite", "CradleEvidence", "the cradle - halo of ash-white handprints"),
+        true,
         true);
 
     SpawnProp(
@@ -494,6 +519,7 @@ void ATheLastRiteGameMode::BuildCaseContent()
         NSLOCTEXT("TheLastRite", "PrayerCardsName", "the prayer cards"),
         NSLOCTEXT("TheLastRite", "PrayerCardsClue", "The prayer cards are fused into a crown-like circle."),
         NSLOCTEXT("TheLastRite", "PrayerCardsEvidence", "the prayer cards - fused into a crown"),
+        true,
         true);
 
     SpawnProp(
@@ -784,11 +810,12 @@ void ATheLastRiteGameMode::UpdateProgressText()
         FText::AsNumber(RequiredTrueClues - FoundTrueClues));
 
     ProgressText = FText::Format(
-        NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/{3} | {4}"),
+        NSLOCTEXT("TheLastRite", "Progress", "True clues: {0}/{1} | False leads: {2}/{3} | {4} | {5}"),
         FText::AsNumber(FoundTrueClues),
         FText::AsNumber(RequiredTrueClues),
         FText::AsNumber(FoundFalseLeads),
         FText::AsNumber(TotalFalseLeads),
+        GetOpeningSweepStateText(),
         RiteState);
 }
 
@@ -857,44 +884,159 @@ void ATheLastRiteGameMode::UpdateDeductionText()
         "Read of the room: conclusion locked. The true altar is child-facing. The mirror is bait.");
 }
 
+void ATheLastRiteGameMode::UpdateNextMoveText()
+{
+    const bool bFoundNanny = HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"));
+    const bool bFoundCradle = HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints"));
+    const bool bFoundPrayerCards = HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown"));
+    const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
+    const bool bFoundWallpaper = HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"));
+    const bool bFoundWindow = HasEvidenceLine(TEXT("FALSE - the broken window latch - forced from outside"));
+    const bool bFoundTicket = HasEvidenceLine(TEXT("FALSE - the pawn ticket pouch - ordinary greed"));
+    const bool bFoundKnife = HasEvidenceLine(TEXT("FALSE - the kitchen knife - grease, not offering blood"));
+
+    switch (CasePhase)
+    {
+    case ETheLastRiteCasePhase::SealedAwaitingExit:
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveExit",
+            "The seal is holding. Leave through the front door and close the case.");
+        return;
+    case ETheLastRiteCasePhase::ClosedWin:
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveClosedWin",
+            "Case closed. Press R when you want to run Apartment 302 again.");
+        return;
+    case ETheLastRiteCasePhase::ClosedFail:
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveClosedFail",
+            "Press R to restart. On the next run, stay with the child-facing pattern instead of the mirror bait.");
+        return;
+    case ETheLastRiteCasePhase::RiteReady:
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveRiteReady",
+            "The evidence is enough. Perform the rite at the nursery sigil, not the mirror circle.");
+        return;
+    case ETheLastRiteCasePhase::Investigating:
+    default:
+        break;
+    }
+
+    if (!bFoundNanny)
+    {
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveZero",
+            "Start at the body. Inspect Nanny Eliza first, then move to the cradle and the prayer mess before chasing anything else in the room.");
+        return;
+    }
+
+    if (!bFoundCradle)
+    {
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveCradle",
+            "Body logged. Move straight to the cradle next. The room should start making sense there before you drift toward the mirror side.");
+        return;
+    }
+
+    if (!bFoundPrayerCards)
+    {
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMovePrayerCards",
+            "Cradle logged. Check the prayer mess next. That completes the opening sweep before you start testing the rest of the room.");
+        return;
+    }
+
+    if (!bFoundMonitor)
+    {
+        NextMoveText = (bFoundWindow || bFoundTicket || bFoundKnife)
+            ? NSLOCTEXT(
+                "TheLastRite",
+                "NextMoveMonitorAfterFalseLead",
+                "You have seen enough bait. Go back to the nursery side and inspect the baby monitor. It is one of the room's real tells.")
+            : NSLOCTEXT(
+                "TheLastRite",
+                "NextMoveMonitor",
+                "Opening sweep complete. Stay with the child-facing pattern and inspect the baby monitor before trusting any uglier distractions.");
+        return;
+    }
+
+    if (!bFoundWallpaper)
+    {
+        NextMoveText = NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveWallpaper",
+            "One confirmation remains. Inspect the nursery mural and settle the room's true center before attempting the rite.");
+        return;
+    }
+
+    NextMoveText = FoundFalseLeads > 0
+        ? NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveLateWithFalseLead",
+            "The read is complete. Ignore the mirror bait and use the nursery sigil when you are ready to seal the room.")
+        : NSLOCTEXT(
+            "TheLastRite",
+            "NextMoveLate",
+            "All five true signs agree. Commit to the nursery sigil, not the mirror circle.");
+}
+
 void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
 {
+    const bool bFoundMonitor = HasEvidenceLine(TEXT("TRUE - the baby monitor - hymn repeating on every channel"));
+    const bool bFoundWallpaper = HasEvidenceLine(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"));
+
     switch (CasePhase)
     {
     case ETheLastRiteCasePhase::Investigating:
-        if (FoundTrueClues <= 1)
+        if (GetOpeningSweepCount() < 3)
         {
-            CurrentObjectiveText = NSLOCTEXT(
-                "TheLastRite",
-                "CurrentObjectiveInvestigatingEarly",
-                "Current objective: check the body, the cradle, and the prayer mess.");
+            CurrentObjectiveText = FText::Format(
+                NSLOCTEXT(
+                    "TheLastRite",
+                    "CurrentObjectiveInvestigatingOpeningSweep",
+                    "Current objective: step 1 of 3 - {0}"),
+                GetNextStarterTargetText());
         }
-        else if (FoundTrueClues <= 3)
+        else if (!bFoundMonitor)
         {
             CurrentObjectiveText = NSLOCTEXT(
                 "TheLastRite",
-                "CurrentObjectiveInvestigatingMid",
-                "Current objective: sweep the nursery side and keep ruling out mirror bait.");
+                "CurrentObjectiveInvestigatingMonitor",
+                "Current objective: step 2 of 3 - inspect the baby monitor and keep the nursery side in focus.");
+        }
+        else if (!bFoundWallpaper)
+        {
+            CurrentObjectiveText = NSLOCTEXT(
+                "TheLastRite",
+                "CurrentObjectiveInvestigatingWallpaper",
+                "Current objective: step 2 of 3 - inspect the nursery mural and settle the room's true center.");
         }
         else
         {
             CurrentObjectiveText = NSLOCTEXT(
                 "TheLastRite",
                 "CurrentObjectiveInvestigatingLate",
-                "Current objective: find the last confirming sign and settle which ritual point is real.");
+                "Current objective: step 2 of 3 - settle which ritual point is real and prepare for the rite.");
         }
         break;
     case ETheLastRiteCasePhase::RiteReady:
         CurrentObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "CurrentObjectiveRiteReady",
-            "Current objective: perform the rite where the child-facing pattern converges.");
+            "Current objective: step 3 of 3 - perform the rite where the child-facing pattern converges.");
         break;
     case ETheLastRiteCasePhase::SealedAwaitingExit:
         CurrentObjectiveText = NSLOCTEXT(
             "TheLastRite",
             "CurrentObjectiveExit",
-            "Current objective: leave through the front door.");
+            "Current objective: step 3 of 3 - leave through the front door.");
         break;
     case ETheLastRiteCasePhase::ClosedWin:
     case ETheLastRiteCasePhase::ClosedFail:
@@ -905,6 +1047,44 @@ void ATheLastRiteGameMode::RefreshCurrentObjectiveText()
             "Current objective: press R to restart the case.");
         break;
     }
+}
+
+int32 ATheLastRiteGameMode::GetOpeningSweepCount() const
+{
+    const bool bFoundNanny = HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks"));
+    const bool bFoundCradle = HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints"));
+    const bool bFoundPrayerCards = HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown"));
+    return static_cast<int32>(bFoundNanny) + static_cast<int32>(bFoundCradle) + static_cast<int32>(bFoundPrayerCards);
+}
+
+FText ATheLastRiteGameMode::GetOpeningSweepStateText() const
+{
+    const int32 OpeningSweepCount = GetOpeningSweepCount();
+    return OpeningSweepCount < 3
+        ? FText::Format(
+            NSLOCTEXT("TheLastRite", "OpeningSweepInProgress", "Opening sweep: {0}/3"),
+            FText::AsNumber(OpeningSweepCount))
+        : NSLOCTEXT("TheLastRite", "OpeningSweepComplete", "Opening sweep: complete");
+}
+
+FText ATheLastRiteGameMode::GetNextStarterTargetText() const
+{
+    if (!HasEvidenceLine(TEXT("TRUE - Nanny Eliza - mirrored wrist marks")))
+    {
+        return NSLOCTEXT("TheLastRite", "NextStarterTargetNanny", "inspect the body first");
+    }
+
+    if (!HasEvidenceLine(TEXT("TRUE - the cradle - halo of ash-white handprints")))
+    {
+        return NSLOCTEXT("TheLastRite", "NextStarterTargetCradle", "inspect the cradle next");
+    }
+
+    if (!HasEvidenceLine(TEXT("TRUE - the prayer cards - fused into a crown")))
+    {
+        return NSLOCTEXT("TheLastRite", "NextStarterTargetPrayerCards", "inspect the prayer mess to finish the opening sweep");
+    }
+
+    return NSLOCTEXT("TheLastRite", "NextStarterTargetComplete", "the opening sweep is complete");
 }
 
 void ATheLastRiteGameMode::RebuildFinalReport()

@@ -29,6 +29,16 @@ FText ACaseExit::GetPromptText() const
 
     if (!bExitReady)
     {
+        const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+        const FText NextMove = GameMode ? GameMode->GetNextMoveText() : FText::GetEmpty();
+        if (!NextMove.IsEmpty())
+        {
+            return FText::Format(
+                NSLOCTEXT("TheLastRite", "ExitLockedPromptDetailed", "{0} stays shut. {1}"),
+                DisplayName,
+                NextMove);
+        }
+
         return FText::Format(
             NSLOCTEXT("TheLastRite", "ExitLockedPrompt", "Finish the rite before leaving through {0}"),
             DisplayName);

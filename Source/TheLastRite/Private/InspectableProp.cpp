@@ -8,6 +8,7 @@
 AInspectableProp::AInspectableProp()
 {
     bTrueClue = false;
+    bOpeningSweepTarget = false;
     bInspected = false;
 
     static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshFinder(
@@ -27,6 +28,21 @@ FText AInspectableProp::GetPromptText() const
             DisplayName);
     }
 
+    if (bOpeningSweepTarget)
+    {
+        return FText::Format(
+            NSLOCTEXT("TheLastRite", "InspectPromptOpeningSweep", "Press E - Inspect {0} (opening sweep target)"),
+            DisplayName);
+    }
+
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (!bOpeningSweepTarget && GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
+    {
+        return FText::Format(
+            NSLOCTEXT("TheLastRite", "InspectPromptDeferred", "Press E - Inspect {0} (later; finish the opening sweep first)"),
+            DisplayName);
+    }
+
     return FText::Format(
         NSLOCTEXT("TheLastRite", "InspectPrompt", "Press E - Inspect {0}"),
         DisplayName);
@@ -40,14 +56,15 @@ void AInspectableProp::Interact(ATheLastRiteCharacter* InteractingCharacter)
     }
 }
 
-void AInspectableProp::ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue)
+void AInspectableProp::ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue, bool bInIsOpeningSweepTarget)
 {
     SetDisplayName(InDisplayName);
     ClueText = InClueText;
     EvidenceSummary = InEvidenceSummary;
     bTrueClue = bInIsTrueClue;
+    bOpeningSweepTarget = bInIsOpeningSweepTarget;
     ApplyMeshColor(FLinearColor(0.24f, 0.42f, 0.72f));
-    UpdateWorldLabel(FLinearColor(0.70f, 0.84f, 1.0f));
+    UpdateWorldLabel(bOpeningSweepTarget ? FLinearColor(0.82f, 0.94f, 1.0f) : FLinearColor(0.70f, 0.84f, 1.0f));
 }
 
 bool AInspectableProp::WasInspected() const

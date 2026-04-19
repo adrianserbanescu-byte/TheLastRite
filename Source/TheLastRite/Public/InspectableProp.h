@@ -17,7 +17,7 @@ public:
     virtual FText GetPromptText() const override;
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter) override;
 
-    void ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue);
+    void ConfigureProp(const FText& InDisplayName, const FText& InClueText, const FText& InEvidenceSummary, bool bInIsTrueClue, bool bInIsOpeningSweepTarget = false);
     bool WasInspected() const;
     bool IsTrueClue() const;
     const FText& GetClueText() const;
@@ -33,6 +33,9 @@ private:
 
     UPROPERTY()
     bool bTrueClue;
+
+    UPROPERTY()
+    bool bOpeningSweepTarget;
 
     UPROPERTY()
     bool bInspected;
