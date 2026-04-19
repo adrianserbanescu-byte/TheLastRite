@@ -3,13 +3,13 @@
 ```text
 laptop1 update
 
-time: 2026-04-19 23:06:58 +03:00
+time: 2026-04-19 23:11:02 +03:00
 branch: codex/gameplay
-head: 609e89d938cafd85859be42d2dbcfaaf6e47d06f
+head: 738b39766e2a939f1e09e737f504142dcd47aa70
 working tree: dirty
-current task: fail-report audit cleanup with gameplay checkpoint publish
-last 30m progress: After publishing the resolved-flow checkpoint, I continued directly into the next ritual-outcome pass. The fail report now records which true clues were confirmed or missed and which false leads were cleared or left unchecked, and the final HUD overlay now colors missed or unchecked audit lines as warnings instead of treating them like confirmed evidence.
-verification: `BuildGame.cmd` succeeded on 2026-04-19 23:06:58 +03:00
+current task: exit interaction reliability fix with gameplay checkpoint publish
+last 30m progress: I continued after the previous checkpoints and fixed a real exit-flow bug: once the case was already closed, interacting with the front door could still fall into the generic locked-exit path and overwrite the resolved-state guidance. The exit now ignores re-use after a successful close, and closed-case door interactions keep the resolved restart-or-quit guidance instead of reverting to misleading investigation text.
+verification: `BuildGame.cmd` succeeded on 2026-04-19 23:11:02 +03:00
 blockers: none
 needs coordinator: no
 ```

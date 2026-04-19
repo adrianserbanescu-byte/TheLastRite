@@ -295,6 +295,12 @@ void ATheLastRiteGameMode::HandleCaseExit(ACaseExit* Exit)
         return;
     }
 
+    if (CasePhase == ETheLastRiteCasePhase::ClosedWin || CasePhase == ETheLastRiteCasePhase::ClosedFail)
+    {
+        SetStatusText(GetResolvedInteractionText());
+        return;
+    }
+
     if (CasePhase != ETheLastRiteCasePhase::SealedAwaitingExit)
     {
         const FText NextStarterTarget = GetNextStarterTargetText();
