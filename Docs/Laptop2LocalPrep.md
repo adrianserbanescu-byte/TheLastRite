@@ -2,6 +2,22 @@
 
 Local branch-only note for the content / packaging machine.
 
+## Active GitHub workflow
+
+Use these files as the laptop 2 source of truth on `codex/content`:
+
+- `Docs/Laptop2AsyncPrompt.md`
+- `Docs/Laptop2Queue.md`
+- `Docs/Laptop2Blocker.md`
+- `Docs/Laptop2CoordinatorReply.md`
+
+Do not use `Docs/Laptop2Status.md` or `PublishLaptop2Status.ps1`.
+
+Normal rule:
+
+- continue the first incomplete in-scope queue item immediately after a normal checkpoint
+- update `Docs/Laptop2Blocker.md` only when a real blocker still exists after one local retry
+
 ## Machine readiness
 
 - Repo path: `C:\dev\TheLastRite`

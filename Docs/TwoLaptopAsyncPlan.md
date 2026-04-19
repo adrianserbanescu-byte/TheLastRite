@@ -80,11 +80,12 @@ Laptop 1 uses these files on `codex/gameplay`:
 
 Laptop 2 uses these files on `codex/content`:
 
+- `Docs/Laptop2AsyncPrompt.md`
 - `Docs/Laptop2Queue.md`
 - `Docs/Laptop2Blocker.md`
 - `Docs/Laptop2CoordinatorReply.md`
 
-Queue files are written and maintained by the coordinator.
+Queue files define the active in-scope work order on each branch.
 
 Blocker files are written only by the laptop that owns the branch, and only when a real blocker appears.
 

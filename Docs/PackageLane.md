@@ -5,6 +5,7 @@ This is the laptop 2 packaging runbook for `codex/content`.
 Use it when validating the non-main package lane, rerunning a packaged smoke test, or locating the latest package logs without guessing.
 
 If the result needs a GitHub-visible package note, use `Docs/PackageValidationNoteTemplate.md`.
+If laptop 2 is blocked after one local retry, update `Docs/Laptop2Blocker.md`, push it, then check `Docs/Laptop2CoordinatorReply.md`.
 
 ## Scope
 
@@ -60,12 +61,6 @@ This runbook is not for:
   - forwards optional smoke-test timeout arguments to the smoke step
   - finishes with a one-line package verdict from `SummarizePackagedBuild.cmd -Concise`
   - use this when you want one package-lane verdict instead of three separate steps
-
-- `PublishLaptop2Status.cmd`
-  - updates `Docs\Laptop2Status.md`
-  - commits the status update on `codex/content`
-  - pushes the branch so the GitHub-visible report stays current
-  - prints the previous branch head and the pushed status-commit SHA
 
 - `PlayPackagedGame.cmd`
   - launches the repo-local packaged build from `Packaged\Windows`
@@ -133,14 +128,6 @@ One-line summary variant:
 
 ```text
 SummarizePackagedBuild.cmd -Concise
-```
-
-### 5. Publish the 30-minute laptop 2 report
-
-Use this when the branch needs its routine GitHub-visible status update:
-
-```text
-PublishLaptop2Status.cmd -CurrentTask continue-Apartment302-room-dressing-import-prep -Last30mProgress "added a new import manifest for stable bundle names and screenshot labels" -Verification not-run-docs-only-content-checkpoint
 ```
 
 ## Output and log paths
@@ -225,10 +212,10 @@ If `PlayPackagedGame.cmd` fails:
 1. verify the packaged launcher path exists
 2. rerun `ValidatePackageLane.cmd` if the package is stale or uncertain
 
-## Reporting rule on this branch
+## Blocker rule on this branch
 
-- every 30 minutes: status update only in `Docs\Laptop2Status.md`
-- every 2-3 hours: meaningful pushed checkpoint if coherent work is ready
-- blocker: push the blocker status immediately, then check `Docs\Laptop2CoordinatorReply.md`
+- continue immediately after normal verified checkpoints
+- only write `Docs\Laptop2Blocker.md` when a real blocker still exists after one local retry
+- after pushing a blocker file, check `Docs\Laptop2CoordinatorReply.md` and follow it exactly
 
 Do not package on `main`.

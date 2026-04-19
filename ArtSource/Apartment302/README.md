@@ -72,6 +72,10 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
   - What it is: a copy-ready GitHub-visible review template for Apartment 302 room-dressing passes.
   - Player read: screenshots, label checks, and verdicts should all use the same names when the pass is discussed or handed off.
 
+- `references/apartment302_occlusion_watchlist.md`
+  - What it is: a clutter and sightline watchlist for keeping the nursery evidence path readable as dressing increases.
+  - Player read: entry, clue family, correct anchor, and false leads should keep their intended visibility hierarchy even after more props are added.
+
 - `references/apartment302_room_dressing_pass_order.svg`
   - What it is: a visual pass-order board for the Unreal room-dressing sequence and laptop 2 ownership guardrails.
   - Player read: the room should be staged in a readable order, with the nursery cluster locked first and false leads added only after the true ritual read is stable.
@@ -124,5 +128,6 @@ No real sacred symbols are copied. The symbols are invented ritual marks for the
 - Use `references/apartment302_import_manifest.md` when the pass needs stable bundle names, object labels, and screenshot vocabulary.
 - Use `references/apartment302_screenshot_checklist.md` when the pass needs repeatable review shots or GitHub-visible handoff notes.
 - Use `references/apartment302_review_template.md` when posting a GitHub-visible review note for a room-dressing pass.
+- Use `references/apartment302_occlusion_watchlist.md` when clutter additions start to threaten the nursery-first read.
 - Avoid gore, weapons, real religious icons, and action-game UI language.
 - These SVGs are small, editable source mockups. They can be used directly as reference or exported later as PNGs for an in-engine art pass.
