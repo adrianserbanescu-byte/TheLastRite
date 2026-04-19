@@ -86,6 +86,12 @@ FText ARitualAnchor::GetPromptText() const
 
 int32 ARitualAnchor::GetInteractionFocusPriority() const
 {
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (GameMode != nullptr && GameMode->IsCaseResolved())
+    {
+        return -20;
+    }
+
     if (bActivated)
     {
         return -10;

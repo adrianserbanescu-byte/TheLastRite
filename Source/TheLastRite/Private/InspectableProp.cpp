@@ -86,12 +86,17 @@ FText AInspectableProp::GetPromptText() const
 
 int32 AInspectableProp::GetInteractionFocusPriority() const
 {
+    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
+    if (GameMode != nullptr && GameMode->IsCaseResolved())
+    {
+        return -15;
+    }
+
     if (bInspected)
     {
         return 10;
     }
 
-    const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
     if (GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
     {
         return bOpeningSweepTarget ? 80 : 10;
