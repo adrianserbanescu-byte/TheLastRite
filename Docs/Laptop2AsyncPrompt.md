@@ -21,6 +21,7 @@ Hard rules:
 - do not pull or manually integrate laptop 1 branch work
 - do not take ownership of gameplay C++ changes
 - commit and push small coherent packaging/content checkpoints
+- do not force commits on the 30-minute clock; use the 30-minute cadence for status only
 
 Work queue order:
 1. launcher and packaging helper reliability
@@ -60,6 +61,10 @@ When blocked:
 Normal reporting rule:
 - write each 30-minute report to `Docs/Laptop2Status.md`
 - commit and push it on `codex/content`
+
+Checkpoint rule:
+- aim for a meaningful packaging/content checkpoint every 2-3 hours
+- commit and push sooner if a coherent verified change is already ready
 
 Do not touch:
 - gameplay C++ logic
