@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="fadeTop" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#10100d" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#10100d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fadeBottom" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#10100d" stop-opacity="0"/>
+      <stop offset="1" stop-color="#10100d" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="centerVignette" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.28"/>
+    </radialGradient>
+    <g id="statusMotif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-58 12 C-34 -24 -12 -38 0 -42 C12 -38 34 -24 58 12" stroke="#e8e2d3" stroke-width="5"/>
+      <path d="M-38 8 L-18 -16 L0 8 L18 -16 L38 8" stroke="#a98f45" stroke-width="4"/>
+      <circle cx="0" cy="14" r="11" stroke="#a98f45" stroke-width="4"/>
+    </g>
+  </defs>
+  <rect width="1600" height="900" fill="#171612"/>
+  <rect width="1600" height="180" fill="url(#fadeTop)"/>
+  <rect y="650" width="1600" height="250" fill="url(#fadeBottom)"/>
+  <rect width="1600" height="900" fill="url(#centerVignette)"/>
+  <text x="72" y="76" font-family="Georgia, serif" font-size="46" fill="#f4efdc">Hollow Saint ritual-status overlay</text>
+  <text x="72" y="118" font-family="Arial, sans-serif" font-size="23" fill="#c9c0a3">UI-support source art: full-screen readiness and ritual-state treatment that protects the center view cone.</text>
+  <g transform="translate(72 164)">
+    <rect width="620" height="102" rx="14" fill="#11120f" opacity="0.82" stroke="#a98f45" stroke-width="3"/>
+    <text x="28" y="36" font-family="Arial, sans-serif" font-size="24" fill="#a98f45">RITUAL READINESS</text>
+    <text x="28" y="74" font-family="Arial, sans-serif" font-size="36" fill="#f4efdc">4 of 5 corroborating clues found</text>
+    <g transform="translate(506 52)">
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+      <path d="M-18 0 Q0 -26 18 0" fill="none" stroke="#a98f45" stroke-width="4"/>
+    </g>
+  </g>
+  <g transform="translate(1208 164)">
+    <rect width="320" height="108" rx="14" fill="#11120f" opacity="0.78" stroke="#8f9087" stroke-width="3"/>
+    <text x="28" y="40" font-family="Arial, sans-serif" font-size="23" fill="#8f9087">CURRENT READ</text>
+    <text x="28" y="82" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Nursery chain holds</text>
+  </g>
+  <g transform="translate(84 706)">
+    <rect width="1432" height="122" rx="18" fill="#11120f" opacity="0.84" stroke="#a98f45" stroke-width="3"/>
+    <path d="M52 62 H820" stroke="#3b352d" stroke-width="18" stroke-linecap="round"/>
+    <path d="M52 62 H648" stroke="#a98f45" stroke-width="18" stroke-linecap="round"/>
+    <g fill="#f4efdc">
+      <circle cx="52" cy="62" r="12"/>
+      <circle cx="244" cy="62" r="12"/>
+      <circle cx="436" cy="62" r="12"/>
+      <circle cx="628" cy="62" r="12"/>
+      <circle cx="820" cy="62" r="12" opacity="0.35"/>
+    </g>
+    <text x="52" y="102" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Fill the final node before exposing ritual choice text.</text>
+    <g transform="translate(1098 62)">
+      <use href="#statusMotif" transform="scale(1.1)"/>
+      <text x="-92" y="56" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">correct lane</text>
+    </g>
+    <g transform="translate(1294 62)" opacity="0.62">
+      <path d="M0 -34 L24 0 L0 34 L-24 0 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+      <path d="M0 -18 L12 0 L0 18 L-12 0 Z" fill="none" stroke="#a98f45" stroke-width="3"/>
+      <text x="-70" y="56" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">bait lane</text>
+    </g>
+  </g>
+  <g opacity="0.28">
+    <g transform="translate(132 412)">
+      <use href="#statusMotif" transform="scale(1.2)"/>
+      <path d="M-128 54 C-70 8 70 8 128 54" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+    </g>
+    <g transform="translate(1468 422)">
+      <use href="#statusMotif" transform="scale(1.2)"/>
+      <path d="M-128 54 C-70 8 70 8 128 54" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+    </g>
+  </g>
+  <rect x="504" y="260" width="592" height="340" rx="28" fill="#000000" opacity="0.06" stroke="#f4efdc" stroke-width="1" stroke-dasharray="10 12"/>
+  <text x="558" y="444" font-family="Arial, sans-serif" font-size="28" fill="#f4efdc" opacity="0.45">Protected center view cone for first-person readability</text>
+</svg>

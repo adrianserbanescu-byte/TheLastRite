@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Archive Route Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Post-case shell surface for routing a resolved run into archive, notes, and follow-up without drifting into runtime proof</text>
+
+  <rect x="64" y="166" width="1470" height="100" rx="20" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">ARCHIVE ROUTE / CASE FILE CLOSED</text>
+  <text x="1126" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Calm post-case handoff after debrief</text>
+
+  <rect x="64" y="304" width="510" height="602" rx="22" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="98" y="360" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Archive Summary</text>
+  <rect x="98" y="396" width="442" height="178" rx="20" fill="#f2ebdc" stroke="#75837d" stroke-width="2"/>
+  <text x="132" y="454" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Apartment 302 logged</text>
+  <text x="132" y="496" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Corroborated nursery chain, false route rejected, seal held. Ready for casefile archive and review retrieval.</text>
+  <rect x="98" y="616" width="204" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="336" y="616" width="204" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="154" y="654" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">archive</text>
+  <text x="392" y="654" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">review</text>
+  <text x="98" y="754" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Keep the archive step administrative and low-noise.</text>
+
+  <rect x="610" y="304" width="420" height="602" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="644" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Routing Checks</text>
+  <rect x="644" y="396" width="352" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="644" y="490" width="352" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="644" y="584" width="352" height="76" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="672" y="442" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">case summary saved</text>
+  <text x="672" y="536" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">evidence route marked</text>
+  <text x="672" y="630" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">follow-up queue visible</text>
+  <rect x="810" y="718" width="186" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="852" y="753" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">stored</text>
+
+  <rect x="1066" y="304" width="468" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1100" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1100" y="424" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">This surface follows debrief and points the player into archive or review space.</text>
+  <text x="1100" y="466" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use one clear archive route and one quiet review option, not a cluster of post-run branches.</text>
+  <text x="1100" y="502" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Treat the shell like case administration, not a reward wall.</text>
+  <text x="1100" y="538" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This remains source-art guidance only, not proof of save flow or persistence logic.</text>
+  <rect x="1100" y="620" width="372" height="74" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1128" y="666" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">archive confirmation banner</text>
+  <rect x="1100" y="724" width="372" height="74" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1128" y="770" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">follow-up route strip</text>
+</svg>

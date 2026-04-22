@@ -67,16 +67,20 @@ FText AInspectableProp::GetPromptText() const
 
     if (bOpeningSweepTarget)
     {
-        return FText::Format(
-            NSLOCTEXT("TheLastRite", "InspectPromptOpeningSweep", "Press E - Inspect {0} (opening sweep target)"),
-            DisplayName);
+        const FText ContextPrompt = GameMode ? GameMode->GetInspectablePromptText(this) : FText::GetEmpty();
+        if (!ContextPrompt.IsEmpty())
+        {
+            return ContextPrompt;
+        }
     }
 
     if (!bOpeningSweepTarget && GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
     {
-        return FText::Format(
-            NSLOCTEXT("TheLastRite", "InspectPromptDeferred", "Press E - Inspect {0} (later; finish the opening sweep first)"),
-            DisplayName);
+        const FText ContextPrompt = GameMode->GetInspectablePromptText(this);
+        if (!ContextPrompt.IsEmpty())
+        {
+            return ContextPrompt;
+        }
     }
 
     return FText::Format(
@@ -87,27 +91,7 @@ FText AInspectableProp::GetPromptText() const
 int32 AInspectableProp::GetInteractionFocusPriority() const
 {
     const ATheLastRiteGameMode* GameMode = GetWorld() ? GetWorld()->GetAuthGameMode<ATheLastRiteGameMode>() : nullptr;
-    if (GameMode != nullptr && GameMode->IsCaseResolved())
-    {
-        return -15;
-    }
-
-    if (bInspected)
-    {
-        return (GameMode != nullptr && GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady) ? -30 : -5;
-    }
-
-    if (GameMode != nullptr && GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady)
-    {
-        return bTrueClue ? 5 : -20;
-    }
-
-    if (GameMode != nullptr && !GameMode->IsOpeningSweepComplete())
-    {
-        return bOpeningSweepTarget ? 80 : -10;
-    }
-
-    return bTrueClue ? 50 : 15;
+    return GameMode ? GameMode->GetInspectableFocusPriority(this) : 0;
 }
 
 void AInspectableProp::Interact(ATheLastRiteCharacter* InteractingCharacter)

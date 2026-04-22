@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#181713"/>
+  <text x="72" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Ash handprint decal language prep</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Material/decal prep reference: dry incomplete palms that support halo rhythm without becoming stamp-perfect.</text>
+  <rect x="72" y="184" width="640" height="620" rx="18" fill="#3c3a31" stroke="#8f9087" stroke-width="3"/>
+  <g fill="#e8e2d3" opacity="0.88" transform="translate(392 494)">
+    <ellipse cx="0" cy="78" rx="92" ry="126"/>
+    <ellipse cx="-142" cy="-84" rx="32" ry="104" transform="rotate(-24 -142 -84)"/>
+    <ellipse cx="-54" cy="-146" rx="32" ry="124" transform="rotate(-8 -54 -146)"/>
+    <ellipse cx="34" cy="-162" rx="32" ry="132" transform="rotate(4 34 -162)"/>
+    <ellipse cx="122" cy="-120" rx="30" ry="114" transform="rotate(18 122 -120)"/>
+    <ellipse cx="198" cy="-20" rx="28" ry="96" transform="rotate(34 198 -20)"/>
+  </g>
+  <g fill="#25241f" opacity="0.2">
+    <circle cx="330" cy="514" r="22"/><circle cx="422" cy="586" r="20"/><circle cx="520" cy="422" r="16"/><circle cx="560" cy="318" r="12"/>
+  </g>
+  <path d="M224 688 C316 736 454 744 574 690" fill="none" stroke="#f4efdc" stroke-width="7" opacity="0.48"/>
+  <text x="760" y="240" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Carry-forward notes</text>
+  <text x="760" y="286" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Keep palms incomplete and dusty, not wet, glossy, or gore-coded.</text>
+  <text x="760" y="326" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Finger lengths and palm gaps should feel human and slightly unstable.</text>
+  <text x="760" y="366" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Use repetition to imply halo rhythm, not copy-paste sameness.</text>
+  <text x="760" y="434" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Material risk</text>
+  <text x="760" y="480" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">A hard-edged or mirrored handprint set will flatten the room’s read and</text>
+  <text x="760" y="512" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">make the clue feel synthetic instead of uncanny.</text>
+  <rect x="72" y="830" width="1256" height="40" rx="10" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="100" y="857" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Runtime read target: pale powder evidence that quietly reinforces the nursery clue family.</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="26" y="26" width="1548" height="928" rx="24" fill="#181714" stroke="#958246" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Shared Shell Card + Status Components</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Carry-forward component sheet for GP-A1 shell surfaces</text>
+  <rect x="64" y="162" width="1472" height="744" rx="22" fill="#1c1a17" stroke="#63726c" stroke-width="2"/>
+  <text x="96" y="214" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Component Set</text>
+  <rect x="96" y="248" width="332" height="92" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="124" y="304" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">case title bar</text>
+  <rect x="460" y="248" width="306" height="170" rx="18" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="490" y="316" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">case card</text>
+  <text x="490" y="352" fill="#39342d" font-family="Arial, Helvetica, sans-serif" font-size="18">room, demon, and phase summary</text>
+  <rect x="798" y="248" width="220" height="72" rx="36" fill="#2a332f" stroke="#63726c" stroke-width="2"/>
+  <text x="855" y="294" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">ready</text>
+  <rect x="1054" y="248" width="220" height="72" rx="36" fill="#2a2722" stroke="#958246" stroke-width="2"/>
+  <text x="1110" y="294" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">brief</text>
+  <rect x="1310" y="248" width="180" height="72" rx="14" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <text x="1342" y="294" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">role chip</text>
+  <rect x="96" y="462" width="610" height="64" rx="12" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <rect x="106" y="472" width="312" height="44" rx="10" fill="#d2bc7b"/>
+  <text x="126" y="500" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">verdict / progress strip</text>
+  <rect x="740" y="452" width="334" height="86" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="770" y="505" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">outcome banner</text>
+  <rect x="1110" y="452" width="180" height="86" rx="43" fill="#2a2722" stroke="#958246" stroke-width="2"/>
+  <text x="1148" y="505" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">next</text>
+  <rect x="1310" y="452" width="180" height="86" rx="43" fill="#2a332f" stroke="#63726c" stroke-width="2"/>
+  <text x="1344" y="505" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">replay</text>
+  <text x="96" y="622" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">Use this sheet to keep the first shell source set visually consistent across title, board, briefing, and debrief surfaces.</text>
+  <text x="96" y="658" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">These are source-art components only. Later implementation still owns spacing, states, input behavior, animation, and final accessibility checks.</text>
+</svg>

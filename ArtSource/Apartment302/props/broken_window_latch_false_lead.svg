@@ -1,11 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#20231f"/>
-  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Broken window latch false lead</text>
-  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">False lead: forced entry mood, no halo, ash, or nursery ritual language.</text>
-  <rect x="290" y="190" width="620" height="420" rx="8" fill="#d9dccf" stroke="#8f9087" stroke-width="12"/>
-  <line x1="600" y1="190" x2="600" y2="610" stroke="#8f9087" stroke-width="10"/><line x1="290" y1="400" x2="910" y2="400" stroke="#8f9087" stroke-width="10"/>
-  <rect x="560" y="380" width="138" height="42" rx="8" fill="#3d4038" stroke="#a98f45" stroke-width="4"/>
-  <path d="M645 386 L728 350 L742 374 L664 414" fill="#6a6656" stroke="#25241f" stroke-width="4"/>
-  <g stroke="#f4efdc" stroke-width="4" opacity="0.58"><path d="M718 322 L790 266"/><path d="M734 350 L826 332"/><path d="M412 270 L496 324"/><path d="M394 526 L480 472"/></g>
-  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: tempting mundane explanation, not a ritual anchor.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="wall" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2a2d28"/>
+      <stop offset="1" stop-color="#171815"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dfe3d8"/>
+      <stop offset="1" stop-color="#b9c0b9"/>
+    </linearGradient>
+    <filter id="coldDraft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#wall)"/>
+  <text x="72" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Broken window latch false lead</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Refresh goal: make this read like believable break-in panic, not demon confirmation.</text>
+  <g transform="translate(280 182)">
+    <rect width="842" height="560" rx="14" fill="#d9dccf" stroke="#8f9087" stroke-width="12"/>
+    <rect x="42" y="38" width="758" height="484" rx="8" fill="url(#glass)" stroke="#f4efdc" stroke-width="4"/>
+    <line x1="421" y1="0" x2="421" y2="560" stroke="#8f9087" stroke-width="10"/>
+    <line x1="0" y1="280" x2="842" y2="280" stroke="#8f9087" stroke-width="10"/>
+    <g opacity="0.52" stroke="#f4efdc" stroke-width="5" stroke-linecap="round">
+      <path d="M545 198 L644 128"/>
+      <path d="M580 244 L712 220"/>
+      <path d="M446 206 L522 112"/>
+      <path d="M332 470 L434 398"/>
+      <path d="M194 238 L300 304"/>
+    </g>
+    <g transform="translate(454 268)">
+      <rect x="0" y="0" width="164" height="46" rx="10" fill="#41443c" stroke="#a98f45" stroke-width="4"/>
+      <path d="M82 6 L180 -34 L198 2 L98 42" fill="#746d5e" stroke="#25241f" stroke-width="4"/>
+      <path d="M162 -18 L206 -34" stroke="#25241f" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g opacity="0.18" filter="url(#coldDraft)">
+      <path d="M738 162 C864 132 926 210 958 274 C880 256 808 264 738 310 Z" fill="#d8e3e6"/>
+    </g>
+    <g opacity="0.34" fill="#71817d">
+      <circle cx="126" cy="94" r="18"/>
+      <circle cx="744" cy="446" r="14"/>
+      <circle cx="586" cy="84" r="10"/>
+    </g>
+  </g>
+  <g transform="translate(1088 304)">
+    <text x="0" y="0" font-family="Georgia, serif" font-size="26" fill="#f4efdc">Read as plausible human trouble</text>
+    <text x="0" y="42" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">cold draft, glass stress, damaged hardware</text>
+    <text x="0" y="78" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">angled break lines instead of crown or halo rhythm</text>
+    <text x="0" y="114" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">keep it urgent, but visually mundane</text>
+  </g>
+  <rect x="72" y="774" width="1256" height="78" rx="12" fill="#12110f" stroke="#8f9087" stroke-width="3"/>
+  <text x="104" y="822" font-family="Arial, sans-serif" font-size="28" fill="#f4efdc">Intended usage: place where the player can misread “forced entry” for a moment, then discard it once the nursery clue family repeats elsewhere.</text>
 </svg>

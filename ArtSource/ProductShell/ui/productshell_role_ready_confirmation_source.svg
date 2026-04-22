@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Role Confirmation + Ready State Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Session-lock shell surface for role acknowledgement, team alignment, and calm ready-state messaging</text>
+
+  <rect x="64" y="166" width="1470" height="104" rx="20" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">ROLE CONFIRMATION / CASE READY</text>
+  <text x="1138" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Four-player shell readability pass</text>
+
+  <rect x="64" y="304" width="980" height="596" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="100" y="356" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Role Grid</text>
+
+  <rect x="100" y="394" width="908" height="96" rx="18" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="100" y="510" width="908" height="96" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="100" y="626" width="908" height="96" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="100" y="742" width="908" height="96" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+
+  <text x="132" y="452" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">reader</text>
+  <text x="132" y="568" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">anchor</text>
+  <text x="132" y="684" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">censer</text>
+  <text x="132" y="800" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">guard</text>
+
+  <rect x="330" y="418" width="172" height="48" rx="24" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="330" y="534" width="172" height="48" rx="24" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="330" y="650" width="172" height="48" rx="24" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="330" y="766" width="172" height="48" rx="24" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="382" y="449" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">locked</text>
+  <text x="382" y="565" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">locked</text>
+  <text x="386" y="681" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">review</text>
+  <text x="382" y="797" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">locked</text>
+
+  <text x="548" y="452" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="20">Script lead, room callouts, final verse read.</text>
+  <text x="548" y="568" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="20">Threshold stability, safe entry, exit discipline.</text>
+  <text x="548" y="684" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="20">Smoke timing, sweep spacing, contamination watch.</text>
+  <text x="548" y="800" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="20">Door control, fallback coverage, interruption read.</text>
+
+  <rect x="782" y="420" width="194" height="44" rx="22" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <rect x="782" y="536" width="194" height="44" rx="22" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <rect x="782" y="652" width="194" height="44" rx="22" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <rect x="782" y="768" width="194" height="44" rx="22" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="826" y="448" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">tool synced</text>
+  <text x="826" y="564" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">tool synced</text>
+  <text x="820" y="680" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">review kit</text>
+  <text x="826" y="796" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">tool synced</text>
+
+  <rect x="1080" y="304" width="454" height="596" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1114" y="356" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Ready Read</text>
+  <rect x="1114" y="394" width="386" height="188" rx="20" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="1148" y="458" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">3 of 4 roles locked</text>
+  <text x="1148" y="500" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">One unresolved role keeps the surface calm and procedural rather than punitive.</text>
+  <rect x="1114" y="626" width="176" height="58" rx="29" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="1318" y="626" width="182" height="58" rx="29" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="1160" y="662" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">review role</text>
+  <text x="1368" y="662" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">ready team</text>
+  <text x="1114" y="748" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Keep confirmation language stronger than flourish.</text>
+  <text x="1114" y="784" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This is source art for role-readability only, not final state sequencing.</text>
+ </svg>

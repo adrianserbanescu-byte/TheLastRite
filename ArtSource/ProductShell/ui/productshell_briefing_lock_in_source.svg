@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Briefing Lock-In Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Session-start shell surface for final briefing alignment and calm team lock-in before launch</text>
+
+  <rect x="64" y="166" width="1470" height="100" rx="20" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">FINAL BRIEF / LOCK IN</text>
+  <text x="1140" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Apartment 302 shell wrapper between role-ready and launch</text>
+
+  <rect x="64" y="304" width="458" height="602" rx="22" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="98" y="360" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Sequence Read</text>
+  <text x="98" y="414" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="21">1. Verify room-side evidence route.</text>
+  <text x="98" y="456" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="21">2. Confirm false-ritual rejection.</text>
+  <text x="98" y="498" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="21">3. Assign final anchor and fallback.</text>
+  <text x="98" y="540" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="21">4. Lock the team into the same read.</text>
+  <rect x="98" y="602" width="390" height="136" rx="18" fill="#f2ebdc" stroke="#75837d" stroke-width="2"/>
+  <text x="126" y="660" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Lock-in note</text>
+  <text x="126" y="698" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep the paper surface calm and procedural. The shell should confirm alignment, not replace the case argument.</text>
+
+  <rect x="556" y="304" width="462" height="602" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="590" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Role Lock Summary</text>
+  <rect x="590" y="396" width="394" height="82" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="590" y="494" width="394" height="82" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="590" y="592" width="394" height="82" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="618" y="446" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">reader // final verse confirmed</text>
+  <text x="618" y="544" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">anchor // locus call approved</text>
+  <text x="618" y="642" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">guard // fallback route visible</text>
+  <rect x="756" y="720" width="228" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="818" y="758" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">locked in</text>
+
+  <rect x="1052" y="304" width="482" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1086" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1086" y="424" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">This surface sits after briefing and before launch.</text>
+  <text x="1086" y="466" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use one clear lock-in state and one unresolved warning, not a wall of toggles.</text>
+  <text x="1086" y="502" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep the shell report-like and readable at stream distance.</text>
+  <text x="1086" y="538" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This remains source-art guidance only, not session-flow proof.</text>
+  <rect x="1086" y="620" width="190" height="58" rx="29" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="1304" y="620" width="196" height="58" rx="29" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="1132" y="656" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">review brief</text>
+  <text x="1354" y="656" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">launch next</text>
+</svg>

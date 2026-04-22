@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <rect width="1800" height="1100" fill="#12120f"/>
+  <text x="72" y="84" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Apartment 302 UI variant selection board</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A7 carry-forward sheet: choose lighter or darker clue-note and ritual-status variants by scene value and readability risk.</text>
+  <rect x="72" y="184" width="812" height="404" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="916" y="184" width="812" height="404" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <rect x="72" y="624" width="812" height="404" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="916" y="624" width="812" height="404" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="108" y="238" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Clue-note light variant</text>
+  <text x="108" y="278" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use in darker rooms, muddy backgrounds, or when text needs maximum paper lift.</text>
+  <text x="108" y="316" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">File: `ui/hollow_saint_clue_note_overlay_light_variant.svg`</text>
+  <text x="108" y="354" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Main risk avoided: text sinking into dark or noisy scenes.</text>
+  <text x="952" y="238" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Clue-note dark variant</text>
+  <text x="952" y="278" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use in brighter rooms or when the lighter panel would overtake scene balance.</text>
+  <text x="952" y="316" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">File: `ui/hollow_saint_clue_note_overlay_dark_variant.svg`</text>
+  <text x="952" y="354" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Main risk avoided: panel washout and overexposed paper values.</text>
+  <text x="108" y="678" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Ritual-status light variant</text>
+  <text x="108" y="718" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use in darker rooms where heavy HUD bands would close down the scene.</text>
+  <text x="108" y="756" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">File: `ui/hollow_saint_ritual_status_overlay_light_variant.svg`</text>
+  <text x="108" y="794" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Main risk avoided: center-view loss from over-dense vignette treatment.</text>
+  <text x="952" y="678" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Ritual-status dark variant</text>
+  <text x="952" y="718" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use in brighter rooms or bright FX conditions where status bands need firmer contrast.</text>
+  <text x="952" y="756" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">File: `ui/hollow_saint_ritual_status_overlay_dark_variant.svg`</text>
+  <text x="952" y="794" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Main risk avoided: HUD copy washing out against pale scene values.</text>
+  <rect x="72" y="1050" width="1656" height="28" rx="8" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="104" y="1070" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">Carry-forward rule: choose the lightest variant that preserves readability without stealing hierarchy from the scene.</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#151613"/>
+  <rect x="60" y="60" width="1280" height="780" rx="24" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="96" y="118" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Export spec: mirror circle wrong ritual</text>
+  <text x="96" y="158" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">PNG-ready reference card for later mirror-lane spectacle export.</text>
+  <rect x="96" y="206" width="664" height="538" rx="18" fill="#222521" stroke="#8f9087" stroke-width="3"/>
+  <circle cx="428" cy="472" r="220" fill="none" stroke="#8f9087" stroke-width="5" stroke-dasharray="8 14"/>
+  <circle cx="428" cy="472" r="176" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="12 10"/>
+  <rect x="326" y="290" width="204" height="364" rx="24" fill="#343935" stroke="#a98f45" stroke-width="8"/>
+  <rect x="356" y="326" width="144" height="294" rx="18" fill="#6d847f" opacity="0.7"/>
+  <path d="M428 228 L456 270 L428 312 L400 270 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <path d="M200 472 L242 444 L284 472 L242 500 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <path d="M656 472 L614 444 L572 472 L614 500 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <text x="796" y="248" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Export name</text>
+  <text x="796" y="286" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">apt302_mirror_circle_wrong_ritual_2048.png</text>
+  <text x="796" y="352" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Suggested size</text>
+  <text x="796" y="390" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">2048 x 2048 transparent or dark-field source</text>
+  <text x="796" y="456" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Opacity guidance</text>
+  <text x="796" y="494" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Keep runtime opacity around 0.58-0.76 so it attracts attention without</text>
+  <text x="796" y="526" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">looking more validated than the nursery lane.</text>
+  <text x="796" y="592" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Usage note</text>
+  <text x="796" y="630" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Stage near the mirror lane only. Preserve colder glass-green and pointed shards.</text>
+  <text x="796" y="668" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Do not add ash handprints or child-facing echoes.</text>
+  <rect x="96" y="770" width="1244" height="44" rx="10" fill="#0f100d" stroke="#8f9087" stroke-width="2"/>
+  <text x="124" y="799" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Carry-forward rule: it may be louder than other props, but it must still lose the corroboration test.</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2a2d2c"/>
+      <stop offset="1" stop-color="#151716"/>
+    </linearGradient>
+    <g id="veilArc" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-132 18 C-88 -54 -38 -90 0 -100 C38 -90 88 -54 132 18" stroke="#d7ddd8" stroke-width="8"/>
+      <path d="M-104 34 C-82 92 -56 140 -18 182" stroke="#8ea19b" stroke-width="7"/>
+      <path d="M104 34 C82 92 56 140 18 182" stroke="#8ea19b" stroke-width="7"/>
+      <path d="M-26 42 C-12 76 -6 116 0 176 C6 116 12 76 26 42" stroke="#c8d0cb" stroke-width="6"/>
+    </g>
+    <g id="tearCurtain" fill="#d7ddd8" opacity="0.84">
+      <path d="M0 0 C10 -22 22 -20 28 0 C28 16 18 32 14 42 C10 32 0 16 0 0 Z"/>
+      <path d="M42 10 C50 -8 60 -6 66 10 C66 22 58 38 54 46 C48 38 42 22 42 10 Z" opacity="0.72"/>
+      <path d="M84 0 C94 -22 106 -20 112 0 C112 16 102 32 98 42 C92 32 84 16 84 0 Z" opacity="0.58"/>
+    </g>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <text x="68" y="86" font-family="Georgia, serif" font-size="42" fill="#eef0e9">Weeping Matron variance family sheet</text>
+  <text x="68" y="126" font-family="Arial, sans-serif" font-size="24" fill="#bfc7c3">Separation family for mourning domesticity: damp drapery, tear curtains, basin-and-linen caregiving, and soft caregiver symmetry.</text>
+
+  <rect x="68" y="174" width="536" height="650" rx="18" fill="#111413" stroke="#8ea19b" stroke-width="3"/>
+  <rect x="632" y="174" width="700" height="650" rx="18" fill="#111413" stroke="#7b8883" stroke-width="3"/>
+
+  <text x="102" y="228" font-family="Georgia, serif" font-size="30" fill="#eef0e9">Core motif cluster</text>
+  <g transform="translate(334 470)">
+    <use href="#veilArc"/>
+    <rect x="-124" y="118" width="248" height="58" rx="12" fill="#3b3f3d" stroke="#d7ddd8" stroke-width="4"/>
+    <path d="M-108 118 C-68 84 -28 64 0 60 C28 64 68 84 108 118" fill="none" stroke="#8ea19b" stroke-width="7"/>
+    <use href="#tearCurtain" transform="translate(-52 -16) scale(0.92)"/>
+    <use href="#tearCurtain" transform="translate(-18 88) scale(0.74)" opacity="0.66"/>
+    <ellipse cx="0" cy="208" rx="148" ry="42" fill="none" stroke="#8ea19b" stroke-width="6" stroke-dasharray="16 14"/>
+    <ellipse cx="0" cy="208" rx="98" ry="24" fill="none" stroke="#d7ddd8" stroke-width="4"/>
+  </g>
+  <text x="102" y="742" font-family="Arial, sans-serif" font-size="24" fill="#cfd7d2">Read as grief-soaked care and damp vigil, not clean halo corroboration.</text>
+
+  <text x="668" y="228" font-family="Georgia, serif" font-size="30" fill="#eef0e9">Carry-forward anchors</text>
+  <rect x="668" y="266" width="628" height="126" rx="14" fill="#171a19" stroke="#8ea19b" stroke-width="3"/>
+  <text x="696" y="310" font-family="Arial, sans-serif" font-size="22" fill="#eef0e9">Placement: nursery curtain edge, wash basin, damp linen, watch-chair silhouette.</text>
+  <text x="696" y="346" font-family="Arial, sans-serif" font-size="22" fill="#cfd7d2">Shape rule: hanging tears, veil arcs, sagging fabric folds, caregiver framing.</text>
+
+  <rect x="668" y="420" width="628" height="126" rx="14" fill="#171a19" stroke="#7b8883" stroke-width="3"/>
+  <text x="696" y="464" font-family="Arial, sans-serif" font-size="22" fill="#eef0e9">Palette: veil white `#d7ddd8`, washed cloth blue-green `#8ea19b`, cold damp gray `#7b8883`.</text>
+  <text x="696" y="500" font-family="Arial, sans-serif" font-size="22" fill="#cfd7d2">Texture rule: damp streaking, cloth softness, no brittle chalk-circle certainty.</text>
+
+  <rect x="668" y="574" width="628" height="206" rx="14" fill="#171a19" stroke="#7b8883" stroke-width="3"/>
+  <text x="696" y="618" font-family="Arial, sans-serif" font-size="22" fill="#eef0e9">Separation rule:</text>
+  <text x="696" y="654" font-family="Arial, sans-serif" font-size="22" fill="#cfd7d2">Keep Weeping Matron damp, draped, and caregiving. Do not flatten it into Hollow Saint crown circles.</text>
+  <text x="696" y="690" font-family="Arial, sans-serif" font-size="22" fill="#cfd7d2">Do not drift toward The Appetite feeding stains, ring stacks, or gnaw-like repetition.</text>
+  <text x="696" y="740" font-family="Arial, sans-serif" font-size="22" fill="#eef0e9">Bounded use: source-art family sheet only. Not a final in-room asset pack or runtime rule proof.</text>
+</svg>

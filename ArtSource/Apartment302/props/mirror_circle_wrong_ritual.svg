@@ -1,12 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#20211e"/>
-  <text x="72" y="78" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Mirror circle wrong ritual spot</text>
-  <text x="72" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">Wrong anchor: dramatic and occult-looking, but disconnected from nursery evidence.</text>
-  <rect x="450" y="178" width="300" height="440" rx="24" fill="#393d3d" stroke="#a98f45" stroke-width="9"/>
-  <rect x="488" y="218" width="224" height="360" rx="18" fill="#74807d" opacity="0.56"/>
-  <path d="M522 290 C612 240 648 386 700 320" fill="none" stroke="#f4efdc" stroke-width="5" opacity="0.45"/>
-  <circle cx="600" cy="420" r="262" fill="none" stroke="#e8e2d3" stroke-width="5" stroke-dasharray="10 14"/>
-  <circle cx="600" cy="420" r="324" fill="none" stroke="#a98f45" stroke-width="4" opacity="0.58"/>
-  <g stroke="#e8e2d3" stroke-width="5" opacity="0.72"><path d="M600 96 L632 156 L568 156 Z" fill="none"/><path d="M600 744 L632 684 L568 684 Z" fill="none"/><path d="M276 420 L336 388 L336 452 Z" fill="none"/><path d="M924 420 L864 388 L864 452 Z" fill="none"/></g>
-  <text x="72" y="720" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Player read: it wants attention, but lacks ash handprints, cradle shape, and hymn clue.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="wall" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#252823"/>
+      <stop offset="1" stop-color="#11120f"/>
+    </linearGradient>
+    <linearGradient id="mirrorGlass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6f857f"/>
+      <stop offset="0.5" stop-color="#43504d"/>
+      <stop offset="1" stop-color="#222a29"/>
+    </linearGradient>
+    <filter id="coldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <g id="diamondShard" fill="none" stroke-linejoin="round">
+      <path d="M0 -34 L26 0 L0 34 L-26 0 Z" stroke="#e8e2d3" stroke-width="5"/>
+      <path d="M0 -18 L14 0 L0 18 L-14 0 Z" stroke="#a98f45" stroke-width="3" opacity="0.8"/>
+    </g>
+  </defs>
+  <rect width="1400" height="900" fill="url(#wall)"/>
+  <rect x="0" y="628" width="1400" height="272" fill="#151613"/>
+  <text x="72" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Mirror circle, wrong ritual anchor</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Refresh goal: keep it tempting and ornate, but visually off-chain from the nursery evidence family.</text>
+  <g transform="translate(700 438)">
+    <circle cx="0" cy="0" r="334" fill="none" stroke="#8f9087" stroke-width="5" stroke-dasharray="6 14"/>
+    <circle cx="0" cy="0" r="286" fill="none" stroke="#a98f45" stroke-width="5" opacity="0.75"/>
+    <circle cx="0" cy="0" r="228" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="12 10"/>
+    <use href="#diamondShard" transform="translate(0 -336)"/>
+    <use href="#diamondShard" transform="translate(0 336)"/>
+    <use href="#diamondShard" transform="translate(-336 0)"/>
+    <use href="#diamondShard" transform="translate(336 0)"/>
+    <use href="#diamondShard" transform="translate(-238 -238) rotate(-45) scale(0.84)"/>
+    <use href="#diamondShard" transform="translate(238 -238) rotate(45) scale(0.84)"/>
+    <use href="#diamondShard" transform="translate(-238 238) rotate(45) scale(0.84)"/>
+    <use href="#diamondShard" transform="translate(238 238) rotate(-45) scale(0.84)"/>
+    <path d="M-192 -108 C-104 -206 104 -206 192 -108" fill="none" stroke="#a98f45" stroke-width="6" opacity="0.72"/>
+    <path d="M-202 108 C-104 184 104 184 202 108" fill="none" stroke="#e8e2d3" stroke-width="5" opacity="0.6"/>
+    <rect x="-172" y="-256" width="344" height="512" rx="28" fill="#313531" stroke="#a98f45" stroke-width="10"/>
+    <rect x="-132" y="-210" width="264" height="420" rx="22" fill="url(#mirrorGlass)" stroke="#8f9087" stroke-width="4"/>
+    <path d="M-86 -80 C-32 -148 44 -152 96 -102" fill="none" stroke="#f4efdc" stroke-width="6" opacity="0.45"/>
+    <path d="M-32 48 C24 -6 88 2 132 58" fill="none" stroke="#f4efdc" stroke-width="5" opacity="0.32"/>
+    <path d="M-58 -146 L18 -40 L94 -150" fill="none" stroke="#c9d7d2" stroke-width="4" opacity="0.3"/>
+    <path d="M-26 206 L28 110 L92 200" fill="none" stroke="#c9d7d2" stroke-width="4" opacity="0.28"/>
+  </g>
+  <g opacity="0.28" filter="url(#coldGlow)">
+    <circle cx="700" cy="438" r="352" fill="#7c918d"/>
+  </g>
+  <g transform="translate(1064 314)">
+    <text x="0" y="0" font-family="Georgia, serif" font-size="26" fill="#f4efdc">Read as seductive but wrong</text>
+    <text x="0" y="42" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">pointed diamonds and reflection shards</text>
+    <text x="0" y="78" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">colder glass-green instead of ash-white chalk</text>
+    <text x="0" y="114" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">perfect symmetry with no nursery cradle language</text>
+  </g>
+  <rect x="72" y="772" width="1256" height="78" rx="12" fill="#12110f" stroke="#8f9087" stroke-width="3"/>
+  <text x="104" y="820" font-family="Arial, sans-serif" font-size="28" fill="#f4efdc">Intended usage: stage this as the loudest occult object in the mirror lane, then let the clue family prove it is a bait ritual.</text>
 </svg>

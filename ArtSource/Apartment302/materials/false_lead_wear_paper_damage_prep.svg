@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#161411"/>
+  <text x="72" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">False-lead wear and paper damage prep</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Material/decal prep reference: mundane wear for debt paper, latch stress, and neglected domestic surfaces.</text>
+  <rect x="72" y="184" width="640" height="620" rx="18" fill="#25241f" stroke="#8f9087" stroke-width="3"/>
+  <rect x="188" y="246" width="200" height="320" rx="10" fill="#efe7c8" stroke="#f4efdc" stroke-width="4" transform="rotate(-8 288 406)"/>
+  <rect x="344" y="268" width="206" height="326" rx="10" fill="#f6f0dc" stroke="#8f9087" stroke-width="4" transform="rotate(8 447 431)"/>
+  <path d="M222 336 L346 320 M230 394 L354 378 M356 434 L480 450 M364 490 L488 506" stroke="#25241f" stroke-width="6" opacity="0.55"/>
+  <path d="M512 188 L600 132 M548 240 L660 220" stroke="#f4efdc" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
+  <rect x="460" y="356" width="104" height="40" rx="10" fill="#3c3a31" opacity="0.82"/>
+  <text x="486" y="384" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">LATE</text>
+  <g fill="#8f9087" opacity="0.28">
+    <circle cx="196" cy="650" r="16"/><circle cx="284" cy="690" r="12"/><circle cx="514" cy="650" r="14"/>
+  </g>
+  <text x="760" y="240" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Carry-forward notes</text>
+  <text x="760" y="286" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Use creases, overdue stamps, hardware stress, and scuffed edges.</text>
+  <text x="760" y="326" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Keep wear loose and asymmetrical so it reads like lived-in neglect.</text>
+  <text x="760" y="366" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Do not let paper damage align into ritual rings or crown rhythm.</text>
+  <text x="760" y="434" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Material risk</text>
+  <text x="760" y="480" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">If repeated too neatly, false-lead wear starts reading intentional and</text>
+  <text x="760" y="512" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">can accidentally support the demon lane instead of human trouble.</text>
+  <rect x="72" y="830" width="1256" height="40" rx="10" fill="#0f100d" stroke="#8f9087" stroke-width="2"/>
+  <text x="100" y="857" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Runtime read target: plausible neglect and stress that never becomes corroborated ritual evidence.</text>
+</svg>

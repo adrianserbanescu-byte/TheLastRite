@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <rect width="1800" height="1200" fill="#12110e"/>
+  <rect x="28" y="28" width="1744" height="1144" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="66" y="92" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700">GP-A2 Shell UI Source Set Overview</text>
+  <text x="66" y="126" fill="#b7b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Expansion layer for board cards, report surfaces, and transition states on top of the accepted GP-A1 baseline</text>
+
+  <rect x="66" y="174" width="520" height="366" rx="20" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Board Cards</text>
+  <text x="100" y="268" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="20">`ui/productshell_board_card_set_source.svg`</text>
+  <text x="100" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Case cards and role cards for shell board usage.</text>
+
+  <rect x="640" y="174" width="520" height="366" rx="20" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="674" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Report Surface</text>
+  <text x="674" y="268" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="20">`ui/productshell_report_surface_source.svg`</text>
+  <text x="674" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Incident-report style summary surface for post-run review.</text>
+
+  <rect x="1214" y="174" width="520" height="366" rx="20" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1248" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Transition States</text>
+  <text x="1248" y="268" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="20">`ui/productshell_transition_state_set_source.svg`</text>
+  <text x="1248" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Loading, locked-in, failure, and retry shell treatments.</text>
+
+  <rect x="66" y="594" width="1668" height="518" rx="20" fill="#1c1a17" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="646" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Shared Support</text>
+  <text x="100" y="692" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">`ArtSource/SharedUI/sharedui_shell_report_transition_components.svg`</text>
+  <text x="100" y="732" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Adds report strips, state banners, progress bars, and retry/replay control treatments for the second-pass shell UI package.</text>
+  <text x="100" y="792" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">Boundary</text>
+  <text x="100" y="830" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This remains source-art-only shell UI work. It does not prove final runtime spacing, transitions, widget behavior, or accessibility tuning.</text>
+  <text x="100" y="890" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">Regression to avoid</text>
+  <text x="100" y="928" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not let shell status and report surfaces become more ornate or more dramatic than the case they are supposed to frame.</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="980" fill="#0D1111"/>
+  <rect x="28" y="28" width="1544" height="924" rx="24" fill="#141B1B" stroke="#8A7A52" stroke-width="2"/>
+  <rect x="56" y="56" width="1488" height="110" rx="16" fill="#192121" stroke="#8A7A52" stroke-width="2"/>
+  <text x="86" y="96" fill="#C9C2AE" font-family="Arial" font-size="22" letter-spacing="5">POST-CASE DEBRIEF SOURCE</text>
+  <text x="86" y="138" fill="#F2E7BF" font-family="Arial" font-size="38" font-weight="700" letter-spacing="2">CASE DEBRIEF // INCIDENT FILE REVIEW</text>
+  <text x="1264" y="96" fill="#9FA89A" font-family="Arial" font-size="18" letter-spacing="3">CLERICAL FIRST</text>
+  <rect x="84" y="198" width="448" height="672" rx="22" fill="#171F1F" stroke="#8A7A52" stroke-width="2"/>
+  <rect x="560" y="198" width="448" height="672" rx="22" fill="#171F1F" stroke="#6D7E70" stroke-width="2"/>
+  <rect x="1036" y="198" width="480" height="672" rx="22" fill="#171F1F" stroke="#6D7E70" stroke-width="2"/>
+  <text x="116" y="246" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">EVIDENCE LEDGER</text>
+  <rect x="116" y="286" width="384" height="124" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="144" y="328" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ITEM 01</text>
+  <text x="144" y="370" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Nursery seal fragment</text>
+  <rect x="116" y="434" width="384" height="124" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="144" y="476" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ITEM 02</text>
+  <text x="144" y="518" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Mirror trace log</text>
+  <rect x="116" y="582" width="384" height="240" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="144" y="624" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">LEDGER NOTES</text>
+  <text x="144" y="668" fill="#D5DCCF" font-family="Arial" font-size="26">Evidence reads as archived paperwork,</text>
+  <text x="144" y="706" fill="#D5DCCF" font-family="Arial" font-size="26">not a reward surface or spectacle board.</text>
+  <text x="592" y="246" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">OPERATOR NOTES</text>
+  <rect x="592" y="286" width="384" height="156" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="620" y="330" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">PRIMARY NOTE</text>
+  <text x="620" y="376" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Containment language should stay dry.</text>
+  <rect x="592" y="466" width="384" height="156" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="620" y="510" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">SECONDARY NOTE</text>
+  <text x="620" y="556" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Replay is review, not celebration.</text>
+  <rect x="592" y="646" width="384" height="176" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="620" y="690" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">TEAM ACTION</text>
+  <text x="620" y="736" fill="#D5DCCF" font-family="Arial" font-size="26">Choose replay or requeue only after debrief is legible.</text>
+  <text x="1068" y="246" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">BOUNDARY NOTES</text>
+  <rect x="1068" y="286" width="416" height="164" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="1096" y="330" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">DO</text>
+  <text x="1096" y="374" fill="#D5DCCF" font-family="Arial" font-size="28">Use report spacing, ledger hierarchy, and quiet summary bars.</text>
+  <rect x="1068" y="474" width="416" height="164" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="1096" y="518" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">DO NOT</text>
+  <text x="1096" y="562" fill="#D5DCCF" font-family="Arial" font-size="28">Imply runtime archive proof, final text density, or final widget sizing.</text>
+  <rect x="1068" y="662" width="416" height="160" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="1096" y="706" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">NEXT VIEW</text>
+  <text x="1096" y="750" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Replay or requeue board</text>
+</svg>

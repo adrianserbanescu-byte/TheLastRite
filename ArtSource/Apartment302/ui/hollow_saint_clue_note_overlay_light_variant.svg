@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="paper" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7f1dd"/>
+      <stop offset="1" stop-color="#e7d8ad"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#1b1a17"/>
+  <text x="72" y="76" font-family="Georgia, serif" font-size="46" fill="#f4efdc">Clue-note overlay light variant</text>
+  <text x="72" y="118" font-family="Arial, sans-serif" font-size="23" fill="#c9c0a3">Export-safe UI support for darker rooms where the text field needs a brighter paper read.</text>
+  <g transform="translate(152 176)">
+    <rect width="1296" height="612" rx="24" fill="#11120f" opacity="0.76" stroke="#a98f45" stroke-width="3"/>
+    <rect x="56" y="54" width="1184" height="504" rx="18" fill="url(#paper)" opacity="0.98"/>
+    <rect x="94" y="102" width="1108" height="390" rx="16" fill="#fffdf7" opacity="0.98" stroke="#d8c78d" stroke-width="2"/>
+    <rect x="126" y="148" width="1044" height="302" rx="16" fill="#ffffff" opacity="0.98"/>
+    <path d="M124 202 H1172 M124 254 H1172 M124 306 H1172 M124 358 H1172 M124 410 H1172" stroke="#e7dcc0" stroke-width="2"/>
+    <rect x="110" y="112" width="304" height="46" rx="10" fill="#11120f" opacity="0.92"/>
+    <text x="136" y="143" font-family="Arial, sans-serif" font-size="25" fill="#a98f45">LIGHT TEXT-SAFE FIELD</text>
+    <path d="M192 548 C302 506 436 500 554 534 C644 560 724 562 808 540" fill="none" stroke="#a98f45" stroke-width="6" opacity="0.7"/>
+    <path d="M940 548 C988 498 1032 474 1070 466 C1108 474 1152 498 1200 548" fill="none" stroke="#e8e2d3" stroke-width="5" opacity="0.46"/>
+  </g>
+  <rect x="152" y="820" width="1296" height="44" rx="10" fill="#11120f" opacity="0.78" stroke="#a98f45" stroke-width="2"/>
+  <text x="180" y="849" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Use when scene values run dark or muddy and the clue text needs the brightest possible paper support.</text>
+</svg>

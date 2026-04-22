@@ -1,50 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#20211e"/>
-  <text x="64" y="76" font-family="Georgia, serif" font-size="46" fill="#f4efdc">Hollow Saint clue language board</text>
-  <text x="64" y="120" font-family="Arial, sans-serif" font-size="23" fill="#c9c0a3">Use this to keep the mystery readable: true clues rhyme visually, false leads feel plausible but isolated.</text>
-  <rect x="70" y="175" width="700" height="690" rx="8" fill="#11120f" opacity="0.72" stroke="#a98f45" stroke-width="4"/>
-  <rect x="830" y="175" width="700" height="690" rx="8" fill="#11120f" opacity="0.72" stroke="#8f9087" stroke-width="4"/>
-  <text x="110" y="235" font-family="Georgia, serif" font-size="42" fill="#f4efdc">True Hollow Saint signals</text>
-  <text x="870" y="235" font-family="Georgia, serif" font-size="42" fill="#f4efdc">False lead signals</text>
-  <g transform="translate(230 390)">
-    <circle cx="0" cy="0" r="96" fill="none" stroke="#e8e2d3" stroke-width="10" stroke-dasharray="28 18"/>
-    <circle cx="0" cy="0" r="48" fill="none" stroke="#a98f45" stroke-width="6"/>
-    <text x="-92" y="154" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">pale circle</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1f201d"/>
+      <stop offset="1" stop-color="#12120f"/>
+    </linearGradient>
+    <g id="trueMotif">
+      <path d="M-46 26 C-28 -12 -10 -26 0 -30 C10 -26 28 -12 46 26" fill="none" stroke="#e8e2d3" stroke-width="7" stroke-linecap="round"/>
+      <path d="M-30 18 L-16 -12 L0 12 L16 -12 L30 18" fill="none" stroke="#a98f45" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="0" cy="20" r="14" fill="none" stroke="#a98f45" stroke-width="5"/>
+      <path d="M-18 56 C-8 32 -2 24 2 14 C8 24 16 32 22 56" fill="#8f9087" opacity="0.76"/>
+    </g>
+    <g id="falseMotif">
+      <path d="M0 -48 L30 0 L0 48 L-30 0 Z" fill="none" stroke="#e8e2d3" stroke-width="6"/>
+      <path d="M0 -24 L14 0 L0 24 L-14 0 Z" fill="none" stroke="#a98f45" stroke-width="4"/>
+    </g>
+  </defs>
+  <rect width="1800" height="1100" fill="url(#bg)"/>
+  <text x="70" y="82" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Hollow Saint clue language board</text>
+  <text x="70" y="126" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A1 comparison sheet: the nursery lane should form a readable family; the mirror lane should be ornate, tempting, and provably off-family.</text>
+  <rect x="70" y="176" width="790" height="844" rx="12" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="940" y="176" width="790" height="844" rx="12" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="108" y="236" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Corroborated Hollow Saint lane</text>
+  <text x="978" y="236" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Seductive bait lane</text>
+  <text x="108" y="276" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">shared family: halo arc, broken crown, dry ash, restrained gold, child-facing placement</text>
+  <text x="978" y="276" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">contrast family: pointed diamonds, colder glass, louder polish, no nursery corroboration</text>
+  <g transform="translate(248 390)">
+    <circle cx="0" cy="0" r="112" fill="none" stroke="#e8e2d3" stroke-width="10" stroke-dasharray="28 18"/>
+    <use href="#trueMotif" transform="translate(0 -14) scale(1.4)"/>
+    <text x="-122" y="166" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">motif family</text>
   </g>
-  <g transform="translate(475 390)" fill="#e8e2d3" opacity="0.9">
-    <ellipse cx="0" cy="30" rx="48" ry="66"/><ellipse cx="-76" cy="-52" rx="18" ry="58" transform="rotate(-24 -76 -52)"/><ellipse cx="-28" cy="-82" rx="18" ry="66"/><ellipse cx="26" cy="-84" rx="18" ry="68"/><ellipse cx="76" cy="-52" rx="18" ry="58" transform="rotate(24 76 -52)"/>
-    <text x="-105" y="154" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">ash handprint</text>
+  <g transform="translate(510 394)">
+    <path d="M-142 42 C-80 -34 -24 -70 0 -82 C24 -70 80 -34 142 42" fill="none" stroke="#e8e2d3" stroke-width="8"/>
+    <path d="M-108 24 L-64 -56 L-8 20 L48 -56 L100 24" fill="none" stroke="#a98f45" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-140 84 C-72 36 72 36 140 84" fill="none" stroke="#e8e2d3" stroke-width="6"/>
+    <rect x="-118" y="80" width="236" height="60" rx="10" fill="#3c3a31" stroke="#e8e2d3" stroke-width="4"/>
+    <text x="-124" y="198" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">nursery sigil reads child-facing</text>
   </g>
-  <g transform="translate(650 390)">
-    <path d="M-78 56 L-38 -48 L0 56 L40 -48 L78 56 Z" fill="none" stroke="#a98f45" stroke-width="10" stroke-linejoin="round"/>
-    <text x="-94" y="154" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">broken crown</text>
+  <g transform="translate(253 690)">
+    <circle cx="0" cy="0" r="138" fill="none" stroke="#a98f45" stroke-width="5" stroke-dasharray="4 18"/>
+    <g transform="scale(0.82)">
+      <rect x="-44" y="-264" width="88" height="144" rx="8" fill="#f0e6c3" stroke="#f4efdc" stroke-width="3"/>
+      <rect x="148" y="-196" width="88" height="144" rx="8" fill="#f0e6c3" stroke="#f4efdc" stroke-width="3" transform="rotate(40 192 -124)"/>
+      <rect x="188" y="70" width="88" height="144" rx="8" fill="#f0e6c3" stroke="#f4efdc" stroke-width="3" transform="rotate(80 232 142)"/>
+      <rect x="-44" y="126" width="88" height="144" rx="8" fill="#f0e6c3" stroke="#f4efdc" stroke-width="3"/>
+      <rect x="-236" y="70" width="88" height="144" rx="8" fill="#f0e6c3" stroke="#f4efdc" stroke-width="3" transform="rotate(-80 -192 142)"/>
+      <rect x="-196" y="-196" width="88" height="144" rx="8" fill="#f0e6c3" stroke="#f4efdc" stroke-width="3" transform="rotate(-40 -152 -124)"/>
+    </g>
+    <use href="#trueMotif" transform="translate(0 0) scale(1.1)"/>
+    <text x="-138" y="228" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">prayer-card crown circle</text>
   </g>
-  <g transform="translate(235 660)">
-    <rect x="-82" y="-52" width="164" height="104" rx="12" fill="#d8d0bd" stroke="#8f9087" stroke-width="6"/>
-    <path d="M-42 0 C-20 -40 10 42 36 0" fill="none" stroke="#e8e2d3" stroke-width="6"/>
-    <text x="-114" y="122" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">impossible hymn</text>
+  <g transform="translate(575 690)">
+    <ellipse cx="0" cy="0" rx="128" ry="58" fill="none" stroke="#a98f45" stroke-width="8"/>
+    <g fill="#e8e2d3" opacity="0.92">
+      <ellipse cx="-74" cy="-30" rx="16" ry="25" transform="rotate(-20 -74 -30)"/>
+      <ellipse cx="-22" cy="-54" rx="16" ry="25"/>
+      <ellipse cx="26" cy="-54" rx="16" ry="25"/>
+      <ellipse cx="78" cy="-30" rx="16" ry="25" transform="rotate(20 78 -30)"/>
+    </g>
+    <rect x="-88" y="28" width="176" height="52" rx="8" fill="#3c3a31" stroke="#e8e2d3" stroke-width="4"/>
+    <text x="-140" y="148" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">cradle + ash halo handprints</text>
   </g>
-  <g transform="translate(520 660)">
-    <path d="M-120 42 C-42 -32 42 -32 120 42" fill="none" stroke="#a98f45" stroke-width="10"/>
-    <rect x="-92" y="36" width="184" height="58" rx="8" fill="#3c3a31" stroke="#e8e2d3" stroke-width="4"/>
-    <text x="-114" y="122" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">nursery anchor</text>
+  <g transform="translate(1320 404)">
+    <circle cx="0" cy="0" r="156" fill="none" stroke="#8f9087" stroke-width="5" stroke-dasharray="8 16"/>
+    <circle cx="0" cy="0" r="118" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="12 10"/>
+    <use href="#falseMotif" transform="translate(0 -156)"/>
+    <use href="#falseMotif" transform="translate(0 156)"/>
+    <use href="#falseMotif" transform="translate(-156 0)"/>
+    <use href="#falseMotif" transform="translate(156 0)"/>
+    <rect x="-82" y="-120" width="164" height="240" rx="18" fill="#343935" stroke="#a98f45" stroke-width="7"/>
+    <rect x="-60" y="-94" width="120" height="188" rx="12" fill="#6d847f" opacity="0.7"/>
+    <text x="-134" y="226" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">mirror circle trap</text>
   </g>
-  <g transform="translate(980 405)">
-    <rect x="-110" y="-82" width="220" height="164" rx="8" fill="#d9dccf" stroke="#8f9087" stroke-width="8"/>
-    <line x1="0" y1="-82" x2="0" y2="82" stroke="#8f9087" stroke-width="5"/><line x1="-110" y1="0" x2="110" y2="0" stroke="#8f9087" stroke-width="5"/>
-    <path d="M45 -5 L118 -38" stroke="#25241f" stroke-width="8" stroke-linecap="round"/>
-    <text x="-116" y="150" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">broken latch</text>
+  <g transform="translate(1124 706)">
+    <use href="#falseMotif" transform="translate(-108 0) scale(1.24)"/>
+    <use href="#falseMotif" transform="translate(0 0) scale(1.24)"/>
+    <use href="#falseMotif" transform="translate(108 0) scale(1.24)"/>
+    <path d="M-128 98 C-80 26 -32 -2 0 -8 C32 -2 80 26 128 98" fill="none" stroke="#a98f45" stroke-width="7" opacity="0.58"/>
+    <text x="-160" y="188" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">pointed reflection logic</text>
   </g>
-  <g transform="translate(1260 405)">
-    <path d="M-110 -50 C-42 -92 64 -92 116 -48 L150 96 C72 146 -78 146 -150 96 Z" fill="#5d655e" stroke="#a98f45" stroke-width="5"/>
-    <rect x="-42" y="-64" width="116" height="190" rx="6" fill="#efe7c8" transform="rotate(8)" stroke="#8f9087" stroke-width="3"/>
-    <text x="-92" y="150" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">pawn debt</text>
+  <g transform="translate(1502 706)">
+    <rect x="-110" y="-80" width="220" height="160" rx="10" fill="#d9dccf" stroke="#8f9087" stroke-width="7"/>
+    <line x1="0" y1="-80" x2="0" y2="80" stroke="#8f9087" stroke-width="5"/>
+    <line x1="-110" y1="0" x2="110" y2="0" stroke="#8f9087" stroke-width="5"/>
+    <path d="M42 -4 L118 -42" stroke="#25241f" stroke-width="8" stroke-linecap="round"/>
+    <text x="-126" y="156" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">believable mundane distraction</text>
   </g>
-  <g transform="translate(1110 675)">
-    <rect x="-72" y="-104" width="144" height="208" rx="16" fill="#393d3d" stroke="#a98f45" stroke-width="6"/>
-    <circle cx="0" cy="0" r="146" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="10 12"/>
-    <text x="-116" y="188" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">loud mirror trap</text>
-  </g>
-  <text x="110" y="828" font-family="Arial, sans-serif" font-size="25" fill="#d8c78d">True clues: circular, dry, pale, old-gold, nursery-connected, too symmetrical.</text>
-  <text x="870" y="828" font-family="Arial, sans-serif" font-size="25" fill="#c9c0a3">False leads: believable, colder, mundane, isolated from the Hollow Saint pattern.</text>
+  <text x="108" y="944" font-family="Arial, sans-serif" font-size="25" fill="#d8c78d">Use note: true clues should look like pieces of one ritual sentence repeated across nursery prop, paper, sound, and floor mark.</text>
+  <text x="978" y="944" font-family="Arial, sans-serif" font-size="25" fill="#c9c0a3">Use note: false leads can be dramatic, but they should not share the full family of crown, halo, ash, and child-facing shapes.</text>
+  <rect x="70" y="1000" width="1660" height="54" rx="10" fill="#0e0f0d" stroke="#a98f45" stroke-width="2"/>
+  <text x="100" y="1036" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Rule for the vertical slice: evidence coherence beats spectacle. The player should trust the repeated nursery family over the loudest mirror prop.</text>
 </svg>

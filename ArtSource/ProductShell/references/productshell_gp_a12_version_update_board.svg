@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">GP-A12 Version + Update Board</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Browse-first map for version-mismatch, update-required, and incompatible-session shell carry-forward</text>
+
+  <rect x="64" y="166" width="1472" height="118" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700">GP-A12 keeps compatibility gates legible, firm, and recoverable without drifting into runtime proof</text>
+  <text x="100" y="260" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="21">Use this board first, then open the paired ProductShell surfaces and shared component sheet</text>
+
+  <rect x="64" y="326" width="454" height="544" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="382" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Surface A</text>
+  <text x="98" y="424" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Version mismatch</text>
+  <rect x="98" y="458" width="386" height="116" rx="18" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="128" y="522" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">session out of step</text>
+  <rect x="98" y="620" width="184" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="300" y="620" width="184" height="56" rx="28" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="142" y="655" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">update</text>
+  <text x="348" y="655" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">later</text>
+  <text x="98" y="744" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Target read: a clear mismatch notice with one visible alignment route and one quieter fallback.</text>
+  <text x="98" y="782" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">File: ui/productshell_version_mismatch_source.svg</text>
+
+  <rect x="572" y="326" width="454" height="544" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="606" y="382" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Surface B</text>
+  <text x="606" y="424" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Update required</text>
+  <rect x="606" y="458" width="386" height="116" rx="18" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="636" y="522" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">session not compatible</text>
+  <rect x="606" y="620" width="184" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="808" y="620" width="184" height="56" rx="28" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="650" y="655" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">update now</text>
+  <text x="850" y="655" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">stable shell</text>
+  <text x="606" y="744" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Target read: a firm update gate that explains the incompatible session without sounding like a crash report.</text>
+  <text x="606" y="782" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">File: ui/productshell_update_required_source.svg</text>
+
+  <rect x="1080" y="326" width="456" height="544" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1114" y="382" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Shared Kit</text>
+  <text x="1114" y="424" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Version / update parts</text>
+  <rect x="1114" y="458" width="388" height="86" rx="18" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="1144" y="512" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">version mismatch banner</text>
+  <rect x="1114" y="570" width="188" height="70" rx="35" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="1314" y="570" width="188" height="70" rx="35" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="1160" y="614" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">update</text>
+  <text x="1350" y="614" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">later</text>
+  <rect x="1114" y="674" width="388" height="88" rx="18" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1144" y="728" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">incompatible-session card</text>
+  <text x="1114" y="798" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Shared carry-forward file: SharedUI/sharedui_shell_version_update_components.svg</text>
+
+  <text x="64" y="930" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Boundary: source-art only. This board does not prove patch rules, store routing, deployment timing, or runtime widget behavior.</text>
+</svg>

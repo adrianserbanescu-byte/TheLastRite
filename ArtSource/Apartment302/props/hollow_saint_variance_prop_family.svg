@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2d2a24"/>
+      <stop offset="1" stop-color="#171612"/>
+    </linearGradient>
+    <g id="haloCrown" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-124 30 C-84 -42 -34 -80 0 -94 C34 -80 84 -42 124 30" stroke="#e8e2d3" stroke-width="9"/>
+      <path d="M-86 20 L-50 -46 L-8 16 L34 -46 L78 20" stroke="#a98f45" stroke-width="7"/>
+      <circle cx="0" cy="6" r="24" stroke="#e8e2d3" stroke-width="6"/>
+    </g>
+    <g id="ashTears" fill="#e8e2d3" opacity="0.86">
+      <path d="M0 0 C10 -18 20 -16 24 0 C24 12 16 22 12 30 C8 22 0 12 0 0 Z"/>
+      <path d="M34 6 C42 -8 50 -8 54 6 C54 18 48 26 44 32 C40 26 34 18 34 6 Z" opacity="0.72"/>
+      <path d="M64 0 C74 -18 84 -16 88 0 C88 12 80 22 76 30 C72 22 64 12 64 0 Z" opacity="0.58"/>
+    </g>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <text x="68" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Hollow Saint variance family sheet</text>
+  <text x="68" y="126" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Baseline corroborated family: pale halo arcs, broken crown rhythm, ash-white dryness, nursery placement, and old-gold restraint.</text>
+
+  <rect x="68" y="174" width="536" height="650" rx="18" fill="#11120f" stroke="#a98f45" stroke-width="3"/>
+  <rect x="632" y="174" width="700" height="650" rx="18" fill="#11120f" stroke="#8f9087" stroke-width="3"/>
+
+  <text x="102" y="228" font-family="Georgia, serif" font-size="30" fill="#f4efdc">Core motif cluster</text>
+  <g transform="translate(334 474)">
+    <ellipse cx="0" cy="0" rx="214" ry="120" fill="none" stroke="#e8e2d3" stroke-width="9" stroke-dasharray="24 16"/>
+    <ellipse cx="0" cy="0" rx="176" ry="94" fill="none" stroke="#a98f45" stroke-width="5"/>
+    <use href="#haloCrown" transform="translate(0 -32)"/>
+    <path d="M-124 76 C-72 32 72 32 124 76" fill="none" stroke="#e8e2d3" stroke-width="6"/>
+    <rect x="-114" y="72" width="228" height="52" rx="10" fill="#3b352d" stroke="#e8e2d3" stroke-width="4"/>
+    <path d="M-84 124 Q0 172 84 124" fill="none" stroke="#a98f45" stroke-width="7"/>
+    <use href="#ashTears" transform="translate(-46 -8) scale(1.1)"/>
+  </g>
+  <text x="102" y="742" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">Read as child-facing rite first, occult shape second.</text>
+
+  <text x="668" y="228" font-family="Georgia, serif" font-size="30" fill="#f4efdc">Carry-forward anchors</text>
+  <rect x="668" y="266" width="628" height="126" rx="14" fill="#171815" stroke="#a98f45" stroke-width="3"/>
+  <text x="696" y="310" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Placement: nursery floor, cradle edge, prayer-card ring, quiet monitor note.</text>
+  <text x="696" y="346" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Shape rule: circles, halo arcs, broken crown peaks, ash tear triplets.</text>
+
+  <rect x="668" y="420" width="628" height="126" rx="14" fill="#171815" stroke="#8f9087" stroke-width="3"/>
+  <text x="696" y="464" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Palette: ash white `#e8e2d3`, old gold `#a98f45`, damp apartment gray `#8f9087`.</text>
+  <text x="696" y="500" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Texture rule: dry chalk breakup, paper wear, no glossy mirror polish.</text>
+
+  <rect x="668" y="574" width="628" height="206" rx="14" fill="#171815" stroke="#8f9087" stroke-width="3"/>
+  <text x="696" y="618" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Separation rule:</text>
+  <text x="696" y="654" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Keep Hollow Saint pale, symmetrical, and corroborated by nursery evidence.</text>
+  <text x="696" y="690" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Do not blur it into Weeping Matron damp drapery or The Appetite feeding-ring logic.</text>
+  <text x="696" y="740" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Bounded use: source-art family sheet only. Not a runtime prop sheet or spawn proof.</text>
+</svg>

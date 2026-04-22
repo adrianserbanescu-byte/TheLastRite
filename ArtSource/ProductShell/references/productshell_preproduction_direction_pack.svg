@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1320" viewBox="0 0 1800 1320">
+  <rect width="1800" height="1320" fill="#12110f"/>
+  <rect x="28" y="28" width="1744" height="1264" rx="26" fill="#181715" stroke="#9d8848" stroke-width="3"/>
+  <text x="70" y="92" fill="#efe7d6" font-family="Georgia, serif" font-size="40">The Last Rite</text>
+  <text x="70" y="128" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="22">VS-A10 shell-art preproduction direction pack</text>
+  <text x="70" y="160" fill="#938d82" font-family="Arial, Helvetica, sans-serif" font-size="18">Bounded source-art guidance for title, lobby, briefing, and debrief surfaces only</text>
+
+  <rect x="70" y="205" width="400" height="470" rx="22" fill="#1f1d1a" stroke="#756948" stroke-width="2"/>
+  <text x="100" y="255" fill="#f3eddc" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Title Surface</text>
+  <rect x="100" y="282" width="340" height="180" rx="16" fill="#24211d" stroke="#aa9250" stroke-width="2"/>
+  <text x="125" y="345" fill="#f0e7d3" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" letter-spacing="4">THE LAST</text>
+  <text x="125" y="402" fill="#d3b86d" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" letter-spacing="4">RITE</text>
+  <path d="M125 425 L405 425" stroke="#65756f" stroke-width="3" opacity="0.75"/>
+  <circle cx="160" cy="505" r="22" fill="none" stroke="#e5ddcb" stroke-width="5" opacity="0.85"/>
+  <path d="M194 505 L248 505" stroke="#9d8848" stroke-width="5" opacity="0.9"/>
+  <rect x="258" y="486" width="134" height="38" rx="19" fill="#2d2a25" stroke="#9d8848" stroke-width="2"/>
+  <text x="283" y="512" fill="#d8c58c" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">case active</text>
+  <text x="100" y="575" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Read:</text>
+  <text x="100" y="606" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Poster-like, direct, and ritual-administrative.</text>
+  <text x="100" y="632" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Use strong typography, sparse halo/circle logic,</text>
+  <text x="100" y="658" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">and one controlled old-gold accent instead of clutter.</text>
+
+  <rect x="500" y="205" width="400" height="470" rx="22" fill="#1f1d1a" stroke="#756948" stroke-width="2"/>
+  <text x="530" y="255" fill="#f3eddc" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Lobby / Board Surface</text>
+  <rect x="530" y="284" width="340" height="74" rx="14" fill="#26231f" stroke="#6f7e77" stroke-width="2"/>
+  <text x="555" y="329" fill="#ece4d2" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Session Board</text>
+  <rect x="530" y="380" width="102" height="118" rx="16" fill="#2a2722" stroke="#9d8848" stroke-width="2"/>
+  <rect x="649" y="380" width="102" height="118" rx="16" fill="#2a2722" stroke="#9d8848" stroke-width="2"/>
+  <rect x="768" y="380" width="102" height="118" rx="16" fill="#2a2722" stroke="#9d8848" stroke-width="2"/>
+  <text x="552" y="430" fill="#e8e0cd" font-family="Arial, Helvetica, sans-serif" font-size="18">team</text>
+  <text x="674" y="430" fill="#e8e0cd" font-family="Arial, Helvetica, sans-serif" font-size="18">roles</text>
+  <text x="792" y="430" fill="#e8e0cd" font-family="Arial, Helvetica, sans-serif" font-size="18">case</text>
+  <text x="552" y="459" fill="#b5ae9f" font-family="Arial, Helvetica, sans-serif" font-size="15">player slots</text>
+  <text x="670" y="459" fill="#b5ae9f" font-family="Arial, Helvetica, sans-serif" font-size="15">reader / guard</text>
+  <text x="788" y="459" fill="#b5ae9f" font-family="Arial, Helvetica, sans-serif" font-size="15">302 active</text>
+  <rect x="530" y="528" width="340" height="58" rx="12" fill="#201f1b" stroke="#4b5955" stroke-width="2"/>
+  <text x="555" y="564" fill="#d9d1bf" font-family="Arial, Helvetica, sans-serif" font-size="22">Fast-ready, card-based, spectator-readable</text>
+  <text x="530" y="618" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Read:</text>
+  <text x="530" y="649" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Feels like a civic incident board touched by ritual logic.</text>
+  <text x="530" y="675" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Chunky cards, sharp labels, and stable grouping matter</text>
+  <text x="530" y="701" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">more than occult ornament on this surface.</text>
+
+  <rect x="930" y="205" width="400" height="470" rx="22" fill="#1f1d1a" stroke="#756948" stroke-width="2"/>
+  <text x="960" y="255" fill="#f3eddc" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Briefing Surface</text>
+  <rect x="960" y="286" width="340" height="52" rx="11" fill="#24231f" stroke="#6f7e77" stroke-width="2"/>
+  <text x="983" y="319" fill="#ece4d2" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Case File: Apartment 302</text>
+  <rect x="960" y="360" width="340" height="160" rx="15" fill="#ebe4d3" stroke="#ab9553" stroke-width="2"/>
+  <text x="988" y="398" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Objective summary</text>
+  <text x="988" y="430" fill="#35312c" font-family="Arial, Helvetica, sans-serif" font-size="17">Inspect evidence clusters.</text>
+  <text x="988" y="457" fill="#35312c" font-family="Arial, Helvetica, sans-serif" font-size="17">Reject the loudest bait.</text>
+  <text x="988" y="484" fill="#35312c" font-family="Arial, Helvetica, sans-serif" font-size="17">Prepare the correct ritual anchor.</text>
+  <rect x="960" y="542" width="162" height="44" rx="22" fill="#29342f" stroke="#6f7e77" stroke-width="2"/>
+  <text x="992" y="570" fill="#dce5dd" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">tone: calm brief</text>
+  <text x="960" y="618" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Read:</text>
+  <text x="960" y="649" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Briefing should feel procedural, not bombastic.</text>
+  <text x="960" y="675" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Paper, tabs, and stamped state markers can carry</text>
+  <text x="960" y="701" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">the occult premise without drowning the text.</text>
+
+  <rect x="1360" y="205" width="370" height="470" rx="22" fill="#1f1d1a" stroke="#756948" stroke-width="2"/>
+  <text x="1390" y="255" fill="#f3eddc" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Debrief Surface</text>
+  <rect x="1390" y="286" width="310" height="72" rx="14" fill="#24211d" stroke="#9d8848" stroke-width="2"/>
+  <text x="1413" y="330" fill="#efe7d6" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Case Outcome</text>
+  <rect x="1390" y="385" width="146" height="118" rx="16" fill="#2a2722" stroke="#6f7e77" stroke-width="2"/>
+  <rect x="1554" y="385" width="146" height="118" rx="16" fill="#2a2722" stroke="#9d8848" stroke-width="2"/>
+  <text x="1421" y="433" fill="#dfe7de" font-family="Arial, Helvetica, sans-serif" font-size="17">evidence chain</text>
+  <text x="1586" y="433" fill="#e7d7a9" font-family="Arial, Helvetica, sans-serif" font-size="17">ritual result</text>
+  <text x="1413" y="462" fill="#b5ae9f" font-family="Arial, Helvetica, sans-serif" font-size="15">what players proved</text>
+  <text x="1577" y="462" fill="#b5ae9f" font-family="Arial, Helvetica, sans-serif" font-size="15">cleanse or failure</text>
+  <rect x="1390" y="529" width="310" height="56" rx="12" fill="#201f1b" stroke="#5c5c5c" stroke-width="2"/>
+  <text x="1418" y="564" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Keep result screens report-like, not arcade-like</text>
+  <text x="1390" y="618" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Read:</text>
+  <text x="1390" y="649" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Outcome screens should let the story land cleanly.</text>
+  <text x="1390" y="675" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Use badges, verdict bars, and concise summaries,</text>
+  <text x="1390" y="701" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">not fireworks or action-endcard language.</text>
+
+  <rect x="70" y="722" width="770" height="510" rx="22" fill="#1a1916" stroke="#756948" stroke-width="2"/>
+  <text x="100" y="770" fill="#f3eddc" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Palette / Motif Carry-Forward</text>
+  <rect x="100" y="804" width="90" height="90" rx="12" fill="#ece4d2"/>
+  <rect x="206" y="804" width="90" height="90" rx="12" fill="#d2bc7b"/>
+  <rect x="312" y="804" width="90" height="90" rx="12" fill="#6f7e77"/>
+  <rect x="418" y="804" width="90" height="90" rx="12" fill="#25231f"/>
+  <rect x="524" y="804" width="90" height="90" rx="12" fill="#3d433f"/>
+  <text x="101" y="922" fill="#c8c1b2" font-family="Arial, Helvetica, sans-serif" font-size="17">ash paper</text>
+  <text x="207" y="922" fill="#c8c1b2" font-family="Arial, Helvetica, sans-serif" font-size="17">old gold</text>
+  <text x="313" y="922" fill="#c8c1b2" font-family="Arial, Helvetica, sans-serif" font-size="17">ward green</text>
+  <text x="419" y="922" fill="#c8c1b2" font-family="Arial, Helvetica, sans-serif" font-size="17">paper black</text>
+  <text x="525" y="922" fill="#c8c1b2" font-family="Arial, Helvetica, sans-serif" font-size="17">damp slate</text>
+  <text x="100" y="973" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Carry-forward rules:</text>
+  <text x="100" y="1006" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Apartment 302 contributes restraint, ash-white dryness, and old-gold authority.</text>
+  <text x="100" y="1033" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">The shell should abstract those cues into tabs, seals, bars, circles, and stamped markers.</text>
+  <text x="100" y="1060" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not copy nursery props, handprints, or floor-sigil logic directly into shell surfaces.</text>
+  <text x="100" y="1087" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">The shell is the process wrapper around the case, not the room itself.</text>
+  <circle cx="665" cy="855" r="62" fill="none" stroke="#d8c58c" stroke-width="7" opacity="0.85"/>
+  <circle cx="665" cy="855" r="38" fill="none" stroke="#e8e0cd" stroke-width="4" opacity="0.75"/>
+  <path d="M630 921 L700 921" stroke="#6f7e77" stroke-width="5" opacity="0.85"/>
+  <text x="611" y="980" fill="#c8c1b2" font-family="Arial, Helvetica, sans-serif" font-size="16">approved shell motif family</text>
+
+  <rect x="870" y="722" width="860" height="510" rx="22" fill="#1a1916" stroke="#756948" stroke-width="2"/>
+  <text x="900" y="770" fill="#f3eddc" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Typography / Boundary Notes</text>
+  <text x="900" y="824" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Typography intent</text>
+  <text x="900" y="856" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Display: tall condensed uppercase with ritual-bureau authority.</text>
+  <text x="900" y="883" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Body: plain readable sans-serif, generous spacing, no fake-horror distortion.</text>
+  <text x="900" y="910" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Accent: stamped labels, section tabs, verdict chips, and calm data strips.</text>
+
+  <text x="900" y="972" fill="#d7d0c2" font-family="Arial, Helvetica, sans-serif" font-size="21">Boundary notes</text>
+  <text x="900" y="1004" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">This pack is preproduction source art only.</text>
+  <text x="900" y="1031" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">It supports future shell work but does not open shell implementation or Unreal placement.</text>
+  <text x="900" y="1058" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep shell surfaces session-readable and streamer-readable before adding occult texture.</text>
+  <text x="900" y="1085" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="18">The biggest failure mode is letting the shell become louder than the case evidence itself.</text>
+  <rect x="1395" y="830" width="285" height="280" rx="18" fill="#201f1b" stroke="#6f7e77" stroke-width="2"/>
+  <text x="1422" y="876" fill="#e7dfcc" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Avoid</text>
+  <text x="1422" y="914" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="17">literal nursery props</text>
+  <text x="1422" y="941" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="17">gore-heavy horror branding</text>
+  <text x="1422" y="968" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="17">purple fantasy glow defaults</text>
+  <text x="1422" y="995" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="17">tiny unreadable role labels</text>
+  <text x="1422" y="1022" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="17">action-game win-state noise</text>
+  <text x="1422" y="1049" fill="#b9b3a5" font-family="Arial, Helvetica, sans-serif" font-size="17">fake implementation promises</text>
+</svg>

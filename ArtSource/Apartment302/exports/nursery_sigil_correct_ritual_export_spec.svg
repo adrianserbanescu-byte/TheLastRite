@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#171612"/>
+  <rect x="60" y="60" width="1280" height="780" rx="24" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="96" y="118" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Export spec: nursery sigil correct ritual</text>
+  <text x="96" y="158" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">PNG-ready reference card for later decal or floor-mark export.</text>
+  <rect x="96" y="206" width="664" height="538" rx="18" fill="#2c2722" stroke="#8f9087" stroke-width="3"/>
+  <ellipse cx="428" cy="478" rx="248" ry="122" fill="none" stroke="#e8e2d3" stroke-width="9" stroke-dasharray="28 18"/>
+  <ellipse cx="428" cy="478" rx="192" ry="94" fill="none" stroke="#a98f45" stroke-width="6"/>
+  <path d="M288 454 C334 370 388 330 428 314 C468 330 522 370 568 454" fill="none" stroke="#e8e2d3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M330 448 L360 384 L424 444 L488 384 L526 448" fill="none" stroke="#a98f45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="292" y="500" width="272" height="74" rx="12" fill="#3b352d" stroke="#e8e2d3" stroke-width="4"/>
+  <path d="M310 500 C372 444 486 444 546 500" fill="none" stroke="#a98f45" stroke-width="7"/>
+  <text x="796" y="248" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Export name</text>
+  <text x="796" y="286" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">apt302_nursery_sigil_correct_ritual_2048.png</text>
+  <text x="796" y="352" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Suggested size</text>
+  <text x="796" y="390" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">2048 x 2048 transparent or dark-field source</text>
+  <text x="796" y="456" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Opacity guidance</text>
+  <text x="796" y="494" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Keep runtime opacity around 0.72-0.88 so chalk breakup survives.</text>
+  <text x="796" y="560" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Usage note</text>
+  <text x="796" y="598" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Use as floor decal or projected mark in the nursery only.</text>
+  <text x="796" y="636" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Do not sharpen it into a clean symbol that loses ash-dry edges.</text>
+  <rect x="96" y="770" width="1244" height="44" rx="10" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="124" y="799" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Carry-forward rule: this should read child-facing and corroborated before it reads generically occult.</text>
+</svg>

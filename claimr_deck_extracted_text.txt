@@ -1,0 +1,406 @@
+pages: 16
+
+--- SLIDE 1 ---
+T u r n i n g  U s e r  I d e n t i t y  i n t o  
+E n g a g e m e n t ,  R e t e n t i o n  &  R e v e n u e
+AI-P o w er ed r et ention f or W eb3 and IGaming: r educing C A C b y 7 0%
+a@claimr .io
+
+--- SLIDE 2 ---
+C l a i m r
+F o u n d e d  b y  f o r m e r  U b i s o f t  e x e c u t i v e s ,  b r i n g i n g  2 0 +  y e a r s  o f  g a m i n g  i n d u s t r y  
+a n d  c o r p o r a t e  e x p e r i e n c e ,  n o w  b u i l d i n g  f o r  W e b 3  a n d  i G a m i n g  s e c t o r s
+1 0 M +  R e p u t a t i o n  V e r i f i e d  U s e r s
+r o p r i e t a r y  a t a  s s e t
+8 0 +  E n t e r p r i s e  C l i e n t s
+r o p r i e t a r y  a t a  s s e t
+1 4 . 3 M  A c c o u n t s  C o n n e c t e d
+W a l l e t s   o c i a l  s
+4 0 +  B l o c k c h a i n s
+n f r a s t r u c t u r e  r e a c
+3 . 5 x  R e t e n t i o n  U p l i f t
+r o v e n   o u t c o m e
+T i e r  1  E c o s y s t e m s  &  P a r t n e r s
+A B O U T
+2  |  1 6
+
+--- SLIDE 3 ---
+F o u n d e r  T e a m :  A A A  P e d i g r e e
+C o - f o u n d e r s  w i t h  a  p r o v e n  t r a c k  r e c o r d  o f  w o r k i n g  t o g e t h e r  f o r  6 . 5  y e a r s  a t  U b i s o f t
+Maksym 
+Rodionov
+Co-Founder, CTO & CPO
+Adrian 
+Serbanescu
+Co-Founder & CEO
+20+ y ears leading t eams at: 26 y ears in engineering, 22 
+y ears in softwar e & game 
+de v elopment
+Former Technical Director at:F ormer GM at Ubisoft Ukraine: 
+scaled t eam fr om 80 → 1 ,200
+Ov ersaw pr oduction on 35+ 
+AAA tit les
+Built and scaled studios fr om 0 
+in Serbia, P oland & Ukraine
+Deep e xper tise in B2B go-t o-
+mark et and operations, dir ect ly 
+translating AAA gaming 
+r et ention framew orks int o 
+W eb3 ent erprise solutions.
+a@claimr .io     
+Led engineering f or Assassin’ s 
+Cr eed & Ghost R econ
+12+ y ears building and leading 
+cr oss-functional t eams
+Exper tise in highly scalable 
+syst ems, ar chit ecting Claimr's 
+r eal-time engine t o pr ocess 
+1 4 . 3M+ wallet signals and 
+def eat comple x Sybil attacks
+m@claimr .io     
+T e a m
+3  |  1 6
+
+--- SLIDE 4 ---
+M a r k e t i n g  L a c k s  E f f e c t i v e n e s s :  
+I n e f f i c i e n t  F u n n e l s
+The CAC Trap
+W eb3 C A C a v erages $85–$239, y et 
+brands o v erpa y f or users who ne v er 
+r each br eak -e v en L TV
+Zero Loyalty
+Up t o 85% of users lea v e wit hin 2 
+w eeks aft er r ewar ds, turning 
+campaigns int o a hit -and-run gr o wt h 
+econom y
+Sybil & Bot Farms
+Up t o 7 0% of paid acquisition and 
+campaign activity comes fr om Sybil 
+f arms and bot s
+Fragmented Infra
+Brands r ely on 4+ disconnect ed t ools 
+f or r et ention and analytics, cr eating a 
+3× ROI gap v ersus unified 
+infrastructur e
+P R O B L E M
+$100K Campaign 
+Bud g et
+B a dBt i
+$0K
+i d p u n te
+n $0K i n e a
+e i de n t a uee m a i n
+4  |  1 6
+
+--- SLIDE 5 ---
+S O L U T I O N
+F i x i n g  I n c e n t i v e  L e a k a g e  
+t o  U n l o c k  M o r e  R e v e n u e
+A  b u i l t - i n  p r o d u c t  s o l u t i o n  t h a t  t u r n s  r e w a r d s  i n t o  v e r i f i e d ,  l o y a l  u s e r s .
+R eputation Gating
+Block bot s and sybils
+Raw User 
+A ctivity
+A ctions,  attribut es,  e v ent s
+Data 
+Enrichment
+Ext ernal dataset s and 
+aggr egations
+AI-Nativ e 
+Engine
+Beha vior al scoring and 
+sybil det ection
+Clean High 
+L TV Gr o wt hCont e xtual R e war ds
+R e war d r eal users
+L TV Pr ediction
+F or ecastable spend and 
+pr edictable C A C
+5  |  1 6
+
+--- SLIDE 6 ---
+$30–34B TAM Global lo y alty & gamification 
+softwar e mark et
+M a r k e t  
+O v e r v i e w
+€400M+ 
+€20M+ SOM
+SAM W eb3 & iGaming digital platf orms - 
+initial entr y point
+Initial scalable oppor tunity
+Target verticals include:
+
+Crypto Exchanges • Web3 games • NFT marketplaces & games • Crypto finTech 
+• Wallets • Launchpads • iGaming operators
+M A R K E T
+6  |  1 6
+
+--- SLIDE 7 ---
+P R O D U C T
+E m b e d d e d  R e t e n t i o n  L a y e r
+Claimr embeds dir ect ly int o y our pr oduct, v erifying user beha vior , filt ering Sybil traffic, 
+and aligning incentiv es wit h r eal L TV .
+O p t i m i z e  i n c e n t i v e  m e c h a n i c s  
+u s i n g  p r o p r i e t a r y  b e h a v i o r a l  d a t a  
+t o  m a x i m i z e  R O I  a n d  r e t e n t i o n .
+I n t e g r a t e  u s e r s  i n - p r o d u c t  a n d  
+t u r n  r e t e n t i o n  i n t o  o w n e d  
+i n f r a s t r u c t u r e  -  n o t  r e n t e d  t r a f f i c .
+WhitelabelAI
+S c o r e  u s e r s  b y  v e r i f i e d  b e h a v i o r ,  
+e l i m i n a t i n g  S y b i l  l e a k a g e  b e f o r e  
+r e w a r d s  a r e  d i s t r i b u t e d . Gamification
+C o n v e r t  s h o r t - t e r m  
+i n c e n t i v e s  i n t o  r e p e a t  h i g h -
+v a l u e  a c t i o n s .
+Scoring
+Deep Analytics
+R e v e a l  r e a l  u s e r  v a l u e ,  
+i m p r o v i n g  C A C  &  r e t e n t i o n
+Data Collection
+U n i f y  o n - c h a i n  a n d  o f f - c h a i n  s i g n a l s  
+i n t o  a  s i n g l e  a c t i o n a b l e  d a t a  l a y e r .
+7  |  1 6
+
+--- SLIDE 8 ---
+E x a m p l e s  o f  C l a i m r ’ s  I n t e g r a t i o n
+iGaming T elegr am Mini-App / iOS / Andr oid dApp / Games
+9:00
+8  |  1 6
+
+--- SLIDE 9 ---
+C l a i m r  A I :  F r o m  U s e r  D a t a  t o  R e v e n u e  G r o w t h
+W e  a n a l y z e  o n - c h a i n  a n d  b e h a v i o r a l  d a t a  t o  d e c i d e  w h o  i s  r e a l ,  w h o  i s  v a l u a b l e ,  
+a n d  h o w  m u c h  t o  i n v e s t  i n  t h e m  —  i n s t a n t l y
+A I
+AI Decision EngineProprietary Data
+ v eriied identities (wallet 
+ social
+ r eal user actions acr oss 
+camaign
+r osslat orm data onchain  
+ochain  de vice signal
+ata is o wned structur ed and 
+continuously gr o wing
+Business Impact
+liminat es a e users e or e 
+sen
+T ar get s high TV user
+timi es r ewar ds ased on 
+r eal v alu
+mr o v es  eiciency  
+mar eting R
+Scor es e v er y user in r eal time:
+T rust (is t his user r eal?)
+V alue (is t his user w or t h 
+acquiring?)
+
+P o w ers:
+F raud det ection
+User tar geting
+R ewar d allocation
+
+Runs instant ly at scale
+9  |  1 6
+
+--- SLIDE 10 ---
+T r a c t i o n  &  U s a g e  a t  S c a l e
+Revenue generating since 2024, proven repeat enterprise clients
+Enterprise & 
+B2B TrustProven 
+Engagement
+Global 
+User Base
+8 0 +  B 2 B  
+monetized clients
+€ 9 2 0 K +  
+cumulative
+revenue
+4 0 M +
+6 , 7 5 0
+9 0 0 +
+tasks 
+completed
+quests 
+launched
+campaigns 
+created
+1 0 M +
+1 4 . 3 M
+unique 
+users
+connected 
+accounts
+T r a c t i o n
+1 0  |  1 6
+
+--- SLIDE 11 ---
+F i n a n c i a l s
+F i n a n c i a l  P e r f o r m a n c e  &  
+T r a n s i t i o n  P h a s e
+Demand v alidat ed. Platf orm standar diz ed. No w w e scale.
+80+ client s monetiz ed
+ 
+32 client s generat ed 
+r e v enue in 2025 
+25+ r epeat / multi-
+engagement client s
+March 2026 Gr oss Mar gin ~ 7 0–80% 
+annually
+Q4 2024
+Q2 2024
+€100k+ €500k+
+Launch Ent erprise-led gr o wt h phase Platf orm standar dization phase
+CUMUL A TIVE REVENUE since launch 
+€920k+
+1 1  |  1 6F I N A N C I A L S
+
+--- SLIDE 12 ---
+B u s i n e s s  M o d e l
+R e v e n u e  M o d e l
+R ecurring subscription model wit h usage-based e xpansion
+E x e c u t i v e  P l a n  
+
+€ 1 0 , 0 0 0
+G o l d  P l a n  
+
+€ 3 0 , 0 0 0 Enterprise integration, Custom 
+Solutions and Marketing ServicesSubscription 
+Plans
+P r o f e s s i o n a l  P l a n  
+
+€ 2 , 5 0 0
+P r e m i u m  P l a n  
+
+€ 5 , 0 0 0
+S i l v e r  P l a n
+
+€ 2 0 , 0 0 0
+s t a r t i n g  f r o m  € 1 0 , 0 0 0 +  f o r  e n t e r p r i s e  c l i e n t s
+Main
+Referral & 
+Partnerships*
+A dditional
+1 0 %  r e v  s h a r e  f r o m  e a c h  
+p a r t n e r  r e f e r
+
+A c q u i s i t i o n  -  1 0 % +  f r o m  
+r e f  p r i c e
+I n f o F i  I n t e g r t i o n
+D e e p  A n a l y t i c s
+U X / U I  D e s i g n
+M a r k e t i n g  P r o m o t i o n
+C o n s u l t i n g / A d v i s o r yddon 
+Services
+1 2  |  1 6
+
+--- SLIDE 13 ---
+P R O D U C TC O M P E T I T O R S
+2018 - 2022
+Airdrop Era
+Mass giveaways
+High acquisition cost
+0 - 5% user retention
+C o m p e t i t i v e  L a n d s c a p e  
+&  M a r k e t  E v o l u t i o n
+2022 - 2024
+The Aggregator Era
+Quests & one-off campaigns
+Users belong to aggregator
+High % of drop-off
+ 2025+
+The Infra Era
+Embedded, in-product flows
+Users belong to the product
+Built for repeat usage & LTV
+C o m p e t i t o r s
+1 3  |  1 6
+
+--- SLIDE 14 ---
+Pr oduct standar diz ed int o 
+clear , r epeatable off ering
+
+AI-driv en campaign 
+aut omation liv e
+
+Initial client s con v er t ed t o 
+annual contract s  
+1–3 Months
+I n v e s t m e n t  A s k  -  B r i d g e  R o u n d
+Path to Seed Readiness: 12-Month Execution Plan 
+Scaling Claimr into an AI-native, recurring engagement layer
+3–6 Months
+R ecurring r e v enue model 
+established
+
+Mark eting ser vices t eam
+
+AI-driv en scoring activ e 
+acr oss campaigns 
+Raising: € 750k
+6–9 Months
+R ecurring r e v enue 
+becomes primar y driv er
+
+Deliv er y scales wit hout 
+manual dependency
+
+New r e v enue channels 
+activ at ed
+9–12 Months
+AI-nativ e platf orm fully 
+operational
+
+Pr edictable sales engine in 
+place
+
+Business r eady f or 
+institutional Seed
+I n v e s t m e n t  a s k
+1 4  |  1 6
+
+--- SLIDE 15 ---
+M a r k e t  A d o p t i o n
+Partner-led distribution
+M a r k e t i n g  A g e n c i e s  &  M M s
+Paid Acquisition
+T a r g e t e d  A c c o u n t - B a s e d  
+M a r k e t i n g  f o r  H i g h - L T V  O p e r a t o r s
+Events
+T a r g e t  E v e n t s  m o n t h l y
+SNRGY 
+BNG Group
+Lunar Strategy
+Generis Agency
+Nebula Agency
+Solus Group
+Fundraising & Deal Flow 
+NetworksDirect Sales & Outbound
+T a r g e t e d  o u t r e a c h  t o  W e b 3  
+o p e r a t o r s
+Digital Platf orms Potential
+GameFi
+Secondary Focus Gaming
+ Fint ech
+Primary Focus
+W a l l e t sD E X  p l a t f o r m s
+W eb3 & iGaming
+L a u n c h p a d s
+C h a i n s
+L a u n c h p a d sD e F i  p r o t o c o l s
+G T M
+1 5  |  1 6
+
+--- SLIDE 16 ---
+C L A I M R  S O F T W A R E  L T D
+T h e  F u t u r e  o f  
+R e t e n t i o n  S t a r t s  
+w i t h  C l a i m r !
+Have more questions?
+Ping our founder on Telegram:
+@adrianserbanescu
+Book a call with our founders:
+30 Minutes 60 Minutes
+Drop us an email at:
+a@claimr.io
+1 6  |  1 6

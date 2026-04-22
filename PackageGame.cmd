@@ -10,14 +10,15 @@ set "RUN_UAT_BAT=%UE_ROOT%\Engine\Build\BatchFiles\RunUAT.bat"
 set "OUTPUT_DIR=%PROJECT_ROOT%\Packaged"
 set "OUTPUT_WINDOWS_DIR=%OUTPUT_DIR%\Windows"
 set "TEMP_ROOT=%PROJECT_ROOT%\LocalBuildTemp"
+set "SAVED_ROOT=%PROJECT_ROOT%\Saved"
+set "PACKAGE_LOG_DIR=%SAVED_ROOT%\Logs"
 set "RUN_ID=%RANDOM%%RANDOM%"
-set "UBT_ROOT=%TEMP_ROOT%\UBT-%RUN_ID%"
 set "LOG_DIR=%TEMP_ROOT%\UATLogs-%RUN_ID%"
 set "ENGINE_SAVED_DIR=%TEMP_ROOT%\UATSaved-%RUN_ID%"
 set "STAGE_DIR=%TEMP_ROOT%\Stage-%RUN_ID%"
 set "LOCAL_DDC_DIR=%TEMP_ROOT%\DerivedDataCache"
 set "ZEN_DATA_DIR=%TEMP_ROOT%\Zen\Data"
-set "BUILD_LOG=%UBT_ROOT%\UBT-TheLastRiteShipping.log"
+set "BUILD_LOG=%PACKAGE_LOG_DIR%\UBT-TheLastRiteShipping-%RUN_ID%.log"
 set "UE-LocalDataCachePath=%LOCAL_DDC_DIR%"
 set "UE-SharedDataCachePath=None"
 
@@ -36,7 +37,8 @@ if not exist "%RUN_UAT_BAT%" (
 )
 
 if not exist "%TEMP_ROOT%" mkdir "%TEMP_ROOT%"
-if not exist "%UBT_ROOT%" mkdir "%UBT_ROOT%"
+if not exist "%SAVED_ROOT%" mkdir "%SAVED_ROOT%"
+if not exist "%PACKAGE_LOG_DIR%" mkdir "%PACKAGE_LOG_DIR%"
 if not exist "%LOCAL_DDC_DIR%" mkdir "%LOCAL_DDC_DIR%"
 if not exist "%ZEN_DATA_DIR%" mkdir "%ZEN_DATA_DIR%"
 

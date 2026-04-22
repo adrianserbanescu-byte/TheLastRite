@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1280" viewBox="0 0 1800 1280">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1b1b17"/>
+      <stop offset="1" stop-color="#0f100d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1800" height="1280" fill="url(#bg)"/>
+
+  <text x="72" y="84" font-family="Georgia, serif" font-size="50" fill="#f4efdc">Apartment 302 placement, scale, and read-distance board</text>
+  <text x="72" y="126" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A9 first-person carry-forward sheet: keep the corroborated nursery chain readable, the mirror bait tempting but wrong, and the false leads secondary under normal player viewing conditions.</text>
+
+  <rect x="72" y="162" width="1656" height="108" rx="16" fill="#0d0e0b" stroke="#a98f45" stroke-width="3"/>
+  <text x="106" y="206" font-family="Georgia, serif" font-size="30" fill="#f4efdc">Read bands</text>
+  <rect x="282" y="188" width="24" height="24" rx="6" fill="#efe7c8"/>
+  <text x="320" y="208" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">close inspect: 0.5m to 1.2m</text>
+  <rect x="640" y="188" width="24" height="24" rx="6" fill="#d8c78d"/>
+  <text x="678" y="208" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">mid corroboration: 1.2m to 2.4m</text>
+  <rect x="1088" y="188" width="24" height="24" rx="6" fill="#54615d"/>
+  <text x="1126" y="208" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">far attention pull: 2.4m to 4m</text>
+  <text x="106" y="246" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">Rule: the nursery chain should still win the evidence argument at mid distance, even if the mirror lane steals attention briefly at far distance.</text>
+
+  <rect x="72" y="304" width="804" height="420" rx="16" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="108" y="358" font-family="Georgia, serif" font-size="38" fill="#f4efdc">Corroborated nursery chain</text>
+  <text x="108" y="396" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">These assets must start reading as one family from normal approach distance, not only after point-blank inspection.</text>
+  <rect x="112" y="430" width="18" height="18" rx="5" fill="#efe7c8"/>
+  <text x="146" y="446" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Nursery floor sigil</text>
+  <text x="146" y="478" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">`props/nursery_sigil_correct_ritual.svg`</text>
+  <text x="146" y="508" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">Best read band: mid corroboration, still inspectable up close.</text>
+  <text x="146" y="538" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Placement: floor plane near the nursery route, angled to reveal halo rhythm from normal walk-up.</text>
+  <text x="146" y="568" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Scale caution: large enough to resolve as an anchor, not so large it becomes stage-floor spectacle.</text>
+  <rect x="112" y="608" width="18" height="18" rx="5" fill="#d8c78d"/>
+  <text x="146" y="624" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Prayer-card support and nursery clue family</text>
+  <text x="146" y="656" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">`props/prayer_cards_crown_circle.svg`, `references/hollow_saint_clue_language_board.svg`</text>
+  <text x="146" y="686" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">Best read band: close inspect to mid corroboration.</text>
+  <text x="146" y="716" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Placement: side surfaces or nursery-adjacent furniture where repeated crown/halo logic can be compared against the sigil.</text>
+  <text x="146" y="746" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Scale caution: keep these smaller than the ritual anchor so corroboration feels cumulative, not louder than the floor mark.</text>
+
+  <rect x="924" y="304" width="804" height="420" rx="16" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="960" y="358" font-family="Georgia, serif" font-size="38" fill="#f4efdc">Mirror bait and false leads</text>
+  <text x="960" y="396" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">These assets are allowed to pull the eye first, but their placement and scale cannot let them survive the corroboration test.</text>
+  <rect x="964" y="430" width="18" height="18" rx="5" fill="#54615d"/>
+  <text x="998" y="446" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Mirror-bait ritual</text>
+  <text x="998" y="478" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">`props/mirror_circle_wrong_ritual.svg`</text>
+  <text x="998" y="508" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">Best read band: far attention pull, then close inspection should reveal it as isolated and wrong.</text>
+  <text x="998" y="538" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Placement: off the nursery route or at a competing angle, never as the clean centerline destination of the room.</text>
+  <text x="998" y="568" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Scale caution: keep it impressive but not broader, brighter, or more repeated than the full nursery chain combined.</text>
+  <rect x="964" y="608" width="18" height="18" rx="5" fill="#54615d"/>
+  <text x="998" y="624" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Mundane false leads</text>
+  <text x="998" y="656" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">`props/broken_window_latch_false_lead.svg`, `props/pawn_ticket_pouch_false_lead.svg`</text>
+  <text x="998" y="686" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">Best read band: close inspect, with only a light glance read at mid distance.</text>
+  <text x="998" y="716" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Placement: wall edge, side table, or floor-drop positions that support story noise rather than route-defining composition.</text>
+  <text x="998" y="746" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Scale caution: never cluster them into repeated spacing or halo-like rhythm near the nursery route.</text>
+
+  <rect x="72" y="758" width="804" height="450" rx="16" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="108" y="812" font-family="Georgia, serif" font-size="38" fill="#f4efdc">First-person framing notes</text>
+  <text x="108" y="850" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use this when deciding what should read from walk-up, what should reward inspection, and what should stay out of the main cone.</text>
+  <path d="M168 1120 L402 922 L636 1120 Z" fill="#161712" stroke="#8f9087" stroke-width="3"/>
+  <rect x="358" y="930" width="88" height="164" rx="20" fill="#25241f" stroke="#a98f45" stroke-width="3"/>
+  <path d="M402 930 L402 864" stroke="#a98f45" stroke-width="6" stroke-linecap="round"/>
+  <path d="M402 864 L370 818 M402 864 L434 818" stroke="#a98f45" stroke-width="6" stroke-linecap="round"/>
+  <path d="M402 994 L332 1068 M402 994 L472 1068" stroke="#a98f45" stroke-width="6" stroke-linecap="round"/>
+  <text x="672" y="936" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Floor marks: read best when the player can catch ellipse logic from a shallow forward angle, not only by looking straight down.</text>
+  <text x="672" y="978" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Wall-adjacent cues: keep latch, monitor, and similar support details near the edge of the frame so they invite inspection instead of replacing the route target.</text>
+  <text x="672" y="1020" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Mirror bait: let it steal a glance from farther away, but avoid camera setups that center it longer or earlier than the nursery clue lane.</text>
+  <text x="672" y="1062" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Prayer cards and paper clues: reward a step-in read. If the player can identify every card detail from across the room, they are oversized.</text>
+  <text x="672" y="1104" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">False-lead props: treat as side-channel story texture. If they begin reading like route anchors, reduce size, contrast, or composition privilege.</text>
+  <rect x="672" y="1138" width="152" height="22" rx="6" fill="#efe7c8"/>
+  <text x="842" y="1156" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">close inspect</text>
+  <rect x="984" y="1138" width="176" height="22" rx="6" fill="#d8c78d"/>
+  <text x="1178" y="1156" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">mid corroboration</text>
+  <rect x="1380" y="1138" width="176" height="22" rx="6" fill="#54615d"/>
+  <text x="1574" y="1156" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">far attention</text>
+
+  <rect x="924" y="758" width="804" height="450" rx="16" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="960" y="812" font-family="Georgia, serif" font-size="38" fill="#f4efdc">UI and prep-only handling</text>
+  <text x="960" y="850" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">These items support readability and carry-forward work, but they are not room-placement targets by themselves.</text>
+  <rect x="964" y="884" width="18" height="18" rx="5" fill="#d8c78d"/>
+  <text x="998" y="900" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">UI-support surfaces</text>
+  <text x="998" y="932" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">`ui/hollow_saint_clue_note_overlay.svg`, `ui/hollow_saint_ritual_status_overlay.svg` and A7 variants</text>
+  <text x="998" y="962" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Read condition: immediate screen-space support during inspection or ritual-read states, not environmental decoration.</text>
+  <text x="998" y="992" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Scale caution: protect the clue-note text field and center play cone before preserving ornament weight.</text>
+  <rect x="964" y="1032" width="18" height="18" rx="5" fill="#8f9087"/>
+  <text x="998" y="1048" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Prep and reference-only sheets</text>
+  <text x="998" y="1080" font-family="Arial, sans-serif" font-size="21" fill="#c9c0a3">A5 export cards, A6 prep sheets, A8 contact sheet, and the earlier reference boards</text>
+  <text x="998" y="1110" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Usage: open these before adaptation, but do not treat them as literal room-placed art or proof that runtime scale is already solved.</text>
+  <text x="998" y="1140" font-family="Arial, sans-serif" font-size="21" fill="#f4efdc">Main risk: a downstream pass can still flatten hierarchy by exporting the right art and placing it at the wrong scale or distance.</text>
+
+  <rect x="72" y="1228" width="1656" height="22" rx="8" fill="#0d0e0b" stroke="#a98f45" stroke-width="2"/>
+  <text x="104" y="1246" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">Quick-use rule: the mirror lane may win the first glance, but the nursery lane must win the walk-up read and the ritual decision.</text>
+</svg>

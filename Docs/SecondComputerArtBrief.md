@@ -1,5 +1,9 @@
 # Second Computer Art Brief
 
+Status: historical/reference brief as of 2026-04-21
+
+The active workflow is now local-only on one machine. If this brief is reused, treat it as reference material and report progress through the `Docs/LocalDev*.md` files instead of GitHub or second-computer handoff.
+
 This computer is the Unreal build machine. The second computer should be the art/reference machine.
 
 Do not install Unreal tonight. Do not edit C++ files. Do not touch packaged builds.

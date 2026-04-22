@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <rect width="1800" height="1100" fill="#171816"/>
+  <text x="70" y="82" font-family="Georgia, serif" font-size="48" fill="#eef0e9">Weeping Matron read-separation board</text>
+  <text x="70" y="126" font-family="Arial, sans-serif" font-size="24" fill="#bfc7c3">GP-A-P5 focus board: define a damp caregiving lane that stays readable beside Hollow Saint and The Appetite without stealing their reads.</text>
+  <rect x="70" y="178" width="790" height="840" rx="16" fill="#101210" stroke="#8ea19b" stroke-width="4"/>
+  <rect x="940" y="178" width="790" height="840" rx="16" fill="#101210" stroke="#7b8883" stroke-width="4"/>
+  <text x="108" y="236" font-family="Georgia, serif" font-size="38" fill="#eef0e9">Keep this family</text>
+  <text x="978" y="236" font-family="Georgia, serif" font-size="38" fill="#eef0e9">Keep separate from</text>
+  <rect x="108" y="278" width="714" height="228" rx="14" fill="#171a19" stroke="#8ea19b" stroke-width="3"/>
+  <text x="138" y="330" font-family="Arial, sans-serif" font-size="26" fill="#eef0e9">Damp veil arcs, hanging tears, cloth sag, basin-and-linen care, watch-chair framing.</text>
+  <text x="138" y="376" font-family="Arial, sans-serif" font-size="26" fill="#cfd7d2">Primary props: curtain edge, wash basin, folded cloth, caregiver station, tear-streak marks.</text>
+  <text x="138" y="422" font-family="Arial, sans-serif" font-size="26" fill="#cfd7d2">Player read: grief-soaked domestic vigilance, not a clean corroborated ritual chain.</text>
+  <rect x="108" y="540" width="714" height="412" rx="14" fill="#171a19" stroke="#7b8883" stroke-width="3"/>
+  <text x="138" y="592" font-family="Arial, sans-serif" font-size="26" fill="#eef0e9">Do not absorb Hollow Saint:</text>
+  <text x="138" y="638" font-family="Arial, sans-serif" font-size="26" fill="#c9d1cc">avoid broken crown symmetry, ash-white chalk circles, nursery-sigil certainty, and old-gold halo language.</text>
+  <text x="138" y="708" font-family="Arial, sans-serif" font-size="26" fill="#eef0e9">Do not absorb The Appetite:</text>
+  <text x="138" y="754" font-family="Arial, sans-serif" font-size="26" fill="#c9d1cc">avoid meal rings, bib cuts, gnaw crescents, and low feeding-table repetition.</text>
+  <text x="138" y="836" font-family="Arial, sans-serif" font-size="26" fill="#eef0e9">Use file:</text>
+  <text x="138" y="882" font-family="Arial, sans-serif" font-size="26" fill="#cfd7d2">props/weeping_matron_variance_prop_family.svg</text>
+  <rect x="978" y="278" width="714" height="674" rx="14" fill="#171a19" stroke="#7b8883" stroke-width="3"/>
+  <text x="1008" y="330" font-family="Arial, sans-serif" font-size="26" fill="#eef0e9">Variance guardrail:</text>
+  <text x="1008" y="376" font-family="Arial, sans-serif" font-size="26" fill="#cfd7d2">Weeping Matron should feel wet, grieving, and caregiving. It must remain distinct from ritual corroboration and feeding urgency.</text>
+  <text x="1008" y="458" font-family="Arial, sans-serif" font-size="26" fill="#eef0e9">Bounded carry-forward:</text>
+  <text x="1008" y="504" font-family="Arial, sans-serif" font-size="26" fill="#cfd7d2">Use this board to preserve family separation only. It does not prove encounter logic, room assignment, or runtime asset switching.</text>
+  <rect x="70" y="1036" width="1660" height="42" rx="10" fill="#0d0f0d" stroke="#8ea19b" stroke-width="2"/>
+  <text x="98" y="1064" font-family="Arial, sans-serif" font-size="22" fill="#eef0e9">Rule: if a prop reads like damp mourning care, it belongs to Weeping Matron and should not borrow Hollow Saint halo logic or Appetite feeding codes.</text>
+</svg>

@@ -52,7 +52,7 @@ FText ACaseExit::GetPromptText() const
         if (!NextMove.IsEmpty())
         {
             return FText::Format(
-                NSLOCTEXT("TheLastRite", "ExitLockedPromptDetailed", "{0} stays shut. {1}"),
+                NSLOCTEXT("TheLastRite", "ExitLockedPromptDetailed", "{0} stays shut until the seal holds. {1}"),
                 DisplayName,
                 NextMove);
         }
@@ -63,7 +63,7 @@ FText ACaseExit::GetPromptText() const
     }
 
     return FText::Format(
-        NSLOCTEXT("TheLastRite", "ExitPrompt", "Press E - Leave through {0} and file the case"),
+        NSLOCTEXT("TheLastRite", "ExitPrompt", "Press E - Leave through {0}, file the report, and close Apartment 302"),
         DisplayName);
 }
 
@@ -74,7 +74,7 @@ int32 ACaseExit::GetInteractionFocusPriority() const
         return -10;
     }
 
-    return bExitReady ? 70 : 0;
+    return bExitReady ? 90 : 0;
 }
 
 void ACaseExit::Interact(ATheLastRiteCharacter* InteractingCharacter)

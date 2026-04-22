@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <rect width="1800" height="1200" fill="#12120f"/>
+  <text x="72" y="84" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Apartment 302 material and decal prep board</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A6 carry-forward sheet: surface breakup, decal language, and contrast rules for later Unreal reinterpretation.</text>
+  <rect x="72" y="184" width="812" height="432" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="916" y="184" width="812" height="432" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <rect x="72" y="648" width="812" height="432" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="916" y="648" width="812" height="432" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="108" y="238" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Nursery chalk and sigil</text>
+  <text x="108" y="278" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use dusty breakup, uneven powder density, and preserved inner readability.</text>
+  <text x="108" y="318" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Approved prep file: `materials/nursery_sigil_chalk_breakup_prep.svg`</text>
+  <text x="108" y="356" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: too clean becomes generic occult iconography.</text>
+  <text x="952" y="238" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Mirror-bait surface</text>
+  <text x="952" y="278" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use polished cold surfaces, glass-green, and pointed shard logic.</text>
+  <text x="952" y="318" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Approved prep file: `materials/mirror_bait_surface_prep.svg`</text>
+  <text x="952" y="356" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: too much gold or chalk crossover makes bait feel corroborated.</text>
+  <text x="108" y="702" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Ash handprint decals</text>
+  <text x="108" y="742" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use incomplete palms and human variation to support halo rhythm.</text>
+  <text x="108" y="782" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Approved prep file: `materials/ash_handprint_decal_language_prep.svg`</text>
+  <text x="108" y="820" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: mirrored copy-paste prints flatten the uncanny read.</text>
+  <text x="952" y="702" font-family="Georgia, serif" font-size="34" fill="#f4efdc">False-lead wear and paper damage</text>
+  <text x="952" y="742" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">Use loose neglect, overdue marks, stress lines, and asymmetry.</text>
+  <text x="952" y="782" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Approved prep file: `materials/false_lead_wear_paper_damage_prep.svg`</text>
+  <text x="952" y="820" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: repeated wear can accidentally form a competing clue family.</text>
+  <rect x="72" y="1114" width="1656" height="30" rx="8" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="104" y="1135" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">Carry-forward rule: surface context should sharpen the approved room read, not invent a second interpretation system.</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="26" y="26" width="1548" height="928" rx="24" fill="#181714" stroke="#958246" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Shared Shell Permissions + Handoff Components</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Carry-forward component sheet for GP-A9 permissions, privacy-state, and host-handoff shell surfaces</text>
+
+  <rect x="64" y="162" width="1472" height="744" rx="22" fill="#1c1a17" stroke="#63726c" stroke-width="2"/>
+  <text x="96" y="214" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Component Set</text>
+
+  <rect x="96" y="248" width="338" height="88" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="126" y="303" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">privacy-state banner</text>
+
+  <rect x="470" y="248" width="252" height="88" rx="44" fill="#2a332f" stroke="#63726c" stroke-width="2"/>
+  <text x="534" y="303" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">apply</text>
+
+  <rect x="758" y="248" width="252" height="88" rx="44" fill="#2a2722" stroke="#958246" stroke-width="2"/>
+  <text x="822" y="303" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">share</text>
+
+  <rect x="1046" y="248" width="228" height="88" rx="18" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="1094" y="303" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">summary</text>
+
+  <rect x="1310" y="248" width="180" height="88" rx="18" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <text x="1340" y="303" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">host</text>
+
+  <rect x="96" y="410" width="554" height="66" rx="12" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <rect x="106" y="420" width="344" height="46" rx="10" fill="#d2bc7b"/>
+  <text x="126" y="449" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">privacy / permissions / handoff strip</text>
+
+  <rect x="688" y="396" width="360" height="94" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="718" y="453" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">host-transfer banner</text>
+
+  <rect x="1086" y="396" width="188" height="94" rx="47" fill="#2a332f" stroke="#63726c" stroke-width="2"/>
+  <text x="1130" y="453" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">allow</text>
+
+  <rect x="1308" y="396" width="188" height="94" rx="47" fill="#2a2722" stroke="#958246" stroke-width="2"/>
+  <text x="1358" y="453" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">deny</text>
+
+  <rect x="96" y="576" width="428" height="92" rx="18" fill="#25221e" stroke="#63726c" stroke-width="2"/>
+  <text x="126" y="634" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">permission row card</text>
+
+  <rect x="562" y="576" width="430" height="92" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="592" y="634" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">privacy-state tag row</text>
+
+  <rect x="1030" y="576" width="460" height="92" rx="18" fill="#25221e" stroke="#63726c" stroke-width="2"/>
+  <text x="1060" y="634" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">host handoff card</text>
+
+  <text x="96" y="768" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">Use this sheet to keep GP-A9 surfaces visually consistent across permissions, privacy-state, and host-handoff screens.</text>
+  <text x="96" y="804" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">These are source-art components only. Runtime permissions logic, host migration, and privacy systems still belong to later implementation work.</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <rect width="1800" height="1200" fill="#12110e"/>
+  <rect x="28" y="28" width="1744" height="1144" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="66" y="92" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700">GP-A1 Shell Source Set Overview</text>
+  <text x="66" y="126" fill="#b7b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">First implementation-carry-forward shell art package built from the accepted VS-A10 baseline</text>
+  <rect x="66" y="170" width="396" height="420" rx="20" fill="#1f1d19" stroke="#63726c" stroke-width="2"/>
+  <text x="98" y="218" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Title</text>
+  <text x="98" y="260" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="19">`ui/productshell_title_screen_source.svg`</text>
+  <text x="98" y="308" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Fast identity read, one ritual seal,</text>
+  <text x="98" y="336" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">calm authority instead of horror clutter.</text>
+  <rect x="496" y="170" width="396" height="420" rx="20" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="528" y="218" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Lobby / Board</text>
+  <text x="528" y="260" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="19">`ui/productshell_lobby_board_source.svg`</text>
+  <text x="528" y="308" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Role slots, case card, ready state,</text>
+  <text x="528" y="336" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">and spectator-readable grouping.</text>
+  <rect x="926" y="170" width="396" height="420" rx="20" fill="#1f1d19" stroke="#63726c" stroke-width="2"/>
+  <text x="958" y="218" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Briefing</text>
+  <text x="958" y="260" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="19">`ui/productshell_briefing_sheet_source.svg`</text>
+  <text x="958" y="308" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Paper-first objective framing,</text>
+  <text x="958" y="336" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">role reminders, and calm scan order.</text>
+  <rect x="1356" y="170" width="378" height="420" rx="20" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1388" y="218" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Debrief</text>
+  <text x="1388" y="260" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="19">`ui/productshell_debrief_sheet_source.svg`</text>
+  <text x="1388" y="308" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Outcome report, verdict bar,</text>
+  <text x="1388" y="336" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">and replay hand-off without arcade noise.</text>
+  <rect x="66" y="628" width="1668" height="474" rx="20" fill="#1c1a17" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="676" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Shared Support</text>
+  <text x="98" y="724" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">`ArtSource/SharedUI/sharedui_shell_card_status_components.svg`</text>
+  <text x="98" y="766" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Adds reusable title bars, case cards, role chips, verdict strips, and replay-action buttons for the first real shell source set.</text>
+  <text x="98" y="812" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">Boundary</text>
+  <text x="98" y="850" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This package is implementation-carry-forward source art only. It is not Unreal content, widget sizing, code integration, or final runtime layout proof.</text>
+  <text x="98" y="896" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="21">Regression to avoid</text>
+  <text x="98" y="934" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not let later shell work turn the wrapper into the loudest haunted surface in the experience. The shell still serves the case.</text>
+</svg>

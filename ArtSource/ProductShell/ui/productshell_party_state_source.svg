@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Party State Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Session shell surface for party composition, join status, and calm lobby-state readability</text>
+
+  <rect x="64" y="166" width="1470" height="100" rx="20" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">PARTY STATE / SESSION MEMBERS</text>
+  <text x="1148" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Readability-first shell surface for joined and pending slots</text>
+
+  <rect x="64" y="304" width="504" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Party Grid</text>
+  <rect x="98" y="396" width="436" height="86" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="98" y="500" width="436" height="86" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="98" y="604" width="436" height="86" rx="18" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="98" y="708" width="436" height="86" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="128" y="448" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">reader // joined</text>
+  <text x="128" y="552" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">anchor // joined</text>
+  <text x="128" y="656" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">censer // invite sent</text>
+  <text x="128" y="760" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">guard // open slot</text>
+  <rect x="356" y="420" width="146" height="40" rx="20" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="356" y="524" width="146" height="40" rx="20" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="356" y="628" width="146" height="40" rx="20" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="356" y="732" width="146" height="40" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="396" y="446" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">ready</text>
+  <text x="396" y="550" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">ready</text>
+  <text x="388" y="654" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">pending</text>
+  <text x="390" y="758" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">empty</text>
+
+  <rect x="604" y="304" width="424" height="602" rx="22" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="638" y="360" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Session Summary</text>
+  <rect x="638" y="396" width="356" height="170" rx="20" fill="#f2ebdc" stroke="#75837d" stroke-width="2"/>
+  <text x="672" y="456" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">2 locked / 1 pending</text>
+  <text x="672" y="498" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Use party state to show who is here, who is invited, and what still blocks the next transition.</text>
+  <rect x="638" y="620" width="168" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="826" y="620" width="168" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="682" y="658" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">invite</text>
+  <text x="870" y="658" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">refresh</text>
+
+  <rect x="1064" y="304" width="470" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1098" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1098" y="424" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">Keep party-state readable first and ceremonial second.</text>
+  <text x="1098" y="466" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use one row per member state and one short summary card.</text>
+  <text x="1098" y="502" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not treat this as proof of matchmaking, platform invite, or presence logic.</text>
+  <text x="1098" y="538" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">The shell should explain the session state without becoming a technical dashboard.</text>
+  <rect x="1098" y="620" width="372" height="74" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1126" y="666" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">party-state banner</text>
+  <rect x="1098" y="724" width="372" height="74" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1126" y="770" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">pending member strip</text>
+</svg>

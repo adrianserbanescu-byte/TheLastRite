@@ -8,12 +8,14 @@ class AInspectableProp;
 class APointLight;
 class ARitualAnchor;
 class ACaseExit;
+class ASessionToolPickup;
 
 UENUM()
 enum class ETheLastRiteCasePhase : uint8
 {
     Investigating,
     RiteReady,
+    RitualInProgress,
     SealedAwaitingExit,
     ClosedWin,
     ClosedFail
@@ -33,7 +35,10 @@ public:
     void HandleInspectableProp(AInspectableProp* Prop);
     void HandleRitualAnchor(ARitualAnchor* Anchor);
     void HandleCaseExit(ACaseExit* Exit);
+    void HandleToolPickup(ASessionToolPickup* ToolPickup);
     FText GetInspectableGuidanceText(const AInspectableProp* Prop, bool bForRecheck) const;
+    FText GetInspectablePromptText(const AInspectableProp* Prop) const;
+    int32 GetInspectableFocusPriority(const AInspectableProp* Prop) const;
 
     ETheLastRiteCasePhase GetCasePhase() const;
     FText GetCaseTitleText() const;
@@ -65,6 +70,11 @@ public:
     bool IsCaseResolved() const;
     bool IsCaseClosed() const;
     bool DidPlayerWin() const;
+    bool IsRitualSequenceActive() const;
+    FText GetRitualSequenceStateText() const;
+    FText GetRitualSequenceSupportText() const;
+    FText GetToolRoleText() const;
+    FText GetToolNeedText() const;
 
 private:
     void BuildRoom();
@@ -89,10 +99,21 @@ private:
     void RefreshCurrentObjectiveText();
     void RefreshCasePresentation(bool bRebuildFinalReport);
     void RebuildFinalReport();
+    void AdvanceCorrectRitualHand(ARitualAnchor* Anchor);
+    void ResolveSuccessfulRitual(ARitualAnchor* Anchor);
+    void ResolveFailedRitual(ARitualAnchor* Anchor);
+    void RunAutomatedRitualVerification();
+    AInspectableProp* FindInspectablePropByEvidenceSummary(const FString& EvidenceSummary) const;
+    ARitualAnchor* FindCorrectRitualAnchor() const;
     int32 GetOpeningSweepCount() const;
     FText GetOpeningSweepStateText() const;
     FText GetNextStarterTargetText() const;
     FText GetActiveGuidanceText() const;
+    FText GetCurrentRitualHandText() const;
+    FText GetNextRitualHandText() const;
+    FString GetToolPayloadLine() const;
+    FString GetCoveragePayloadLine() const;
+    bool HasClaimedToolPickup(const ASessionToolPickup* ToolPickup) const;
     void TriggerPhasePulse(const FLinearColor& Color, float DurationSeconds);
     void SetStatusText(const FText& NewStatusText);
     void AddEvidenceLine(const FString& NewLine);
@@ -167,6 +188,9 @@ private:
     int32 TotalFalseLeads;
 
     UPROPERTY()
+    int32 CompletedRitualHandSteps;
+
+    UPROPERTY()
     ETheLastRiteCasePhase CasePhase;
 
     UPROPERTY()
@@ -194,7 +218,16 @@ private:
     TArray<TObjectPtr<APointLight>> CaseLights;
 
     UPROPERTY()
+    TArray<TObjectPtr<AInspectableProp>> InspectableProps;
+
+    UPROPERTY()
     TArray<TObjectPtr<ARitualAnchor>> RitualAnchors;
+
+    UPROPERTY()
+    TArray<TObjectPtr<ASessionToolPickup>> SessionToolPickups;
+
+    UPROPERTY()
+    TObjectPtr<ARitualAnchor> ActiveRitualAnchor;
 
     UPROPERTY()
     TObjectPtr<ACaseExit> CaseExitActor;

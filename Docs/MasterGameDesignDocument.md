@@ -2,353 +2,505 @@
 
 ## Master Game Design Document
 
-Last updated: 2026-04-19
+Last updated: 2026-04-21
 
 ## 1. Product Summary
 
-**The Last Rite** is a first-person occult investigation game built in Unreal Engine. The player enters a contained haunted space, inspects people and objects, separates true evidence from theatrical bait, identifies the correct ritual solution, and closes the case before the scene collapses.
+**The Last Rite** is a first-person co-op exorcism sim built in Unreal Engine for:
 
-The current shipping target is **not** a large multi-case game. The active target is a **single polished vertical slice** built around one case: **Apartment 302 / Hollow Saint**.
+- solo play
+- **2-4 player co-op** as the primary mode
+- friend-group sessions
+- streamer-readable moments
+- short replayable haunted runs
 
-This document is the source of truth for the current playable design direction. Browser prototype material and JSON content files remain useful reference and migration inputs, but the Unreal vertical slice is the active product target.
+The intended tone is **absurdist occult horror**, but that tone is a systems output, not an authored aesthetic. Players should laugh, panic, argue, and improvise through a haunted scene while the investigation and ritual logic stay sincere. The design does not write jokes. The design writes mechanics that break in funny, physical, retellable ways.
 
-## 2. Vision
+The current real build is still the **Apartment 302 / Hollow Saint** Unreal vertical slice. That slice remains the first serious production target. It is the baseline that proves the readable clue-to-ritual loop before the broader co-op party structure is built around it.
+
+That broader co-op party structure is the **Early Access build target**, not a distant post-launch ambition.
+
+## 2. Product And Business Framing
+
+This product sits inside a specific business frame:
+
+- proven category: co-op horror and party-survival games already have market proof
+- differentiation requirement: the game cannot rely on generic horror alone
+- organic growth requirement: the game needs friend-group retellability and creator-friendly moments
+- risk rule: Early Access should be narrow, strong, and replayable instead of broad and expensive
+
+The key planning rule is:
+
+- the Early Access build itself must already be the absurdist solo-plus-2-4-player party game
+- the current solo slice is only the baseline on the way there
+
+That means the product should optimize for:
+
+- clear social interaction
+- readable chaos
+- funny failures and arguments
+- one strong flagship location before broad content expansion
+- systems that increase replay value faster than they increase asset cost
+
+## 3. Vision
 
 The game should feel like:
 
-- a readable first-person investigation
-- a short horror case with clear escalation
-- a deduction game where the player learns the room instead of solving a menu puzzle
-- a ritual game where success comes from understanding the scene, not random guessing
+- a readable social exorcism sim
+- a friend-group horror comedy generator
+- a first-person ritual game where players argue about what the room means
+- a short-session game that is fun to replay and fun to watch
 
-The intended experience is:
+The intended session fantasy is:
 
-1. Enter a cursed scene.
-2. Learn how to read it.
-3. Collect and reject evidence.
-4. Commit to a ritual interpretation.
-5. Either seal the case cleanly or fail because the room fooled you.
+1. Enter a cursed space with friends, or alone if needed.
+2. Read the scene fast.
+3. Inspect evidence and obvious bait.
+4. Debate the meaning of the room.
+5. Commit to a ritual plan under pressure.
+6. Either pull off a clean exorcism or collapse into a loud, memorable failure.
 
-## 3. Design Pillars
+## 4. Design Pillars
 
-### 3.1 Readability first
+### 4.1 Comedy is a systems output, not a writer's input
 
-The player must always be able to tell:
+The game does not author jokes. It authors systems that break in physical, legible, retellable ways. Voice chat, tool scarcity, timing windows, and shared failure states generate the comedy. The fiction stays sincere.
 
-- where to go next
-- what can be inspected
-- what progress has been made
-- whether the room is pointing toward a conclusion
+If a design decision tries to be funny on its own terms, cut it. If a design decision produces a breakdown that players will retell in their group chat, keep it.
 
-Horror should not come from hiding the game state. The room can be tense, strange, and hostile, but it must stay legible.
+### 4.2 Legible physical failure
 
-### 3.2 Investigation over scavenging
+Players and spectators should be able to tell:
 
-The player is not searching for random loot. Each inspectable exists to answer one of two questions:
+- what the team is trying to do
+- what objects matter
+- who is doing what
+- why a ritual is succeeding or failing
+- what just went wrong, and whose fault it was
 
-- is this real evidence?
-- is this staged bait?
+Failure has to be physical and visible. No silent invalidations. No blank loss screens. Every failure should read as a chain of cause and effect that the team can replay in conversation afterward.
 
-Every interaction should sharpen the player’s read of the room.
+### 4.3 Social deduction over lonely scavenging
 
-### 3.3 Small spaces, strong pacing
+The loop should produce conversation:
 
-The current game structure favors one compact space with clear sub-zones instead of a large environment with filler traversal.
+- "this clue matters"
+- "that is bait"
+- "you are reading the room wrong"
+- "we are committing to the wrong ritual"
 
-Each space should naturally break into:
+The game should encourage blame, confidence, confusion, and last-second agreement. The team should argue before they commit, and commit before they are ready.
 
-- target/body area
-- true-evidence area
-- false-lead area
-- ritual area
-- exit path
+### 4.4 One location, layered variance
 
-### 3.4 Ritual choice must feel earned
+The first commercial package is built around one flagship apartment. Replay does not come from adding rooms. Replay comes from layering variance axes on the same room:
 
-The correct solution should become understandable from the clues. The player should feel:
+- which demon is haunting this run
+- which evidence slots are active
+- which teammates you are playing with
 
-- "I see why this is the right anchor"
+One apartment, three demons at Early Access, randomized evidence subsets per run. Same walls, different game.
 
-not:
+### 4.5 First-session clarity drives virality
 
-- "I picked the glowing thing that looked most important"
+The first 10 to 20 minutes has to work because:
 
-### 3.5 Short runs, replayable reading
+- co-op discovery depends on a new player understanding the loop fast
+- Steam refund pressure punishes weak first sessions
+- stream viewers need to understand the joke and the stakes quickly
 
-The current target is a short replayable run rather than a long-form campaign. Even in a tiny slice, the game should support:
+If the first session is confusing for bad reasons, the concept will not carry itself.
 
-- a clean first completion
-- a faster second run
-- understanding through repetition
+## 5. Current Production Baseline
 
-## 4. Current Vertical Slice Scope
-
-### 4.1 Included
-
-The current playable slice is one complete micro-case:
+The current implemented baseline is still:
 
 - **Case title:** Apartment 302
 - **Target demon:** Hollow Saint
-- **Setting:** apartment / nursery / mirror-bait scene
 - **Perspective:** first-person
+- **Engine:** Unreal Engine 5.4.x
 - **Platform target:** packaged Windows build
-- **Engine target:** Unreal Engine 5.4.x
+- **Current real mode:** solo playable vertical slice
 
-### 4.2 Not included
+What this means:
 
-This slice explicitly does **not** include:
+- the repo already contains a functioning clue to ritual to outcome loop
+- the current build is still proving readability more than co-op behavior
+- the slice is the baseline. Do not throw it out because the business frame widened
 
-- a second case
-- multiplayer
-- inventory systems
-- save/load systems
-- procedural case generation in Unreal
-- generic content pipeline work beyond what protects the vertical slice
-- final art/audio production
+## 6. Apartment 302: Fixed Location, Three Demons
 
-## 5. Core Player Loop
+Apartment 302 reads as five linked zones:
 
-The current loop is:
+1. body / babysitter area
+2. nursery / child-facing evidence area
+3. mirror / bathroom bait area
+4. ritual area
+5. exit path
 
-1. Spawn into Apartment 302.
-2. Read the opening objective.
-3. Move through the room and inspect labeled objects with `E`.
-4. Build a read of the scene by collecting true clues and discarding false leads.
-5. Unlock the ritual decision once enough real evidence has been found.
-6. Choose a ritual anchor.
-7. Correct anchor:
-   - seal holds
-   - front door unlocks
-   - player exits and closes the case
-8. Wrong anchor:
-   - immediate fail state
-   - no exit step
-9. Press `R` to restart.
+At Early Access, three demons share this apartment. Each demon inverts which rooms are truth and which are bait. The team does not know which demon they are facing at the start of the run.
 
-## 6. Current Controls and Interaction Contract
+### 6.1 Hollow Saint (baseline)
 
-### 6.1 Controls
+- **Truth zone:** nursery
+- **Bait zone:** mirror
+- **Correct anchor:** the child's rattle
+- **Tell:** religious iconography defaced with baby teeth marks
 
-- `WASD` move
-- Mouse look
-- `E` inspect / use
-- `R` restart run
-- `Esc` quit
+### 6.2 Weeping Matron
 
-### 6.2 Interaction rules
+- **Truth zone:** mirror
+- **Bait zone:** nursery
+- **Correct anchor:** a broken hand mirror
+- **Tell:** every reflective surface shows a figure one second delayed
 
-- Interactables are readable at a glance through world labels, silhouette, placement, or color contrast.
-- Re-checking an object does **not** create duplicate progress.
-- Each clue is counted once.
-- False leads are allowed and important, but they must not break progression.
+### 6.3 The Appetite
 
-## 7. Current Case Design: Apartment 302
+- **Truth zone:** body / babysitter area
+- **Bait zone:** ritual area (a pre-drawn fake circle is on the floor)
+- **Correct anchor:** a tooth pulled from under the floorboard
+- **Tell:** eaten household objects, chewed picture frames, teeth marks in drywall
 
-### 7.1 Narrative premise
+### 6.4 Why three demons, not one
 
-The player arrives at a nursery-centered occult incident. The visible drama of the room is not trustworthy. Some evidence points toward the real demonic pattern; some exists to misdirect the player.
+Three demons sharing one apartment gives the team a real deduction problem without tripling art cost. The same hallway tells three different stories. The mirror is bait, unless it is not. The nursery is the truth, unless it is not. Players have to read the room instead of pattern-matching the building.
 
-The target interpretation is:
+## 7. Current Slice Design: Apartment 302 / Hollow Saint Baseline
 
-- the **Hollow Saint** has marked the child-facing space
-- the **mirror path is bait**
+This is what is built right now. It is the Hollow Saint case as it exists in the repo, and it is the evidence structure that the rest of the variance model extends.
 
-### 7.2 Spatial reading
+### 7.1 Current room read
 
-Apartment 302 should read as five linked zones:
+Apartment 302 reads as five linked zones:
 
-1. **Body / babysitter area**
-   - the player’s first strong clue cluster
-   - introduces the target’s state and the room’s tone
-2. **Nursery / child-facing evidence area**
-   - the true pattern gains weight here
-   - the player should increasingly understand this area matters
-3. **Mirror bait area**
-   - visually tempting
-   - should feel plausible but wrong
-4. **Ritual area**
-   - the final interpretation is tested here
-5. **Front door exit path**
-   - blocked until the correct rite succeeds
+1. body / babysitter area
+2. nursery / child-facing evidence area
+3. mirror bait area
+4. ritual area
+5. exit path
 
-### 7.3 Evidence structure
+### 7.2 Current evidence structure (Hollow Saint case)
 
-The active Unreal slice uses a fixed evidence structure:
+The active slice uses a fixed structure:
 
-- **5 true clues**
-- **3 false leads**
-- **1 correct ritual anchor**
-- **1 wrong ritual anchor**
+- 5 true clues
+- 3 false leads
+- 1 correct ritual anchor (the child's rattle)
+- 1 wrong ritual anchor (the bathroom mirror shard)
 
-The evidence ramp should work like this:
+### 7.3 Evidence ramp
 
-- **0-1 true clues:** pattern unclear
-- **2-3 true clues:** nursery side gains weight
-- **4 true clues:** mirror increasingly reads as bait
-- **5 true clues:** ritual decision is earned and unlocked
+The readability target for the current slice:
 
-### 7.4 Win / fail structure
+- 0-1 true clues: pattern unclear
+- 2-3 true clues: nursery side gains weight
+- 4 true clues: mirror increasingly reads as bait
+- 5 true clues: ritual choice is earned
 
-**Correct ritual**
+### 7.4 Why this slice still matters
 
-- player identifies the child-facing pattern
-- seal succeeds
-- room calms
-- front door becomes the final action
-- case closes on exit
+Apartment 302 in its Hollow Saint configuration already proves:
 
-**Wrong ritual**
+- readable space segmentation
+- real clue-vs-bait logic
+- ritual consequence
+- short-session pacing
 
-- player trusts the staged bait
-- fail state triggers immediately
-- ending makes clear why the interpretation was wrong
+Those are the correct foundation for the co-op product. The Weeping Matron and The Appetite cases in Section 6 extend the same evidence-and-ramp structure with their own truth and bait zones. The variance model in Section 8 describes how they share the apartment without invalidating this baseline.
 
-## 8. Demon Design: Hollow Saint
+## 8. Variance Model
 
-### 8.1 Identity
+Three axes of randomness, layered on a fixed apartment.
 
-The Hollow Saint is defined by:
+**Axis 1: Demon identity**. One of three per run. Determines which zone is truth and which anchor is correct. Team must deduce which demon before committing.
 
-- false sanctity
-- forced symmetry
-- devotional imagery twisted into bait
-- reversed or corrupted prayer signals
+**Axis 2: Evidence subset**. Each demon has 8 evidence slots. Each run spawns 6 of the 8. Teams commit to a read with incomplete information. This is the friendslop rule. The team never has the full picture.
 
-### 8.2 Readability cues
+**Axis 3: Manifestation pacing**. Light randomization on when and where the demon first appears, first aggresses, and first locks doors. Not a gameplay pillar, but enough to break memorization.
 
-From the repo data and current slice direction, Hollow Saint should consistently read through:
+Combined, this produces enough run-to-run differentiation that the apartment stays fresh across 8 to 12 sessions, which is the Early Access review window.
 
-- pale halo / saint imagery
-- mirrored bodily marks
-- crown / ring / iconography
-- child-facing devotional corruption
+## 9. The Ritual: Detailed Spec
 
-### 8.3 Ritual fantasy
+This is the game. Everything upstream of this minute exists to deliver this minute.
 
-The fantasy of defeating Hollow Saint is **unmasking false holiness**, not overpowering a monster.
+### 9.1 What a ritual is
 
-The player wins by understanding:
+The ritual is a 60 to 90 second synchronized group action performed in the ritual area. It requires **four distinct hands** working in parallel. In solo play, one player rotates through all four with time penalties.
 
-- what in the room is truly marked
-- what is decorative sacrilege
-- where the ritual weight actually converges
+The ritual runs in three phases. The demon escalates across phases. Team mistakes are visible and audible. Voice chat is not optional, it is a game mechanic.
 
-## 9. UX and HUD Direction
+### 9.2 The four hands
 
-### 9.1 HUD priorities
+**1. The Reader**
 
-The HUD must communicate, in order:
+- Holds the Holy Book.
+- Reads three escalating Latin verses into the microphone.
+- Voice recognition listens for key phrases. Stumbles, hesitation, or wrong pronunciation stalls the verse.
+- A stalled verse lets the demon close one step of distance.
+- Bonus: the Reader's voice is audible to the entire team over voice chat. Fumbling in Latin is the primary comedy generator of the ritual.
 
-1. current objective
-2. current progress
-3. current read / deduction
-4. available interaction prompt
-5. evidence notes / checklist
+**2. The Anchor**
 
-### 9.2 First-minute clarity
+- Places the correct ritual anchor object in the center of the chalk circle on the correct verse beat.
+- If the wrong anchor is placed, the circle inverts. See Section 11.
+- If the correct anchor is placed late, the binding weakens and the demon gets more windows to attack in Phase 3.
 
-Within the first 30-60 seconds, the player should understand:
+**3. The Censer**
 
-- this is an investigation
-- some objects are important
-- the game is tracking notes
-- the room can be read
-- there is a later ritual choice
+- Swings the censer to purify the four cardinal points of the ritual area, in order.
+- Each point requires a 2-second hold.
+- Any point skipped or held too short lets the demon cross that side of the room.
+- The Censer's route is the most physically demanding of the four hands.
 
-If the player spends the first minute merely wandering, the build has failed its onboarding goal.
+**4. The Guard**
 
-### 9.3 End-state clarity
+- Holds the crucifix.
+- Actively blocks the demon's path to the Reader.
+- Can raise the crucifix for a 1-second stagger of the demon, with a 6-second cooldown.
+- Cannot do anything else during the ritual. Cannot investigate. Cannot help others. Cannot move the anchor. Only guards.
 
-The ending must answer:
+### 9.3 The three phases
 
-- did I win or fail?
-- why?
-- what did the room actually mean?
+**Phase 1 Summoning (20 seconds)**
 
-The final report is not flavor text only. It is part of the learning loop.
+- Demon appears at maximum distance.
+- Reader starts Latin.
+- Censer begins cardinal cleanse.
+- Anchor places object on beat.
+- Guard watches approach.
+- Low pressure. Setup phase.
 
-## 10. Art Direction for the Vertical Slice
+**Phase 2 Binding (30 seconds)**
 
-The active visual target is:
+- Demon closes to mid-range and actively interferes.
+- Environmental effects kick in: flickering lights, tipped furniture, whispered Latin overlapping the Reader.
+- Guard becomes critical. Censer completes cardinal cleanse.
+- The room gets loud. Voice chat degrades into panic coordination.
+
+**Phase 3 Sealing (15 to 30 seconds)**
+
+- Demon is at close range, throwing environmental attacks.
+- All four hands must hold position for the final Latin verse.
+- This is where teams fall apart.
+- Successful Phase 3 completion is the win state. Ritual seals. Demon dissolves. Lights snap back.
+
+### 9.4 Why this ritual is correct for friendslop
+
+- Four hands means four distinct camera angles. Streamable.
+- Voice recognition on Latin means the Reader audibly performs for the group. Clippable.
+- The Guard doing nothing but guarding creates a player who is forced to sit still and watch chaos, which is its own friendslop archetype.
+- Any of the four hands failing produces a visible, attributable breakdown. Blame is clear.
+- The ritual rewards coordination but punishes over-planning. A team that has rehearsed is still going to lose hands to Phase 3 pressure.
+
+### 9.5 Solo adaptation
+
+Solo is strictly harder in coordination, strictly simpler in blame.
+
+- Reader duty plays from a pre-recorded tape loop the solo player starts and maintains.
+- Solo player must physically run between Anchor placement, Censer points, and Guard position.
+- Verse speed is reduced 25 percent to allow physical movement.
+- Demon aggression is reduced to match solo capability.
+- Solo is playable and winnable. Solo is not the target fantasy. Group play is.
+
+## 10. Tool Scarcity and Role Formation
+
+There are no character classes. There are no stats. Roles form through object scarcity.
+
+Four tools spawn in the apartment. One of each:
+
+- **Holy Book**: enables the Reader role. Required for the final Latin. Anyone can carry it.
+- **Censer**: required to purify cardinal points during the ritual. Also reveals smoke-based bait during investigation.
+- **Crucifix**: enables the Guard role. Usable as a one-shot demon stagger outside the ritual.
+- **Film Camera**: required to reveal at least 2 of the 8 evidence slots per run. Without it, the team is missing investigation coverage.
+
+Because there is exactly one of each, players self-sort through grabbing. Lobby arguments over who gets which tool are a feature, not a bug. The player who grabs last gets whatever is left.
+
+In 2-player and 3-player teams, hands must double up. This is not balanced. Shorter teams are harder. That is the intended scaling.
+
+## 11. Signature Failure Cascade: The Possession
+
+The team committing to the wrong ritual anchor does not produce a quiet failure. It produces a genre switch.
+
+The moment the wrong anchor hits the circle:
+
+1. The chalk circle turns from white to red. One beat of silence.
+2. The apartment lights cut. Only flashlights and candles remain.
+3. One player is silently possessed. The game picks the player standing closest to the circle at the moment of placement.
+4. The possessed player's screen is unchanged. Nothing visibly tells them they are possessed.
+5. The possessed player's voice chat output is pitched down 20 percent to their teammates but sounds normal to them.
+6. The possessed player's objective flips to hunting. They keep all their tools.
+7. The remaining team has 90 seconds to perform an alternative banishing rite, which requires they identify, contain, and counter-exorcise the possessed teammate.
+8. Full wipe if they fail. Partial success and reduced reward if they succeed.
+
+This cascade:
+
+- reuses existing apartment geometry
+- reuses existing tools
+- flips the social dynamic from coordination to suspicion mid-session
+- produces the pitch-shifted voice moment every trailer needs
+- forces the possessed player into improv acting, which is the best kind of friendslop
+- creates a clean clip every single time it happens
+
+## 12. Three Authored Streamer Moments
+
+These three moments are the thumbnails. Lighting, audio, and animation passes should protect them.
+
+**1. The Mirror Crack**
+
+The first time the Hollow Saint's face appears through a crack in the bathroom mirror. Hand-animated, not procedural. Happens exactly once per Hollow Saint run. It is the first hard confirmation of which demon the team faces.
+
+**2. The Pitch Drop**
+
+The voice pitch shift the moment a teammate gets possessed. No visual tell to the possessed player. Only their friends hear it. This is the moment that justifies voice chat as a mechanic.
+
+**3. The Clean Exorcism**
+
+All four hands holding position, final Latin verse closing, circle sealing in white light, demon dissolving. Full camera stillness for 3 seconds. Silence except the breath of the Reader. This is the moment that gets players to queue a second run.
+
+## 13. Target Session Loop
+
+The target loop for the shipping concept:
+
+1. Lobby and tool grab.
+2. Team briefing with case summary.
+3. Enter Apartment 302.
+4. Split attention across evidence, bait, danger, and ritual prep.
+5. Argue over demon identity and anchor choice.
+6. Commit to the ritual plan.
+7. Perform the 4-hand ritual under pressure.
+8. Succeed, fail into possession cascade, or partially salvage.
+9. Debrief with scored outcomes.
+10. Requeue fast.
+
+Solo mode supports the same loop with reduced verse speed and collapsed roles.
+
+## 14. Co-op Translation Rules
+
+The current slice scales into co-op under these rules:
+
+- clue logic must stay understandable when multiple players inspect different things out of order
+- ritual progress must be legible to the whole team, not only the interacting player
+- wrong decisions must be funny and teachable, not random and silent
+- tool scarcity creates roles. Do not add classes.
+- the possession cascade must feel fair. Wrong anchor cause and effect must be visible in hindsight.
+- solo uses the same clue and ritual logic, not a different game
+
+## 15. Tone Direction
+
+The target tone, delivered through systems:
+
+- absurdist, by way of physical breakdown
+- occult, by way of sincere fictional logic
+- playful under pressure, by way of voice chat and tool scarcity
+- readable, by way of legible failure cascades
+- socially combustible, by way of forced coordination under time pressure
+
+The target tone is not:
+
+- authored comedy
+- pure bleak horror
+- ultra-serious demonology sim
+- muddy realism
+- cynical parody with no stakes
+
+The occult logic stays straight. The players make it funny.
+
+## 16. UX And HUD Direction
+
+The HUD communicates, in order:
+
+1. team or player objective
+2. current case state and demon hypothesis
+3. ritual phase and which hand each player is performing
+4. available interaction
+5. why the room currently points one way and not another
+
+For the broader product, UX should support:
+
+- shared team understanding of ritual phase
+- blame-friendly clarity on which hand failed
+- fast restart and replay
+- readable debrief outcomes
+- post-run scoring broken down by hand performance
+
+## 17. Art Direction Summary
+
+The visual target:
 
 - stylized 3D
 - readable silhouettes
-- exaggerated but clean geometry
-- bold occult accent colors
+- exaggerated but intentional shapes
 - low clutter
-- strong zone contrast
+- strong occult accent colors
+- room states that read in motion
+- a commercial readability bar closer to a stylized co-op sim than to muddy prestige horror
 
-The room must be readable in motion. Important objects should not disappear into grime, darkness, or visual noise.
+Added for friendslop readability:
 
-### 10.1 Current environmental goals
+- visually legible cause-and-effect during ritual failures
+- clear color shift for circle inversion (white to red)
+- stream-readable lighting in both success and possession states
+- the Hollow Saint, Weeping Matron, and Appetite must read differently at silhouette distance
+- screenshots and clips must communicate the hook without long explanation
 
-Apartment 302 should feel:
+## 18. Near-Term Product Priorities
 
-- eerie
-- staged
-- unstable
-- readable
+The next practical priorities:
 
-It should **not** feel:
+- finish the Apartment 302 slice as a trustworthy baseline with Hollow Saint
+- implement the 4-hand ritual spec in the solo slice, with placeholder AI holding 3 hands
+- prototype voice recognition on Latin verse and test failure modes
+- prototype the possession cascade in the existing slice before scaling to co-op
+- add Weeping Matron and The Appetite as variance demons sharing Apartment 302
+- define the co-op networking and authority model for ritual sync
 
-- photoreal
-- muddy
-- over-detailed
-- visually random
+## 19. Early Access Target
 
-## 11. Near-Term Development Goals
+The realistic Early Access package:
 
-The next practical development target is to turn the current micro-case into a stronger finished slice.
+- one polished flagship location: Apartment 302
+- three demons sharing that location: Hollow Saint, Weeping Matron, The Appetite
+- 4-hand ritual fully implemented
+- possession cascade as signature failure
+- voice recognition Latin reading
+- solo and 2-4 player support
+- lightweight session shell: start, briefing, play, debrief, fast replay
+- commercial-grade tone, UI, audio, and presentation finish
 
-### 11.1 Gameplay goals
+Not optional for Early Access:
 
-- clearer onboarding and phased objectives
-- stronger evidence readability
-- stronger clue-to-ritual reasoning
-- more obvious ritual readiness
-- stronger success/fail presentation
-- more satisfying exit closure
+- solo support
+- 2-4 player co-op support
+- three demons in one apartment
+- the 4-hand ritual
+- the possession cascade
+- voice chat integration with Latin
+- a replayable session loop
 
-### 11.2 Content goals
+A second location before Early Access is a scope option, not a default assumption. Launching with one apartment and three demons is the correct bet.
 
-- clearer room zoning
-- stronger body / nursery / mirror / exit staging
-- better visual emphasis on useful objects
-- better route guidance without hand-holding arrows
+## 20. Explicit Non-Goals Before Early Access
 
-### 11.3 Production goals
+Do not treat these as required before first release:
 
-- keep `main` runnable
-- validate via packaged Windows build
-- avoid adding systems that do not directly improve the slice
+- big campaign structure
+- multiple full locations
+- procedural generation of apartments
+- large hub simulation
+- deep progression trees
+- character classes or RPG systems
+- broad feature sprawl that does not improve the first session
 
-## 12. Future Expansion Direction
+## 21. Source-Of-Truth Notes
 
-If the current slice proves itself, the broader game can later expand into:
+- the Unreal vertical slice remains the active build target
+- the browser prototype remains reference material, not the runtime target
+- `DesignData/*.json` remains useful for case and demon logic
+- the 4-hand ritual spec in Section 9 is now the canonical definition of the ritual
+- the possession cascade in Section 11 is now the canonical failure state
+- this document updates when the ritual spec, variance model, or Early Access scope changes materially
 
-- more demons
-- more case templates
-- ritual variants
-- stronger audiovisual identity
-- case board / safehouse framing
-- richer evidence combination logic
+---
 
-But those expansions are downstream. They are not the current priority. The current priority is one readable, satisfying, replayable case.
-
-## 13. Success Criteria for the Current Game
-
-The current vertical slice is considered successful when:
-
-- the packaged build launches reliably
-- the player understands the first minute without outside explanation
-- the player can inspect, deduce, and reach an ending
-- the room teaches the difference between true evidence and bait
-- the ritual outcome feels caused by player understanding
-- the player can describe what happened and why
-
-## 14. Source-of-Truth Notes
-
-- The Unreal vertical slice is the active build target.
-- `DesignData/*.json` remains useful for demon/case logic and future migration.
-- Browser prototype code is reference material, not the runtime target.
-- This document should be updated whenever the core loop, evidence model, or case structure changes materially.
+**Next step**: prototype the 4-hand ritual in the existing solo slice with three AI-controlled hands, so the human player can feel what the Reader role actually plays like before voice recognition is wired in.

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">GP-A-P3 Implementation Handoff Board</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Browse-first grouped handoff for accepted shell source-art packages, reuse routes, and implementation-facing reading order</text>
+
+  <rect x="64" y="166" width="1472" height="110" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="700">Start here before opening individual shell surfaces or shared component sheets</text>
+  <text x="100" y="258" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="21">This board groups the accepted shell source-art families into one implementation-handoff package without reopening product decisions or claiming runtime proof.</text>
+
+  <rect x="64" y="316" width="454" height="564" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="372" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">Package Stack</text>
+  <rect x="98" y="406" width="386" height="96" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="124" y="462" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">VS-A10</text>
+  <text x="226" y="462" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">direction baseline</text>
+  <rect x="98" y="528" width="386" height="112" rx="18" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="124" y="586" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">GP-A-P1</text>
+  <text x="124" y="620" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">former GP-A1 through GP-A6: core shell flow, threshold, setup, launch, archive</text>
+  <rect x="98" y="668" width="386" height="132" rx="18" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="124" y="726" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">GP-A-P2</text>
+  <text x="124" y="760" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">former GP-A7 through GP-A13: resilience, party, permissions, exit, interruption, compatibility, maintenance</text>
+  <text x="98" y="846" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Read order: baseline, package, surface board, then shared UI companion.</text>
+
+  <rect x="572" y="316" width="454" height="564" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="606" y="372" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">Entry Paths</text>
+  <rect x="606" y="406" width="386" height="84" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="634" y="458" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Core session flow</text>
+  <rect x="606" y="510" width="386" height="84" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="634" y="562" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Setup / launch / archive</text>
+  <rect x="606" y="614" width="386" height="84" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="634" y="666" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Support / party / permissions</text>
+  <rect x="606" y="718" width="386" height="84" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="634" y="770" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">Exit / interruption / compatibility / maintenance</text>
+  <text x="606" y="844" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use the grouped reuse-route board for specific file handoff after choosing the family above.</text>
+
+  <rect x="1080" y="316" width="456" height="564" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1114" y="372" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">Boundary Notes</text>
+  <text x="1114" y="432" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">This package is a consumption aid for later implementation. It is not a claim that shell widgets, code flow, or Unreal placement are final.</text>
+  <text x="1114" y="474" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not use grouped boards as permission to merge or reinterpret unrelated states without checking the accepted source-art families they summarize.</text>
+  <rect x="1114" y="558" width="388" height="86" rx="18" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1142" y="612" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">productshell_gp_ap3_reuse_routes_board</text>
+  <rect x="1114" y="674" width="388" height="86" rx="18" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1142" y="728" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">sharedui_shell_grouped_handoff_sheet</text>
+  <text x="1114" y="820" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep shell readability first, occult tone second, and runtime claims out of the art lane.</text>
+</svg>

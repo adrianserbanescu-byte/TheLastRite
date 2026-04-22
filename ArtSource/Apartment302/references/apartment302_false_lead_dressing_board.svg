@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1f201c"/>
+      <stop offset="1" stop-color="#11120f"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dfe3d8"/>
+      <stop offset="1" stop-color="#bbc0b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1800" height="1100" fill="url(#bg)"/>
+  <text x="72" y="84" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Apartment 302 false-lead dressing board</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A3 reference sheet: make the bait lane tempting and story-rich, but keep it isolated from the corroborated Hollow Saint family.</text>
+  <rect x="72" y="182" width="790" height="836" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <rect x="938" y="182" width="790" height="836" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="110" y="238" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Mundane distractions</text>
+  <text x="976" y="238" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Mirror-bait lane</text>
+  <text x="110" y="278" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">plausible human trouble, loose disorder, asymmetry, colder utility colors</text>
+  <text x="976" y="278" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">dramatic framing, polished spectacle, colder glass-green, but still off-family</text>
+  <g transform="translate(250 430)">
+    <rect x="-150" y="-120" width="300" height="240" rx="12" fill="#d9dccf" stroke="#8f9087" stroke-width="10"/>
+    <rect x="-124" y="-98" width="248" height="196" rx="8" fill="url(#glass)" stroke="#f4efdc" stroke-width="4"/>
+    <line x1="0" y1="-120" x2="0" y2="120" stroke="#8f9087" stroke-width="8"/>
+    <line x1="-150" y1="0" x2="150" y2="0" stroke="#8f9087" stroke-width="8"/>
+    <rect x="-18" y="-12" width="68" height="24" rx="6" fill="#41443c" stroke="#a98f45" stroke-width="3"/>
+    <path d="M30 -10 L92 -34" stroke="#25241f" stroke-width="7" stroke-linecap="round"/>
+    <path d="M66 -62 L122 -100" stroke="#f4efdc" stroke-width="4" opacity="0.55"/>
+    <path d="M82 0 L156 -18" stroke="#f4efdc" stroke-width="4" opacity="0.55"/>
+    <text x="-140" y="176" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">broken latch false lead</text>
+  </g>
+  <g transform="translate(592 438)">
+    <path d="M-136 -48 C-60 -88 64 -86 144 -44 L188 174 C106 226 -70 228 -194 174 Z" fill="#5f665d" stroke="#a98f45" stroke-width="6"/>
+    <rect x="-38" y="-86" width="116" height="190" rx="8" fill="#efe7c8" stroke="#f4efdc" stroke-width="3" transform="rotate(-8)"/>
+    <rect x="54" y="-62" width="116" height="190" rx="8" fill="#f6f0dc" stroke="#8f9087" stroke-width="3" transform="rotate(8)"/>
+    <text x="-148" y="238" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">pawn-ticket pouch false lead</text>
+  </g>
+  <g transform="translate(448 748)">
+    <text x="-296" y="0" font-family="Georgia, serif" font-size="28" fill="#f4efdc">Why these stay false</text>
+    <text x="-296" y="42" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">They suggest break-in, debt, neglect, or domestic collapse.</text>
+    <text x="-296" y="80" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">They do not repeat halo arcs, broken-crown rhythm, or child-facing placement.</text>
+    <text x="-296" y="118" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Keep placement loose and imperfect so they read like lives falling apart, not ritual convergence.</text>
+  </g>
+  <g transform="translate(1332 430)">
+    <circle cx="0" cy="0" r="170" fill="none" stroke="#8f9087" stroke-width="5" stroke-dasharray="8 14"/>
+    <circle cx="0" cy="0" r="126" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="12 10"/>
+    <rect x="-92" y="-136" width="184" height="272" rx="18" fill="#343935" stroke="#a98f45" stroke-width="7"/>
+    <rect x="-66" y="-108" width="132" height="216" rx="12" fill="#6d847f" opacity="0.72"/>
+    <path d="M0 -168 L28 -126 L0 -84 L-28 -126 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+    <path d="M-168 0 L-126 -28 L-84 0 L-126 28 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+    <path d="M168 0 L126 -28 L84 0 L126 28 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+    <text x="-146" y="232" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">mirror-bait spectacle</text>
+  </g>
+  <g transform="translate(1332 742)">
+    <text x="-284" y="0" font-family="Georgia, serif" font-size="28" fill="#f4efdc">How to keep the bait lane tempting</text>
+    <text x="-284" y="42" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">Let it be cleaner, shinier, and better framed than the mundane clutter.</text>
+    <text x="-284" y="80" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">But avoid full corroboration: no ash handprints, no repeated nursery crown family, no child-object echoes.</text>
+    <text x="-284" y="118" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">It should win attention for a moment, then lose the argument once the evidence chain repeats elsewhere.</text>
+  </g>
+  <rect x="72" y="1044" width="1656" height="34" rx="8" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="104" y="1068" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Rule for placement: drama is allowed, but corroboration belongs only to the nursery chain.</text>
+</svg>

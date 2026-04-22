@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <rect x="82" y="76" width="1436" height="828" rx="20" fill="#ebe2cf" stroke="#a38e4f" stroke-width="3"/>
+  <rect x="118" y="112" width="1364" height="72" rx="12" fill="#25211d"/>
+  <text x="150" y="158" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">INCIDENT REPORT // APARTMENT 302</text>
+  <rect x="118" y="226" width="398" height="584" rx="18" fill="#f2eadb" stroke="#baa464" stroke-width="2"/>
+  <text x="150" y="280" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Run Summary</text>
+  <text x="150" y="330" fill="#3a342d" font-family="Arial, Helvetica, sans-serif" font-size="20">Case proved through corroborated nursery chain.</text>
+  <text x="150" y="364" fill="#3a342d" font-family="Arial, Helvetica, sans-serif" font-size="20">Wrong mirror route rejected before final commit.</text>
+  <text x="150" y="398" fill="#3a342d" font-family="Arial, Helvetica, sans-serif" font-size="20">Seal integrity maintained.</text>
+  <rect x="552" y="226" width="434" height="584" rx="18" fill="#f2eadb" stroke="#6f7f78" stroke-width="2"/>
+  <text x="584" y="280" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Evidence Ledger</text>
+  <rect x="584" y="320" width="370" height="58" rx="14" fill="#e5dcc8" stroke="#6f7f78" stroke-width="2"/>
+  <rect x="584" y="394" width="370" height="58" rx="14" fill="#e5dcc8" stroke="#6f7f78" stroke-width="2"/>
+  <rect x="584" y="468" width="370" height="58" rx="14" fill="#e5dcc8" stroke="#6f7f78" stroke-width="2"/>
+  <text x="612" y="356" fill="#33302a" font-family="Arial, Helvetica, sans-serif" font-size="20">cradle / prayer-card / sigil chain</text>
+  <text x="612" y="430" fill="#33302a" font-family="Arial, Helvetica, sans-serif" font-size="20">mirror bait invalidated</text>
+  <text x="612" y="504" fill="#33302a" font-family="Arial, Helvetica, sans-serif" font-size="20">ritual route confirmed</text>
+  <rect x="1022" y="226" width="460" height="584" rx="18" fill="#f2eadb" stroke="#baa464" stroke-width="2"/>
+  <text x="1054" y="280" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Report Notes</text>
+  <text x="1054" y="330" fill="#3a342d" font-family="Arial, Helvetica, sans-serif" font-size="20">This surface should feel administrative and calm.</text>
+  <text x="1054" y="364" fill="#3a342d" font-family="Arial, Helvetica, sans-serif" font-size="20">It should support post-run storytelling, not replace it.</text>
+  <rect x="1054" y="444" width="188" height="52" rx="26" fill="#2a332f" stroke="#6f7f78" stroke-width="2"/>
+  <text x="1105" y="477" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">archive</text>
+  <rect x="1262" y="444" width="188" height="52" rx="26" fill="#2a2722" stroke="#baa464" stroke-width="2"/>
+  <text x="1310" y="477" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">replay</text>
+</svg>

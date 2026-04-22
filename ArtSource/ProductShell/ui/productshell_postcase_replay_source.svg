@@ -1,0 +1,46 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="980" fill="#0D1111"/>
+  <rect x="28" y="28" width="1544" height="924" rx="24" fill="#141B1B" stroke="#8A7A52" stroke-width="2"/>
+  <rect x="56" y="56" width="1488" height="110" rx="16" fill="#192121" stroke="#8A7A52" stroke-width="2"/>
+  <text x="86" y="96" fill="#C9C2AE" font-family="Arial" font-size="22" letter-spacing="5">POST-CASE REPLAY SOURCE</text>
+  <text x="86" y="138" fill="#F2E7BF" font-family="Arial" font-size="38" font-weight="700" letter-spacing="2">REPLAY CASE // REVIEW BEFORE RE-ENTRY</text>
+  <text x="1250" y="96" fill="#9FA89A" font-family="Arial" font-size="18" letter-spacing="3">REVIEW FIRST</text>
+  <rect x="84" y="198" width="516" height="672" rx="22" fill="#171F1F" stroke="#8A7A52" stroke-width="2"/>
+  <rect x="628" y="198" width="420" height="672" rx="22" fill="#171F1F" stroke="#6D7E70" stroke-width="2"/>
+  <rect x="1076" y="198" width="408" height="672" rx="22" fill="#171F1F" stroke="#6D7E70" stroke-width="2"/>
+  <text x="116" y="246" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">REPLAY SUMMARY</text>
+  <text x="116" y="304" fill="#F5F2E8" font-family="Arial" font-size="52" font-weight="700">Return with reviewed state</text>
+  <text x="116" y="354" fill="#AAB4A5" font-family="Arial" font-size="22">Replay should inherit the post-case verdict and debrief context.</text>
+  <rect x="116" y="392" width="452" height="132" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="144" y="434" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">SAFE ENTRY</text>
+  <text x="144" y="478" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Reviewed replay route</text>
+  <rect x="116" y="548" width="452" height="132" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="144" y="590" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">CAUTION</text>
+  <text x="144" y="634" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Do not overpromise persistence</text>
+  <rect x="116" y="704" width="452" height="118" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="144" y="746" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">READ ORDER</text>
+  <text x="144" y="788" fill="#D5DCCF" font-family="Arial" font-size="28">Result -> Debrief -> Replay</text>
+  <text x="660" y="246" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">REVIEW ROWS</text>
+  <rect x="660" y="286" width="356" height="110" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="688" y="328" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ROW 01</text>
+  <text x="688" y="370" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Seal condition check</text>
+  <rect x="660" y="420" width="356" height="110" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="688" y="462" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ROW 02</text>
+  <text x="688" y="504" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Evidence carry-forward</text>
+  <rect x="660" y="554" width="356" height="110" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="688" y="596" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ROW 03</text>
+  <text x="688" y="638" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Team readiness check</text>
+  <rect x="660" y="688" width="356" height="134" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="688" y="730" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ACTION</text>
+  <text x="688" y="772" fill="#D5DCCF" font-family="Arial" font-size="28">Replay path should feel deliberate, not immediate.</text>
+  <text x="1108" y="246" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">BOUNDARY NOTES</text>
+  <rect x="1108" y="286" width="344" height="160" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="1136" y="330" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">KEEP</text>
+  <text x="1136" y="372" fill="#D5DCCF" font-family="Arial" font-size="26">Replay framed as review and re-entry control.</text>
+  <rect x="1108" y="470" width="344" height="160" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="1136" y="514" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">AVOID</text>
+  <text x="1136" y="556" fill="#D5DCCF" font-family="Arial" font-size="26">Claims about reset logic, save carry-over, or final controller flow.</text>
+  <rect x="1108" y="654" width="344" height="168" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="1136" y="698" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">PAIR WITH</text>
+  <text x="1136" y="742" fill="#F5F2E8" font-family="Arial" font-size="30" font-weight="700">Shared post-case components</text>
+</svg>

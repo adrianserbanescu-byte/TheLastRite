@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="26" y="26" width="1548" height="928" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Entry / Exit Wayfinding Set</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Reusable sign family for shell approach, active case, return flow, and restricted-state messaging</text>
+  <rect x="86" y="176" width="320" height="240" rx="22" fill="#24211d" stroke="#968347" stroke-width="2"/>
+  <text x="122" y="262" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">enter case</text>
+  <text x="124" y="316" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="22">apartment 302</text>
+  <rect x="448" y="176" width="320" height="240" rx="22" fill="#24211d" stroke="#687770" stroke-width="2"/>
+  <text x="488" y="262" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">active</text>
+  <text x="488" y="316" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="22">ritual team only</text>
+  <rect x="810" y="176" width="320" height="240" rx="22" fill="#24211d" stroke="#968347" stroke-width="2"/>
+  <text x="846" y="262" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">return</text>
+  <text x="846" y="316" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="22">debrief hall</text>
+  <rect x="1172" y="176" width="320" height="240" rx="22" fill="#24211d" stroke="#687770" stroke-width="2"/>
+  <text x="1202" y="262" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">restricted</text>
+  <text x="1202" y="316" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="22">clearance needed</text>
+  <rect x="86" y="486" width="1406" height="284" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="122" y="548" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="24">Wayfinding notes</text>
+  <text x="122" y="592" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep wording short, directional, and procedural.</text>
+  <text x="122" y="622" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use strong room numbers and clear verbs instead of lore-heavy phrasing.</text>
+  <text x="122" y="652" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">The player should understand where to go before they stop to interpret the sign family.</text>
+</svg>

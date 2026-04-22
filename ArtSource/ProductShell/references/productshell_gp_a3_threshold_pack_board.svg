@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <rect width="1800" height="1200" fill="#12110e"/>
+  <rect x="28" y="28" width="1744" height="1144" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="66" y="92" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700">GP-A3 Threshold + Surrounding-Space Pack</text>
+  <text x="66" y="126" fill="#b7b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Source-art pack for shell approach, threshold signage, corridor dressing, and return-path support</text>
+  <rect x="66" y="174" width="400" height="360" rx="20" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Entry Signage</text>
+  <text x="100" y="270" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="20">`WorldShell/entry_threshold_signage_source.svg`</text>
+  <text x="100" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Primary shell-to-case threshold marker.</text>
+  <rect x="500" y="174" width="400" height="360" rx="20" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="534" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Return Flow</text>
+  <text x="534" y="270" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="20">`WorldShell/return_path_guidance_source.svg`</text>
+  <text x="534" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Exit and debrief routing guidance.</text>
+  <rect x="934" y="174" width="400" height="360" rx="20" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="968" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Corridor Dressing</text>
+  <text x="968" y="270" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="20">`WorldShell/shell_corridor_threshold_dressing_source.svg`</text>
+  <text x="968" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Low-budget municipal corridor support language.</text>
+  <rect x="1368" y="174" width="366" height="360" rx="20" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="1402" y="222" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Wayfinding Set</text>
+  <text x="1402" y="270" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="19">`WorldShell/shell_entry_exit_wayfinding_set_source.svg`</text>
+  <text x="1402" y="312" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Reusable sign family for entry, active, return, and restricted states.</text>
+  <rect x="66" y="588" width="1668" height="526" rx="20" fill="#1c1a17" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="644" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Read Target</text>
+  <text x="100" y="688" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">The surrounding shell space should feel readable, procedural, and slightly uncanny without trying to out-haunt Apartment 302.</text>
+  <text x="100" y="748" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Boundary</text>
+  <text x="100" y="792" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This remains source-art-only. It does not prove final level layout, corridor scale, prop density, or runtime wayfinding success in Unreal.</text>
+  <text x="100" y="852" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Regression to avoid</text>
+  <text x="100" y="896" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not let the shell approach become noisier, grimier, or more occult than the case interior it is meant to frame.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="980" fill="#0D1111"/>
+  <rect x="26" y="26" width="1548" height="928" rx="24" fill="#131A1A" stroke="#8A7A52" stroke-width="2"/>
+  <rect x="54" y="54" width="1492" height="104" rx="16" fill="#182020" stroke="#8A7A52" stroke-width="2"/>
+  <text x="84" y="96" fill="#C9C2AE" font-family="Arial" font-size="22" letter-spacing="5">POST-CASE RESULT SOURCE</text>
+  <text x="84" y="135" fill="#F2E7BF" font-family="Arial" font-size="40" font-weight="700" letter-spacing="2">CASE RESULT // HOLLOW SAINT CONTAINED</text>
+  <text x="1268" y="96" fill="#9FA89A" font-family="Arial" font-size="18" letter-spacing="3">RESULT FIRST</text>
+  <rect x="84" y="196" width="504" height="660" rx="22" fill="#171F1F" stroke="#8A7A52" stroke-width="2"/>
+  <rect x="616" y="196" width="420" height="660" rx="22" fill="#151C1C" stroke="#6D7E70" stroke-width="2"/>
+  <rect x="1064" y="196" width="452" height="660" rx="22" fill="#151C1C" stroke="#6D7E70" stroke-width="2"/>
+  <text x="116" y="244" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">RESULT SUMMARY</text>
+  <text x="116" y="296" fill="#F5F2E8" font-family="Arial" font-size="72" font-weight="700">CONTAINED</text>
+  <text x="116" y="340" fill="#AAB4A5" font-family="Arial" font-size="22">Primary boundary held. Apartment shell remains unstable but operable.</text>
+  <rect x="116" y="388" width="440" height="116" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="142" y="426" fill="#D8CBA3" font-family="Arial" font-size="18" letter-spacing="3">VERDICT STRIP</text>
+  <text x="142" y="468" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Witness chain preserved</text>
+  <rect x="116" y="536" width="440" height="120" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="142" y="574" fill="#D8CBA3" font-family="Arial" font-size="18" letter-spacing="3">CASE NOTES</text>
+  <text x="142" y="616" fill="#D5DCCF" font-family="Arial" font-size="28">Cleansing sequence complete.</text>
+  <rect x="116" y="688" width="440" height="136" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="142" y="726" fill="#D8CBA3" font-family="Arial" font-size="18" letter-spacing="3">FOLLOW-UP</text>
+  <text x="142" y="768" fill="#D5DCCF" font-family="Arial" font-size="28">Debrief before replay or requeue.</text>
+  <text x="648" y="244" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">SEAL CONDITION</text>
+  <rect x="648" y="280" width="356" height="112" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="676" y="322" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">PRIMARY SEAL</text>
+  <text x="676" y="364" fill="#F5F2E8" font-family="Arial" font-size="34" font-weight="700">Stable / reviewed</text>
+  <rect x="648" y="420" width="356" height="112" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="676" y="462" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">SECONDARY TRACE</text>
+  <text x="676" y="504" fill="#F5F2E8" font-family="Arial" font-size="34" font-weight="700">Needs archive note</text>
+  <rect x="648" y="560" width="356" height="232" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="676" y="602" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">BOUNDARY NOTES</text>
+  <text x="676" y="648" fill="#D5DCCF" font-family="Arial" font-size="26">Keep post-case language clerical.</text>
+  <text x="676" y="688" fill="#D5DCCF" font-family="Arial" font-size="26">Avoid celebratory action framing.</text>
+  <text x="1096" y="244" fill="#E9D8A6" font-family="Arial" font-size="22" letter-spacing="4">NEXT SAFE ROUTES</text>
+  <rect x="1096" y="280" width="388" height="128" rx="14" fill="#202929" stroke="#8A7A52"/>
+  <text x="1124" y="322" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ROUTE A</text>
+  <text x="1124" y="366" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Open debrief</text>
+  <rect x="1096" y="434" width="388" height="128" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="1124" y="476" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ROUTE B</text>
+  <text x="1124" y="520" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Replay with review</text>
+  <rect x="1096" y="588" width="388" height="204" rx="14" fill="#202929" stroke="#6D7E70"/>
+  <text x="1124" y="630" fill="#C6D0C2" font-family="Arial" font-size="18" letter-spacing="3">ROUTE C</text>
+  <text x="1124" y="674" fill="#F5F2E8" font-family="Arial" font-size="32" font-weight="700">Queue next case calmly</text>
+  <text x="1124" y="726" fill="#D5DCCF" font-family="Arial" font-size="24">Result should resolve first, then release the next decision.</text>
+</svg>

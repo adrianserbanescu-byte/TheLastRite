@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#11100e"/>
+  <rect x="24" y="24" width="1552" height="852" rx="24" fill="#191714" stroke="#918046" stroke-width="3"/>
+  <text x="70" y="96" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Session Board Source</text>
+  <text x="70" y="130" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Group-ready shell surface for role slots, case state, and fast replay flow</text>
+  <rect x="70" y="166" width="1460" height="110" rx="20" fill="#22201b" stroke="#63726c" stroke-width="2"/>
+  <text x="106" y="230" fill="#ece3cf" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">APARTMENT 302 SESSION BOARD</text>
+  <rect x="70" y="314" width="438" height="454" rx="24" fill="#1f1d19" stroke="#918046" stroke-width="2"/>
+  <text x="104" y="366" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Team Slots</text>
+  <rect x="104" y="398" width="370" height="74" rx="16" fill="#292620" stroke="#63726c" stroke-width="2"/>
+  <rect x="104" y="490" width="370" height="74" rx="16" fill="#292620" stroke="#63726c" stroke-width="2"/>
+  <rect x="104" y="582" width="370" height="74" rx="16" fill="#292620" stroke="#63726c" stroke-width="2"/>
+  <rect x="104" y="674" width="370" height="74" rx="16" fill="#292620" stroke="#63726c" stroke-width="2"/>
+  <text x="130" y="442" fill="#e8dfcc" font-family="Arial, Helvetica, sans-serif" font-size="24">reader</text>
+  <text x="130" y="534" fill="#e8dfcc" font-family="Arial, Helvetica, sans-serif" font-size="24">anchor</text>
+  <text x="130" y="626" fill="#e8dfcc" font-family="Arial, Helvetica, sans-serif" font-size="24">censer</text>
+  <text x="130" y="718" fill="#e8dfcc" font-family="Arial, Helvetica, sans-serif" font-size="24">guard</text>
+  <rect x="548" y="314" width="470" height="454" rx="24" fill="#1f1d19" stroke="#63726c" stroke-width="2"/>
+  <text x="582" y="366" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Case Card</text>
+  <rect x="582" y="400" width="402" height="148" rx="18" fill="#ece4d2" stroke="#9f8a4a" stroke-width="2"/>
+  <text x="616" y="458" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Hollow Saint</text>
+  <text x="616" y="494" fill="#38332d" font-family="Arial, Helvetica, sans-serif" font-size="19">Apartment 302 remains the active proof case.</text>
+  <rect x="582" y="580" width="190" height="58" rx="29" fill="#29332f" stroke="#63726c" stroke-width="2"/>
+  <text x="631" y="617" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">ready</text>
+  <rect x="794" y="580" width="190" height="58" rx="29" fill="#2a2722" stroke="#9f8a4a" stroke-width="2"/>
+  <text x="844" y="617" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">brief</text>
+  <rect x="1058" y="314" width="472" height="454" rx="24" fill="#1f1d19" stroke="#918046" stroke-width="2"/>
+  <text x="1092" y="366" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Board Notes</text>
+  <text x="1092" y="418" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">Emphasize role status, case identity, and ready flow.</text>
+  <text x="1092" y="454" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep spectator-readability stronger than occult ornament.</text>
+  <text x="1092" y="490" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use chips, cards, and verdict bars, not diegetic clue props.</text>
+  <text x="1092" y="526" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">This remains source-art guidance only, not widget sizing.</text>
+</svg>

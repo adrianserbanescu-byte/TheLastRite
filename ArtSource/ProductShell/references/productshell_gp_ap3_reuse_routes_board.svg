@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">GP-A-P3 Reuse Routes Board</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Grouped file routes for later shell implementation reads, grouped by accepted source-art family rather than by micro-task history</text>
+
+  <rect x="64" y="166" width="1472" height="104" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="700">Choose the family you are implementing, then follow the matching board and shared-sheet route</text>
+
+  <rect x="64" y="308" width="1472" height="608" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <rect x="90" y="340" width="280" height="72" rx="14" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="386" y="340" width="472" height="72" rx="14" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="876" y="340" width="288" height="72" rx="14" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="1180" y="340" width="330" height="72" rx="14" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="118" y="386" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Family</text>
+  <text x="414" y="386" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Start with ProductShell surface / board</text>
+  <text x="904" y="386" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">SharedUI sheet</text>
+  <text x="1208" y="386" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Use when</text>
+
+  <rect x="90" y="434" width="1420" height="82" rx="14" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="116" y="484" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Foundation flow</text>
+  <text x="414" y="484" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">title_screen_source, lobby_board_source, briefing_sheet_source, debrief_sheet_source</text>
+  <text x="904" y="484" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">motif_kit, card_status_components</text>
+  <text x="1208" y="484" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">title, board, briefing, debrief entry surfaces</text>
+
+  <rect x="90" y="532" width="1420" height="82" rx="14" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="116" y="582" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Progress + state</text>
+  <text x="414" y="582" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">board_card_set_source, report_surface_source, transition_state_set_source</text>
+  <text x="904" y="582" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">report_transition_components</text>
+  <text x="1208" y="582" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">cards, reporting, loading, retry, locked states</text>
+
+  <rect x="90" y="630" width="1420" height="82" rx="14" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="116" y="680" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Setup + launch</text>
+  <text x="414" y="680" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">tool_grab_station_source, role_ready_confirmation_source, briefing_lock_in_source, launch_confirmation_source</text>
+  <text x="904" y="680" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">role_ready_components, brief_launch_components</text>
+  <text x="1208" y="680" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">loadout, roles, lock-in, launch readiness</text>
+
+  <rect x="90" y="728" width="1420" height="82" rx="14" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="116" y="778" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Archive + recovery</text>
+  <text x="414" y="778" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">archive_route_source, replay_requeue_source, settings_help_source, recovery_route_source</text>
+  <text x="904" y="778" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">archive_replay_components, support_recovery_components</text>
+  <text x="1208" y="778" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">post-case, help, restore, fallback routing</text>
+
+  <rect x="90" y="826" width="1420" height="82" rx="14" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="116" y="876" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Session resilience</text>
+  <text x="414" y="876" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">party_state_source through queue_restoration_source, using GP-A8 to GP-A13 boards as specific entry points</text>
+  <text x="904" y="876" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">party_reconnect, permissions_handoff, leave_exit, disconnect_retry, version_update, maintenance_restore</text>
+  <text x="1208" y="876" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">party, permissions, exit, service interruption, update, restoration</text>
+
+  <text x="64" y="950" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Boundary: grouped reuse routes are implementation-reading aids only. They do not replace the accepted surface boards or grant runtime integration authority.</text>
+</svg>

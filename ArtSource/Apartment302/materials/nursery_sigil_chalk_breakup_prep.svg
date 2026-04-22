@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#1a1915"/>
+  <text x="72" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Nursery sigil chalk breakup prep</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Material/decal prep reference: preserve dry chalk edge breakup and child-facing readability.</text>
+  <rect x="72" y="184" width="640" height="620" rx="18" fill="#25241f" stroke="#8f9087" stroke-width="3"/>
+  <ellipse cx="392" cy="490" rx="212" ry="104" fill="none" stroke="#e8e2d3" stroke-width="18" stroke-dasharray="52 26" opacity="0.92"/>
+  <ellipse cx="392" cy="490" rx="152" ry="72" fill="none" stroke="#f4efdc" stroke-width="8" stroke-dasharray="18 18" opacity="0.72"/>
+  <path d="M236 476 C286 398 338 358 392 344 C446 358 498 398 548 476" fill="none" stroke="#e8e2d3" stroke-width="10" stroke-linecap="round"/>
+  <path d="M286 470 L324 404 L390 462 L456 404 L498 470" fill="none" stroke="#a98f45" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#f4efdc" opacity="0.42">
+    <circle cx="174" cy="446" r="8"/><circle cx="198" cy="594" r="6"/><circle cx="328" cy="648" r="7"/><circle cx="560" cy="354" r="8"/><circle cx="612" cy="536" r="10"/>
+  </g>
+  <text x="760" y="240" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Carry-forward notes</text>
+  <text x="760" y="286" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Use dusty edge breakup instead of clean vector rings.</text>
+  <text x="760" y="326" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Let the outer ring fragment first; keep the inner read legible.</text>
+  <text x="760" y="366" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Old gold should accent the family, not dominate the decal.</text>
+  <text x="760" y="406" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Avoid uniform opacity across the whole mark.</text>
+  <text x="760" y="474" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Material risk</text>
+  <text x="760" y="520" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">If sharpened too far, this stops reading as ash-dry nursery evidence</text>
+  <text x="760" y="552" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">and starts reading like a generic ritual sticker.</text>
+  <rect x="72" y="830" width="1256" height="40" rx="10" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="100" y="857" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Runtime read target: child-facing chalk evidence first, occult decoration second.</text>
+</svg>

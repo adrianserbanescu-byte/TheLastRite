@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <rect width="1800" height="1100" fill="#161612"/>
+  <text x="70" y="82" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Hollow Saint read-separation board</text>
+  <text x="70" y="126" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">GP-A-P5 focus board: keep Hollow Saint as the pale corroborated nursery lane when later demon variance enters Apartment 302.</text>
+  <rect x="70" y="178" width="790" height="840" rx="16" fill="#10110d" stroke="#a98f45" stroke-width="4"/>
+  <rect x="940" y="178" width="790" height="840" rx="16" fill="#10110d" stroke="#8f9087" stroke-width="4"/>
+  <text x="108" y="236" font-family="Georgia, serif" font-size="38" fill="#f4efdc">Keep this family</text>
+  <text x="978" y="236" font-family="Georgia, serif" font-size="38" fill="#f4efdc">Keep separate from</text>
+  <rect x="108" y="278" width="714" height="228" rx="14" fill="#171815" stroke="#a98f45" stroke-width="3"/>
+  <text x="138" y="330" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Pale halos, broken crown peaks, chalk circles, nursery corroboration, old-gold restraint.</text>
+  <text x="138" y="376" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Primary props: cradle handprints, prayer cards, nursery sigil, hymn monitor, clue-note overlays.</text>
+  <text x="138" y="422" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Player read: true clue lane that repeats one ritual sentence across room evidence.</text>
+  <rect x="108" y="540" width="714" height="412" rx="14" fill="#171815" stroke="#8f9087" stroke-width="3"/>
+  <text x="138" y="592" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Do not absorb Weeping Matron:</text>
+  <text x="138" y="638" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">avoid damp veils, basin-care cues, hanging tear curtains, and grieving drape silhouettes.</text>
+  <text x="138" y="708" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Do not absorb The Appetite:</text>
+  <text x="138" y="754" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">avoid feeding rings, bib-and-bowl rhythm, gnaw crescents, and meal-stain repetition.</text>
+  <text x="138" y="836" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Use file:</text>
+  <text x="138" y="882" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">props/hollow_saint_variance_prop_family.svg</text>
+  <rect x="978" y="278" width="714" height="674" rx="14" fill="#171815" stroke="#8f9087" stroke-width="3"/>
+  <text x="1008" y="330" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Variance guardrail:</text>
+  <text x="1008" y="376" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">Hollow Saint stays pale, dry, and ritual-symmetric. It should remain the clearest corroborated lane even when other demon boards exist.</text>
+  <text x="1008" y="458" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Bounded carry-forward:</text>
+  <text x="1008" y="504" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">Use this board to preserve read separation only. It does not open runtime swaps, spawn tables, AI state, or Unreal layout proof.</text>
+  <rect x="70" y="1036" width="1660" height="42" rx="10" fill="#0d0e0b" stroke="#a98f45" stroke-width="2"/>
+  <text x="98" y="1064" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Rule: if a prop reads pale, corroborated, and child-facing, it belongs to Hollow Saint and should not borrow other demon family signatures.</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <rect width="1800" height="1100" fill="#151512"/>
+  <text x="70" y="82" font-family="Georgia, serif" font-size="48" fill="#f4efdc">GP-A-P5 demon-variance pack board</text>
+  <text x="70" y="126" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Browse-first map for the Apartment 302 demon-variance source-art package. Open this board first, then the per-demon family sheet and separation board.</text>
+
+  <rect x="70" y="180" width="520" height="332" rx="16" fill="#10110d" stroke="#a98f45" stroke-width="4"/>
+  <text x="102" y="232" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Hollow Saint</text>
+  <text x="102" y="282" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">Pale corroborated nursery lane.</text>
+  <text x="102" y="334" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">props/hollow_saint_variance_prop_family.svg</text>
+  <text x="102" y="380" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">references/apartment302_hollow_saint_read_separation_board.svg</text>
+  <text x="102" y="446" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">Guardrail: keep halos, chalk circles, and old-gold restraint distinct.</text>
+
+  <rect x="640" y="180" width="520" height="332" rx="16" fill="#10110d" stroke="#8ea19b" stroke-width="4"/>
+  <text x="672" y="232" font-family="Georgia, serif" font-size="34" fill="#eef0e9">Weeping Matron</text>
+  <text x="672" y="282" font-family="Arial, sans-serif" font-size="24" fill="#cfd7d2">Damp caregiving and mourning lane.</text>
+  <text x="672" y="334" font-family="Arial, sans-serif" font-size="24" fill="#eef0e9">props/weeping_matron_variance_prop_family.svg</text>
+  <text x="672" y="380" font-family="Arial, sans-serif" font-size="24" fill="#eef0e9">references/apartment302_weeping_matron_read_separation_board.svg</text>
+  <text x="672" y="446" font-family="Arial, sans-serif" font-size="22" fill="#cfd7d2">Guardrail: keep tears, drapery, and basin-care logic distinct.</text>
+
+  <rect x="1210" y="180" width="520" height="332" rx="16" fill="#10110d" stroke="#8d6c37" stroke-width="4"/>
+  <text x="1242" y="232" font-family="Georgia, serif" font-size="34" fill="#f4ebd7">The Appetite</text>
+  <text x="1242" y="282" font-family="Arial, sans-serif" font-size="24" fill="#e0d2b8">Meal-coded domestic hunger lane.</text>
+  <text x="1242" y="334" font-family="Arial, sans-serif" font-size="24" fill="#f4ebd7">props/the_appetite_variance_prop_family.svg</text>
+  <text x="1242" y="380" font-family="Arial, sans-serif" font-size="24" fill="#f4ebd7">references/apartment302_the_appetite_read_separation_board.svg</text>
+  <text x="1242" y="446" font-family="Arial, sans-serif" font-size="22" fill="#e0d2b8">Guardrail: keep feeding rings and hungry crescents distinct.</text>
+
+  <rect x="70" y="566" width="1660" height="420" rx="16" fill="#10110d" stroke="#8f9087" stroke-width="4"/>
+  <text x="102" y="622" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Package usage rule</text>
+  <text x="102" y="676" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">This package is for visual separation and carry-forward notes only. It does not prove final room population, demon assignment logic, runtime swaps, AI states, or Unreal implementation.</text>
+  <text x="102" y="754" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Safe browse order:</text>
+  <text x="102" y="800" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">1. Open this board. 2. Open the demon family sheet. 3. Open the matching read-separation board. 4. Return to existing Apartment 302 accepted pack for baseline clue hierarchy.</text>
+  <text x="102" y="890" font-family="Arial, sans-serif" font-size="26" fill="#f4efdc">Baseline anchor remains:</text>
+  <text x="102" y="936" font-family="Arial, sans-serif" font-size="26" fill="#c9c0a3">references/hollow_saint_clue_language_board.svg and the accepted A1-A9 Apartment 302 pack.</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="26" y="26" width="1548" height="928" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Return-Path Guidance</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Exit-flow source art for leaving the apartment and returning to shell surfaces</text>
+  <rect x="82" y="176" width="1436" height="712" rx="26" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <rect x="116" y="220" width="410" height="250" rx="22" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="154" y="304" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">return route</text>
+  <text x="156" y="362" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="24">debrief corridor</text>
+  <rect x="156" y="396" width="198" height="52" rx="26" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="212" y="430" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">follow</text>
+  <rect x="570" y="220" width="410" height="250" rx="22" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="608" y="304" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">case closed</text>
+  <text x="610" y="362" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="24">report and archive</text>
+  <rect x="1018" y="220" width="410" height="250" rx="22" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <text x="1056" y="304" fill="#ece4d1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">retry route</text>
+  <text x="1058" y="362" fill="#c7bfaf" font-family="Arial, Helvetica, sans-serif" font-size="24">reform team</text>
+  <rect x="116" y="540" width="1312" height="260" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="152" y="602" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="24">Return-path notes</text>
+  <text x="152" y="646" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Exit guidance should stay calmer than active-case signage and should not read like a second objective puzzle.</text>
+  <text x="152" y="676" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use clear verbs such as return, archive, debrief, and retry rather than lore-heavy phrasing.</text>
+  <text x="152" y="706" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">The player should feel routed back into the shell wrapper, not dropped into abstract UI space without a transition cue.</text>
+</svg>

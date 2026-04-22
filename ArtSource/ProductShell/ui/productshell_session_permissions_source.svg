@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Session Permissions Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Session shell surface for permissions, privacy state, and readable access rules without drifting into runtime proof</text>
+
+  <rect x="64" y="166" width="1470" height="100" rx="20" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">SESSION PERMISSIONS / PRIVACY STATE</text>
+  <text x="1072" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Calm shell framing for who can join and who can act</text>
+
+  <rect x="64" y="304" width="510" height="602" rx="22" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="98" y="360" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Access Summary</text>
+  <rect x="98" y="396" width="442" height="170" rx="20" fill="#f2ebdc" stroke="#75837d" stroke-width="2"/>
+  <text x="132" y="454" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">friends only / host edits</text>
+  <text x="132" y="496" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Use one clear privacy summary and one short permission note so the shell explains who may join and who controls changes.</text>
+  <rect x="98" y="616" width="168" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="288" y="616" width="168" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="478" y="616" width="62" height="60" rx="30" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="138" y="654" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">apply</text>
+  <text x="330" y="654" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">share</text>
+  <text x="501" y="654" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">i</text>
+  <text x="98" y="748" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Keep access rules short enough to scan at stream distance.</text>
+
+  <rect x="610" y="304" width="420" height="602" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="644" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Permission Rows</text>
+  <rect x="644" y="396" width="352" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="644" y="490" width="352" height="76" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="644" y="584" width="352" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="672" y="442" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">host can change case</text>
+  <text x="672" y="536" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">friends may join</text>
+  <text x="672" y="630" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">public disabled</text>
+  <rect x="826" y="718" width="170" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="866" y="753" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">saved</text>
+
+  <rect x="1066" y="304" width="468" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1100" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1100" y="424" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">This surface should explain access rules without sounding like a legal contract or backend console.</text>
+  <text x="1100" y="466" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use one summary card, a few short rows, and a visible privacy-state tag.</text>
+  <text x="1100" y="502" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not treat this as proof of live permission logic, account state, or moderation systems.</text>
+  <text x="1100" y="538" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">The shell should make access rules understandable without becoming a technical dashboard.</text>
+  <rect x="1100" y="620" width="372" height="74" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1128" y="666" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">privacy-state banner</text>
+  <rect x="1100" y="724" width="372" height="74" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1128" y="770" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">host-control strip</text>
+</svg>

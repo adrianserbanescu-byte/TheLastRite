@@ -1,124 +1,103 @@
 # The Last Rite
 
+## Product direction
+
+**The Last Rite** is a first-person exorcism simulator built in Unreal Engine for:
+
+- solo play
+- **2-4 player co-op** as the primary mode
+- friend-group sessions
+- streamer-readable moments
+- short replayable haunted runs
+
+The target **Early Access** build is:
+
+- one flagship location: **Apartment 302**
+- **three demons** sharing that apartment:
+  - Hollow Saint
+  - Weeping Matron
+  - The Appetite
+- a **4-hand ritual** built around Reader, Anchor, Censer, and Guard
+- a signature wrong-choice failure state: the **possession cascade**
+- lightweight session flow: lobby, briefing, play, debrief, fast replay
+
+The current real build is still a **solo vertical slice** for **Apartment 302 / Hollow Saint**. That slice is the production baseline, not the final product by itself.
+
 ## Current Unreal playable slice
 
-The current Unreal version is a small playable vertical slice built around **Apartment 302 / Hollow Saint**.
+Current verified prototype runtime path:
 
-Open the packaged game here:
+```text
+C:\dev\TheLastRite\Binaries\Win64\TheLastRite.exe
+```
+
+Packaged build status:
 
 ```text
 C:\dev\TheLastRite\Packaged\Windows\TheLastRite.exe
 ```
 
-Or double-click:
+The packaged path is not the current source of truth right now. It is older than the latest dev executable, and the package lane is blocked under `M4` by stale inaccessible Shipping intermediates. Use the dev executable above as the current prototype runtime path until the package lane is verified again.
 
-```text
-PlayPackagedGame.cmd
-```
+Helper-script note:
 
-Controls:
+- `PlayPackagedGame.cmd` still launches the packaged executable only for manual package-lane checks.
+- While `M4` remains blocked, do not treat that helper or the packaged executable as the normal slice launch path.
+- For current slice validation and normal runtime use, launch `C:\dev\TheLastRite\Binaries\Win64\TheLastRite.exe`.
 
-- `WASD` moves the player.
-- Mouse looks around.
-- `E` inspects the thing under the green crosshair.
-- `R` restarts the case.
-- `Esc` quits the game.
+Current controls in the slice:
 
-What to do:
+- `WASD` moves the player
+- Mouse looks around
+- `E` inspects the thing under the green crosshair
+- `R` restarts the case
+- `Esc` quits
+
+Current slice objective:
 
 1. Walk around the apartment room.
-2. Look at labeled objects.
-3. Press `E` to inspect them.
-4. Find all 5 true Hollow Saint clues and rule out the false leads.
-5. Choose the correct ritual anchor.
-6. Correct anchor seals the case and unlocks the front door.
-7. Wrong anchor fails the case immediately.
+2. Inspect evidence and reject bait.
+3. Identify the Hollow Saint pattern.
+4. Choose the correct ritual anchor.
+5. Correct anchor seals the case and unlocks the front door.
+6. Wrong anchor fails the case immediately.
 
 Important:
 
-- Use the packaged game in `Packaged\Windows`.
-- Do not run the raw file in `Binaries\Win64` as the playable build.
-- To make a new packaged build, run `PackageGame.cmd`.
-- To compile only the Unreal editor target, run `BuildEditor.cmd`.
-- To compile the game target, run `BuildGame.cmd`.
-- The local `*.cmd` helpers now exit normally without waiting for a keypress, so they are safe to use from shells and automation.
-- If Unreal is installed somewhere other than `C:\Program Files\Epic Games\UE_5.4`, set `UE_ROOT` before running the helper scripts.
-- The current design source of truth is [Docs/MasterGameDesignDocument.md](Docs/MasterGameDesignDocument.md).
+- use `Binaries\Win64\TheLastRite.exe` as the current verified prototype runtime path
+- do not treat the packaged build in `Packaged\Windows` as current source of truth while `M4` remains blocked
+- to make a packaged build, run `PackageGame.cmd`
+- `PlayPackagedGame.cmd` is only for explicit packaged-build checks after or during package-lane investigation; it is not the default launch path while `M4` is blocked
+- to compile only the Unreal editor target, run `BuildEditor.cmd`
+- to compile the game target, run `BuildGame.cmd`
+- if Unreal is installed somewhere other than `C:\Program Files\Epic Games\UE_5.4`, set `UE_ROOT` before running the helper scripts
 
-## Browser Prototype
+## Current source-of-truth docs
 
-Browser-first vertical-slice scaffold for **The Last Rite: Final Inspection**.
+- [Docs/MasterGameDesignDocument.md](Docs/MasterGameDesignDocument.md)
+- [Docs/ArtDirection.md](Docs/ArtDirection.md)
+- [Docs/LocalRoadmapPlan.md](Docs/LocalRoadmapPlan.md)
+- [Docs/LocalRoadmapMilestones.md](Docs/LocalRoadmapMilestones.md)
+- [Docs/LocalRoadmapRisks.md](Docs/LocalRoadmapRisks.md)
 
-## Direction
+## Browser prototype
 
-- **Browser-first** is for design validation
-- **Unreal remains the shipping path**
-- The browser build exists to prove the inspection, diagnosis, contamination, and ritual loop before the team pays the full UE production cost
+The browser prototype remains historical design support, not the shipping runtime.
 
-## What is in this workspace
+It is still useful for:
 
-- A browser prototype scaffold built around:
-  - portable JSON content files in `DesignData/`
-  - shared simulation logic in `src/prototype/shared/simulation/`
-  - a first-person Three.js scene in `src/prototype/render/`
-  - DOM HUD and case-board UI in `src/prototype/ui/`
-  - a no-dependency Node static server in `scripts/static-server.mjs`
-- A mission flow that covers:
-  - safehouse board
-  - case start
-  - target inspection
-  - room clue collection
-  - demon diagnosis
-  - ordered ritual anchors
-  - contamination failure
-  - debrief overlay
+- content-schema reference
+- ritual and evidence rule reference
+- migration inputs for Unreal systems
 
-## Running it
+It is not the product target.
 
-1. Open a terminal in this workspace.
-2. Run:
+## What should guide the next work
 
-```powershell
-node .\scripts\static-server.mjs
-```
+The next useful product direction is:
 
-3. Open:
-
-```text
-http://127.0.0.1:4173
-```
-
-## Architecture
-
-- `DesignData/`
-  Portable content definitions intended to survive into Unreal as data assets or imported data tables.
-- `src/prototype/shared/simulation/`
-  Engine-agnostic mission generation and state transitions.
-- `src/prototype/render/`
-  Browser-only scene, camera, and interactable presentation.
-- `src/prototype/ui/`
-  HUD, board, overlay, and diagnosis interactions.
-- `scripts/`
-  Local validation and serving helpers.
-
-## Important limitation
-
-This is a **browser validation scaffold**, not the final runtime architecture. What should survive into Unreal:
-
-- demon taxonomy
-- case structure
-- evidence rules
-- ritual sequencing
-- contamination pacing
-- visual direction
-
-What should not be expected to survive unchanged:
-
-- Three.js scene code
-- browser pointer-lock controls
-- DOM UI implementation
-- local static-server workflow
-
-## Next useful step
-
-The right next implementation pass is to keep polishing the Unreal vertical slice: clearer onboarding, stronger room readability, stronger clue-to-ritual logic, and a cleaner packaged build experience.
+- finish and verify the current Hollow Saint slice baseline
+- prototype the **4-hand ritual** in the existing apartment
+- prototype the **possession cascade**
+- extend Apartment 302 from one demon to **three-demon variance**
+- build toward the actual Early Access package instead of assuming a second location is required

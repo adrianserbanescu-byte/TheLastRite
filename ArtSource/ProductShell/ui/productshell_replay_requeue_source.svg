@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Replay + Requeue Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Post-case shell surface for replay, requeue, and next-case framing without drifting into matchmaking or runtime claims</text>
+
+  <rect x="64" y="166" width="1470" height="100" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">REPLAY / REQUEUE / NEXT CASE</text>
+  <text x="1186" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Quiet routing after archive and result review</text>
+
+  <rect x="64" y="304" width="520" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Action Summary</text>
+  <rect x="98" y="396" width="452" height="170" rx="20" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="132" y="454" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">run closed // team can continue</text>
+  <text x="132" y="496" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Offer one clear replay route, one next-case route, and a calm return path without countdown theatrics.</text>
+  <rect x="98" y="616" width="140" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="254" y="616" width="140" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="410" y="616" width="140" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="132" y="654" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">replay</text>
+  <text x="291" y="654" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">queue</text>
+  <text x="442" y="654" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">return</text>
+  <text x="98" y="754" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">The shell should close one run and open the next step cleanly.</text>
+
+  <rect x="620" y="304" width="410" height="602" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="654" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Routing Rows</text>
+  <rect x="654" y="396" width="342" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="654" y="490" width="342" height="76" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="654" y="584" width="342" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="682" y="442" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">same case replay</text>
+  <text x="682" y="536" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">new case queue</text>
+  <text x="682" y="630" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">return to board</text>
+  <rect x="786" y="718" width="210" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="836" y="753" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">continue</text>
+
+  <rect x="1066" y="304" width="468" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1100" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1100" y="424" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">This surface should help the team move on without turning post-case routing into spectacle.</text>
+  <text x="1100" y="466" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use one row per route and keep action language shorter than the story summary.</text>
+  <text x="1100" y="502" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not treat this as proof of queueing, lobby persistence, or match restart logic.</text>
+  <text x="1100" y="538" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">The shell stays administrative even when it offers a next step.</text>
+  <rect x="1100" y="620" width="372" height="74" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1128" y="666" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">replay and queue banner</text>
+  <rect x="1100" y="724" width="372" height="74" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1128" y="770" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">post-case route card</text>
+</svg>

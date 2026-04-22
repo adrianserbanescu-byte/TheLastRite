@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="26" y="26" width="1548" height="928" rx="24" fill="#181714" stroke="#958246" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Shared Shell Grouped Handoff Sheet</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">One grouped SharedUI reference that shows which accepted component sheets belong to each shell family during later implementation reads</text>
+
+  <rect x="64" y="162" width="1472" height="744" rx="22" fill="#1c1a17" stroke="#63726c" stroke-width="2"/>
+  <text x="96" y="214" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Grouped Sheet Families</text>
+
+  <rect x="96" y="248" width="430" height="96" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="126" y="306" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">Foundation</text>
+  <text x="126" y="332" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">motif kit, card-status components</text>
+
+  <rect x="566" y="248" width="430" height="96" rx="18" fill="#25221e" stroke="#63726c" stroke-width="2"/>
+  <text x="596" y="306" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">Progress + launch</text>
+  <text x="596" y="332" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">report-transition, role-ready, brief-launch</text>
+
+  <rect x="1036" y="248" width="430" height="96" rx="18" fill="#25221e" stroke="#958246" stroke-width="2"/>
+  <text x="1066" y="306" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">Archive + recovery</text>
+  <text x="1066" y="332" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">archive-replay, support-recovery</text>
+
+  <rect x="96" y="404" width="320" height="88" rx="18" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <text x="124" y="458" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">party / reconnect</text>
+
+  <rect x="446" y="404" width="320" height="88" rx="18" fill="#23211d" stroke="#958246" stroke-width="2"/>
+  <text x="474" y="458" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">permissions / handoff</text>
+
+  <rect x="796" y="404" width="320" height="88" rx="18" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <text x="824" y="458" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">leave / exit</text>
+
+  <rect x="1146" y="404" width="320" height="88" rx="18" fill="#23211d" stroke="#958246" stroke-width="2"/>
+  <text x="1174" y="458" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">disconnect / retry</text>
+
+  <rect x="96" y="550" width="430" height="100" rx="18" fill="#23211d" stroke="#958246" stroke-width="2"/>
+  <text x="126" y="610" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">version / update</text>
+  <text x="126" y="636" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">use when compatibility or incompatible-session states are involved</text>
+
+  <rect x="566" y="550" width="430" height="100" rx="18" fill="#23211d" stroke="#63726c" stroke-width="2"/>
+  <text x="596" y="610" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">maintenance / restore</text>
+  <text x="596" y="636" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">use when downtime, queue, or service-return states are involved</text>
+
+  <rect x="1036" y="550" width="430" height="100" rx="18" fill="#23211d" stroke="#958246" stroke-width="2"/>
+  <text x="1066" y="610" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700">handoff rule</text>
+  <text x="1066" y="636" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="18">pair the family sheet with the matching ProductShell surface board before implementation</text>
+
+  <rect x="96" y="720" width="1370" height="110" rx="18" fill="#25221e" stroke="#63726c" stroke-width="2"/>
+  <text x="126" y="782" fill="#d8d0be" font-family="Arial, Helvetica, sans-serif" font-size="22">This grouped sheet is a routing aid only. It does not replace the accepted per-family component sheets, does not lock final widget behavior, and does not authorize Unreal integration.</text>
+</svg>

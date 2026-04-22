@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1f201d"/>
+      <stop offset="1" stop-color="#11120f"/>
+    </linearGradient>
+    <g id="trueMotif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-42 24 C-26 -10 -8 -22 0 -26 C8 -22 26 -10 42 24" stroke="#e8e2d3" stroke-width="6"/>
+      <path d="M-28 16 L-14 -10 L0 12 L14 -10 L28 16" stroke="#a98f45" stroke-width="5"/>
+      <circle cx="0" cy="18" r="12" stroke="#a98f45" stroke-width="4"/>
+    </g>
+    <g id="falseMotif" fill="none" stroke-linejoin="round">
+      <path d="M0 -30 L22 0 L0 30 L-22 0 Z" stroke="#e8e2d3" stroke-width="5"/>
+      <path d="M0 -16 L10 0 L0 16 L-10 0 Z" stroke="#a98f45" stroke-width="3"/>
+    </g>
+  </defs>
+  <rect width="1800" height="1200" fill="url(#bg)"/>
+  <text x="72" y="84" font-family="Georgia, serif" font-size="50" fill="#f4efdc">Apartment 302 integration reference pack</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A4 carry-forward sheet: approved visual families, export targets, text-safe UI rules, false-lead placement rules, and first-person readability checks.</text>
+
+  <rect x="72" y="184" width="812" height="432" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="108" y="242" font-family="Georgia, serif" font-size="38" fill="#f4efdc">Approved asset groups</text>
+  <text x="108" y="284" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">Use these groups to find the accepted source batches quickly before exporting or reinterpreting them in-engine.</text>
+  <g transform="translate(132 344)">
+    <use href="#trueMotif"/>
+    <text x="76" y="-10" font-family="Arial, sans-serif" font-size="28" fill="#f4efdc">A1 true-vs-bait core language</text>
+    <text x="76" y="28" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`props/nursery_sigil_correct_ritual.svg`</text>
+    <text x="76" y="60" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`props/prayer_cards_crown_circle.svg`</text>
+    <text x="76" y="92" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`props/mirror_circle_wrong_ritual.svg`</text>
+    <text x="76" y="124" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`references/hollow_saint_clue_language_board.svg`</text>
+  </g>
+  <g transform="translate(132 520)">
+    <rect x="-28" y="-34" width="56" height="56" rx="10" fill="#efe7c8" stroke="#f4efdc" stroke-width="3"/>
+    <text x="76" y="-10" font-family="Arial, sans-serif" font-size="28" fill="#f4efdc">A2 UI-support group</text>
+    <text x="76" y="28" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`ui/hollow_saint_clue_note_overlay.svg`</text>
+    <text x="76" y="60" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`ui/hollow_saint_ritual_status_overlay.svg`</text>
+    <text x="76" y="92" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">Keep text hierarchy stronger than ornament.</text>
+  </g>
+  <g transform="translate(520 520)">
+    <use href="#falseMotif"/>
+    <text x="76" y="-10" font-family="Arial, sans-serif" font-size="28" fill="#f4efdc">A3 false-lead group</text>
+    <text x="76" y="28" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`props/broken_window_latch_false_lead.svg`</text>
+    <text x="76" y="60" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`props/pawn_ticket_pouch_false_lead.svg`</text>
+    <text x="76" y="92" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">`references/apartment302_false_lead_dressing_board.svg`</text>
+  </g>
+
+  <rect x="916" y="184" width="812" height="432" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="952" y="242" font-family="Georgia, serif" font-size="38" fill="#f4efdc">Integration rules</text>
+  <text x="952" y="284" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Do not reinterpret the accepted work as generic occult dressing. Preserve the reason each batch was approved.</text>
+  <text x="952" y="352" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Corroborated nursery lane</text>
+  <text x="952" y="390" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Repeat halo arcs, broken-crown rhythm, restrained old gold, ash-white dryness, and child-facing placement.</text>
+  <text x="952" y="442" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Mirror-bait lane</text>
+  <text x="952" y="480" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Allow polish, framing, glass-green, and pointed shard geometry, but do not add corroborating nursery echoes.</text>
+  <text x="952" y="532" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Mundane distractions</text>
+  <text x="952" y="570" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Support break-in, debt, or neglect stories through loose asymmetry and colder utility colors, not ritual logic.</text>
+
+  <rect x="72" y="648" width="812" height="476" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="108" y="706" font-family="Georgia, serif" font-size="38" fill="#f4efdc">UI export guidance</text>
+  <text x="108" y="748" font-family="Arial, sans-serif" font-size="24" fill="#d8c78d">These are source-art supports, not final HUD layouts. Export or reinterpret them with text safety first.</text>
+  <rect x="116" y="790" width="332" height="210" rx="18" fill="#efe7c8" opacity="0.96" stroke="#f4efdc" stroke-width="3"/>
+  <rect x="146" y="830" width="272" height="120" rx="12" fill="#fffdf7"/>
+  <text x="164" y="866" font-family="Arial, sans-serif" font-size="24" fill="#a98f45">CLUE NOTE SAFE FIELD</text>
+  <text x="164" y="906" font-family="Arial, sans-serif" font-size="22" fill="#25241f">Keep live text inside the bright field.</text>
+  <text x="164" y="940" font-family="Arial, sans-serif" font-size="22" fill="#25241f">Push ornament to border and footer only.</text>
+  <rect x="512" y="790" width="316" height="210" rx="18" fill="#11120f" opacity="0.86" stroke="#8f9087" stroke-width="3"/>
+  <rect x="568" y="844" width="204" height="102" rx="18" fill="#000000" opacity="0.06" stroke="#f4efdc" stroke-width="1" stroke-dasharray="8 10"/>
+  <text x="540" y="824" font-family="Arial, sans-serif" font-size="24" fill="#a98f45">RITUAL STATUS SAFE VIEW</text>
+  <text x="540" y="980" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Preserve the center view cone for first-person play.</text>
+  <text x="108" y="1066" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">Check opacity against dark rooms, pale walls, and contamination-heavy scenes before treating either overlay as approved for runtime use.</text>
+
+  <rect x="916" y="648" width="812" height="476" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="952" y="706" font-family="Georgia, serif" font-size="38" fill="#f4efdc">First-person readability checks</text>
+  <text x="952" y="748" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Use these checks when anyone later ports or reinterprets the assets in Unreal or another runtime.</text>
+  <text x="952" y="820" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">1. Can the player tell the nursery family apart from the mirror family in motion?</text>
+  <text x="952" y="864" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">2. Does the mirror lane still win attention briefly but lose the corroboration argument?</text>
+  <text x="952" y="908" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">3. Do false leads stay plausible without clustering into ritual symmetry?</text>
+  <text x="952" y="952" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">4. Does gameplay text remain readable over clue-note and ritual-status supports?</text>
+  <text x="952" y="996" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">5. From normal play height, does the correct ritual read child-facing before it reads merely decorative?</text>
+  <rect x="952" y="1034" width="728" height="52" rx="10" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="980" y="1068" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Escalation rule: if a later integration pass breaks any of these checks, treat it as a readability regression rather than a harmless art variation.</text>
+</svg>

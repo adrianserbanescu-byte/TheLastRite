@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#171612"/>
+  <rect x="60" y="60" width="1280" height="780" rx="24" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <text x="96" y="118" font-family="Georgia, serif" font-size="40" fill="#f4efdc">Export spec: Hollow Saint clue-note overlay</text>
+  <text x="96" y="158" font-family="Arial, sans-serif" font-size="22" fill="#c9c0a3">PNG-ready reference card for readable evidence-panel support art.</text>
+  <rect x="96" y="206" width="664" height="538" rx="18" fill="#efe7c8" opacity="0.96" stroke="#f4efdc" stroke-width="3"/>
+  <rect x="140" y="252" width="576" height="360" rx="14" fill="#fffdf7" opacity="0.94"/>
+  <rect x="140" y="220" width="232" height="42" rx="10" fill="#11120f" opacity="0.92"/>
+  <text x="164" y="248" font-family="Arial, sans-serif" font-size="24" fill="#a98f45">TEXT-SAFE FIELD</text>
+  <path d="M156 318 H700 M156 368 H700 M156 418 H700 M156 468 H700 M156 518 H700" stroke="#ece2c4" stroke-width="2"/>
+  <path d="M196 622 C286 584 428 582 520 614 C600 642 656 642 712 618" fill="none" stroke="#a98f45" stroke-width="6" opacity="0.8"/>
+  <text x="796" y="248" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Export name</text>
+  <text x="796" y="286" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">apt302_hollow_saint_clue_note_overlay_1600x900.png</text>
+  <text x="796" y="352" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Suggested size</text>
+  <text x="796" y="390" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">1600 x 900 or 1920 x 1080 with alpha-safe text field preserved</text>
+  <text x="796" y="456" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Opacity guidance</text>
+  <text x="796" y="494" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Outer panel can sit around 0.74-0.88, but keep the writing field</text>
+  <text x="796" y="526" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">visibly lighter than ornament and border elements.</text>
+  <text x="796" y="592" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Usage note</text>
+  <text x="796" y="630" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">Reserve motif ornament for edges and footer. Do not place live body copy</text>
+  <text x="796" y="662" font-family="Arial, sans-serif" font-size="24" fill="#f4efdc">over decorative marks or darker banding.</text>
+  <rect x="96" y="770" width="1244" height="44" rx="10" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="124" y="799" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Carry-forward rule: text clarity wins over style treatment on this asset.</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Maintenance Window Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Shell carry-forward for planned maintenance, readable downtime framing, and one stable return path</text>
+
+  <rect x="64" y="166" width="1470" height="104" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="98" y="230" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700">SCHEDULED MAINTENANCE / SERVICE PAUSED</text>
+  <text x="1054" y="230" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Frame downtime as a planned service hold, not a fault state</text>
+
+  <rect x="64" y="308" width="520" height="598" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="362" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Window Summary</text>
+  <rect x="98" y="398" width="452" height="176" rx="20" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="132" y="456" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">service pause in progress</text>
+  <text x="132" y="498" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Use one scheduled-maintenance sentence, one short return note, and one visible route back to stable shell space while the window remains active.</text>
+  <rect x="98" y="622" width="198" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <rect x="318" y="622" width="198" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="146" y="660" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">window</text>
+  <text x="362" y="660" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">back</text>
+  <text x="98" y="748" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">The shell should feel deliberate and scheduled, not broken.</text>
+
+  <rect x="620" y="308" width="408" height="598" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="654" y="362" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Window Rows</text>
+  <rect x="654" y="398" width="340" height="78" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="654" y="494" width="340" height="78" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="654" y="590" width="340" height="78" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="682" y="446" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">maintenance underway</text>
+  <text x="682" y="542" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">expected return window</text>
+  <text x="682" y="638" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">return to title</text>
+  <rect x="774" y="730" width="220" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="842" y="765" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">stable shell</text>
+
+  <rect x="1066" y="308" width="468" height="598" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1100" y="362" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1100" y="426" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">Maintenance language should read like a scheduled institutional pause, not a crash or panic state.</text>
+  <text x="1100" y="468" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not imply final outage timing, scheduler rules, or live operations guarantees.</text>
+  <text x="1100" y="504" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep the player oriented with one clear fallback while the window remains closed.</text>
+  <rect x="1100" y="586" width="370" height="78" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1128" y="634" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">maintenance banner</text>
+  <rect x="1100" y="694" width="370" height="78" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1128" y="742" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">return window strip</text>
+  <rect x="1100" y="802" width="198" height="54" rx="27" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="1140" y="836" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">planned</text>
+</svg>

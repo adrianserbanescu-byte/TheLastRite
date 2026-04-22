@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#141512"/>
+  <text x="72" y="86" font-family="Georgia, serif" font-size="42" fill="#f4efdc">Mirror-bait surface prep</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">Material/decal prep reference: keep the mirror lane polished, cold, and tempting without full corroboration.</text>
+  <rect x="72" y="184" width="640" height="620" rx="18" fill="#232621" stroke="#8f9087" stroke-width="3"/>
+  <rect x="244" y="252" width="296" height="472" rx="28" fill="#343935" stroke="#a98f45" stroke-width="8"/>
+  <rect x="286" y="298" width="212" height="380" rx="18" fill="#6d847f" opacity="0.72"/>
+  <circle cx="392" cy="490" r="220" fill="none" stroke="#8f9087" stroke-width="6" stroke-dasharray="8 14"/>
+  <circle cx="392" cy="490" r="162" fill="none" stroke="#e8e2d3" stroke-width="4" stroke-dasharray="12 10"/>
+  <path d="M392 230 L426 280 L392 330 L358 280 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <path d="M164 490 L214 456 L264 490 L214 524 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <path d="M620 490 L570 456 L520 490 L570 524 Z" fill="none" stroke="#e8e2d3" stroke-width="5"/>
+  <path d="M320 382 C362 334 426 332 466 374" fill="none" stroke="#f4efdc" stroke-width="5" opacity="0.4"/>
+  <text x="760" y="240" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Carry-forward notes</text>
+  <text x="760" y="286" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Glass-green and cooler grays should lead the surface read.</text>
+  <text x="760" y="326" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Pointed shard geometry should stay cleaner than the nursery chalk.</text>
+  <text x="760" y="366" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Use polish and reflection to win attention briefly.</text>
+  <text x="760" y="406" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Do not add ash handprints, dry powder, or child-object echo.</text>
+  <text x="760" y="474" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Material risk</text>
+  <text x="760" y="520" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Too much contrast or too much gold makes this feel equally validated.</text>
+  <text x="760" y="552" font-family="Arial, sans-serif" font-size="23" fill="#f4efdc">Keep it colder, cleaner, and narratively isolated.</text>
+  <rect x="72" y="830" width="1256" height="40" rx="10" fill="#0f100d" stroke="#8f9087" stroke-width="2"/>
+  <text x="100" y="857" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Runtime read target: seductive spectacle that loses the evidence argument.</text>
+</svg>

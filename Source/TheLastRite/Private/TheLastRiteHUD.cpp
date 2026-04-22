@@ -115,27 +115,24 @@ void ATheLastRiteHUD::DrawHUD()
     const bool bShowStarterGuidance = !GameMode->IsCaseResolved() && !GameMode->IsOpeningSweepComplete();
     if (bShowStarterGuidance)
     {
-        const float IntroX = Canvas->ClipX * 0.22f;
-        const float IntroY = Canvas->ClipY * 0.18f;
-        const FString IntroReminderText = TEXT("White labels mark usable objects. The notes panel tracks what is real, what is bait, and what to check next.");
-        const float IntroLineWidth = 700.0f;
-        const float ObjectiveY = IntroY + 74.0f;
-        const float IntroObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetObjectiveText().ToString(), IntroLineWidth, SmallFont, 1.2f);
-        const float CurrentObjectiveY = ObjectiveY + IntroObjectiveHeight + 10.0f;
-        const float IntroCurrentObjectiveHeight = MeasureWrappedTextHeight(GameMode->GetCurrentObjectiveText().ToString(), IntroLineWidth, SmallFont, 1.1f);
-        const float NextMoveY = CurrentObjectiveY + IntroCurrentObjectiveHeight + 14.0f;
-        const float NextMoveHeight = MeasureWrappedTextHeight(GameMode->GetNextMoveText().ToString(), IntroLineWidth, SmallFont, 1.05f);
-        const float ReminderY = NextMoveY + NextMoveHeight + 14.0f;
-        const float ReminderHeight = MeasureWrappedTextHeight(IntroReminderText, IntroLineWidth, SmallFont, 1.05f);
-        const float IntroPanelHeight = (ReminderY - (IntroY - 26.0f)) + ReminderHeight + 24.0f;
+        const float IntroX = 34.0f;
+        const FString IntroHeaderText = TEXT("Opening route");
+        const FString IntroRouteText = GameMode->GetNextMoveText().ToString();
+        const FString IntroReminderText = TEXT("White labels mark usable objects. Stay on body -> cradle -> prayer mess before you chase anything louder.");
+        const float IntroLineWidth = 560.0f;
+        const float IntroPanelY = Canvas->ClipY - 188.0f;
+        const float IntroHeaderHeight = 24.0f;
+        const float IntroRouteHeight = MeasureWrappedTextHeight(IntroRouteText, IntroLineWidth, SmallFont, 1.02f);
+        const float IntroReminderHeight = MeasureWrappedTextHeight(IntroReminderText, IntroLineWidth, SmallFont, 0.98f);
+        const float IntroPanelHeight = 26.0f + IntroHeaderHeight + 10.0f + IntroRouteHeight + 10.0f + IntroReminderHeight + 18.0f;
+        const float IntroY = IntroPanelY + 14.0f;
+        const float IntroRouteY = IntroY + IntroHeaderHeight + 10.0f;
+        const float IntroReminderY = IntroRouteY + IntroRouteHeight + 10.0f;
 
-        DrawPanel(IntroX - 24.0f, IntroY - 26.0f, 760.0f, IntroPanelHeight, FLinearColor(0.01f, 0.02f, 0.04f, 0.82f));
-        DrawText(GameMode->GetCaseTitleText().ToString(), FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, LargeFont, 1.35f, false);
-        DrawText(GameMode->GetTargetText().ToString(), FLinearColor(0.95f, 0.78f, 0.42f), IntroX, IntroY + 40.0f, SmallFont, 1.25f, false);
-        DrawWrappedTextLine(GameMode->GetObjectiveText().ToString(), FLinearColor::White, IntroX, ObjectiveY, IntroLineWidth, SmallFont, 1.2f);
-        DrawWrappedTextLine(GameMode->GetCurrentObjectiveText().ToString(), FLinearColor(0.72f, 0.90f, 1.0f), IntroX, CurrentObjectiveY, IntroLineWidth, SmallFont, 1.1f);
-        DrawWrappedTextLine(GameMode->GetNextMoveText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), IntroX, NextMoveY, IntroLineWidth, SmallFont, 1.05f);
-        DrawWrappedTextLine(IntroReminderText, FLinearColor(0.78f, 0.86f, 1.0f), IntroX, ReminderY, IntroLineWidth, SmallFont, 1.05f);
+        DrawPanel(IntroX - 16.0f, IntroPanelY, 600.0f, IntroPanelHeight, FLinearColor(0.01f, 0.02f, 0.04f, 0.78f));
+        DrawText(IntroHeaderText, FLinearColor(0.85f, 0.95f, 1.0f), IntroX, IntroY, SmallFont, 1.08f, false);
+        DrawWrappedTextLine(IntroRouteText, FLinearColor(0.95f, 0.88f, 0.60f), IntroX, IntroRouteY, IntroLineWidth, SmallFont, 1.02f);
+        DrawWrappedTextLine(IntroReminderText, FLinearColor(0.78f, 0.86f, 1.0f), IntroX, IntroReminderY, IntroLineWidth, SmallFont, 0.98f);
     }
 
     {
@@ -169,9 +166,9 @@ void ATheLastRiteHUD::DrawHUD()
 
         if (EvidenceLines.IsEmpty())
         {
-            JournalY = DrawWrappedTextLine(TEXT("No notes yet. Start with the body, the cradle, and the prayer mess."), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.98f);
+            JournalY = DrawWrappedTextLine(TEXT("No notes yet. First pass: body -> cradle -> prayer mess."), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.98f);
             JournalY += 8.0f;
-            JournalY = DrawWrappedTextLine(TEXT("White labels mark the objects you can inspect."), FLinearColor(0.78f, 0.86f, 1.0f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
+            JournalY = DrawWrappedTextLine(TEXT("White labels mark the objects you can inspect. Later checks can wait until the opening sweep is complete."), FLinearColor(0.78f, 0.86f, 1.0f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
             JournalY += 12.0f;
         }
         else
@@ -199,19 +196,36 @@ void ATheLastRiteHUD::DrawHUD()
         }
 
         JournalY += 10.0f;
-        DrawText(TEXT("Current read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        DrawText(TEXT("Room read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 24.0f;
         JournalY = DrawWrappedTextLine(GameMode->GetDeductionText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
         JournalY += 10.0f;
 
-        DrawText(TEXT("Ritual read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        DrawText(TEXT("Ritual call"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 24.0f;
         JournalY = DrawWrappedTextLine(GameMode->GetRitualReadText().ToString(), FLinearColor(0.92f, 0.84f, 0.50f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
         JournalY += 10.0f;
 
+        DrawText(TEXT("Tool roles"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        JournalY += 24.0f;
+        JournalY = DrawWrappedTextLine(GameMode->GetToolRoleText().ToString(), FLinearColor(0.72f, 0.92f, 1.0f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
+        JournalY += 8.0f;
+        JournalY = DrawWrappedTextLine(GameMode->GetToolNeedText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.92f);
+        JournalY += 10.0f;
+
+        if (GameMode->IsRitualSequenceActive())
+        {
+            DrawText(TEXT("4-hand flow"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+            JournalY += 24.0f;
+            JournalY = DrawWrappedTextLine(GameMode->GetRitualSequenceStateText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
+            JournalY += 8.0f;
+            JournalY = DrawWrappedTextLine(GameMode->GetRitualSequenceSupportText().ToString(), FLinearColor(0.76f, 0.88f, 1.0f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.92f);
+            JournalY += 10.0f;
+        }
+
         if (bShowAnchorRead)
         {
-            DrawText(TEXT("Anchor read"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+            DrawText(TEXT("Anchor split"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
             JournalY += 24.0f;
             JournalY = DrawWrappedTextLine(GameMode->GetCorrectAnchorReadText().ToString(), FLinearColor(0.70f, 1.0f, 0.72f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
             JournalY += 8.0f;
@@ -224,12 +238,12 @@ void ATheLastRiteHUD::DrawHUD()
         JournalY = DrawWrappedTextLine(GameMode->GetNextMoveText().ToString(), FLinearColor(0.95f, 0.88f, 0.60f), JournalX, JournalY, JournalLineWidth, SmallFont, 0.95f);
         JournalY += 12.0f;
 
-        DrawText(TEXT("Later checks"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        DrawText(TEXT("Chain after opening sweep"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 22.0f;
         DrawChecklistEntry(TEXT("TRUE - the baby monitor - hymn repeating on every channel"), TEXT("Monitor hymn loop"), true);
         DrawChecklistEntry(TEXT("TRUE - the nursery wallpaper - child's sun turned into a halo"), TEXT("Nursery mural halo"), true);
         JournalY += 10.0f;
-        DrawText(TEXT("False leads"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
+        DrawText(TEXT("Mirror bait"), FLinearColor(0.85f, 0.95f, 1.0f), JournalX, JournalY, SmallFont, 1.1f, false);
         JournalY += 22.0f;
         DrawChecklistEntry(TEXT("FALSE - the broken window latch - forced from outside"), TEXT("Broken window latch"), false);
         DrawChecklistEntry(TEXT("FALSE - the pawn ticket pouch - ordinary greed"), TEXT("Pawn ticket pouch"), false);
@@ -279,7 +293,7 @@ void ATheLastRiteHUD::DrawHUD()
     {
         const float BannerX = Canvas->ClipX * 0.33f;
         const float BannerY = Canvas->ClipY * 0.16f;
-        const FString BannerDetailText = TEXT("Leave through the front door and file the case.");
+        const FString BannerDetailText = TEXT("The nursery sigil held. Leave through the front door, file the report, and close Apartment 302.");
         const float BannerLineWidth = 460.0f;
         const float BannerDetailHeight = MeasureWrappedTextHeight(BannerDetailText, BannerLineWidth, SmallFont, 1.15f);
         const float BannerPanelHeight = FMath::Max(94.0f, 58.0f + BannerDetailHeight);
@@ -287,19 +301,40 @@ void ATheLastRiteHUD::DrawHUD()
         DrawText(TEXT("SEAL HOLDS"), FLinearColor(0.58f, 1.0f, 0.64f), BannerX, BannerY, LargeFont, 1.35f, false);
         DrawWrappedTextLine(BannerDetailText, FLinearColor::White, BannerX, BannerY + 40.0f, BannerLineWidth, SmallFont, 1.15f);
     }
+    else if (GameMode->IsRitualSequenceActive())
+    {
+        const float BannerX = Canvas->ClipX * 0.28f;
+        const float BannerY = Canvas->ClipY * 0.16f;
+        const FString BannerStateText = GameMode->GetRitualSequenceStateText().ToString();
+        const FString BannerSupportText = GameMode->GetRitualSequenceSupportText().ToString();
+        const float BannerLineWidth = 560.0f;
+        const float BannerStateHeight = MeasureWrappedTextHeight(BannerStateText, BannerLineWidth, SmallFont, 1.06f);
+        const float BannerSupportHeight = MeasureWrappedTextHeight(BannerSupportText, BannerLineWidth, SmallFont, 1.0f);
+        const float BannerPanelHeight = FMath::Max(122.0f, 66.0f + BannerStateHeight + 10.0f + BannerSupportHeight);
+        DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 620.0f, BannerPanelHeight, FLinearColor(0.10f, 0.08f, 0.02f, 0.82f));
+        DrawText(TEXT("4-HAND RITE"), FLinearColor(1.0f, 0.88f, 0.44f), BannerX, BannerY, LargeFont, 1.25f, false);
+        float BannerTextY = BannerY + 40.0f;
+        BannerTextY = DrawWrappedTextLine(BannerStateText, FLinearColor(0.95f, 0.88f, 0.60f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.06f);
+        BannerTextY += 10.0f;
+        DrawWrappedTextLine(BannerSupportText, FLinearColor(0.76f, 0.88f, 1.0f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.0f);
+    }
     else if (GameMode->GetCasePhase() == ETheLastRiteCasePhase::RiteReady)
     {
         const float BannerX = Canvas->ClipX * 0.30f;
         const float BannerY = Canvas->ClipY * 0.16f;
+        const FString BannerReasonText = GameMode->GetCurrentObjectiveText().ToString();
         const FString BannerChoiceText = GameMode->GetCorrectAnchorReadText().ToString();
         const FString BannerWarningText = GameMode->GetWrongAnchorReadText().ToString();
         const float BannerLineWidth = 540.0f;
+        const float BannerReasonHeight = MeasureWrappedTextHeight(BannerReasonText, BannerLineWidth, SmallFont, 1.02f);
         const float BannerChoiceHeight = MeasureWrappedTextHeight(BannerChoiceText, BannerLineWidth, SmallFont, 1.08f);
         const float BannerWarningHeight = MeasureWrappedTextHeight(BannerWarningText, BannerLineWidth, SmallFont, 1.04f);
-        const float BannerPanelHeight = FMath::Max(128.0f, 72.0f + BannerChoiceHeight + 10.0f + BannerWarningHeight);
+        const float BannerPanelHeight = FMath::Max(148.0f, 72.0f + BannerReasonHeight + 8.0f + BannerChoiceHeight + 10.0f + BannerWarningHeight);
         DrawPanel(BannerX - 20.0f, BannerY - 18.0f, 600.0f, BannerPanelHeight, FLinearColor(0.10f, 0.08f, 0.02f, 0.80f));
-        DrawText(TEXT("RITE READY"), FLinearColor(1.0f, 0.88f, 0.44f), BannerX, BannerY, LargeFont, 1.35f, false);
+        DrawText(TEXT("MAKE THE CALL"), FLinearColor(1.0f, 0.88f, 0.44f), BannerX, BannerY, LargeFont, 1.25f, false);
         float BannerTextY = BannerY + 40.0f;
+        BannerTextY = DrawWrappedTextLine(BannerReasonText, FLinearColor(0.94f, 0.90f, 0.62f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.02f);
+        BannerTextY += 8.0f;
         BannerTextY = DrawWrappedTextLine(BannerChoiceText, FLinearColor(0.72f, 1.0f, 0.74f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.08f);
         BannerTextY += 10.0f;
         DrawWrappedTextLine(BannerWarningText, FLinearColor(1.0f, 0.76f, 0.50f), BannerX, BannerTextY, BannerLineWidth, SmallFont, 1.04f);
@@ -351,7 +386,7 @@ void ATheLastRiteHUD::DrawHUD()
         if (!FinalReportLines.IsEmpty())
         {
             DrawPanel(CenterX - 10.0f, ReportY - 10.0f, 710.0f, OverlayHeight - 176.0f, FLinearColor(0.04f, 0.05f, 0.08f, 0.62f));
-            DrawText(TEXT("Final report"), FLinearColor(0.85f, 0.95f, 1.0f), CenterX, ReportY, SmallFont, 1.15f, false);
+            DrawText(TEXT("Case close"), FLinearColor(0.85f, 0.95f, 1.0f), CenterX, ReportY, SmallFont, 1.15f, false);
             ReportY += 26.0f;
 
             for (const FString& Line : FinalReportLines)
@@ -478,36 +513,41 @@ FLinearColor ATheLastRiteHUD::GetFinalReportLineColor(const FString& Line) const
         return FLinearColor(0.95f, 0.88f, 0.60f);
     }
 
-    if (ContainsIgnoreCase(TEXT("Conclusion"))
-        || ContainsIgnoreCase(TEXT("correct anchor"))
-        || ContainsIgnoreCase(TEXT("Why the nursery was correct"))
-        || ContainsIgnoreCase(TEXT("Seal result"))
-        || ContainsIgnoreCase(TEXT("True clue")))
+    if (ContainsIgnoreCase(TEXT("Verdict"))
+        || ContainsIgnoreCase(TEXT("right anchor"))
+        || ContainsIgnoreCase(TEXT("Why the nursery held"))
+        || ContainsIgnoreCase(TEXT("Confirmed sign"))
+        || ContainsIgnoreCase(TEXT("Role formation"))
+        || ContainsIgnoreCase(TEXT("Result: nursery sigil held")))
     {
         return FLinearColor(0.68f, 1.0f, 0.72f);
     }
 
-    if (ContainsIgnoreCase(TEXT("Correct read")))
+    if (ContainsIgnoreCase(TEXT("Read:"))
+        || ContainsIgnoreCase(TEXT("Right read"))
+        || ContainsIgnoreCase(TEXT("Payload: roles"))
+        || ContainsIgnoreCase(TEXT("Payload: coverage")))
     {
         return FLinearColor(0.76f, 0.88f, 1.0f);
     }
 
-    if (ContainsIgnoreCase(TEXT("Wrong rite")) || ContainsIgnoreCase(TEXT("Outcome")) || ContainsIgnoreCase(TEXT("What went wrong")) || ContainsIgnoreCase(TEXT("Why the mirror was wrong")))
+    if (ContainsIgnoreCase(TEXT("Wrong rite"))
+        || ContainsIgnoreCase(TEXT("What went wrong"))
+        || ContainsIgnoreCase(TEXT("Why the mirror failed"))
+        || ContainsIgnoreCase(TEXT("Failure read"))
+        || ContainsIgnoreCase(TEXT("Result: the bait circle")))
     {
         return FLinearColor(1.0f, 0.45f, 0.45f);
     }
 
-    if (ContainsIgnoreCase(TEXT("Recovery")) || ContainsIgnoreCase(TEXT("audit")))
-    {
-        return FLinearColor(0.95f, 0.88f, 0.60f);
-    }
-
-    if (ContainsIgnoreCase(TEXT("False lead")) || ContainsIgnoreCase(TEXT("Discarded false leads")))
+    if (ContainsIgnoreCase(TEXT("Discarded bait")))
     {
         return FLinearColor(1.0f, 0.72f, 0.44f);
     }
 
-    if (ContainsIgnoreCase(TEXT("Confirmed true clues")) || ContainsIgnoreCase(TEXT("Case title")) || ContainsIgnoreCase(TEXT("Demon")))
+    if (ContainsIgnoreCase(TEXT("Confirmed chain"))
+        || Line.Equals(TEXT("Apartment 302"), ESearchCase::IgnoreCase)
+        || Line.Equals(TEXT("Hollow Saint"), ESearchCase::IgnoreCase))
     {
         return FLinearColor(0.86f, 0.92f, 1.0f);
     }

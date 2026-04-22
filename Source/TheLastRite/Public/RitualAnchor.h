@@ -19,7 +19,7 @@ public:
     virtual void Interact(ATheLastRiteCharacter* InteractingCharacter) override;
 
     void ConfigureAnchor(const FText& InDisplayName, bool bInCorrectAnchor);
-    void SetRitualReady(bool bInRitualReady);
+    void SetRitualState(bool bInRitualReady, bool bInRitualInProgress, bool bInCurrentRitualTarget);
     bool IsCorrectAnchor() const;
     bool WasActivated() const;
     void MarkActivated();
@@ -33,4 +33,10 @@ private:
 
     UPROPERTY()
     bool bRitualReady;
+
+    UPROPERTY()
+    bool bRitualInProgress;
+
+    UPROPERTY()
+    bool bCurrentRitualTarget;
 };

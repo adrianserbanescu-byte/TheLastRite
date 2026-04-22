@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Settings + Help Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Session-support shell surface for calm settings access, readable help copy, and bounded support language</text>
+
+  <rect x="64" y="166" width="1470" height="100" rx="20" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="100" y="228" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">SETTINGS / HELP / SESSION SUPPORT</text>
+  <text x="1090" y="228" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Quiet shell support surface alongside title-to-replay flow</text>
+
+  <rect x="64" y="304" width="498" height="602" rx="22" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="98" y="360" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Support Summary</text>
+  <rect x="98" y="396" width="430" height="164" rx="20" fill="#f2ebdc" stroke="#75837d" stroke-width="2"/>
+  <text x="132" y="454" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">adjust and return</text>
+  <text x="132" y="496" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Use the shell to explain controls, readability options, and voice/role reminders without turning support screens into lore stages.</text>
+  <rect x="98" y="610" width="204" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="324" y="610" width="204" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="160" y="648" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">apply</text>
+  <text x="388" y="648" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">help</text>
+  <text x="98" y="748" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Keep support language short, humane, and administrative.</text>
+
+  <rect x="598" y="304" width="430" height="602" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="632" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Settings Rows</text>
+  <rect x="632" y="396" width="362" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="632" y="490" width="362" height="76" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="632" y="584" width="362" height="76" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="660" y="442" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">subtitle readability</text>
+  <text x="660" y="536" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">voice and role reminder</text>
+  <text x="660" y="630" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">help and control note</text>
+  <rect x="816" y="718" width="178" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="858" y="753" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">saved</text>
+
+  <rect x="1064" y="304" width="470" height="602" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1098" y="360" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1098" y="424" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">This surface supports the session; it should not feel like a parallel story board.</text>
+  <text x="1098" y="466" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Use one support summary, a few readable rows, and a clear return path.</text>
+  <text x="1098" y="502" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not treat this as proof of real settings logic, accessibility menus, or persistence behavior.</text>
+  <text x="1098" y="538" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Help text should stay calmer than the case copy it supports.</text>
+  <rect x="1098" y="620" width="372" height="74" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1126" y="666" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">support banner</text>
+  <rect x="1098" y="724" width="372" height="74" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1126" y="770" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">return-to-session strip</text>
+</svg>

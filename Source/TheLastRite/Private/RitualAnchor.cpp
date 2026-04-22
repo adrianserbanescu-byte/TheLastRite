@@ -10,6 +10,8 @@ ARitualAnchor::ARitualAnchor()
     bCorrectAnchor = false;
     bActivated = false;
     bRitualReady = false;
+    bRitualInProgress = false;
+    bCurrentRitualTarget = false;
 
     static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshFinder(
         TEXT("/Engine/BasicShapes/Cylinder.Cylinder"));
@@ -67,7 +69,7 @@ FText ARitualAnchor::GetPromptText() const
         if (!NextMove.IsEmpty())
         {
             return FText::Format(
-                NSLOCTEXT("TheLastRite", "LockedAnchorPromptDetailed", "Rite locked at {0}. {1}"),
+                NSLOCTEXT("TheLastRite", "LockedAnchorPromptDetailed", "Rite locked at {0}. Finish the evidence chain first. {1}"),
                 DisplayName,
                 NextMove);
         }
@@ -77,12 +79,42 @@ FText ARitualAnchor::GetPromptText() const
             DisplayName);
     }
 
+    if (bRitualInProgress && bCorrectAnchor && bCurrentRitualTarget && GameMode != nullptr)
+    {
+        return FText::Format(
+            NSLOCTEXT(
+                "TheLastRite",
+                "RitualPromptContinue",
+                "Press E - Continue the 4-hand rite at {0}. {1} {2}"),
+            DisplayName,
+            GameMode->GetRitualSequenceStateText(),
+            GameMode->GetRitualSequenceSupportText());
+    }
+
+    if (bRitualInProgress && !bCorrectAnchor && GameMode != nullptr)
+    {
+        return FText::Format(
+            NSLOCTEXT(
+                "TheLastRite",
+                "RitualPromptBreak",
+                "Press E - Break the rite at {0}. Warning: {1}"),
+            DisplayName,
+            GameMode->GetWrongAnchorReadText());
+    }
+
+    if (bCorrectAnchor && GameMode != nullptr)
+    {
+        return FText::Format(
+            NSLOCTEXT("TheLastRite", "RitualPromptCorrect", "Press E - Start the 4-hand rite at {0}. {1} {2}"),
+            DisplayName,
+            GameMode->GetRitualSequenceStateText(),
+            GameMode->GetRitualSequenceSupportText());
+    }
+
     return FText::Format(
-        bCorrectAnchor
-            ? NSLOCTEXT("TheLastRite", "RitualPromptCorrect", "Press E - Perform the rite at {0}. {1}")
-            : NSLOCTEXT("TheLastRite", "RitualPromptWrong", "Press E - Perform the rite at {0}. {1}"),
+        NSLOCTEXT("TheLastRite", "RitualPromptWrong", "Press E - Perform the rite at {0}. Warning: {1}"),
         DisplayName,
-        bCorrectAnchor ? GameMode->GetCorrectAnchorReadText() : GameMode->GetWrongAnchorReadText());
+        GameMode != nullptr ? GameMode->GetWrongAnchorReadText() : FText::GetEmpty());
 }
 
 int32 ARitualAnchor::GetInteractionFocusPriority() const
@@ -98,7 +130,17 @@ int32 ARitualAnchor::GetInteractionFocusPriority() const
         return -10;
     }
 
-    return bRitualReady ? 45 : 5;
+    if (bRitualInProgress)
+    {
+        return (bCorrectAnchor && bCurrentRitualTarget) ? 90 : 12;
+    }
+
+    if (bRitualReady)
+    {
+        return bCorrectAnchor ? 70 : 25;
+    }
+
+    return 5;
 }
 
 void ARitualAnchor::Interact(ATheLastRiteCharacter* InteractingCharacter)
@@ -114,6 +156,8 @@ void ARitualAnchor::ConfigureAnchor(const FText& InDisplayName, bool bInCorrectA
     SetDisplayName(InDisplayName);
     bCorrectAnchor = bInCorrectAnchor;
     bRitualReady = false;
+    bRitualInProgress = false;
+    bCurrentRitualTarget = false;
 
     if (UStaticMesh* RitualMesh = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Cylinder.Cylinder")))
     {
@@ -127,7 +171,7 @@ void ARitualAnchor::ConfigureAnchor(const FText& InDisplayName, bool bInCorrectA
     UpdateWorldLabel(LabelColor);
 }
 
-void ARitualAnchor::SetRitualReady(bool bInRitualReady)
+void ARitualAnchor::SetRitualState(bool bInRitualReady, bool bInRitualInProgress, bool bInCurrentRitualTarget)
 {
     if (bActivated)
     {
@@ -135,17 +179,26 @@ void ARitualAnchor::SetRitualReady(bool bInRitualReady)
     }
 
     bRitualReady = bInRitualReady;
+    bRitualInProgress = bInRitualInProgress;
+    bCurrentRitualTarget = bInCurrentRitualTarget;
     const FLinearColor ReadyColor = bCorrectAnchor
         ? FLinearColor(0.64f, 0.72f, 0.30f)
         : FLinearColor(0.42f, 0.18f, 0.18f);
+    const FLinearColor ActiveColor = bCorrectAnchor
+        ? FLinearColor(0.92f, 0.78f, 0.28f)
+        : FLinearColor(0.58f, 0.14f, 0.14f);
     const FLinearColor LockedColor(0.24f, 0.24f, 0.22f);
     const FLinearColor LabelReadyColor = bCorrectAnchor
         ? FLinearColor(0.96f, 0.92f, 0.64f)
         : FLinearColor(1.0f, 0.56f, 0.42f);
+    const FLinearColor LabelActiveColor = bCorrectAnchor
+        ? FLinearColor(1.0f, 0.96f, 0.78f)
+        : FLinearColor(1.0f, 0.46f, 0.40f);
     const FLinearColor LabelLockedColor(0.82f, 0.82f, 0.78f);
 
-    ApplyMeshColor(bRitualReady ? ReadyColor : LockedColor);
-    UpdateWorldLabel(bRitualReady ? LabelReadyColor : LabelLockedColor);
+    const bool bUseActiveColor = bRitualInProgress && (bCurrentRitualTarget || !bCorrectAnchor);
+    ApplyMeshColor(bRitualReady ? (bUseActiveColor ? ActiveColor : ReadyColor) : LockedColor);
+    UpdateWorldLabel(bRitualReady ? (bUseActiveColor ? LabelActiveColor : LabelReadyColor) : LabelLockedColor);
 }
 
 bool ARitualAnchor::IsCorrectAnchor() const

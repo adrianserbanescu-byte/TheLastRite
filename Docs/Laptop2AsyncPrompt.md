@@ -1,7 +1,12 @@
 # Laptop 2 Async Prompt
 
-Laptop 2 should use the `codex/content` branch version of this file:
+Status: retired on 2026-04-21
 
-- `Docs/Laptop2AsyncPrompt.md` on `codex/content`
+Do not use branch-specific prompts as the active source of truth.
 
-Do not use the `codex/gameplay` branch copy as the active source of truth for laptop 2.
+Use the local workflow docs instead:
+
+- `Docs/LocalDevPlan.md`
+- `Docs/LocalDevQueue.md`
+- `Docs/LocalDevStatus.md`
+- `Docs/LocalDevInstructionsToChat3.md`

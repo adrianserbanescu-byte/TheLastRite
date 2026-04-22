@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+  <rect width="1800" height="1100" fill="#12120f"/>
+  <text x="72" y="84" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Apartment 302 export-prep board</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A5 reference sheet: naming, likely export size, and opacity-safe usage for the first carry-forward batch.</text>
+  <rect x="72" y="184" width="790" height="404" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="938" y="184" width="790" height="404" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <rect x="72" y="624" width="790" height="404" rx="14" fill="#11120f" stroke="#a98f45" stroke-width="4"/>
+  <rect x="938" y="624" width="790" height="404" rx="14" fill="#11120f" stroke="#8f9087" stroke-width="4"/>
+  <text x="108" y="238" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Nursery sigil export</text>
+  <text x="108" y="278" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">File: `apt302_nursery_sigil_correct_ritual_2048.png`</text>
+  <text x="108" y="314" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Target: 2048 square, transparent or dark-field, chalk breakup preserved.</text>
+  <text x="108" y="350" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: over-clean export loses child-facing ash-dry read.</text>
+  <text x="108" y="398" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Opacity-safe range: roughly 0.72-0.88 in runtime use.</text>
+  <text x="974" y="238" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Mirror circle export</text>
+  <text x="974" y="278" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">File: `apt302_mirror_circle_wrong_ritual_2048.png`</text>
+  <text x="974" y="314" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Target: 2048 square, transparent or dark-field, glass-green preserved.</text>
+  <text x="974" y="350" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: too much contrast makes the bait lane feel mechanically correct.</text>
+  <text x="974" y="398" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Opacity-safe range: roughly 0.58-0.76 in runtime use.</text>
+  <text x="108" y="678" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Clue-note overlay export</text>
+  <text x="108" y="718" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">File: `apt302_hollow_saint_clue_note_overlay_1600x900.png`</text>
+  <text x="108" y="754" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Target: 1600x900 or 1920x1080, text-safe field preserved.</text>
+  <text x="108" y="790" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: decorative marks creeping under live body copy.</text>
+  <text x="108" y="838" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Export rule: keep writing field lighter than border ornament.</text>
+  <text x="974" y="678" font-family="Georgia, serif" font-size="34" fill="#f4efdc">Ritual-status overlay export</text>
+  <text x="974" y="718" font-family="Arial, sans-serif" font-size="22" fill="#d8c78d">File: `apt302_hollow_saint_ritual_status_overlay_1600x900.png`</text>
+  <text x="974" y="754" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Target: 1600x900 or 1920x1080, center cone preserved.</text>
+  <text x="974" y="790" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Risk: top/bottom bands becoming a full-screen dark vignette.</text>
+  <text x="974" y="838" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Export rule: protect first-person scene readability above ornament.</text>
+  <rect x="72" y="1050" width="1656" height="28" rx="8" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="104" y="1070" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">Carry-forward rule: export naming should stay explicit enough that implementation does not need to rediscover which file belongs to which approved lane.</text>
+</svg>

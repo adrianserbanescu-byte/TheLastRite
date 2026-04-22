@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+  <rect width="1800" height="1000" fill="#12120f"/>
+  <text x="72" y="84" font-family="Georgia, serif" font-size="48" fill="#f4efdc">Apartment 302 UI variant export usage cards</text>
+  <text x="72" y="128" font-family="Arial, sans-serif" font-size="24" fill="#c9c0a3">A7 export-facing note sheet for choosing lighter or darker overlay variants during later implementation.</text>
+  <text x="96" y="240" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Clue-note light</text>
+  <text x="96" y="278" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Best for dark rooms and muddy values.</text>
+  <text x="96" y="314" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Export suggestion: `apt302_clue_note_overlay_light_1600x900.png`</text>
+  <text x="96" y="392" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Clue-note dark</text>
+  <text x="96" y="430" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Best for brighter environments and pale walls.</text>
+  <text x="96" y="466" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Export suggestion: `apt302_clue_note_overlay_dark_1600x900.png`</text>
+  <text x="940" y="240" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Ritual-status light</text>
+  <text x="940" y="278" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Best for darker rooms where center visibility is at risk.</text>
+  <text x="940" y="314" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Export suggestion: `apt302_ritual_status_overlay_light_1600x900.png`</text>
+  <text x="940" y="392" font-family="Arial, sans-serif" font-size="26" fill="#d8c78d">Ritual-status dark</text>
+  <text x="940" y="430" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Best for bright scenes and pale FX where status bars need more authority.</text>
+  <text x="940" y="466" font-family="Arial, sans-serif" font-size="22" fill="#f4efdc">Export suggestion: `apt302_ritual_status_overlay_dark_1600x900.png`</text>
+  <rect x="72" y="900" width="1656" height="32" rx="8" fill="#0f100d" stroke="#a98f45" stroke-width="2"/>
+  <text x="104" y="922" font-family="Arial, sans-serif" font-size="20" fill="#f4efdc">Choose variants by scene value and text contrast need, not by aesthetic preference alone.</text>
+</svg>

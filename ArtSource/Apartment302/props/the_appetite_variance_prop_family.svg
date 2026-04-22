@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2b241d"/>
+      <stop offset="1" stop-color="#15120f"/>
+    </linearGradient>
+    <g id="feedingRing" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="0" cy="0" rx="156" ry="72" stroke="#d8bf81" stroke-width="8"/>
+      <ellipse cx="0" cy="0" rx="108" ry="42" stroke="#8d6c37" stroke-width="6"/>
+      <path d="M-118 -20 C-88 -44 -38 -58 0 -60 C38 -58 88 -44 118 -20" stroke="#d9ccb0" stroke-width="5"/>
+      <path d="M-132 30 C-92 8 -48 0 0 0 C48 0 92 8 132 30" stroke="#8d6c37" stroke-width="6"/>
+    </g>
+    <g id="biteCrescents" fill="none" stroke="#d9ccb0" stroke-width="6" stroke-linecap="round">
+      <path d="M-88 0 C-78 -16 -62 -24 -46 -22"/>
+      <path d="M-40 10 C-30 -6 -14 -14 2 -12"/>
+      <path d="M10 18 C20 2 36 -6 52 -4"/>
+      <path d="M60 12 C70 -4 86 -12 102 -10"/>
+    </g>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <text x="68" y="86" font-family="Georgia, serif" font-size="42" fill="#f4ebd7">The Appetite variance family sheet</text>
+  <text x="68" y="126" font-family="Arial, sans-serif" font-size="24" fill="#d7c6a6">Separation family for consumption domesticity: feeding rings, bib-and-bowl rhythm, ochre grease wear, and repeated hungry crescents without gore.</text>
+
+  <rect x="68" y="174" width="536" height="650" rx="18" fill="#110f0d" stroke="#8d6c37" stroke-width="3"/>
+  <rect x="632" y="174" width="700" height="650" rx="18" fill="#110f0d" stroke="#7a6040" stroke-width="3"/>
+
+  <text x="102" y="228" font-family="Georgia, serif" font-size="30" fill="#f4ebd7">Core motif cluster</text>
+  <g transform="translate(334 474)">
+    <use href="#feedingRing"/>
+    <rect x="-92" y="-162" width="184" height="74" rx="18" fill="#4a3d31" stroke="#d9ccb0" stroke-width="4"/>
+    <path d="M-74 -88 C-44 -118 -16 -132 0 -136 C16 -132 44 -118 74 -88" fill="none" stroke="#d8bf81" stroke-width="6"/>
+    <path d="M-30 -122 L-30 -186 M0 -122 L0 -190 M30 -122 L30 -186" stroke="#d9ccb0" stroke-width="6"/>
+    <use href="#biteCrescents" transform="translate(-6 126)"/>
+    <ellipse cx="0" cy="168" rx="170" ry="52" fill="none" stroke="#7a6040" stroke-width="5" stroke-dasharray="12 12"/>
+  </g>
+  <text x="102" y="742" font-family="Arial, sans-serif" font-size="24" fill="#e0d2b8">Read as feeding ritual and domestic hunger pressure, not halo care or damp mourning.</text>
+
+  <text x="668" y="228" font-family="Georgia, serif" font-size="30" fill="#f4ebd7">Carry-forward anchors</text>
+  <rect x="668" y="266" width="628" height="126" rx="14" fill="#171411" stroke="#8d6c37" stroke-width="3"/>
+  <text x="696" y="310" font-family="Arial, sans-serif" font-size="22" fill="#f4ebd7">Placement: feeding chair, bowl ring, bib cloth, cupboard edge, child-meal debris route.</text>
+  <text x="696" y="346" font-family="Arial, sans-serif" font-size="22" fill="#e0d2b8">Shape rule: stacked rings, spoon/fork uprights, bite crescents, low hungry repetition.</text>
+
+  <rect x="668" y="420" width="628" height="126" rx="14" fill="#171411" stroke="#7a6040" stroke-width="3"/>
+  <text x="696" y="464" font-family="Arial, sans-serif" font-size="22" fill="#f4ebd7">Palette: yellowed meal gold `#d8bf81`, cupboard brown `#7a6040`, paper-crumb white `#d9ccb0`.</text>
+  <text x="696" y="500" font-family="Arial, sans-serif" font-size="22" fill="#e0d2b8">Texture rule: sticky rings, worn meal stains, no mirror polish and no clean chalk symmetry.</text>
+
+  <rect x="668" y="574" width="628" height="206" rx="14" fill="#171411" stroke="#7a6040" stroke-width="3"/>
+  <text x="696" y="618" font-family="Arial, sans-serif" font-size="22" fill="#f4ebd7">Separation rule:</text>
+  <text x="696" y="654" font-family="Arial, sans-serif" font-size="22" fill="#e0d2b8">Keep The Appetite low, repetitive, and meal-coded. Do not drift into Hollow Saint halo crowns.</text>
+  <text x="696" y="690" font-family="Arial, sans-serif" font-size="22" fill="#e0d2b8">Do not blur into Weeping Matron veil drops, basin care, or damp drapery.</text>
+  <text x="696" y="740" font-family="Arial, sans-serif" font-size="22" fill="#f4ebd7">Bounded use: source-art family sheet only. Not gameplay proof, gore pass, or runtime dressing claim.</text>
+</svg>

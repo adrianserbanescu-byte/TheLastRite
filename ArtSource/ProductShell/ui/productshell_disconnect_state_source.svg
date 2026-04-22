@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#11100d"/>
+  <rect x="24" y="24" width="1552" height="932" rx="24" fill="#181714" stroke="#968347" stroke-width="3"/>
+  <text x="64" y="90" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Disconnect State Source</text>
+  <text x="64" y="124" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="20">Shell carry-forward for dropped-session state, calm reconnection framing, and bounded retry language</text>
+
+  <rect x="64" y="166" width="1470" height="104" rx="20" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="98" y="230" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700">SESSION INTERRUPTED / CONNECTION LOST</text>
+  <text x="1040" y="230" fill="#d6cfbf" font-family="Arial, Helvetica, sans-serif" font-size="22">Present the break cleanly, then offer one obvious path back into the shell</text>
+
+  <rect x="64" y="308" width="518" height="598" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="98" y="362" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Reconnect Summary</text>
+  <rect x="98" y="398" width="450" height="176" rx="20" fill="#e8e0cd" stroke="#a28d4e" stroke-width="2"/>
+  <text x="132" y="456" fill="#27231f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">the session fell out of reach</text>
+  <text x="132" y="498" fill="#3b352f" font-family="Arial, Helvetica, sans-serif" font-size="20">Use one direct status sentence, a short reassurance line, and a visible route back to the live shell if the session is still recoverable.</text>
+  <rect x="98" y="622" width="198" height="60" rx="30" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <rect x="318" y="622" width="198" height="60" rx="30" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="140" y="660" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">reconnect</text>
+  <text x="372" y="660" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">retry later</text>
+  <text x="98" y="748" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="20">Keep the read procedural and humane instead of alarm-heavy.</text>
+
+  <rect x="620" y="308" width="408" height="598" rx="22" fill="#1f1d19" stroke="#687770" stroke-width="2"/>
+  <text x="654" y="362" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Status Rows</text>
+  <rect x="654" y="398" width="340" height="78" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <rect x="654" y="494" width="340" height="78" rx="16" fill="#25221e" stroke="#968347" stroke-width="2"/>
+  <rect x="654" y="590" width="340" height="78" rx="16" fill="#25221e" stroke="#687770" stroke-width="2"/>
+  <text x="682" y="446" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">recover session</text>
+  <text x="682" y="542" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">return to board</text>
+  <text x="682" y="638" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">store incident note</text>
+  <rect x="774" y="730" width="220" height="56" rx="28" fill="#2a332f" stroke="#687770" stroke-width="2"/>
+  <text x="834" y="765" fill="#dde5de" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">continue</text>
+
+  <rect x="1066" y="308" width="468" height="598" rx="22" fill="#1f1d19" stroke="#968347" stroke-width="2"/>
+  <text x="1100" y="362" fill="#efe7d4" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Boundary Notes</text>
+  <text x="1100" y="426" fill="#d7d0c0" font-family="Arial, Helvetica, sans-serif" font-size="21">Use a quiet interruption tone. The shell should acknowledge the break without sounding punitive or catastrophic.</text>
+  <text x="1100" y="468" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Do not imply final reconnect rules, platform transport state, or backend recovery guarantees.</text>
+  <text x="1100" y="504" fill="#b8b09f" font-family="Arial, Helvetica, sans-serif" font-size="18">Keep one action primary and one slower fallback visible so the player can recover orientation fast.</text>
+  <rect x="1100" y="586" width="370" height="78" rx="16" fill="#23211d" stroke="#687770" stroke-width="2"/>
+  <text x="1128" y="634" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">disconnect status banner</text>
+  <rect x="1100" y="694" width="370" height="78" rx="16" fill="#23211d" stroke="#968347" stroke-width="2"/>
+  <text x="1128" y="742" fill="#ece4d0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">retry-later strip</text>
+  <rect x="1100" y="802" width="198" height="54" rx="27" fill="#2a2722" stroke="#968347" stroke-width="2"/>
+  <text x="1146" y="836" fill="#ead8a4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">paused</text>
+</svg>
